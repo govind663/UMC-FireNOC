@@ -36,7 +36,7 @@ class ResetPasswordController extends Controller
 
           DB::table('citizen_password_resets')->where(['email'=> $request->email])->delete();
 
-          return redirect('/citizen/login')->with('message', 'Your password has been changed!');
+          return redirect('/citizen/login')->with('info', 'Your password has been changed!');
 
     }
 }

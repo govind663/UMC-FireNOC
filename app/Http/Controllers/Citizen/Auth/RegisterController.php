@@ -51,6 +51,6 @@ class RegisterController extends Controller
 
         Citizen::where('id', $data->id)->update($update);
 
-        return redirect('/citizen/login')->with('message', 'You are Register Sucessfully.');
+        return redirect('/citizen/login')->with('info', 'You are Register Sucessfully.');
     }
 }

@@ -35,7 +35,7 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             // $user = auth()->user();
             // return $user;
-            return redirect()->intended('/admin/dashboard')->with('message', 'You are login Successfully.');
+            return redirect()->intended('/admin/dashboard')->with('info', 'You are login Successfully.');
         }
         else{
             return redirect('/admin/login')->with(['Input' => $request->only('email','password'), 'error' => 'Your Email id and Password do not match our records!']);
@@ -47,6 +47,6 @@ class LoginController extends Controller
         Session::flush();
         Auth::logout();
 
-        return redirect('/admin/login')->with('message', 'You are logout Successfully.');
+        return redirect('/admin/login')->with('info', 'You are logout Successfully.');
     }
 }
