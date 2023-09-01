@@ -419,8 +419,6 @@
         </div>
         <!-- END layout-wrapper -->
 
-
-
         <!-- JAVASCRIPT -->
         <script src="{{ url('/') }}/assets/libs/jquery/jquery.min.js"></script>
         <script src="{{ url('/') }}/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>

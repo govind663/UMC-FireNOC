@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>UMC-Fire NOC | Register</title>
+    <title>UMC-Fire NOC | Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="UMC-Fire NOC" name="description">
     <meta content="Themesdesign" name="author">
@@ -39,6 +39,7 @@
         background-size: cover;
         background-position: center;
     }
+
 </style>
 
 <body>
@@ -64,61 +65,44 @@
                                             <div class="p-lg-5 p-4">
                                                 <div>
                                                     <div class="text-center mt-1">
-                                                        <h4 class="font-size-18">{{ __('Register') }}</h4>
+                                                        <h4 class="font-size-18">{{ __('Citizen Login') }}</h4>
                                                     </div>
 
-                                                    <form class="auth-input" method="POST" action="{{ url('/admin/register') }}"  enctype="multipart/form">
+                                                    <form class="auth-input" method="POST" action="{{ url('/citizen/login/store') }}" enctype="multipart/form">
                                                         @csrf
 
                                                         <div class="mb-2">
-                                                            <label for="name" class="form-label">{{ __('Username') }}</label>
-                                                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus placeholder="Enter Username.">
+                                                            <label for="mobile_no" class="form-label">{{ __('Mobile Number') }}</label>
+                                                            <input id="mobile_no" type="mobile_no" onkeypress='validate(event)' maxlength="10" class="form-control @error('mobile_no') is-invalid @enderror" name="mobile_no" value="{{ old('mobile_no') }}" autocomplete="mobile_no" autofocus placeholder="Enter Mobile Number">
 
-                                                            @error('name')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
+                                                            @error('mobile_no')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
                                                             @enderror
                                                         </div>
-
-                                                        <div class="mb-2">
-                                                            <label for="email" class="form-label">{{ __('Email Id') }}</label>
-                                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" autofocus placeholder="Enter Email Id">
-
-                                                            @error('email')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
-                                                            @enderror
-                                                        </div>
-
                                                         <div class="mb-3">
                                                             <label class="form-label" for="password-input">{{ __('Password') }}</label>
                                                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="current-password" placeholder="Enter Password">
 
                                                             @error('password')
-                                                                <span class="invalid-feedback" role="alert">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </span>
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
                                                             @enderror
                                                         </div>
 
-                                                        <div class="mb-3">
-                                                            <label class="form-label" for="password_confirmation">{{ __('Confirm Password') }}</label>
-                                                            <input id="password_confirmation" type="password" class="form-control @error('password') is-invalid @enderror" name="password_confirmation" autocomplete="current-password" placeholder="Enter Confirm Password">
-
-                                                        </div>
-
                                                         <div class="mt-3">
-                                                            <button class="btn btn-primary w-100" type="submit">Sign Up</button>
+                                                            <button class="btn btn-primary w-100" type="submit">Sign
+                                                                In</button>
                                                         </div>
 
                                                     </form>
                                                 </div>
 
                                                 <div class="mt-4 text-center">
-                                                    <p class="mb-0">Already have an account ?
-                                                        <a href="{{ url('/admin/login') }}" class="fw-medium text-primary"> Login </a>
+                                                    <p class="mb-0">Don't have an account ?
+                                                        <a href="{{ url('/citizen/register') }}" class="fw-medium text-primary"> Register </a>
                                                     </p>
                                                 </div>
                                             </div>
@@ -152,40 +136,58 @@
 
     <script>
         @if(Session::has('message'))
-        toastr.options =
-        {
-            "closeButton" : true,
-            "progressBar" : true
+        toastr.options = {
+            "closeButton": true
+            , "progressBar": true
         }
-                toastr.success("{{ session('message') }}");
+        toastr.success("{{ session('message') }}");
         @endif
 
         @if(Session::has('error'))
-        toastr.options =
-        {
-            "closeButton" : true,
-            "progressBar" : true
+        toastr.options = {
+            "closeButton": true
+            , "progressBar": true
         }
-                toastr.error("{{ session('error') }}");
+        toastr.error("{{ session('error') }}");
         @endif
 
         @if(Session::has('info'))
-        toastr.options =
-        {
-            "closeButton" : true,
-            "progressBar" : true
+        toastr.options = {
+            "closeButton": true
+            , "progressBar": true
         }
-                toastr.info("{{ session('info') }}");
+        toastr.info("{{ session('info') }}");
         @endif
 
         @if(Session::has('warning'))
-        toastr.options =
-        {
-            "closeButton" : true,
-            "progressBar" : true
+        toastr.options = {
+            "closeButton": true
+            , "progressBar": true
         }
-                toastr.warning("{{ session('warning') }}");
+        toastr.warning("{{ session('warning') }}");
         @endif
+
+    </script>
+
+    <script>
+        function validate(evt) {
+            var theEvent = evt || window.event;
+
+            // Handle paste
+            if (theEvent.type === 'paste') {
+                key = event.clipboardData.getData('text/plain');
+            } else {
+                // Handle key press
+                var key = theEvent.keyCode || theEvent.which;
+                key = String.fromCharCode(key);
+            }
+            var regex = /[0-9]|\./;
+            if (!regex.test(key)) {
+                theEvent.returnValue = false;
+                if (theEvent.preventDefault) theEvent.preventDefault();
+            }
+        }
+
     </script>
 </body>
 

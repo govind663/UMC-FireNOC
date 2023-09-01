@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'citizen' => [
+            'driver' => 'session',
+            'provider' => 'citizens',
+        ],
     ],
 
     /*
@@ -63,6 +68,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+
+        'citizens' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Citizen::class,
         ],
 
         // 'users' => [
@@ -90,6 +100,13 @@ return [
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        'citizens' => [
+            'provider' => 'citizens',
+            'table' => 'citizen_password_resets',
             'expire' => 60,
             'throttle' => 60,
         ],

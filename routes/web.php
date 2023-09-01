@@ -1,8 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Artisan;
+
+// ========== Citizen
+use App\Http\Controllers\Citizen\Auth\LoginController;
+use App\Http\Controllers\Citizen\Auth\RegisterController;
+use App\Http\Controllers\Citizen\Auth\ForgotPasswordController;
+use App\Http\Controllers\Citizen\Auth\ResetPasswordController;
+
+use App\Http\Controllers\Citizen\CitizenHomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +23,7 @@ use Illuminate\Support\Facades\Artisan;
 */
 
 Route::get('/', function () {
-    return view('admin.auth.login');
+    return view('welcome');
 });
 
 // ======================= Admin Register
@@ -38,3 +45,53 @@ Route::group(['middleware' => ['auth:web']], function () {
 
 
 
+// ======================= Citizens Register
+Route::get('/citizen/register', [RegisterController::class, 'Citizen_Register_Form'])->name('citizen.register');
+Route::post('/citizen/register/store', [RegisterController::class, 'Store_Citizen_Register_Form'])->name('citizen.register.store');
+
+// ======================= Citizens Login/Logout
+Route::get('/citizen/login', [LoginController::class, 'Citizen_Login_Form'])->name('citizen.login');
+Route::post('/citizen/login/store', [LoginController::class, 'Citizen_Authenticate'])->name('citizen.login.store');
+Route::post('/citizen/logout', [LoginController::class, 'Citizen_Logout'])->name('citizen.logout');
+
+// ======================= Citizens Forgot Password
+Route::get('/citizen/forget-password', [ForgotPasswordController::class, 'getEmail'])->name('citizen.forget-password');
+Route::post('/citizen/forget-password/send-email-link', [ForgotPasswordController::class, 'postEmail'])->name('citizen.forget-password.send-email-link.store');
+
+// ======================= Citizens Reset Password
+Route::get('/citizen/reset-password/{token}', [ResetPasswordController::class, 'resetPassword'])->name('/citizen/reset-password/');
+Route::post('/citizen/reset-password', [ResetPasswordController::class, 'updatePassword'])->name('/citizen/reset-password');
+
+// ======================= Citizens Dashboard
+Route::group(['middleware' => ['auth:citizen']], function () {
+
+    Route::get('/citizen/dashboard', [CitizenHomeController::class, 'Citizen_Home'])->name('citizen.dashboard');
+});
+
+
+
+// ========= Clear Route Cache from Browser
+Route::get('/route-cache', function() {
+    $exitCode = Artisan::call('route:cache');
+    return 'Routes cache cleared';
+});
+
+// ========= Clear Config Cache from Browser
+Route::get('/config-cache', function() {
+    $exitCode = Artisan::call('config:cache');
+    return 'Config cache cleared';
+});
+
+
+// ========= Clear Application Cache from Browser
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    return 'Application cache cleared';
+});
+
+
+// ========= Clear View Cache from Browser
+Route::get('/view-clear', function() {
+    $exitCode = Artisan::call('view:clear');
+    return 'View cache cleared';
+});
