@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Citizen;
 
 use App\Http\Controllers\Controller;
+use App\Models\Business_NOC;
+use App\Models\NOC_Master;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RenewBusinessNOCController extends Controller
 {
@@ -24,7 +27,7 @@ class RenewBusinessNOCController extends Controller
      */
     public function create()
     {
-        //
+        return view('citizen.business_noc.renew_business_noc.create');
     }
 
     /**

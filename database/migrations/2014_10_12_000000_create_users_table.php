@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('role')->comment('1:Admin, 2:Commissioner, 3:Ass. Commissioner, 4:Chief Fire Officer, 5:Field Inspector, 6:Clerk, 7:Operator ')->nullable();
+            $table->integer('role')->comment('0:Operator, 1:Field Inspector, 2:Chief Fire Officer, 3:DMC')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

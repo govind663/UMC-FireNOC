@@ -42,7 +42,7 @@
 
                         <div class="row">
                             <div class="col-xl-4 col-sm-6">
-                                <div class="card text-black">
+                                <div class="card text-black" style="border: 1px solid black;">
                                     <div class="card-header text-light" style="background: #083ECE;">
                                         <h5 class="card-title mb-0 text-white text-center">
                                             <i class="fas fa-city"></i>&nbsp;
@@ -70,8 +70,8 @@
                                 </div>
                             </div>
 
-                            <div class="col-xl-4 col-sm-6">
-                                <div class="card text-black">
+                            <div class="col-xl-4 col-sm-6" >
+                                <div class="card text-black" style="border: 1px solid black;">
                                     <div class="card-header" style="background: #109705;">
                                         <h5 class="card-title mb-0 text-white text-center">
                                             <i class="fas fa-clinic-medical"></i>&nbsp;
@@ -100,8 +100,8 @@
                                 </div>
                             </div>
 
-                            <div class="col-xl-4 col-sm-6">
-                                <div class="card text-black">
+                            <div class="col-xl-4 col-sm-6" >
+                                <div class="card text-black" style="border: 1px solid black;">
                                     <div class="card-header" style="background: #E59F08;">
                                         <h5 class="card-title mb-0 text-white text-center">
                                             <i class="far fa-building"></i>&nbsp;
@@ -132,7 +132,7 @@
                             </div>
                         </div>
 
-                        <h2 class="card-header mb-3 ">
+                        <h2 class="card-header mb-3 text-primary">
                             <i class="fas fa-city"></i>&nbsp;
                             Business NOC
                         </h2>
@@ -192,7 +192,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-xl-3 col-md-6">
+                            {{-- <div class="col-xl-3 col-md-6">
                                 <div class="card" style="border: 1px solid black;">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center">
@@ -226,11 +226,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                         </div>
 
-                        <h2 class="card-header mb-3 ">
+                        <h2 class="card-header mb-3 text-primary">
                             <i class="fas fa-clinic-medical"></i>&nbsp;
                             Hospital NOC
                         </h2>
@@ -290,7 +290,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-xl-3 col-md-6">
+                            {{-- <div class="col-xl-3 col-md-6">
                                 <div class="card" style="border: 1px solid black;">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center">
@@ -324,12 +324,12 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
 
                         </div>
 
-                        <h2 class="card-header mb-3 ">
+                        <h2 class="card-header mb-3 text-primary">
                             <i class="far fa-building"></i>&nbsp;
                             Building NOC
                         </h2>
@@ -390,7 +390,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-xl-3 col-md-6">
+                            {{-- <div class="col-xl-3 col-md-6">
                                 <div class="card" style="border: 1px solid black;">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center">
@@ -424,7 +424,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                         </div>
 
