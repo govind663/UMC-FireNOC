@@ -74,26 +74,32 @@ Route::group(['middleware' => ['auth:citizen']], function () {
     Route::get('/citizen/dashboard', [CitizenHomeController::class, 'Citizen_Home'])->name('citizen.dashboard');
 
     // ====== New Business NOC
+    Route::get('/new_business_noc/{status}', [NewBusinessNOCController::class, 'index'])->name('new_business_noc');
     Route::get('/new_business_noc/create', [NewBusinessNOCController::class, 'create'])->name('new_business_noc.create');
     Route::post('/new_business_noc/store', [NewBusinessNOCController::class, 'store'])->name('new_business_noc.store');
 
     // ====== Renew Business NOC
+    Route::get('/renew_business_noc/{status}', [NewBusinessNOCController::class, 'index'])->name('renew_business_noc');
     Route::get('/renew_business_noc/create', [RenewBusinessNOCController::class, 'create'])->name('renew_business_noc');
     Route::post('/renew_business_noc/store', [RenewBusinessNOCController::class, 'store'])->name('renew_business_noc.store');
 
     // ====== New Hospital NOC
+    Route::get('/new_hospital_noc/{status}', [NewBusinessNOCController::class, 'index'])->name('new_hospital_noc');
     Route::get('/new_hospital_noc/create', [NewHospitalNOCController::class, 'create'])->name('new_hospital_noc');
     Route::post('/new_hospital_noc/store', [NewHospitalNOCController::class, 'store'])->name('new_hospital_noc.store');
 
     // ====== Renew Hospital NOC
+    Route::get('/renew_hospital_noc/{status}', [NewBusinessNOCController::class, 'index'])->name('renew_hospital_noc');
     Route::get('/renew_hospital_noc/create', [RenewHospitalNOCController::class, 'create'])->name('renew_hospital_noc');
     Route::post('/renew_hospital_noc/store', [RenewHospitalNOCController::class, 'store'])->name('renew_hospital_noc.store');
 
     // ====== Provisional Building NOC
+    Route::get('/provisional_building_noc/{status}', [NewBusinessNOCController::class, 'index'])->name('provisional_building_noc');
     Route::get('/provisional_building_noc/create', [ProvisionalBuildingNOCController::class, 'create'])->name('provisional_building_noc');
     Route::post('/provisional_building_noc/store', [ProvisionalBuildingNOCController::class, 'store'])->name('provisional_building_noc.store');
 
     // ====== Final Building NOC
+    Route::get('/final_building_noc/{status}', [NewBusinessNOCController::class, 'index'])->name('final_building_noc');
     Route::get('/final_building_noc/create', [FinalBuildingNOCController::class, 'create'])->name('final_building_noc');
     Route::post('/final_building_noc/store', [FinalBuildingNOCController::class, 'store'])->name('final_building_noc.store');
 });

@@ -77,6 +77,8 @@ class Business_NOC extends Model
         'commissioning_certificate',
         'affidavit_doc',
 
+        'status',
+
         'application_status',
         'approved_dt',
         'approved_by',

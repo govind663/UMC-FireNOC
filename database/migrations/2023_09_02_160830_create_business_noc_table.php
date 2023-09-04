@@ -68,15 +68,15 @@ return new class extends Migration
             $table->string('affidavit_doc');
 
             $table->integer('application_status')->default('0')->comment('0:Operator, 1:Field Inspector, 2:Chief Fire Officer, 3:DMC');
-            $table->date('approved_dt');
-            $table->integer('approved_by');
-            $table->date('rejected_dt');
-            $table->integer('rejected_by');
-            $table->string('remarks');
+            $table->date('approved_dt')->nullable();
+            $table->integer('approved_by')->nullable();
+            $table->date('rejected_dt')->nullable();
+            $table->integer('rejected_by')->nullable();
+            $table->string('remarks')->nullable();
 
             $table->string('payment_status')->default('0')->comment('0:Paid, 1:Unpaid');
-            $table->date('payment_dt');
-            $table->integer('payment_by');
+            $table->date('payment_dt')->nullable();
+            $table->integer('payment_by')->nullable();
 
 
             $table->integer('inserted_by')->nullable();
