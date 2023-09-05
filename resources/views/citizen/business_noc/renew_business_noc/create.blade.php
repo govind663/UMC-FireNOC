@@ -58,13 +58,13 @@
                                     <div class="card-body p-0">
                                         <h4 class="card-header text-light bg-primary ">Add Renew Business NOC</h4>
 
-                                        <form class="auth-input p-4"  method="POST" action="{{ url('/renew_business_noc/store') }}" enctype="multipart/form">
+                                        <form class="auth-input p-4"  method="POST" action="{{ url('/renew_business_noc/store') }}" enctype="multipart/form-data">
                                             @csrf
 
                                             <div class="form-group row mb-3">
                                                 <label class="col-sm-2"><strong>Appication Date : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" disabled name="application_dt" id="application_dt" class="form-control" value="{{ date('d-m-Y') }}" >
+                                                    <input type="text" readonly name="nocs_a_date" id="nocs_a_date" class="form-control" value="{{  date('d-m-Y')  }}" >
 
                                                 </div>
                                             </div>
@@ -73,7 +73,7 @@
                                                 @if(auth()->guard('citizen'))
                                                 <label class="col-sm-2"><strong>Citizen ID : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" disabled name="citizen_id" id="citizen_id" class="form-control" value="{{ Auth::user()->id }}" >
+                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ Auth::user()->id }}" >
 
                                                 </div>
                                                 @endif
@@ -83,8 +83,8 @@
                                                     <select class="form-control select2 " name="noc_mode" id="noc_mode" type="hidden">
                                                         <option>Select Mode of NOC</option>
                                                         <optgroup label=" ">
-                                                            <option value="1" {{ old('noc_mode') == "1" ? 'selected' : '' }} selected>New Bussiness NOC</option>
-                                                            <option value="2" {{ old('noc_mode') == "2" ? 'selected' : '' }}>Renewal Bussiness NOC</option>
+                                                            <option value="1" {{ old('noc_mode') == "1" ? 'selected' : '' }}>New Bussiness NOC</option>
+                                                            <option value="2" {{ old('noc_mode') == "2" ? 'selected' : '' }} selected>Renewal Bussiness NOC</option>
                                                         </optgroup>
                                                     </select>
                                                 </div>
@@ -218,12 +218,12 @@
                                                 <label class="col-sm-2"><strong>Ward Committee No : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
                                                     <select class="form-control select2 @error('ward_no') is-invalid @enderror" name="ward_no" id="ward_no">
-                                                        <option>Select Ward Committee No</option>
-                                                        <optgroup label=" ">
-                                                            <option value="1" {{ old('ward_no') == "1"? 'selected' : '' }} >Ward 1</option>
-                                                            <option value="2" {{ old('ward_no') == "2"? 'selected' : '' }} >Ward 2</option>
-                                                            <option value="3" {{ old('ward_no') == "3"? 'selected' : '' }} >Ward 3</option>
-                                                            <option value="4" {{ old('ward_no') == "4"? 'selected' : '' }} >Ward 4</option>
+                                                        <option value="">Select Ward Committee No</option>
+                                                        <optgroup label="">
+                                                            <option value="1" {{ old('ward_no') == "1" ? 'selected' : '' }} >Ward 1</option>
+                                                            <option value="2" {{ old('ward_no') == "2" ? 'selected' : '' }} >Ward 2</option>
+                                                            <option value="3" {{ old('ward_no') == "3" ? 'selected' : '' }} >Ward 3</option>
+                                                            <option value="4" {{ old('ward_no') == "4" ? 'selected' : '' }} >Ward 4</option>
                                                         </optgroup>
                                                     </select>
                                                     @error('ward_no')
@@ -232,6 +232,7 @@
                                                         </span>
                                                     @enderror
                                                 </div>
+
 
                                                 <label class="col-sm-2"><strong>Electrol Panel No : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
@@ -249,7 +250,7 @@
                                                 <label class="col-sm-2"><strong>Type of Property : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
                                                     <select class="form-control select2 @error('types_of_property') is-invalid @enderror" name="types_of_property" id="types_of_property">
-                                                        <option>Select Type of Property</option>
+                                                        <option value="">Select Type of Property</option>
                                                         <optgroup label=" ">
                                                             <option value="1" {{ old('types_of_property') == "1"? 'selected' : '' }}>Land</option>
                                                             <option value="2" {{ old('types_of_property') == "2"? 'selected' : '' }}>Building</option>
@@ -426,7 +427,7 @@
                                                 <label class="col-sm-2"><strong>Type of Business : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
                                                     <select class="form-control select2 @error('types_of_business') is-invalid @enderror" name="types_of_business" id="types_of_business">
-                                                        <option>Select Type of Business</option>
+                                                        <option value="">Select Type of Business</option>
                                                         <optgroup label=" ">
                                                             <option value="1" {{ old('types_of_business') == "1"? 'selected' : '' }}>Temporary</option>
                                                             <option value="2" {{ old('types_of_business') == "2"? 'selected' : '' }}>Fixed</option>
@@ -454,7 +455,7 @@
                                                 <label class="col-sm-2"><strong>Fire extinguishers/ preventive equipments are installed at working place : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
                                                     <select class="form-control select2 @error('fire_equips') is-invalid @enderror" name="fire_equips" id="fire_equips" onchange="mySelectfunction()" >
-                                                        <option>Select Fire extinguishers/ preventive equipments are installed at working place</option>
+                                                        <option value="">Select Fire extinguishers/ preventive equipments are installed at working place</option>
                                                         <optgroup label=" ">
                                                             <option value="1" {{ old('fire_equips') == "1" ? 'selected' : '' }}>Yes</option>
                                                             <option value="2" {{ old('fire_equips') == "2" ? 'selected' : '' }}>No</option>
@@ -479,15 +480,15 @@
                                             </div>
 
                                             <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Necessary Enclosures related to above application (Documents to attach)</h4>
-                                            <div class="row "  id="1" style="display: none;">
+                                            <div class="row "  >
 
                                                 <div class="form-group row  mb-3">
                                                     <label class="col-sm-2"><strong>Upload Location of Place (Google Map Link) : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <input type="file" name="location_map_doc" id="location_map_doc" class="form-control  @error('location_map_doc') is-invalid @enderror "   value="{{ old('location_map_doc') }}" placeholder="Upload Location of Place (Google Map Link)">
+                                                        <input type="file" accept=".jpg, .jpeg, .png, .pdf" name="location_map_doc" id="location_map_doc" class="form-control  @error('location_map_doc') is-invalid @enderror "   value="{{ old('location_map_doc') }}" placeholder="Upload Location of Place (Google Map Link)">
                                                         <small class="text-secondary"> Note : The file size  should be less than 2MB .</small>
                                                         <br>
-                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png format can be uploaded .</small>
+                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</small>
                                                         <br>
                                                         @error('location_map_doc')
                                                             <span class="invalid-feedback" role="alert">
@@ -498,10 +499,10 @@
 
                                                     <label class="col-sm-2"><strong>Upload Letter from License Holder regarding proper electric connection : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <input type="file" name="electric_license_doc" id="electric_license_doc" class="form-control @error('electric_license_doc') is-invalid @enderror" value="{{ old('electric_license_doc') }}" placeholder="Enter Numbers of Workers / Servants">
+                                                        <input type="file" accept=".jpg, .jpeg, .png, .pdf" name="electric_license_doc" id="electric_license_doc" class="form-control @error('electric_license_doc') is-invalid @enderror" value="{{ old('electric_license_doc') }}" placeholder="Enter Numbers of Workers / Servants">
                                                         <small class="text-secondary"> Note : The file size  should be less than 2MB .</small>
                                                         <br>
-                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png format can be uploaded .</small>
+                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</small>
                                                         <br>
                                                         @error('electric_license_doc')
                                                             <span class="invalid-feedback" role="alert">
@@ -514,10 +515,10 @@
                                                 <div class="form-group row  mb-3">
                                                     <label class="col-sm-2"><strong>Upload Letter from connection holder and license regarding proper cooking gas connection : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <input type="file" name="gas_license_doc" id="gas_license_doc" class="form-control btn-primary @error('gas_license_doc') is-invalid @enderror "   value="{{ old('gas_license_doc') }}" placeholder="Upload Location of Place (Google Map Link)">
+                                                        <input type="file" accept=".jpg, .jpeg, .png, .pdf" name="gas_license_doc" id="gas_license_doc" class="form-control btn-primary @error('gas_license_doc') is-invalid @enderror "   value="{{ old('gas_license_doc') }}" placeholder="Upload Location of Place (Google Map Link)">
                                                         <small class="text-secondary"> Note : The file size  should be less than 2MB .</small>
                                                         <br>
-                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png format can be uploaded .</small>
+                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</small>
                                                         <br>
                                                         @error('gas_license_doc')
                                                             <span class="invalid-feedback" role="alert">
@@ -528,10 +529,10 @@
 
                                                     <label class="col-sm-2"><strong>Upload Shop License : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <input type="file" name="shop_license_doc" id="shop_license_doc" class="form-control @error('shop_license_doc') is-invalid @enderror" value="{{ old('shop_license_doc') }}" placeholder="Enter Numbers of Workers / Servants">
+                                                        <input type="file" accept=".jpg, .jpeg, .png, .pdf" name="shop_license_doc" id="shop_license_doc" class="form-control @error('shop_license_doc') is-invalid @enderror" value="{{ old('shop_license_doc') }}" placeholder="Enter Numbers of Workers / Servants">
                                                         <small class="text-secondary"> Note : The file size  should be less than 2MB .</small>
                                                         <br>
-                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png format can be uploaded .</small>
+                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</small>
                                                         <br>
                                                         @error('shop_license_doc')
                                                             <span class="invalid-feedback" role="alert">
@@ -544,10 +545,10 @@
                                                 <div class="form-group row  mb-3">
                                                     <label class="col-sm-2"><strong>Upload Food License : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <input type="file" name="food_license" id="food_license" class="form-control  @error('food_license') is-invalid @enderror "   value="{{ old('food_license') }}" placeholder="Upload Location of Place (Google Map Link)">
+                                                        <input type="file" accept=".jpg, .jpeg, .png, .pdf" name="food_license" id="food_license" class="form-control  @error('food_license') is-invalid @enderror "   value="{{ old('food_license') }}" placeholder="Upload Location of Place (Google Map Link)">
                                                         <small class="text-secondary"> Note : The file size  should be less than 2MB .</small>
                                                         <br>
-                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png format can be uploaded .</small>
+                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</small>
                                                         <br>
                                                         @error('food_license')
                                                             <span class="invalid-feedback" role="alert">
@@ -558,10 +559,10 @@
 
                                                     <label class="col-sm-2"><strong>Upload Up-to-date receipt of Tax bill paid : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <input type="file" name="tax_bill_paid_doc" id="tax_bill_paid_doc" class="form-control @error('tax_bill_paid_doc') is-invalid @enderror" value="{{ old('tax_bill_paid_doc') }}" placeholder="Enter Numbers of Workers / Servants">
+                                                        <input type="file" accept=".jpg, .jpeg, .png, .pdf" name="tax_bill_paid_doc" id="tax_bill_paid_doc" class="form-control @error('tax_bill_paid_doc') is-invalid @enderror" value="{{ old('tax_bill_paid_doc') }}" placeholder="Enter Numbers of Workers / Servants">
                                                         <small class="text-secondary"> Note : The file size  should be less than 2MB .</small>
                                                         <br>
-                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png format can be uploaded .</small>
+                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</small>
                                                         <br>
                                                         @error('tax_bill_paid_doc')
                                                             <span class="invalid-feedback" role="alert">
@@ -574,10 +575,10 @@
                                                 <div class="form-group row  mb-3">
                                                     <label class="col-sm-2"><strong>Upload Trade License (Kerosene/Other Petroleum Stock/ Explosive goods) : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <input type="file" name="trade_license" id="trade_license" class="form-control  @error('trade_license') is-invalid @enderror "   value="{{ old('trade_license') }}" placeholder="Upload Location of Place (Google Map Link)">
+                                                        <input type="file" accept=".jpg, .jpeg, .png, .pdf" name="trade_license" id="trade_license" class="form-control  @error('trade_license') is-invalid @enderror "   value="{{ old('trade_license') }}" placeholder="Upload Location of Place (Google Map Link)">
                                                         <small class="text-secondary"> Note : The file size  should be less than 2MB .</small>
                                                         <br>
-                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png format can be uploaded .</small>
+                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</small>
                                                         <br>
                                                         @error('trade_license')
                                                             <span class="invalid-feedback" role="alert">
@@ -588,10 +589,10 @@
 
                                                     <label class="col-sm-2"><strong>Commissioning Certificate of Gas Fitting : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <input type="file" name="gas_certificate_doc" id="gas_certificate_doc" class="form-control @error('gas_certificate_doc') is-invalid @enderror" value="{{ old('gas_certificate_doc') }}" placeholder="Enter Numbers of Workers / Servants">
+                                                        <input type="file" accept=".jpg, .jpeg, .png, .pdf" name="gas_certificate_doc" id="gas_certificate_doc" class="form-control @error('gas_certificate_doc') is-invalid @enderror" value="{{ old('gas_certificate_doc') }}" placeholder="Enter Numbers of Workers / Servants">
                                                         <small class="text-secondary"> Note : The file size  should be less than 2MB .</small>
                                                         <br>
-                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png format can be uploaded .</small>
+                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</small>
                                                         <br>
                                                         @error('gas_certificate_doc')
                                                             <span class="invalid-feedback" role="alert">
@@ -604,10 +605,10 @@
                                                 <div class="form-group row  mb-3">
                                                     <label class="col-sm-2"><strong>Upload Commissioning Certificate of Fire extinguishers/ preventive equipments of I.S.I. Mark : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <input type="file" name="commissioning_certificate" id="commissioning_certificate" class="form-control  @error('commissioning_certificate') is-invalid @enderror "   value="{{ old('commissioning_certificate') }}" placeholder="Upload Location of Place (Google Map Link)">
+                                                        <input type="file" accept=".jpg, .jpeg, .png, .pdf" name="commissioning_certificate" id="commissioning_certificate" class="form-control  @error('commissioning_certificate') is-invalid @enderror "   value="{{ old('commissioning_certificate') }}" placeholder="Upload Location of Place (Google Map Link)">
                                                         <small class="text-secondary"> Note : The file size  should be less than 2MB .</small>
                                                         <br>
-                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png format can be uploaded .</small>
+                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</small>
                                                         <br>
                                                         @error('commissioning_certificate')
                                                             <span class="invalid-feedback" role="alert">
@@ -618,10 +619,10 @@
 
                                                     <label class="col-sm-2"><strong>Upload Copy of Affidavit : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <input type="file" name="affidavit_doc" id="affidavit_doc" class="form-control @error('affidavit_doc') is-invalid @enderror" value="{{ old('affidavit_doc') }}" placeholder="Enter Numbers of Workers / Servants">
+                                                        <input type="file" accept=".jpg, .jpeg, .png, .pdf" name="affidavit_doc" id="affidavit_doc" class="form-control @error('affidavit_doc') is-invalid @enderror" value="{{ old('affidavit_doc') }}" placeholder="Enter Numbers of Workers / Servants">
                                                         <small class="text-secondary"> Note : The file size  should be less than 2MB .</small>
                                                         <br>
-                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png format can be uploaded .</small>
+                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</small>
                                                         <br>
                                                         @error('affidavit_doc')
                                                             <span class="invalid-feedback" role="alert">
@@ -659,7 +660,7 @@
                                                                 <label class="col-sm-2"><strong>Self / Nominated Person : <span style="color:red;">*</span></strong></label>
                                                                 <div class="col-sm-2 col-md-2">
                                                                     <select class="form-control select2 @error('nominated_persion') is-invalid @enderror" name="nominated_persion" id="nominated_persion">
-                                                                        <option>Select Self / Nominated Person</option>
+                                                                        <option value="">Select Self / Nominated Person</option>
                                                                         <optgroup label=" ">
                                                                             <option value="1" {{ old('nominated_persion') == "1"? 'selected' : '' }}>Self</option>
                                                                             <option value="2" {{ old('nominated_persion') == "2"? 'selected' : '' }}>Nominee</option>
@@ -687,7 +688,7 @@
                                                                 <label class="col-sm-2"><strong>Deliver by : <span style="color:red;">*</span></strong></label>
                                                                 <div class="col-sm-2 col-md-2">
                                                                     <select class="form-control select2 @error('deliver_by') is-invalid @enderror" name="deliver_by" id="deliver_by">
-                                                                        <option>Select Deliver by</option>
+                                                                        <option value="">Select Deliver by</option>
                                                                         <optgroup label=" ">
                                                                             <option value="1" {{ old('deliver_by') == "1"? 'selected' : '' }}>By Post U.P.C</option>
                                                                             <option value="2" {{ old('deliver_by') == "2"? 'selected' : '' }}>By Post Register A.D.</option>
@@ -800,9 +801,9 @@
                                                             </div>
 
                                                             <div class="form-group row">
-                                                                <label class="col-sm-2"><strong>Pin code : <span style="color:red;">*</span></strong></label>
+                                                                <label class="col-sm-2"><strong>Pincode : <span style="color:red;">*</span></strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <input type="text" name="d_pincode" id="d_pincode" maxlength="06" class="form-control @error('d_pincode') is-invalid @enderror" value="{{ old('d_pincode') }}" placeholder="Enter Pin code.">
+                                                                    <input type="text" name="d_pincode" id="d_pincode" maxlength="06" class="form-control @error('d_pincode') is-invalid @enderror" value="{{ old('d_pincode') }}" placeholder="Enter Pincode.">
                                                                     @error('d_pincode')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
@@ -879,19 +880,6 @@
         <script src="{{ url('/') }}/assets/js/pages/form-advanced.init.js"></script>
 
         <script src="{{ url('/') }}/assets/js/app.js"></script>
-
-        <script>
-            function mySelectfunction(){
-                getValue = document.getElementById("fire_equips").value;
-                if(getValue == "1"){
-                    document.getElementById("1").style.display = "flex";
-                }else if(getValue == "2"){
-                    alert("To proceed with NOC application, having fire safety equipments installed is mandatory!");
-                }else {
-                    alert("To proceed with NOC application, having fire safety equipments installed is mandatory!");
-                }
-            }
-        </script>
 
     </body>
 </html>

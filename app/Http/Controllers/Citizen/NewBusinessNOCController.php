@@ -433,7 +433,7 @@ class NewBusinessNOCController extends Controller
         $data->inserted_by = Auth::user()->id;
         $data->save();
 
-        return redirect('/citizen/dashboard')->with('message', 'The application form which you had filled for your new business nok has been done Successfully.');
+        return redirect('/citizen/dashboard')->with('message', 'The application form which you had filled for your new business noc has been done Successfully.');
     }
 
     /**

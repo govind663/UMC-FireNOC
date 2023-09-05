@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Citizen;
 
 use App\Http\Controllers\Controller;
+use App\Models\Hospital_NOC;
+use App\Models\NOC_Master;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class NewHospitalNOCController extends Controller
 {
@@ -14,7 +18,7 @@ class NewHospitalNOCController extends Controller
      */
     public function index()
     {
-        //
+        return view('citizen.hospital_noc.new_hospital_noc.grid');
     }
 
     /**
@@ -24,7 +28,7 @@ class NewHospitalNOCController extends Controller
      */
     public function create()
     {
-        //
+        return view('citizen.hospital_noc.new_hospital_noc.create');
     }
 
     /**
@@ -46,7 +50,7 @@ class NewHospitalNOCController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('citizen.hospital_noc.new_hospital_noc.view');
     }
 
     /**
@@ -57,7 +61,7 @@ class NewHospitalNOCController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('citizen.hospital_noc.new_hospital_noc.edit');
     }
 
     /**

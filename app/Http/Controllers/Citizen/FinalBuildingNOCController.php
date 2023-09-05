@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Citizen;
 
 use App\Http\Controllers\Controller;
-use App\Models\Business_NOC;
+use App\Models\Building_NOC;
 use App\Models\NOC_Master;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +17,7 @@ class FinalBuildingNOCController extends Controller
      */
     public function index()
     {
-        //
+        return view('citizen.building_noc.final_building_noc.grid');
     }
 
     /**
@@ -27,7 +27,7 @@ class FinalBuildingNOCController extends Controller
      */
     public function create()
     {
-
+        return view('citizen.building_noc.final_building_noc.create');
     }
 
     /**
@@ -49,7 +49,7 @@ class FinalBuildingNOCController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('citizen.building_noc.final_building_noc.view');
     }
 
     /**
@@ -60,7 +60,7 @@ class FinalBuildingNOCController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('citizen.building_noc.final_building_noc.edit');
     }
 
     /**
