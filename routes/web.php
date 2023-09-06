@@ -65,7 +65,7 @@ Route::get('/citizen/forget-password', [ForgotPasswordController::class, 'getEma
 Route::post('/citizen/forget-password/send-email-link', [ForgotPasswordController::class, 'postEmail'])->name('citizen.forget-password.send-email-link.store');
 
 // ======================= Citizens Reset Password
-Route::get('/citizen/reset-password/{token}', [ResetPasswordController::class, 'resetPassword'])->name('/citizen/reset-password/');
+Route::get('/citizen/reset-password/{token}', [ResetPasswordController::class, 'resetPassword'])->name('/citizen/reset-password/token');
 Route::post('/citizen/reset-password', [ResetPasswordController::class, 'updatePassword'])->name('/citizen/reset-password');
 
 // ======================= Citizens Dashboard
