@@ -1,0 +1,20 @@
+========= DMC
+Email id : admin@gmail.com
+Password : 1234567890
+
+========= Chief Fire Officer
+Email id : cf_officer@gmail.com
+Password : 1234567890
+
+========= Field Inspector
+Email id : f_officer@gmail.com
+Password : 1234567890
+
+========= Operator
+Email id : operator@gmail.com
+Password : 1234567890
+
+
+========= Citizen
+Mobile No : user@gmail.com
+Password : 1234567890
