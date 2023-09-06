@@ -60,7 +60,7 @@ class Hospital_NOC extends Model
         'from_date',
         'to_date',
         'shop_no',
-        'area_name',
+        'area_place_measurments',
         'total_staff',
         'total_sleeping_staff',
         'hospital_fireequip',

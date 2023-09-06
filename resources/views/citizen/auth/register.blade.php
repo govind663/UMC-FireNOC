@@ -51,13 +51,6 @@
                     <div class="auth-full-page-content d-flex min-vh-100 py-sm-5 py-4">
                         <div class="w-100">
                             <div class="d-flex flex-column h-100 py-0 py-xl-3">
-                                <div class="text-center mb-4">
-                                    <a href="{{ url('/') }}" class="">
-                                        <img src="{{ url('/') }}/assets/logo/umc_logo.png" alt="UMC-firenoc" height="180" width="250" class="auth-logo logo-dark mx-auto">
-                                        <img src="{{ url('/') }}/assets/logo/umc_logo.png" alt="UMC-firenoc" height="180" width="250" class="auth-logo logo-light mx-auto">
-                                    </a>
-
-                                </div>
 
                                 <div class="row g-0 d-flex justify-content-center">
                                     <div class="col-lg-7">
@@ -65,6 +58,10 @@
                                             <div class="p-lg-5 p-4">
                                                 <div>
                                                     <div class="text-center mt-1">
+                                                        <a href="{{ url('/') }}" class="">
+                                                            <img src="{{ url('/') }}/assets/logo/umc_logo.png" alt="UMC-firenoc" height="160" width="250" class="auth-logo logo-dark mx-auto">
+                                                            <img src="{{ url('/') }}/assets/logo/umc_logo.png" alt="UMC-firenoc" height="160" width="250" class="auth-logo logo-light mx-auto">
+                                                        </a>
                                                         <h4 class="font-size-18">{{ __('Citizen Register') }}</h4>
                                                     </div>
 

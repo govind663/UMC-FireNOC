@@ -45,7 +45,7 @@
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-        @include('common.header.header')
+        @include('common.citizen.header.header')
 
         <div class="main-content">
 
@@ -569,7 +569,7 @@
             </div>
             <!-- End Page-content -->
 
-            @include('common.footer.footer')
+            @include('common.citizen.footer.footer')
 
         </div>
         <!-- end main content-->

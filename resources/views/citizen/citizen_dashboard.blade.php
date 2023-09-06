@@ -92,7 +92,7 @@
 
     <!-- Begin page -->
     <div id="layout-wrapper">
-        @include('common.header.header')
+        @include('common.citizen.header.header')
 
         <!-- Start main content-->
         <div class="main-content">
@@ -253,7 +253,7 @@
                             </div>
                         </div>
 
-                        {{-- <div class="col-xl-3 col-md-6">
+                        <div class="col-xl-3 col-md-6">
                                 <div class="card" style="border: 1px solid black;">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center">
@@ -287,7 +287,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div> --}}
+                            </div>
 
                     </div>
 
@@ -351,7 +351,7 @@
                             </div>
                         </div>
 
-                        {{-- <div class="col-xl-3 col-md-6">
+                        <div class="col-xl-3 col-md-6">
                                 <div class="card" style="border: 1px solid black;">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center">
@@ -385,7 +385,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div> --}}
+                            </div>
 
 
                     </div>
@@ -451,7 +451,7 @@
                             </div>
                         </div>
 
-                        {{-- <div class="col-xl-3 col-md-6">
+                        <div class="col-xl-3 col-md-6">
                                 <div class="card" style="border: 1px solid black;">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center">
@@ -485,7 +485,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div> --}}
+                            </div>
 
                     </div>
 
@@ -496,7 +496,7 @@
 
 
 
-            @include('common.footer.footer')
+            @include('common.citizen.footer.footer')
 
         </div>
         <!-- end main content-->

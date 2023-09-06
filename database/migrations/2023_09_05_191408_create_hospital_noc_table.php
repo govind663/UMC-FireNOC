@@ -47,28 +47,24 @@ return new class extends Migration
             $table->string('land_property_no');
 
             $table->string('area_pincode');
+            $table->string('types_of_hospital');
+            $table->date('from_date');
+            $table->date('to_date');
             $table->string('shop_no');
-            $table->string('building_height');
-            $table->string('rooms_in_buld');
-            $table->string('property_on_floor_buld');
-            $table->string('no_of_accomodation_people');
-            $table->string('area');
-            $table->string('no_of_workers');
-            $table->string('types_of_business');
-            $table->string('no_of_workers_sleep_night');
-            $table->string('fire_equips');
-            $table->string('business_address');
+            $table->string('area_place_measurments');
+            $table->string('total_staff');
+            $table->string('total_sleeping_staff');
+            $table->string('hospital_fireequip');
+            $table->string('hospital_address');
 
-            $table->string('location_map_doc');
-            $table->string('electric_license_doc');
-            $table->string('gas_license_doc');
+            $table->string('property_doc');
+            $table->string('location_doc');
+            $table->string('electric_doc');
             $table->string('shop_license_doc');
-            $table->string('food_license');
-            $table->string('tax_bill_paid_doc');
-            $table->string('trade_license');
-            $table->string('gas_certificate_doc');
+            $table->string('paid_tax_bill_doc');
             $table->string('commissioning_certificate');
             $table->string('affidavit_doc');
+            $table->string('corporation_certificate');
 
             $table->integer('application_status')->default('0')->comment('0:Operator, 1:Field Inspector, 2:Chief Fire Officer, 3:DMC');
             $table->date('approved_dt')->nullable();

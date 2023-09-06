@@ -34,11 +34,11 @@ Route::get('/', function () {
 
 // ======================= Admin Register
 Route::get('/admin/register', [App\Http\Controllers\Admin\Auth\RegisterController::class, 'register'])->name('admin.register');
-Route::post('/admin/register', [App\Http\Controllers\Admin\Auth\RegisterController::class, 'store'])->name('admin.register.store');
+Route::post('/admin/register/store', [App\Http\Controllers\Admin\Auth\RegisterController::class, 'store'])->name('admin.register.store');
 
 // ======================= Admin Login/Logout
-Route::get('/admin/login', [App\Http\Controllers\Admin\Auth\LoginController::class, 'login'])->name('login');// Very imp line for session expire after 2hrs
-Route::post('/admin/login', [App\Http\Controllers\Admin\Auth\LoginController::class, 'authenticate'])->name('admin.login.store');
+Route::get('/admin/login', [App\Http\Controllers\Admin\Auth\LoginController::class, 'login'])->name('admin.login');// Very imp line for session expire after 2hrs
+Route::post('/admin/login/store', [App\Http\Controllers\Admin\Auth\LoginController::class, 'authenticate'])->name('admin.login.store');
 Route::post('/admin/logout', [App\Http\Controllers\Admin\Auth\LoginController::class, 'logout'])->name('admin.logout');
 
 

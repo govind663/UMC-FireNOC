@@ -45,7 +45,7 @@
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-        @include('common.header.header')
+        @include('common.citizen.header.header')
 
         <div class="main-content">
 
@@ -431,8 +431,8 @@
 
                                             <label class="col-sm-2"><strong>Area of Place (Sq. Mt.) : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="area_name" id="area_name" class="form-control @error('area_name') is-invalid @enderror" value="{{ old('area_name') }}" placeholder="Enter Area of Place (Sq. Mt.).">
-                                                @error('area_name')
+                                                <input type="text" name="area_place_measurments" id="area_place_measurments" class="form-control @error('area_place_measurments') is-invalid @enderror" value="{{ old('area_place_measurments') }}" placeholder="Enter Area of Place (Sq. Mt.).">
+                                                @error('area_place_measurments')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -835,7 +835,7 @@
             </div>
             <!-- End Page-content -->
 
-            @include('common.footer.footer')
+            @include('common.citizen.footer.footer')
 
         </div>
         <!-- end main content-->
