@@ -17,9 +17,20 @@ class RenewBusinessNOCController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($status)
     {
-        //
+        $data = DB::table('business_noc AS t1')
+                ->select('t1.*', 't2.*')
+                ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
+                ->where('t2.noc_mode', 2)  // ==== Renew Business NOC (status=2)
+                ->where('t1.status', $status)
+                ->whereNUll('t1.deleted_at')
+                ->whereNUll('t2.deleted_at')
+                ->orderBy('t1.id','DESC')
+                ->get();
+        // dd($data);
+
+        return view('citizen.business_noc.renew_business_noc.grid')->with('data', $data)->with('status', $status);
     }
 
     /**
@@ -66,7 +77,7 @@ class RenewBusinessNOCController extends Controller
         $noc_master->save();
 
         // ==== Generate New Business NOC Token Number
-        $unique_id = "UMC/BN/".rand(1000,10000000);
+        $unique_id = "UMC/FHN/".rand(1000,10000000);
         $update = [
             'mst_token' => $unique_id.$noc_master->id ,
         ];
@@ -249,9 +260,20 @@ class RenewBusinessNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $status, $app_status)
     {
-        //
+        $data = DB::table('business_noc as t1')
+                ->select('t1.*', 't2.*')
+                ->leftJoin('noc_master as t2', 't2.id', '==', 't1.noc_mst_id' )
+                ->where('t2.noc_mode', 2)  // ==== New Business NOC (status=1)
+                ->where('t1.status', $status)
+                ->where('t1.application_status', $app_status)
+                ->where('t1.id', $id)
+                ->whereNUll('t1.id')
+                ->whereNUll('t2.id')
+                ->first();
+
+        return view('citizen.business_noc.renew_business_noc.view')->with('data', $data)->with('status', $status);
     }
 
     /**
@@ -260,9 +282,20 @@ class RenewBusinessNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $status, $app_status)
     {
-        //
+        $data = DB::table('business_noc as t1')
+                ->select('t1.*', 't2.*')
+                ->leftJoin('noc_master as t2', 't2.id', '==', 't1.noc_mst_id' )
+                ->where('t2.noc_mode', 2)  // ==== New Business NOC (status=1)
+                ->where('t1.status', $status)
+                ->where('t1.application_status', $app_status)
+                ->where('t1.id', $id)
+                ->whereNUll('t1.id')
+                ->whereNUll('t2.id')
+                ->first();
+
+        return view('citizen.business_noc.renew_business_noc.edit')->with('data', $data)->with('status', $status);
     }
 
     /**

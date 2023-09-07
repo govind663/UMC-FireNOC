@@ -17,9 +17,20 @@ class NewHospitalNOCController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($status)
     {
-        return view('citizen.hospital_noc.new_hospital_noc.grid');
+        $data = DB::table('hospital_noc AS t1')
+                ->select('t1.*', 't2.*')
+                ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
+                ->where('t2.noc_mode', 3)  // ==== Renew Hospital NOC (status=2)
+                ->where('t1.status', $status)
+                ->whereNUll('t1.deleted_at')
+                ->whereNUll('t2.deleted_at')
+                ->orderBy('t1.id','DESC')
+                ->get();
+        // dd($data);
+
+        return view('citizen.hospital_noc.new_hospital_noc.grid')->with('data', $data)->with('status', $status);
     }
 
     /**
@@ -65,8 +76,8 @@ class NewHospitalNOCController extends Controller
         $noc_master->inserted_by = Auth::user()->id;
         $noc_master->save();
 
-        // ==== Generate New Business NOC Token Number
-        $unique_id = "UMC/BN/".rand(1000,10000000);
+        // ==== Generate New Hospital NOC Token Number
+        $unique_id = "UMC/HN/".rand(1000,10000000);
         $update = [
             'mst_token' => $unique_id.$noc_master->id ,
         ];
@@ -120,6 +131,18 @@ class NewHospitalNOCController extends Controller
 
             $image_path = "/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/shop_license_doc" . $image_name;
             $data->shop_license_doc = $new_name;
+        }
+
+        // ==== Upload (paid_tax_bill_doc)
+        if (!empty($request->hasFile('paid_tax_bill_doc'))) {
+            $image = $request->file('paid_tax_bill_doc');
+            $image_name = $image->getClientOriginalName();
+            $extension = $image->getClientOriginalExtension();
+            $new_name = time() . rand(10, 999) . '.' . $extension;
+            $image->move(public_path('/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/paid_tax_bill_doc'), $new_name);
+
+            $image_path = "/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/paid_tax_bill_doc" . $image_name;
+            $data->paid_tax_bill_doc = $new_name;
         }
 
         // ==== Upload (commissioning_certificate)
@@ -213,9 +236,20 @@ class NewHospitalNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $status, $app_status)
     {
-        return view('citizen.hospital_noc.new_hospital_noc.view');
+        $data = DB::table('hospital_noc as t1')
+                ->select('t1.*', 't2.*')
+                ->leftJoin('noc_master as t2', 't2.id', '==', 't1.noc_mst_id' )
+                ->where('t2.noc_mode', 3)  // ==== New Hospital NOC (status=1)
+                ->where('t1.status', $status)
+                ->where('t1.application_status', $app_status)
+                ->where('t1.id', $id)
+                ->whereNUll('t1.id')
+                ->whereNUll('t2.id')
+                ->first();
+
+        return view('citizen.hospital_noc.new_hospital_noc.view')->with('data', $data)->with('status', $status);
     }
 
     /**
@@ -224,9 +258,20 @@ class NewHospitalNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $status, $app_status)
     {
-        return view('citizen.hospital_noc.new_hospital_noc.edit');
+        $data = DB::table('hospital_noc as t1')
+                ->select('t1.*', 't2.*')
+                ->leftJoin('noc_master as t2', 't2.id', '==', 't1.noc_mst_id' )
+                ->where('t2.noc_mode', 3)  // ==== New Hospital NOC (status=1)
+                ->where('t1.status', $status)
+                ->where('t1.application_status', $app_status)
+                ->where('t1.id', $id)
+                ->whereNUll('t1.id')
+                ->whereNUll('t2.id')
+                ->first();
+
+        return view('citizen.hospital_noc.new_hospital_noc.edit')->with('data', $data)->with('status', $status);
     }
 
     /**

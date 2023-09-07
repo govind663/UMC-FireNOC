@@ -42,11 +42,11 @@ return new class extends Migration
             $table->string('peermission_no');
             $table->date('permission_date');
 
-            $table->string('maps_of_proposed_doc');
-            $table->string('city_survey_doc');
-            $table->string('sanad_doc');
-            $table->string('competent_authority_doc');
-            $table->string('dues_certificate_doc');
+            $table->string('maps_of_proposed_doc')->nullable();
+            $table->string('city_survey_doc')->nullable();
+            $table->string('sanad_doc')->nullable();
+            $table->string('competent_authority_doc')->nullable();
+            $table->string('dues_certificate_doc')->nullable();
             $table->string('fire_equipments_install_doc')->nullable();
 
             $table->integer('application_status')->default('0')->comment('0:Operator, 1:Field Inspector, 2:Chief Fire Officer, 3:DMC');

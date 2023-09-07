@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('mst_token')->nullable();
             $table->date('noc_a_date');
             $table->integer('citizen_id');
-            $table->integer('noc_mode')->comment('1:New Bussiness NOC, 2:Renewal Bussiness NOC, 3:New Hospital NOC, 4:Renewal Hospital NOC, 5:Provisional Building NOC, 6:Provisional Building NOC');
+            $table->integer('noc_mode')->comment('1:New Bussiness NOC, 2:Renewal Bussiness NOC, 3:New Hospital NOC, 4:Renewal Hospital NOC, 5:Provisional Building NOC, 6:Final Building NOC');
 
             $table->string('declare_by');
             $table->date('declare_date');

@@ -480,7 +480,7 @@
                                             </div>
 
                                             <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Necessary Enclosures related to above application (Documents to attach)</h4>
-                                            <div class="row "  id="1" style="display: none;">
+                                            <div class="row "  >
 
                                                 <div class="form-group row  mb-3">
                                                     <label class="col-sm-2"><strong>Upload Location of Place (Google Map Link) : <span style="color:red;">*</span></strong></label>
@@ -880,19 +880,6 @@
         <script src="{{ url('/') }}/assets/js/pages/form-advanced.init.js"></script>
 
         <script src="{{ url('/') }}/assets/js/app.js"></script>
-
-        <script>
-            function mySelectfunction(){
-                getValue = document.getElementById("fire_equips").value;
-                if(getValue == "1"){
-                    document.getElementById("1").style.display = "flex";
-                }else if(getValue == "2"){
-                    alert("To proceed with NOC application, having fire safety equipments installed is mandatory!");
-                }else {
-                    alert("To proceed with NOC application, having fire safety equipments installed is mandatory!");
-                }
-            }
-        </script>
 
     </body>
 </html>

@@ -57,7 +57,7 @@
                         <div class="col-lg-12">
                             <div class="card" style="border: 1px solid #000000;">
                                 <div class="card-body p-0">
-                                    <h4 class="card-header text-light bg-primary ">Renew Hospital NOC</h4>
+                                    <h4 class="card-header text-light bg-primary ">Add Renew Hospital NOC</h4>
 
                                     <form class="auth-input p-4" method="POST" action="{{ url('/renew_hospital_noc/store') }}" enctype="multipart/form-data">
                                         @csrf
@@ -267,8 +267,8 @@
                                             </div>
                                             <label class="col-sm-2"><strong>Email Id (if any) : </strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="email" name="taluka_name" id="taluka_name" class="form-control" value="{{ old('taluka_name') }}" placeholder="Enter Email Id (if any).">
-                                                @error('taluka_name')
+                                                <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}" placeholder="Enter Email Id (if any).">
+                                                @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -411,7 +411,7 @@
                                         <div class="form-group row  mb-3">
                                             <label class="col-sm-2"><strong>To Date : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="date" name="total_staff" id="to_date" max="<?php echo date("Y-m-d"); ?>" class="form-control @error('to_date') is-invalid @enderror" value="{{ old('to_date') }}" placeholder="Enter Pincode.">
+                                                <input type="date" name="to_date" id="to_date" max="<?php echo date("Y-m-d"); ?>" class="form-control @error('to_date') is-invalid @enderror" value="{{ old('to_date') }}" placeholder="Enter Pincode.">
                                                 @error('to_date')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

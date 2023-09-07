@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Building_NOC;
 use App\Models\NOC_Master;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\BuildingNOCRequest;
+use App\Http\Requests\FinalBuildindgNOCRequest;
 
 class FinalBuildingNOCController extends Controller
 {
@@ -16,9 +17,20 @@ class FinalBuildingNOCController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($status)
     {
-        return view('citizen.building_noc.final_building_noc.grid');
+        $data = DB::table('business_noc AS t1')
+                ->select('t1.*', 't2.*')
+                ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
+                ->where('t2.noc_mode', 5)  // ==== Renew Hospital NOC (status=2)
+                ->where('t1.status', $status)
+                ->whereNUll('t1.deleted_at')
+                ->whereNUll('t2.deleted_at')
+                ->orderBy('t1.id','DESC')
+                ->get();
+        // dd($data);
+
+        return view('citizen.building_noc.final_building_noc.grid')->with('data', $data)->with('status', $status);
     }
 
     /**
@@ -37,7 +49,7 @@ class FinalBuildingNOCController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BuildingNOCRequest $request)
+    public function store(FinalBuildindgNOCRequest $request)
     {
         $noc_master = new NOC_Master();
 
@@ -125,9 +137,20 @@ class FinalBuildingNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $status, $app_status)
     {
-        return view('citizen.building_noc.final_building_noc.view');
+        $data = DB::table('business_noc as t1')
+                ->select('t1.*', 't2.*')
+                ->leftJoin('noc_master as t2', 't2.id', '==', 't1.noc_mst_id' )
+                ->where('t2.noc_mode', 5)  // ==== New Hospital NOC (status=1)
+                ->where('t1.status', $status)
+                ->where('t1.application_status', $app_status)
+                ->where('t1.id', $id)
+                ->whereNUll('t1.id')
+                ->whereNUll('t2.id')
+                ->first();
+
+        return view('citizen.building_noc.final_building_noc.view')->with('data', $data)->with('status', $status);
     }
 
     /**
@@ -136,9 +159,20 @@ class FinalBuildingNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $status, $app_status)
     {
-        return view('citizen.building_noc.final_building_noc.edit');
+        $data = DB::table('business_noc as t1')
+                ->select('t1.*', 't2.*')
+                ->leftJoin('noc_master as t2', 't2.id', '==', 't1.noc_mst_id' )
+                ->where('t2.noc_mode', 5)  // ==== New Hospital NOC (status=1)
+                ->where('t1.status', $status)
+                ->where('t1.application_status', $app_status)
+                ->where('t1.id', $id)
+                ->whereNUll('t1.id')
+                ->whereNUll('t2.id')
+                ->first();
+
+        return view('citizen.building_noc.final_building_noc.edit')->with('data', $data)->with('status', $status);
     }
 
     /**
@@ -148,7 +182,7 @@ class FinalBuildingNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(BuildingNOCRequest $request, $id)
+    public function update(FinalBuildindgNOCRequest $request, $id)
     {
         //
     }

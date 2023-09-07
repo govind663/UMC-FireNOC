@@ -42,8 +42,9 @@ class BuildingNOCRequest extends FormRequest
             'ward_no' => 'required',
             'electrol_panel_no' => 'required',
             'contact_persion' => 'required',
-            'tel_no' => 'nullable|numeric',
-            'email' => 'nullable|email',
+
+            // 'tel_no' => 'nullable|numeric',
+            // 'email' => 'nullable|email',
 
             // ===== Information of Property
             'types_of_property' => 'required',
@@ -59,7 +60,6 @@ class BuildingNOCRequest extends FormRequest
             'sanad_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
             'competent_authority_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
             'dues_certificate_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
-            'fire_equipments_install_doc' => 'sometimes|required|mimes:jpeg,png,jpg,pdf|max:2048',
 
             // ===== Declaration
             'declare_by' => 'required',
@@ -106,24 +106,9 @@ class BuildingNOCRequest extends FormRequest
             'property_no.required' => 'Property Number is required',
 
             // ====== Information of Land
-            'city_name.required' => 'Town / City is required',
-            'survey_no.required' => 'Survey / Block / Barrak No. is required',
-            'cts_no.required' => 'C.T.S. No. is required',
-            'part_no.required' => 'Part No. / Sheet No. is required',
-            'plot_no.required' => 'Plot No. / Unit No. is required',
-            'land_property_no.required' => 'Property Number is required',
+            'peermission_no.required' => 'Construction Permission Number is required',
+            'permission_date.required' => 'Date of Permission is required',
 
-            // ===== Necessary Particulars about above service
-            'area_pincode.required' => 'Pincode is required',
-            'types_of_hospital.required' => 'Type of Hospital is required',
-            'from_date.required' => 'From Date is required',
-            'to_date.required' => 'To Date is required',
-            'shop_no.required' => 'Shop No. is required',
-            'area_place_measurments.required' => 'Area of Place (Sq. Mt.) is required',
-            'total_staff.required' => "Numbers of Staff is required",
-            'total_sleeping_staff.required' => 'Number of Staff sleep at night at working place is required',
-            'hospital_fireequip.required' => 'Fire extinguishers / preventive equipments are installed at working place is required',
-            'hospital_address.required' => 'Address Of Hospital Place is required',
 
              // ===== Other Document
             'maps_of_proposed_doc.required' => 'Document Of Property is required',
@@ -145,10 +130,6 @@ class BuildingNOCRequest extends FormRequest
             'dues_certificate_doc.required' => 'Up-to-date receipt of Tax bill paid is required',
             'dues_certificate_doc.max' => 'The file size should be less than 2MB.',
             'dues_certificate_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
-
-            'fire_equipments_install_doc.required' => 'Commissioning Certificate of Fire extinguishers / preventive equipments of I.S.I. Mark is required',
-            'fire_equipments_install_doc.max' => 'The file size should be less than 2MB.',
-            'fire_equipments_install_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
              // ===== Declaration
              'declare_by.required' => 'Applicant Name is required',

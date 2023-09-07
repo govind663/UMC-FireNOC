@@ -28,7 +28,7 @@ class NewBusinessNOCController extends Controller
                 ->whereNUll('t2.deleted_at')
                 ->orderBy('t1.id','DESC')
                 ->get();
-        // dd($data;
+        // dd($data);
 
         return view('citizen.business_noc.new_business_noc.grid')->with('data', $data)->with('status', $status);
     }
@@ -77,7 +77,7 @@ class NewBusinessNOCController extends Controller
         $noc_master->save();
 
         // ==== Generate New Business NOC Token Number
-        $unique_id = "UMC/BN/".rand(1000,10000000);
+        $unique_id = "UMC/RBN/".rand(1000,10000000);
         $update = [
             'mst_token' => $unique_id.$noc_master->id ,
         ];

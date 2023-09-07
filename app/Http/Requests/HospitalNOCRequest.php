@@ -42,8 +42,8 @@ class HospitalNOCRequest extends FormRequest
             'ward_no' => 'required',
             'electrol_panel_no' => 'required',
             'contact_persion' => 'required',
-            'tel_no' => 'nullable|numeric',
-            'email' => 'nullable|email',
+            // 'tel_no' => 'nullable|numeric',
+            // 'email' => 'nullable|email',
 
             // ===== Information of Property
             'types_of_property' => 'required',
@@ -94,7 +94,7 @@ class HospitalNOCRequest extends FormRequest
             'd_road_name' => 'required',
             'd_area_name' => 'required',
             'd_taluka_name' => 'required',
-            'd_pincode' => 'required'
+            'd_pincode' => 'required',
         ];
     }
 
@@ -191,7 +191,7 @@ class HospitalNOCRequest extends FormRequest
              'd_road_name.required' => 'Road / Street / Lane is required',
              'd_area_name.required' => 'Area / Locality / Town / City is required',
              'd_taluka_name.required' => 'Taluka is required',
-             'd_pincode.required' => 'Pincode is required'
+             'd_pincode.required' => 'Pincode is required',
 
         ];
     }

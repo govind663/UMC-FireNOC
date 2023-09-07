@@ -58,47 +58,76 @@
                                 <div class="card">
                                     <div class="card-body" style="border: 1px solid rgb(3, 155, 155);">
 
-                                        <h4 class="card-header text-primary">New Business NOC List</h4>
+                                        @if($status == 0)
+                                        <h4 class="card-header text-primary">All Pending New Business NOC List</h4>
+                                        @elseif($status == 1)
+                                        <h4 class="card-header text-primary">All Unpaid New Business NOC List</h4>
+                                        @elseif($status == 2)
+                                        <h4 class="card-header text-primary">All Paid New Business NOC List</h4>
+                                        @elseif($status == 3)
+                                        <h4 class="card-header text-primary">All Approved New Business NOC List</h4>
+                                        @elseif($status == 4)
+                                        <h4 class="card-header text-primary">All Rejected New Business NOC List</h4>
+                                        @endif
 
                                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                             <thead>
-                                                <tr>
-                                                    <th>Sr. No.</th>
-                                                    <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th>Office</th>
-                                                    <th>Age</th>
-                                                    <th>Start date</th>
-                                                    <th>Salary</th>
-                                                    <th>Salary</th>
-                                                    <th>Salary</th>
-                                                    <th>Salary</th>
-                                                    <th>Salary</th>
-                                                    <th>Salary</th>
-                                                    <th>Action</th>
+                                                <tr style="color: white; background:#086070;">
+                                                    <th><b>Sr. No.</b></th>
+                                                    <th><b>Apply Date <br> (DD/MM/YYYY)</b></th>
+                                                    <th><b>Appication Name</b></th>
+                                                    <th><b>Property Types</b></th>
+                                                    <th><b>Property Number</b></th>
+                                                    <th><b>Town / City</b></th>
+                                                    <th><b>Pin code</b></th>
+                                                    <th><b>Taluka</b></th>
+                                                    <th><b>Ward Committee No</b></th>
+                                                    <th><b>Application Status</b></th>
+                                                    <th><b>Action</b></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach ($data as $key => $value)
                                                     <tr>
-                                                        <td>{{ $key+1 }}</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td>{{ $key + 1 }}</td>
+                                                        <td>{{ $value->noc_a_date }}</td>
+                                                        <td>{{ $value->f_name }} {{ $value->father_name }} {{ $value->l_name }}</td>
+
+                                                        @if ($value->noc_mode == 1)
+                                                        <td>New Bussiness NOC</td>
+                                                        @elseif ($value->noc_mode == 2)
+                                                        <td>Renewal Bussiness NOC</td>
+                                                        @elseif ($value->noc_mode == 3)
+                                                        <td>New Hospital NOC</td>
+                                                        @elseif ($value->noc_mode == 4)
+                                                        <td>Renewal Hospital NOC</td>
+                                                        @elseif ($value->noc_mode == 5)
+                                                        <td>Provisional Building NOC</td>
+                                                        @else
+                                                        <td>Final Building NOC</td>
+                                                        @endif
+                                                        <td>{{ $value->property_no }}</td>
+                                                        <td>{{ $value->city_name }}</td>
+                                                        <td>{{ $value->pincode }}</td>
+                                                        <td>{{ $value->taluka_name }}</td>
+                                                        <td>{{ $value->ward_no }}</td>
+                                                        @if ($value->status == 0)
+                                                        <td><span class="bg-primary text-white p-2" style="border: 1px;">Pending</span></td>
+                                                        @elseif ($value->status == 1)
+                                                        <td><span class="bg-warning text-dark p-2" style="border: 1px;">Unpaid</span></td>
+                                                        @elseif ($value->status == 2)
+                                                        <td><span class="bg-success text-dark p-2" style="border: 1px;">Paid</span></td>
+                                                        @elseif ($value->status == 3)
+                                                        <td><span class="bg-success text-dark p-2" style="border: 1px;">Approved</span></td>
+                                                        @else
+                                                        <td><span class="bg-danger text-dark p-2" style="border: 1px;">Rejected</span></td>
+                                                        @endif
                                                         <td style="display:flex;">
                                                             <a href='' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
                                                             &nbsp;&nbsp;
-                                                            <a href='' class="btn btn-dark btn-sm">
+                                                            <a href='' class="btn btn-warning btn-sm text-dark">
                                                                 <b><i class="mdi mdi-account-edit"> Edit</i></b>
                                                             </a>
                                                         </td>
@@ -106,7 +135,8 @@
                                                 @endforeach
                                             </tbody>
                                         </table>
-                                    </>
+
+                                    </div>
                                 </div>
                             </div> <!-- end col -->
                         </div> <!-- end row -->

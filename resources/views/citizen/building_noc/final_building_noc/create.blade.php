@@ -267,8 +267,8 @@
                                             </div>
                                             <label class="col-sm-2"><strong>Email Id (if any) : </strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="email" name="taluka_name" id="taluka_name" class="form-control" value="{{ old('taluka_name') }}" placeholder="Enter Email Id (if any).">
-                                                @error('taluka_name')
+                                                <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}" placeholder="Enter Email Id (if any).">
+                                                @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
