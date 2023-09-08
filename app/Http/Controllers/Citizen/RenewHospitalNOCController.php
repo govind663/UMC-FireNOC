@@ -23,6 +23,7 @@ class RenewHospitalNOCController extends Controller
                 ->select('t1.*', 't2.*')
                 ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
                 ->where('t2.noc_mode', 4)  // ==== Renew Hospital NOC (status=2)
+                ->where('t2.citizen_id',  Auth::user()->id)
                 ->where('t1.status', $status)
                 ->whereNUll('t1.deleted_at')
                 ->whereNUll('t2.deleted_at')
@@ -236,17 +237,17 @@ class RenewHospitalNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id, $status, $app_status)
+    public function show($id, $status)
     {
         $data = DB::table('hospital_noc as t1')
-                ->select('t1.*', 't2.*')
-                ->leftJoin('noc_master as t2', 't2.id', '==', 't1.noc_mst_id' )
+                ->select('t1.*', 't2.*', 't1.id as RB_NOC_ID')
+                ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
                 ->where('t2.noc_mode', 4)  // ==== New Hospital NOC (status=1)
+                ->where('t2.citizen_id',  Auth::user()->id)
                 ->where('t1.status', $status)
-                ->where('t1.application_status', $app_status)
                 ->where('t1.id', $id)
-                ->whereNUll('t1.id')
-                ->whereNUll('t2.id')
+                ->whereNUll('t1.deleted_at')
+                ->whereNUll('t2.deleted_at')
                 ->first();
 
         return view('citizen.hospital_noc.renew_hospital_noc.view')->with('data', $data)->with('status', $status);
@@ -258,17 +259,17 @@ class RenewHospitalNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, $status, $app_status)
+    public function edit($id, $status)
     {
         $data = DB::table('hospital_noc as t1')
                 ->select('t1.*', 't2.*')
                 ->leftJoin('noc_master as t2', 't2.id', '==', 't1.noc_mst_id' )
                 ->where('t2.noc_mode', 4)  // ==== New Hospital NOC (status=1)
+                ->where('t2.citizen_id',  Auth::user()->id)
                 ->where('t1.status', $status)
-                ->where('t1.application_status', $app_status)
                 ->where('t1.id', $id)
-                ->whereNUll('t1.id')
-                ->whereNUll('t2.id')
+                ->whereNUll('t1.deleted_at')
+                ->whereNUll('t2.deleted_at')
                 ->first();
 
         return view('citizen.hospital_noc.renew_hospital_noc.edit')->with('data', $data)->with('status', $status);

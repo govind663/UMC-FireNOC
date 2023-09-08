@@ -110,7 +110,21 @@
                                                         <td>{{ $value->city_name }}</td>
                                                         <td>{{ $value->pincode }}</td>
                                                         <td>{{ $value->taluka_name }}</td>
-                                                        <td>{{ $value->ward_no }}</td>
+                                                        @php
+                                                            $ward_name = '';
+
+                                                            if($value->ward_no = 1){
+                                                            $ward_name = 'Ward 1';
+                                                            }elseif($value->ward_no = 2){
+                                                            $ward_name = 'Ward 2';
+                                                            }elseif($value->ward_no = 3){
+                                                            $ward_name = 'Ward 3';
+                                                            }elseif($value->ward_no = 4){
+                                                            $ward_name = 'Ward 4';
+                                                            }
+                                                        @endphp
+
+                                                        <td>{{ $ward_name }}</td>
                                                         @if ($value->status == 0)
                                                         <td><span class="bg-primary text-white p-2" style="border: 1px;">Pending</span></td>
                                                         @elseif ($value->status == 1)
@@ -123,11 +137,11 @@
                                                         <td><span class="bg-danger text-dark p-2" style="border: 1px;">Rejected</span></td>
                                                         @endif
                                                         <td style="display:flex;">
-                                                            <a href='' class="btn btn-primary btn-sm">
+                                                            <a href='{{ url("/renew_business_noc/show/{$value->RB_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
                                                             &nbsp;&nbsp;
-                                                            <a href='' class="btn btn-warning btn-sm text-dark">
+                                                            <a href='{{ url("/renew_business_noc/edit/{$value->RB_NOC_ID}/{$value->status}") }}' class="btn btn-warning btn-sm text-dark">
                                                                 <b><i class="mdi mdi-account-edit"> Edit</i></b>
                                                             </a>
                                                         </td>

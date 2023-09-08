@@ -19,11 +19,13 @@ class NewBusinessNOCController extends Controller
      */
     public function index($status)
     {
+
         $data = DB::table('business_noc AS t1')
-                ->select('t1.*', 't2.*')
+                ->select('t1.*', 't2.*', 't1.id as NB_NOC_ID')
                 ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
                 ->where('t2.noc_mode', 1)  // ==== New Business NOC (status=1)
                 ->where('t1.status', $status)
+                ->where('t2.citizen_id',  Auth::user()->id)
                 ->whereNUll('t1.deleted_at')
                 ->whereNUll('t2.deleted_at')
                 ->orderBy('t1.id','DESC')
@@ -260,18 +262,19 @@ class NewBusinessNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id, $status, $app_status)
+    public function show($id, $status)
     {
         $data = DB::table('business_noc as t1')
                 ->select('t1.*', 't2.*')
-                ->leftJoin('noc_master as t2', 't2.id', '==', 't1.noc_mst_id' )
+                ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
                 ->where('t2.noc_mode', 1)  // ==== New Business NOC (status=1)
+                ->where('t2.citizen_id',  Auth::user()->id)
                 ->where('t1.status', $status)
-                ->where('t1.application_status', $app_status)
                 ->where('t1.id', $id)
-                ->whereNUll('t1.id')
-                ->whereNUll('t2.id')
+                ->whereNUll('t1.deleted_at')
+                ->whereNUll('t2.deleted_at')
                 ->first();
+        // dd($data);
 
         return view('citizen.business_noc.new_business_noc.view')->with('data', $data)->with('status', $status);
     }
@@ -286,15 +289,15 @@ class NewBusinessNOCController extends Controller
     {
         $data = DB::table('business_noc as t1')
                 ->select('t1.*', 't2.*')
-                ->leftJoin('noc_master as t2', 't2.id', '==', 't1.noc_mst_id' )
+                ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
                 ->where('t2.noc_mode', 1)  // ==== New Business NOC (status=1)
+                ->where('t2.citizen_id',  Auth::user()->id)
                 ->where('t1.status', $status)
-                ->where('t1.application_status', $app_status)
                 ->where('t1.id', $id)
-                ->whereNUll('t1.id')
-                ->whereNUll('t2.id')
+                ->whereNUll('t1.deleted_at')
+                ->whereNUll('t2.deleted_at')
                 ->first();
-
+         // dd($data);
         return view('citizen.business_noc.new_business_noc.edit')->with('data', $data)->with('status', $status);
     }
 

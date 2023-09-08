@@ -84,8 +84,8 @@
                                                 <select class="form-control select2 " name="noc_mode" id="noc_mode" type="hidden">
                                                     <option>Select Mode of NOC</option>
                                                     <optgroup label=" ">
-                                                        <option value="3" {{ old('noc_mode') == "5" ? 'selected' : '' }} >Provisional Building NOC</option>
-                                                        <option value="4" {{ old('noc_mode') == "6" ? 'selected' : '' }} selected>Final Building NOC</option>
+                                                        <option value="5" {{ old('noc_mode') == "5" ? 'selected' : '' }} >Provisional Building NOC</option>
+                                                        <option value="6" {{ old('noc_mode') == "6" ? 'selected' : '' }} selected>Final Building NOC</option>
                                                     </optgroup>
                                                 </select>
                                             </div>

@@ -19,10 +19,10 @@ class ProvisionalBuildingNOCController extends Controller
      */
     public function index($status)
     {
-        $data = DB::table('business_noc AS t1')
+        $data = DB::table('building_noc AS t1')
                 ->select('t1.*', 't2.*')
                 ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                ->where('t2.noc_mode', 5)  // ==== Renew Hospital NOC (status=2)
+                ->where('t2.noc_mode', 5)  // ==== Renew Hospital NOC (status=5)
                 ->where('t1.status', $status)
                 ->whereNUll('t1.deleted_at')
                 ->whereNUll('t2.deleted_at')
@@ -187,7 +187,7 @@ class ProvisionalBuildingNOCController extends Controller
      */
     public function show($id, $status, $app_status)
     {
-        $data = DB::table('business_noc as t1')
+        $data = DB::table('building_noc as t1')
                 ->select('t1.*', 't2.*')
                 ->leftJoin('noc_master as t2', 't2.id', '==', 't1.noc_mst_id' )
                 ->where('t2.noc_mode', 5)  // ==== New Hospital NOC (status=1)
@@ -209,7 +209,7 @@ class ProvisionalBuildingNOCController extends Controller
      */
     public function edit($id, $status, $app_status)
     {
-        $data = DB::table('business_noc as t1')
+        $data = DB::table('building_noc as t1')
                 ->select('t1.*', 't2.*')
                 ->leftJoin('noc_master as t2', 't2.id', '==', 't1.noc_mst_id' )
                 ->where('t2.noc_mode', 5)  // ==== New Hospital NOC (status=1)

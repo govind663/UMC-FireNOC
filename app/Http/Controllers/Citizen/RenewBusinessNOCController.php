@@ -20,9 +20,10 @@ class RenewBusinessNOCController extends Controller
     public function index($status)
     {
         $data = DB::table('business_noc AS t1')
-                ->select('t1.*', 't2.*')
+                ->select('t1.*', 't2.*', 't1.id as RH_NOC_ID')
                 ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
                 ->where('t2.noc_mode', 2)  // ==== Renew Business NOC (status=2)
+                ->where('t2.citizen_id',  Auth::user()->id)
                 ->where('t1.status', $status)
                 ->whereNUll('t1.deleted_at')
                 ->whereNUll('t2.deleted_at')
@@ -260,18 +261,19 @@ class RenewBusinessNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id, $status, $app_status)
+    public function show($id, $status)
     {
         $data = DB::table('business_noc as t1')
                 ->select('t1.*', 't2.*')
-                ->leftJoin('noc_master as t2', 't2.id', '==', 't1.noc_mst_id' )
-                ->where('t2.noc_mode', 2)  // ==== New Business NOC (status=1)
+                ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
+                ->where('t2.noc_mode', 2)  // ==== Renew Business NOC (status=2)
+                ->where('t2.citizen_id',  Auth::user()->id)
                 ->where('t1.status', $status)
-                ->where('t1.application_status', $app_status)
                 ->where('t1.id', $id)
-                ->whereNUll('t1.id')
-                ->whereNUll('t2.id')
+                ->whereNUll('t1.deleted_at')
+                ->whereNUll('t2.deleted_at')
                 ->first();
+        // dd($data);
 
         return view('citizen.business_noc.renew_business_noc.view')->with('data', $data)->with('status', $status);
     }
@@ -282,18 +284,19 @@ class RenewBusinessNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, $status, $app_status)
+    public function edit($id, $status)
     {
         $data = DB::table('business_noc as t1')
                 ->select('t1.*', 't2.*')
-                ->leftJoin('noc_master as t2', 't2.id', '==', 't1.noc_mst_id' )
-                ->where('t2.noc_mode', 2)  // ==== New Business NOC (status=1)
+                ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
+                ->where('t2.noc_mode', 2)  // ==== Renew Business NOC (status=2)
+                ->where('t2.citizen_id',  Auth::user()->id)
                 ->where('t1.status', $status)
-                ->where('t1.application_status', $app_status)
                 ->where('t1.id', $id)
-                ->whereNUll('t1.id')
-                ->whereNUll('t2.id')
+                ->whereNUll('t1.deleted_at')
+                ->whereNUll('t2.deleted_at')
                 ->first();
+        // dd($data);
 
         return view('citizen.business_noc.renew_business_noc.edit')->with('data', $data)->with('status', $status);
     }

@@ -59,6 +59,16 @@
                                 <div class="card-body p-0">
                                     <h4 class="card-header text-light bg-primary ">Add Renew Hospital NOC</h4>
 
+                                    {{-- @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif --}}
+
                                     <form class="auth-input p-4" method="POST" action="{{ url('/renew_hospital_noc/store') }}" enctype="multipart/form-data">
                                         @csrf
 
@@ -431,8 +441,8 @@
 
                                             <label class="col-sm-2"><strong>Area of Place (Sq. Mt.) : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="area_name" id="area_name" class="form-control @error('area_name') is-invalid @enderror" value="{{ old('area_name') }}" placeholder="Enter Area of Place (Sq. Mt.).">
-                                                @error('area_name')
+                                                <input type="text" name="area_place_measurments" id="area_place_measurments" class="form-control @error('area_place_measurments') is-invalid @enderror" value="{{ old('area_place_measurments') }}" placeholder="Enter Area of Place (Sq. Mt.).">
+                                                @error('area_place_measurments')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
