@@ -1,11 +1,11 @@
-<!doctype html>
+df<!doctype html>
 <html lang="en">
 
 <head>
 
     <meta charset="utf-8">
 
-    <title>UMC-Fire NOC | Provisional Building NOC</title>
+    <title>UMC-Fire NOC | Final Building NOC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
     <meta content="Themesdesign" name="author">
@@ -45,7 +45,7 @@
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-        @include('common.citizen.header.header')
+        @include('common.admin.header.header')
 
         <div class="main-content">
 
@@ -57,7 +57,7 @@
                         <div class="col-lg-12">
                             <div class="card" style="border: 1px solid #000000;">
                                 <div class="card-body p-0">
-                                    <h4 class="card-header text-light bg-primary ">Provisional Building NOC</h4>
+                                    <h4 class="card-header text-light bg-primary ">Final Building NOC</h4>
 
                                     <form class="auth-input p-4" >
 
@@ -83,8 +83,8 @@
                                                 <select class="form-control select2 " name="noc_mode" id="noc_mode" type="hidden">
                                                     <option>Select Mode of NOC</option>
                                                     <optgroup label=" ">
-                                                        <option value="5" {{ old('noc_mode') == "5" ? 'selected' : '' }} selected>Provisional Building NOC</option>
-                                                        <option value="6" {{ old('noc_mode') == "6" ? 'selected' : '' }}>Final Building NOC</option>
+                                                        <option value="5" {{ old('noc_mode') == "5" ? 'selected' : '' }} >Provisional Building NOC</option>
+                                                        <option value="6" {{ old('noc_mode') == "6" ? 'selected' : '' }} selected>Final Building NOC</option>
                                                     </optgroup>
                                                 </select>
                                             </div>
@@ -332,12 +332,12 @@
                                             <div class="row ">
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Maps of Proposed Construction : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Upload Map / Plan showing Cease Fire Equipments installed and Water Supply arrangements in the building : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/maps_of_proposed_doc/{{ $data->maps_of_proposed_doc }}" target="_blank">
+                                                        <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc/{{ $data->fire_equipments_install_doc }}" target="_blank">
                                                             <div class="form-group">
                                                                 <?php
-                                                                        $document_path = $data->maps_of_proposed_doc;
+                                                                        $document_path = $data->fire_equipments_install_doc;
                                                                         $filter_path =  explode(".",$document_path);
                                                                         $size_of_array = count($filter_path);
                                                                         $filter_ext = $filter_path[$size_of_array - 1];
@@ -348,148 +348,12 @@
                                                                 ?>
 
                                                                 <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/maps_of_proposed_doc/{{ $data->maps_of_proposed_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                    <img src="{{url('/')}}/UMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc/{{ $data->fire_equipments_install_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
                                                                 </p>
                                                                 <?php }
                                                                 else{
                                                                     ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/maps_of_proposed_doc/{{ $data->maps_of_proposed_doc }}" target="_blank" download>
-                                                                        <p class="mt-3 mb-0" id="image_div">
-                                                                        <button type="button"class="btn btn-primary text-bold">
-                                                                            Download File
-                                                                        </button>
-                                                                        </p>
-                                                                    </a>
-                                                                <?php }?>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-
-                                                    <label class="col-sm-2"><strong>Upload 7/12 Extract / City Survey Extract : <span style="color:red;">*</span></strong></label>
-                                                    <div class="col-sm-4 col-md-4">
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/city_survey_doc/{{ $data->city_survey_doc }}" target="_blank">
-                                                            <div class="form-group">
-                                                                <?php
-                                                                        $document_path = $data->city_survey_doc;
-                                                                        $filter_path =  explode(".",$document_path);
-                                                                        $size_of_array = count($filter_path);
-                                                                        $filter_ext = $filter_path[$size_of_array - 1];
-
-                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
-                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                                                        {
-                                                                ?>
-
-                                                                <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/city_survey_doc/{{ $data->city_survey_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
-                                                                </p>
-                                                                <?php }
-                                                                else{
-                                                                    ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/city_survey_doc/{{ $data->city_survey_doc }}" target="_blank" download>
-                                                                        <p class="mt-3 mb-0" id="image_div">
-                                                                        <button type="button"class="btn btn-primary text-bold">
-                                                                            Download File
-                                                                        </button>
-                                                                        </p>
-                                                                    </a>
-                                                                <?php }?>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Sanad / Letter from S.D.O. Ulhasnagar : <span style="color:red;">*</span></strong></label>
-                                                    <div class="col-sm-4 col-md-4">
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/sanad_doc/{{ $data->sanad_doc }}" target="_blank">
-                                                            <div class="form-group">
-                                                                <?php
-                                                                        $document_path = $data->sanad_doc;
-                                                                        $filter_path =  explode(".",$document_path);
-                                                                        $size_of_array = count($filter_path);
-                                                                        $filter_ext = $filter_path[$size_of_array - 1];
-
-                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
-                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                                                        {
-                                                                ?>
-
-                                                                <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/sanad_doc/{{ $data->sanad_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
-                                                                </p>
-                                                                <?php }
-                                                                else{
-                                                                    ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/sanad_doc/{{ $data->sanad_doc }}" target="_blank" download>
-                                                                        <p class="mt-3 mb-0" id="image_div">
-                                                                        <button type="button"class="btn btn-primary text-bold">
-                                                                            Download File
-                                                                        </button>
-                                                                        </p>
-                                                                    </a>
-                                                                <?php }?>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-
-                                                    <label class="col-sm-2"><strong>Upload Title & Search Report from competent Authority : <span style="color:red;">*</span></strong></label>
-                                                    <div class="col-sm-4 col-md-4">
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc/{{ $data->competent_authority_doc }}" target="_blank">
-                                                            <div class="form-group">
-                                                                <?php
-                                                                        $document_path = $data->competent_authority_doc;
-                                                                        $filter_path =  explode(".",$document_path);
-                                                                        $size_of_array = count($filter_path);
-                                                                        $filter_ext = $filter_path[$size_of_array - 1];
-
-                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
-                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                                                        {
-                                                                ?>
-
-                                                                <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc/{{ $data->competent_authority_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
-                                                                </p>
-                                                                <?php }
-                                                                else{
-                                                                    ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc/{{ $data->competent_authority_doc }}" target="_blank" download>
-                                                                        <p class="mt-3 mb-0" id="image_div">
-                                                                        <button type="button"class="btn btn-primary text-bold">
-                                                                            Download File
-                                                                        </button>
-                                                                        </p>
-                                                                    </a>
-                                                                <?php }?>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload No dues certificate of Property & Water Tax : <span style="color:red;">*</span></strong></label>
-                                                    <div class="col-sm-4 col-md-4">
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc/{{ $data->dues_certificate_doc }}" target="_blank">
-                                                            <div class="form-group">
-                                                                <?php
-                                                                        $document_path = $data->dues_certificate_doc;
-                                                                        $filter_path =  explode(".",$document_path);
-                                                                        $size_of_array = count($filter_path);
-                                                                        $filter_ext = $filter_path[$size_of_array - 1];
-
-                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
-                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                                                        {
-                                                                ?>
-
-                                                                <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc/{{ $data->dues_certificate_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
-                                                                </p>
-                                                                <?php }
-                                                                else{
-                                                                    ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc/{{ $data->dues_certificate_doc }}" target="_blank" download>
+                                                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc/{{ $data->fire_equipments_install_doc }}" target="_blank" download>
                                                                         <p class="mt-3 mb-0" id="image_div">
                                                                         <button type="button"class="btn btn-primary text-bold">
                                                                             Download File
@@ -694,14 +558,12 @@
 
                                                 </div>
                                             </div>
-
                                         </div>
-
 
                                         <div class="form-group row mt-4" >
                                             <label class="col-md-3"></label>
                                             <div class="col-md-9" style="display: flex; justify-content: flex-end;">
-                                                <a href="{{ url('/provisional_building_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                <a href="{{ url('/admin_final_building_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
                                                 {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
                                             </div>
                                         </div>
@@ -722,7 +584,7 @@
             </div>
             <!-- End Page-content -->
 
-            @include('common.citizen.footer.footer')
+            @include('common.admin.footer.footer')
 
         </div>
         <!-- end main content-->

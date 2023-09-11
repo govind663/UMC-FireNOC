@@ -1,4 +1,4 @@
-<!doctype html>
+fgdg<!doctype html>
 <html lang="en">
 
 <head>
@@ -45,7 +45,7 @@
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-        @include('common.citizen.header.header')
+        @include('common.admin.header.header')
 
         <div class="main-content">
 
@@ -701,7 +701,7 @@
                                         <div class="form-group row mt-4" >
                                             <label class="col-md-3"></label>
                                             <div class="col-md-9" style="display: flex; justify-content: flex-end;">
-                                                <a href="{{ url('/provisional_building_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                <a href="{{ url('/admin_provisional_building_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
                                                 {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
                                             </div>
                                         </div>
@@ -722,7 +722,7 @@
             </div>
             <!-- End Page-content -->
 
-            @include('common.citizen.footer.footer')
+            @include('common.admin.footer.footer')
 
         </div>
         <!-- end main content-->

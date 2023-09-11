@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
 
-    <title>UMC-Fire NOC | Provisional Building NOC</title>
+    <title>UMC-Fire NOC | New Hospital NOC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
     <meta content="Themesdesign" name="author">
@@ -45,7 +45,7 @@
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-        @include('common.citizen.header.header')
+        @include('common.admin.header.header')
 
         <div class="main-content">
 
@@ -57,7 +57,7 @@
                         <div class="col-lg-12">
                             <div class="card" style="border: 1px solid #000000;">
                                 <div class="card-body p-0">
-                                    <h4 class="card-header text-light bg-primary ">Provisional Building NOC</h4>
+                                    <h4 class="card-header text-light bg-primary ">New Hospital Business NOC</h4>
 
                                     <form class="auth-input p-4" >
 
@@ -83,8 +83,8 @@
                                                 <select class="form-control select2 " name="noc_mode" id="noc_mode" type="hidden">
                                                     <option>Select Mode of NOC</option>
                                                     <optgroup label=" ">
-                                                        <option value="5" {{ old('noc_mode') == "5" ? 'selected' : '' }} selected>Provisional Building NOC</option>
-                                                        <option value="6" {{ old('noc_mode') == "6" ? 'selected' : '' }}>Final Building NOC</option>
+                                                        <option value="3" {{ old('noc_mode') == "3" ? 'selected' : '' }} selected>New Hospital NOC</option>
+                                                        <option value="4" {{ old('noc_mode') == "4" ? 'selected' : '' }}>Renewal Hospital NOC</option>
                                                     </optgroup>
                                                 </select>
                                             </div>
@@ -122,13 +122,13 @@
                                         </div>
 
                                         <div class="form-group row  mb-3">
-                                            <label class="col-sm-2"><strong>Name of Society : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Name of Hospital : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="society_name" id="society_name" class="form-control @error('society_name') is-invalid @enderror" value="{{ $data->society_name }}" placeholder="Enter Name of Society.">
-                                                @error('society_name')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
+                                                <input type="text" name="hospital_name" id="hospital_name" class="form-control @error('hospital_name') is-invalid @enderror" value="{{ $data->hospital_name }}" placeholder="Enter Name of Hospital.">
+                                                @error('hospital_name')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                                 @enderror
                                             </div>
                                             <label class="col-sm-2"><strong>Designation : <span style="color:red;">*</span></strong></label>
@@ -287,38 +287,201 @@
                                                     </optgroup>
                                                 </select>
                                                 @error('types_of_property')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                                 @enderror
                                             </div>
                                             <label class="col-sm-2"><strong>Property Number : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="property_no" id="property_no" class="form-control @error('property_no') is-invalid @enderror" value="{{ $data->property_no }}" placeholder="Enter Property Number.">
                                                 @error('property_no')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                                 @enderror
                                             </div>
                                         </div>
 
-                                        <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Necessary Particulars about above service</h4>
+                                        <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Information of Land :</h4>
                                         <div class="form-group row  mb-3">
-                                            <label class="col-sm-2"><strong>Construction Permission Number : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Town / City : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="peermission_no" id="peermission_no" maxlength="06" class="form-control @error('peermission_no') is-invalid @enderror" value="{{ $data->peermission_no }}" placeholder="Enter Construction Permission Number.">
-                                                @error('peermission_no')
+                                                <input type="text" name="city_name" id="city_name" class="form-control @error('city_name') is-invalid @enderror" value="{{ $data->city_name }}" placeholder="Enter Town / City.">
+                                                @error('city_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                                 @enderror
                                             </div>
 
-                                            <label class="col-sm-2"><strong>Date of Permission : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Survey / Block / Barrak No. : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="date" name="permission_date" id="permission_date" max="<?php echo date("Y-m-d"); ?>" class="form-control @error('permission_date') is-invalid @enderror" value="{{ $data->permission_date }}" placeholder="Enter Date of Permission.">
-                                                @error('permission_date')
+                                                <input type="text" name="survey_no" id="survey_no" class="form-control @error('survey_no') is-invalid @enderror" value="{{ $data->survey_no }}" placeholder="Enter Survey / Block / Barrak No.">
+                                                @error('survey_no')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+
+                                            <label class="col-sm-2"><strong>C.T.S. No. : <span style="color:red;">*</span></strong></label>
+                                            <div class="col-sm-2 col-md-2">
+                                                <input type="text" name="cts_no" id="cts_no" class="form-control @error('cts_no') is-invalid @enderror" value="{{ $data->cts_no }}" placeholder="Enter C.T.S. No.">
+                                                @error('cts_no')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row  mb-3">
+                                            <label class="col-sm-2"><strong>Part No. / Sheet No. : <span style="color:red;">*</span></strong></label>
+                                            <div class="col-sm-2 col-md-2">
+                                                <input type="text" name="part_no" id="part_no" class="form-control @error('part_no') is-invalid @enderror" value="{{ $data->part_no }}" placeholder="Enter Part No. / Sheet No.">
+                                                @error('part_no')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+
+                                            <label class="col-sm-2"><strong>Plot No. / Unit No. : <span style="color:red;">*</span></strong></label>
+                                            <div class="col-sm-2 col-md-2">
+                                                <input type="text" name="plot_no" id="plot_no" class="form-control @error('plot_no') is-invalid @enderror" value="{{ $data->plot_no }}" placeholder="Enter Plot No. / Unit No.">
+                                                @error('plot_no')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+
+                                            <label class="col-sm-2"><strong>Property Number : <span style="color:red;">*</span></strong></label>
+                                            <div class="col-sm-2 col-md-2">
+                                                <input type="text" name="land_property_no" id="land_property_no" class="form-control @error('land_property_no') is-invalid @enderror" value="{{ $data->land_property_no }}" placeholder="Enter Property Number.">
+                                                @error('land_property_no')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Necessary Particulars about above service</h4>
+                                        <div class="form-group row  mb-3">
+                                            <label class="col-sm-2"><strong>Pincode : <span style="color:red;">*</span></strong></label>
+                                            <div class="col-sm-2 col-md-2">
+                                                <input type="text" name="area_pincode" id="area_pincode" maxlength="06" class="form-control @error('area_pincode') is-invalid @enderror" value="{{ $data->area_pincode }}" placeholder="Enter Pincode.">
+                                                @error('area_pincode')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+
+                                            <label class="col-sm-2"><strong>Type of Hospital : <span style="color:red;">*</span></strong></label>
+                                            <div class="col-sm-2 col-md-2">
+                                                <select class="form-control select2 @error('types_of_hospital') is-invalid @enderror" name="types_of_hospital" id="types_of_hospital">
+                                                    <option value="">Select Type of Hospital</option>
+                                                    <optgroup label=" ">
+                                                        <option value="1" {{ $data->types_of_hospital == "1"? 'selected' : '' }}>Temporary</option>
+                                                        <option value="2" {{ $data->types_of_hospital == "2"? 'selected' : '' }}>Fixed</option>
+                                                    </optgroup>
+                                                </select>
+                                                @error('types_of_hospital')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+
+                                            <label class="col-sm-2"><strong>From Date : <span style="color:red;">*</span></strong></label>
+                                            <div class="col-sm-2 col-md-2">
+                                                <input type="date" name="from_date" id="from_date" max="<?php echo date("Y-m-d"); ?>" class="form-control @error('from_date') is-invalid @enderror" value="{{ $data->from_date }}" placeholder="Enter From Date.">
+                                                @error('from_date')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row  mb-3">
+                                            <label class="col-sm-2"><strong>To Date : <span style="color:red;">*</span></strong></label>
+                                            <div class="col-sm-2 col-md-2">
+                                                <input type="date" name="to_date" id="to_date" max="<?php echo date("Y-m-d"); ?>" class="form-control @error('to_date') is-invalid @enderror" value="{{ $data->to_date }}" placeholder="Enter To Date.">
+                                                @error('to_date')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+
+                                            <label class="col-sm-2"><strong>Shop No. : <span style="color:red;">*</span></strong></label>
+                                            <div class="col-sm-2 col-md-2">
+                                                <input type="text" name="shop_no" id="shop_no" class="form-control @error('shop_no') is-invalid @enderror" value="{{ $data->shop_no }}" placeholder="Enter Shop No.">
+                                                @error('shop_no')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+
+                                            <label class="col-sm-2"><strong>Area of Place (Sq. Mt.) : <span style="color:red;">*</span></strong></label>
+                                            <div class="col-sm-2 col-md-2">
+                                                <input type="text" name="area_place_measurments" id="area_place_measurments" class="form-control @error('area_place_measurments') is-invalid @enderror" value="{{ $data->area_place_measurments }}" placeholder="Enter Area of Place (Sq. Mt.).">
+                                                @error('area_place_measurments')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row  mb-3">
+                                            <label class="col-sm-2"><strong>Numbers of Staff : <span style="color:red;">*</span></strong></label>
+                                            <div class="col-sm-2 col-md-2">
+                                                <input type="text" name="total_staff" id="total_staff" class="form-control @error('total_staff') is-invalid @enderror" value="{{ $data->total_staff }}" placeholder="Enter Numbers of Staff.">
+                                                @error('total_staff')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+
+                                            <label class="col-sm-2"><strong>Number of Staff sleep at night at working place : <span style="color:red;">*</span></strong></label>
+                                            <div class="col-sm-2 col-md-2">
+                                                <input type="text" name="total_sleeping_staff" id="total_sleeping_staff" class="form-control @error('total_sleeping_staff') is-invalid @enderror" value="{{ $data->total_sleeping_staff }}" placeholder="Enter Number of Staff sleep at night at working place">
+                                                @error('total_sleeping_staff')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+
+                                            <label class="col-sm-2"><strong>Fire extinguishers / preventive equipments are installed at working place : <span style="color:red;">*</span></strong></label>
+                                            <div class="col-sm-2 col-md-2">
+                                                <select class="form-control select2 @error('hospital_fireequip') is-invalid @enderror" name="hospital_fireequip" id="hospital_fireequip">
+                                                    <option value="">Select Fire extinguishers/ preventive equipments are installed at working place</option>
+                                                    <optgroup label=" ">
+                                                        <option value="1" {{ $data->hospital_fireequip == "1"? 'selected' : '' }}>Yes</option>
+                                                        <option value="2" {{ $data->hospital_fireequip == "2"? 'selected' : '' }}>No</option>
+                                                    </optgroup>
+                                                </select>
+                                                @error('hospital_fireequip')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row  mb-3">
+                                            <label class="col-sm-2"><strong>Address Of Hospital Place : <span style="color:red;">*</span></strong></label>
+                                            <div class="col-sm-6 col-md-6">
+                                                <textarea type="text" name="hospital_address" id="hospital_address" class="form-control @error('hospital_address') is-invalid @enderror" value="{{ $data->hospital_address }}" placeholder="Enter Address Of Hospital Place." style="height: 80px; width:100%;" >{{ $data->hospital_address }}</textarea>
+                                                @error('hospital_address')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
@@ -332,12 +495,12 @@
                                             <div class="row ">
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Maps of Proposed Construction : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Upload Document Of Property : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/maps_of_proposed_doc/{{ $data->maps_of_proposed_doc }}" target="_blank">
+                                                        <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/property_doc/{{ $data->property_doc }}" target="_blank">
                                                             <div class="form-group">
                                                                 <?php
-                                                                        $document_path = $data->maps_of_proposed_doc;
+                                                                        $document_path = $data->property_doc;
                                                                         $filter_path =  explode(".",$document_path);
                                                                         $size_of_array = count($filter_path);
                                                                         $filter_ext = $filter_path[$size_of_array - 1];
@@ -348,12 +511,12 @@
                                                                 ?>
 
                                                                 <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/maps_of_proposed_doc/{{ $data->maps_of_proposed_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                    <img src="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/property_doc/{{ $data->property_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
                                                                 </p>
                                                                 <?php }
                                                                 else{
                                                                     ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/maps_of_proposed_doc/{{ $data->maps_of_proposed_doc }}" target="_blank" download>
+                                                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/property_doc/{{ $data->property_doc }}" target="_blank" download>
                                                                         <p class="mt-3 mb-0" id="image_div">
                                                                         <button type="button"class="btn btn-primary text-bold">
                                                                             Download File
@@ -365,12 +528,12 @@
                                                         </a>
                                                     </div>
 
-                                                    <label class="col-sm-2"><strong>Upload 7/12 Extract / City Survey Extract : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Upload Location of Place : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/city_survey_doc/{{ $data->city_survey_doc }}" target="_blank">
+                                                        <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/location_doc/{{ $data->location_doc }}" target="_blank">
                                                             <div class="form-group">
                                                                 <?php
-                                                                        $document_path = $data->city_survey_doc;
+                                                                        $document_path = $data->location_doc;
                                                                         $filter_path =  explode(".",$document_path);
                                                                         $size_of_array = count($filter_path);
                                                                         $filter_ext = $filter_path[$size_of_array - 1];
@@ -381,80 +544,12 @@
                                                                 ?>
 
                                                                 <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/city_survey_doc/{{ $data->city_survey_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                    <img src="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/location_doc/{{ $data->location_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
                                                                 </p>
                                                                 <?php }
                                                                 else{
                                                                     ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/city_survey_doc/{{ $data->city_survey_doc }}" target="_blank" download>
-                                                                        <p class="mt-3 mb-0" id="image_div">
-                                                                        <button type="button"class="btn btn-primary text-bold">
-                                                                            Download File
-                                                                        </button>
-                                                                        </p>
-                                                                    </a>
-                                                                <?php }?>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Sanad / Letter from S.D.O. Ulhasnagar : <span style="color:red;">*</span></strong></label>
-                                                    <div class="col-sm-4 col-md-4">
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/sanad_doc/{{ $data->sanad_doc }}" target="_blank">
-                                                            <div class="form-group">
-                                                                <?php
-                                                                        $document_path = $data->sanad_doc;
-                                                                        $filter_path =  explode(".",$document_path);
-                                                                        $size_of_array = count($filter_path);
-                                                                        $filter_ext = $filter_path[$size_of_array - 1];
-
-                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
-                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                                                        {
-                                                                ?>
-
-                                                                <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/sanad_doc/{{ $data->sanad_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
-                                                                </p>
-                                                                <?php }
-                                                                else{
-                                                                    ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/sanad_doc/{{ $data->sanad_doc }}" target="_blank" download>
-                                                                        <p class="mt-3 mb-0" id="image_div">
-                                                                        <button type="button"class="btn btn-primary text-bold">
-                                                                            Download File
-                                                                        </button>
-                                                                        </p>
-                                                                    </a>
-                                                                <?php }?>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-
-                                                    <label class="col-sm-2"><strong>Upload Title & Search Report from competent Authority : <span style="color:red;">*</span></strong></label>
-                                                    <div class="col-sm-4 col-md-4">
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc/{{ $data->competent_authority_doc }}" target="_blank">
-                                                            <div class="form-group">
-                                                                <?php
-                                                                        $document_path = $data->competent_authority_doc;
-                                                                        $filter_path =  explode(".",$document_path);
-                                                                        $size_of_array = count($filter_path);
-                                                                        $filter_ext = $filter_path[$size_of_array - 1];
-
-                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
-                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                                                        {
-                                                                ?>
-
-                                                                <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc/{{ $data->competent_authority_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
-                                                                </p>
-                                                                <?php }
-                                                                else{
-                                                                    ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc/{{ $data->competent_authority_doc }}" target="_blank" download>
+                                                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/location_doc/{{ $data->location_doc }}" target="_blank" download>
                                                                         <p class="mt-3 mb-0" id="image_div">
                                                                         <button type="button"class="btn btn-primary text-bold">
                                                                             Download File
@@ -468,12 +563,12 @@
                                                 </div>
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload No dues certificate of Property & Water Tax : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Upload Letter from License Holder regarding proper electric connection : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc/{{ $data->dues_certificate_doc }}" target="_blank">
+                                                        <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/electric_doc/{{ $data->electric_doc }}" target="_blank">
                                                             <div class="form-group">
                                                                 <?php
-                                                                        $document_path = $data->dues_certificate_doc;
+                                                                        $document_path = $data->electric_doc;
                                                                         $filter_path =  explode(".",$document_path);
                                                                         $size_of_array = count($filter_path);
                                                                         $filter_ext = $filter_path[$size_of_array - 1];
@@ -484,12 +579,45 @@
                                                                 ?>
 
                                                                 <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc/{{ $data->dues_certificate_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                    <img src="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/electric_doc/{{ $data->electric_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
                                                                 </p>
                                                                 <?php }
                                                                 else{
                                                                     ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc/{{ $data->dues_certificate_doc }}" target="_blank" download>
+                                                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/electric_doc/{{ $data->electric_doc }}" target="_blank" download>
+                                                                        <p class="mt-3 mb-0" id="image_div">
+                                                                        <button type="button"class="btn btn-primary text-bold">
+                                                                            Download File
+                                                                        </button>
+                                                                        </p>
+                                                                    </a>
+                                                                <?php }?>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+
+                                                    <label class="col-sm-2"><strong>Upload Shop License : <span style="color:red;">*</span></strong></label>
+                                                    <div class="col-sm-4 col-md-4">
+                                                        <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/shop_license_doc/{{ $data->shop_license_doc }}" target="_blank">
+                                                            <div class="form-group">
+                                                                <?php
+                                                                        $document_path = $data->shop_license_doc;
+                                                                        $filter_path =  explode(".",$document_path);
+                                                                        $size_of_array = count($filter_path);
+                                                                        $filter_ext = $filter_path[$size_of_array - 1];
+
+                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
+                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
+                                                                        {
+                                                                ?>
+
+                                                                <p class="mt-3 mb-0" id="image_div">
+                                                                    <img src="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/shop_license_doc/{{ $data->shop_license_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                </p>
+                                                                <?php }
+                                                                else{
+                                                                    ?>
+                                                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/shop_license_doc/{{ $data->shop_license_doc }}" target="_blank" download>
                                                                         <p class="mt-3 mb-0" id="image_div">
                                                                         <button type="button"class="btn btn-primary text-bold">
                                                                             Download File
@@ -502,6 +630,141 @@
                                                     </div>
                                                 </div>
 
+                                                <div class="form-group row  mb-3">
+                                                    <label class="col-sm-2"><strong>Upload Up-to-date receipt of Tax bill paid : <span style="color:red;">*</span></strong></label>
+                                                    <div class="col-sm-4 col-md-4">
+                                                        <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/paid_tax_bill_doc/{{ $data->paid_tax_bill_doc }}" target="_blank">
+                                                            <div class="form-group">
+                                                                <?php
+                                                                        $document_path = $data->paid_tax_bill_doc;
+                                                                        $filter_path =  explode(".",$document_path);
+                                                                        $size_of_array = count($filter_path);
+                                                                        $filter_ext = $filter_path[$size_of_array - 1];
+
+                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
+                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
+                                                                        {
+                                                                ?>
+
+                                                                <p class="mt-3 mb-0" id="image_div">
+                                                                    <img src="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/paid_tax_bill_doc/{{ $data->paid_tax_bill_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                </p>
+                                                                <?php }
+                                                                else{
+                                                                    ?>
+                                                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/paid_tax_bill_doc/{{ $data->paid_tax_bill_doc }}" target="_blank" download>
+                                                                        <p class="mt-3 mb-0" id="image_div">
+                                                                        <button type="button"class="btn btn-primary text-bold">
+                                                                            Download File
+                                                                        </button>
+                                                                        </p>
+                                                                    </a>
+                                                                <?php }?>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+
+                                                    <label class="col-sm-2"><strong>Upload Commissioning Certificate of Fire extinguishers / preventive equipments of I.S.I. Mark : <span style="color:red;">*</span></strong></label>
+                                                    <div class="col-sm-4 col-md-4">
+                                                        <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank">
+                                                            <div class="form-group">
+                                                                <?php
+                                                                        $document_path = $data->commissioning_certificate;
+                                                                        $filter_path =  explode(".",$document_path);
+                                                                        $size_of_array = count($filter_path);
+                                                                        $filter_ext = $filter_path[$size_of_array - 1];
+
+                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
+                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
+                                                                        {
+                                                                ?>
+
+                                                                <p class="mt-3 mb-0" id="image_div">
+                                                                    <img src="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/commissioning_certificate/{{ $data->commissioning_certificate }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                </p>
+                                                                <?php }
+                                                                else{
+                                                                    ?>
+                                                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank" download>
+                                                                        <p class="mt-3 mb-0" id="image_div">
+                                                                        <button type="button"class="btn btn-primary text-bold">
+                                                                            Download File
+                                                                        </button>
+                                                                        </p>
+                                                                    </a>
+                                                                <?php }?>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row  mb-3">
+                                                    <label class="col-sm-2"><strong>Upload Copy of Affidavit : <span style="color:red;">*</span></strong></label>
+                                                    <div class="col-sm-4 col-md-4">
+                                                        <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/affidavit_doc/{{ $data->affidavit_doc }}" target="_blank">
+                                                            <div class="form-group">
+                                                                <?php
+                                                                        $document_path = $data->affidavit_doc;
+                                                                        $filter_path =  explode(".",$document_path);
+                                                                        $size_of_array = count($filter_path);
+                                                                        $filter_ext = $filter_path[$size_of_array - 1];
+
+                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
+                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
+                                                                        {
+                                                                ?>
+
+                                                                <p class="mt-3 mb-0" id="image_div">
+                                                                    <img src="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/affidavit_doc/{{ $data->affidavit_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                </p>
+                                                                <?php }
+                                                                else{
+                                                                    ?>
+                                                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/affidavit_doc/{{ $data->affidavit_doc }}" target="_blank" download>
+                                                                        <p class="mt-3 mb-0" id="image_div">
+                                                                        <button type="button"class="btn btn-primary text-bold">
+                                                                            Download File
+                                                                        </button>
+                                                                        </p>
+                                                                    </a>
+                                                                <?php }?>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+
+                                                    <label class="col-sm-2"><strong>Upload Corporation Registration certificate (FOR OLD HOSPITAL) : <span style="color:red;">*</span></strong></label>
+                                                    <div class="col-sm-4 col-md-4">
+                                                        <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/corporation_certificate/{{ $data->corporation_certificate }}" target="_blank">
+                                                            <div class="form-group">
+                                                                <?php
+                                                                        $document_path = $data->corporation_certificate;
+                                                                        $filter_path =  explode(".",$document_path);
+                                                                        $size_of_array = count($filter_path);
+                                                                        $filter_ext = $filter_path[$size_of_array - 1];
+
+                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
+                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
+                                                                        {
+                                                                ?>
+
+                                                                <p class="mt-3 mb-0" id="image_div">
+                                                                    <img src="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/corporation_certificate/{{ $data->corporation_certificate }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                </p>
+                                                                <?php }
+                                                                else{
+                                                                    ?>
+                                                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/corporation_certificate/{{ $data->corporation_certificate }}" target="_blank" download>
+                                                                        <p class="mt-3 mb-0" id="image_div">
+                                                                        <button type="button"class="btn btn-primary text-bold">
+                                                                            Download File
+                                                                        </button>
+                                                                        </p>
+                                                                    </a>
+                                                                <?php }?>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             {{-- Start Declaration --}}
@@ -698,10 +961,11 @@
                                         </div>
 
 
+
                                         <div class="form-group row mt-4" >
                                             <label class="col-md-3"></label>
                                             <div class="col-md-9" style="display: flex; justify-content: flex-end;">
-                                                <a href="{{ url('/provisional_building_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                <a href="{{ url('/admin_new_hospital_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
                                                 {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
                                             </div>
                                         </div>
@@ -722,7 +986,7 @@
             </div>
             <!-- End Page-content -->
 
-            @include('common.citizen.footer.footer')
+            @include('common.admin.footer.footer')
 
         </div>
         <!-- end main content-->
