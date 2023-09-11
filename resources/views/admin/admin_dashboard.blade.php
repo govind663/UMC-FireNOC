@@ -51,7 +51,7 @@
                                             </div>
                                             <div class="flex-grow-1 overflow-hidden ms-4">
                                                 <p class="text-muted font-size-15 mb-2"> Total Citizens</p>
-                                                <h3 class="fs-4 flex-grow-1 mb-3">0 </h3>
+                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $total_citizen }}</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -77,7 +77,7 @@
                                             </div>
                                             <div class="flex-grow-1 overflow-hidden ms-4">
                                                 <p class="text-muted font-size-15 mb-2"> Total Pending Business NOC</p>
-                                                <h3 class="fs-4 flex-grow-1 mb-3">0 </h3>
+                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $business_total_pending }}</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -95,7 +95,7 @@
                                             </div>
                                             <div class="flex-grow-1 overflow-hidden ms-4">
                                                 <p class="text-muted font-size-15 mb-2">Total Paid Business <br> NOC</p>
-                                                <h3 class="fs-4 flex-grow-1 mb-3">0</h3>
+                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $business_total_paid }}</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -113,7 +113,7 @@
                                             </div>
                                             <div class="flex-grow-1 overflow-hidden ms-4">
                                                 <p class="text-muted font-size-15 mb-2">Total Unpaid Business <br> NOC</p>
-                                                <h3 class="fs-4 flex-grow-1 mb-3">0</h3>
+                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $business_total_unpaid }}</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -131,7 +131,7 @@
                                                 </div>
                                                 <div class="flex-grow-1 overflow-hidden ms-4">
                                                     <p class="text-muted font-size-15 mb-2"> Total Approved Business NOC</p>
-                                                    <h3 class="fs-4 flex-grow-1 mb-3">0</h3>
+                                                    <h3 class="fs-4 flex-grow-1 mb-3">{{ $business_total_approved }}</h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -149,7 +149,7 @@
                                                 </div>
                                                 <div class="flex-grow-1 overflow-hidden ms-4">
                                                     <p class="text-muted font-size-15 mb-2"> Total Rejected Business NOC</p>
-                                                    <h3 class="fs-4 flex-grow-1 mb-3">0 </h3>
+                                                    <h3 class="fs-4 flex-grow-1 mb-3">{{ $business_total_rejected }}</h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -175,7 +175,7 @@
                                             </div>
                                             <div class="flex-grow-1 overflow-hidden ms-4">
                                                 <p class="text-muted font-size-15 mb-2"> Total Pending Hospital NOC</p>
-                                                <h3 class="fs-4 flex-grow-1 mb-3">0 </h3>
+                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $hospital_total_pending }}</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -193,7 +193,7 @@
                                             </div>
                                             <div class="flex-grow-1 overflow-hidden ms-4">
                                                 <p class="text-muted font-size-15 mb-2">Total Paid Hospital <br> NOC</p>
-                                                <h3 class="fs-4 flex-grow-1 mb-3">0</h3>
+                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $hospital_total_unpaid }}</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -211,7 +211,7 @@
                                             </div>
                                             <div class="flex-grow-1 overflow-hidden ms-4">
                                                 <p class="text-muted font-size-15 mb-2">Total Unpaid Hospital <br> NOC</p>
-                                                <h3 class="fs-4 flex-grow-1 mb-3">0</h3>
+                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $hospital_total_paid }}</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -229,7 +229,7 @@
                                                 </div>
                                                 <div class="flex-grow-1 overflow-hidden ms-4">
                                                     <p class="text-muted font-size-15 mb-2"> Total Approved Hospital NOC</p>
-                                                    <h3 class="fs-4 flex-grow-1 mb-3">0</h3>
+                                                    <h3 class="fs-4 flex-grow-1 mb-3">{{ $hospital_total_paid }}</h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -247,7 +247,7 @@
                                                 </div>
                                                 <div class="flex-grow-1 overflow-hidden ms-4">
                                                     <p class="text-muted font-size-15 mb-2"> Total Rejected Hospital NOC</p>
-                                                    <h3 class="fs-4 flex-grow-1 mb-3">0 </h3>
+                                                    <h3 class="fs-4 flex-grow-1 mb-3">{{ $hospital_total_rejected }}</h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -275,7 +275,7 @@
                                             </div>
                                             <div class="flex-grow-1 overflow-hidden ms-4">
                                                 <p class="text-muted font-size-15 mb-2"> Total Pending Building NOC</p>
-                                                <h3 class="fs-4 flex-grow-1 mb-3">0 </h3>
+                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_pending }}</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -293,7 +293,7 @@
                                             </div>
                                             <div class="flex-grow-1 overflow-hidden ms-4">
                                                 <p class="text-muted font-size-15 mb-2">Total Paid Building <br> NOC</p>
-                                                <h3 class="fs-4 flex-grow-1 mb-3">0 </h3>
+                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_paid }}</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -311,7 +311,7 @@
                                             </div>
                                             <div class="flex-grow-1 overflow-hidden ms-4">
                                                 <p class="text-muted font-size-15 mb-2">Total Unpaid Building <br> NOC</p>
-                                                <h3 class="fs-4 flex-grow-1 mb-3">0</h3>
+                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_unpaid }}</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -329,7 +329,7 @@
                                                 </div>
                                                 <div class="flex-grow-1 overflow-hidden ms-4">
                                                     <p class="text-muted font-size-15 mb-2"> Total Approved Building NOC</p>
-                                                    <h3 class="fs-4 flex-grow-1 mb-3">0</h3>
+                                                    <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_approved }}</h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -347,7 +347,7 @@
                                                 </div>
                                                 <div class="flex-grow-1 overflow-hidden ms-4">
                                                     <p class="text-muted font-size-15 mb-2"> Total Rejected Building NOC</p>
-                                                    <h3 class="fs-4 flex-grow-1 mb-3">0 </h3>
+                                                    <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_rejected }}</h3>
                                                 </div>
                                             </div>
                                         </div>

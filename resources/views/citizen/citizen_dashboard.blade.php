@@ -426,7 +426,7 @@
                                         </div>
                                         <div class="flex-grow-1 overflow-hidden ms-4">
                                             <p class="text-muted font-size-15 mb-2">Total Paid Building <br> NOC</p>
-                                            <h3 class="fs-4 flex-grow-1 mb-3">$building_total_paid</h3>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_paid }}</h3>
                                         </div>
                                     </div>
                                 </div>

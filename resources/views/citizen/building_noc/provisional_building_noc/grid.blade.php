@@ -89,7 +89,7 @@
                                                 @foreach ($data as $key => $value)
                                                     <tr>
                                                         <td>{{ $key + 1 }}</td>
-                                                        <td>{{ $value->noc_a_date }}</td>
+                                                        <td>{{ date('d-m-Y', strtotime($value->noc_a_date)) }}</td>
                                                         <td>{{ $value->f_name }} {{ $value->father_name }} {{ $value->l_name }}</td>
 
                                                         @if ($value->noc_mode == 1)
@@ -135,11 +135,11 @@
                                                         <td><span class="bg-danger text-dark p-2" style="border: 1px;">Rejected</span></td>
                                                         @endif
                                                         <td style="display:flex;">
-                                                            <a href='' class="btn btn-primary btn-sm">
+                                                            <a href='{{ url("/provisional_building_noc/show/{$value->P_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
                                                             &nbsp;&nbsp;
-                                                            <a href='' class="btn btn-warning btn-sm text-dark">
+                                                            <a href='{{ url("/provisional_building_noc/edit/{$value->P_NOC_ID}/{$value->status}") }}' class="btn btn-warning btn-sm text-dark">
                                                                 <b><i class="mdi mdi-account-edit"> Edit</i></b>
                                                             </a>
                                                         </td>

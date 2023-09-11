@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Citizen;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
@@ -12,11 +13,13 @@ class CitizenHomeController extends Controller
 {
     public function Citizen_Home()
     {
+
         // ==== new_business_noc(pending)
         $business_total_pending = DB::table('business_noc AS t1')
                         ->select('t1.id')
                         ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
                         ->where('t1.status', 0)
+                        ->where('t2.citizen_id',  Auth::user()->id)
                         ->whereNUll('t1.deleted_at')
                         ->whereNUll('t2.deleted_at')
                         ->orderBy('t1.id','DESC')
@@ -28,6 +31,7 @@ class CitizenHomeController extends Controller
                         ->select('t1.id')
                         ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
                         ->where('t1.status', 1)
+                        ->where('t2.citizen_id',  Auth::user()->id)
                         ->whereNUll('t1.deleted_at')
                         ->whereNUll('t2.deleted_at')
                         ->orderBy('t1.id','DESC')
@@ -39,6 +43,7 @@ class CitizenHomeController extends Controller
                         ->select('t1.id')
                         ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
                         ->where('t1.status', 2)
+                        ->where('t2.citizen_id',  Auth::user()->id)
                         ->whereNUll('t1.deleted_at')
                         ->whereNUll('t2.deleted_at')
                         ->orderBy('t1.id','DESC')
@@ -50,6 +55,7 @@ class CitizenHomeController extends Controller
                         ->select('t1.id')
                         ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
                         ->where('t1.status', 3)
+                        ->where('t2.citizen_id',  Auth::user()->id)
                         ->whereNUll('t1.deleted_at')
                         ->whereNUll('t2.deleted_at')
                         ->orderBy('t1.id','DESC')
@@ -61,6 +67,7 @@ class CitizenHomeController extends Controller
                         ->select('t1.id')
                         ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
                         ->where('t1.status', 4)
+                        ->where('t2.citizen_id',  Auth::user()->id)
                         ->whereNUll('t1.deleted_at')
                         ->whereNUll('t2.deleted_at')
                         ->orderBy('t1.id','DESC')
@@ -74,6 +81,7 @@ class CitizenHomeController extends Controller
                         ->select('t1.id')
                         ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
                         ->where('t1.status', 0)
+                        ->where('t2.citizen_id',  Auth::user()->id)
                         ->whereNUll('t1.deleted_at')
                         ->whereNUll('t2.deleted_at')
                         ->orderBy('t1.id','DESC')
@@ -85,6 +93,7 @@ class CitizenHomeController extends Controller
                         ->select('t1.id')
                         ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
                         ->where('t1.status', 1)
+                        ->where('t2.citizen_id',  Auth::user()->id)
                         ->whereNUll('t1.deleted_at')
                         ->whereNUll('t2.deleted_at')
                         ->orderBy('t1.id','DESC')
@@ -96,6 +105,7 @@ class CitizenHomeController extends Controller
                         ->select('t1.id')
                         ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
                         ->where('t1.status', 2)
+                        ->where('t2.citizen_id',  Auth::user()->id)
                         ->whereNUll('t1.deleted_at')
                         ->whereNUll('t2.deleted_at')
                         ->orderBy('t1.id','DESC')
@@ -107,6 +117,7 @@ class CitizenHomeController extends Controller
                         ->select('t1.id')
                         ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
                         ->where('t1.status', 3)
+                        ->where('t2.citizen_id',  Auth::user()->id)
                         ->whereNUll('t1.deleted_at')
                         ->whereNUll('t2.deleted_at')
                         ->orderBy('t1.id','DESC')
@@ -118,6 +129,7 @@ class CitizenHomeController extends Controller
                         ->select('t1.id')
                         ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
                         ->where('t1.status', 4)
+                        ->where('t2.citizen_id',  Auth::user()->id)
                         ->whereNUll('t1.deleted_at')
                         ->whereNUll('t2.deleted_at')
                         ->orderBy('t1.id','DESC')
@@ -130,6 +142,7 @@ class CitizenHomeController extends Controller
                         ->select('t1.id')
                         ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
                         ->where('t1.status', 0)
+                        ->where('t2.citizen_id',  Auth::user()->id)
                         ->whereNUll('t1.deleted_at')
                         ->whereNUll('t2.deleted_at')
                         ->orderBy('t1.id','DESC')
@@ -141,6 +154,7 @@ class CitizenHomeController extends Controller
                         ->select('t1.id')
                         ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
                         ->where('t1.status', 1)
+                        ->where('t2.citizen_id',  Auth::user()->id)
                         ->whereNUll('t1.deleted_at')
                         ->whereNUll('t2.deleted_at')
                         ->orderBy('t1.id','DESC')
@@ -152,6 +166,7 @@ class CitizenHomeController extends Controller
                         ->select('t1.id')
                         ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
                         ->where('t1.status', 2)
+                        ->where('t2.citizen_id',  Auth::user()->id)
                         ->whereNUll('t1.deleted_at')
                         ->whereNUll('t2.deleted_at')
                         ->orderBy('t1.id','DESC')
@@ -163,6 +178,7 @@ class CitizenHomeController extends Controller
                         ->select('t1.id')
                         ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
                         ->where('t1.status', 3)
+                        ->where('t2.citizen_id',  Auth::user()->id)
                         ->whereNUll('t1.deleted_at')
                         ->whereNUll('t2.deleted_at')
                         ->orderBy('t1.id','DESC')
@@ -174,6 +190,7 @@ class CitizenHomeController extends Controller
                         ->select('t1.id')
                         ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
                         ->where('t1.status', 4)
+                        ->where('t2.citizen_id',  Auth::user()->id)
                         ->whereNUll('t1.deleted_at')
                         ->whereNUll('t2.deleted_at')
                         ->orderBy('t1.id','DESC')

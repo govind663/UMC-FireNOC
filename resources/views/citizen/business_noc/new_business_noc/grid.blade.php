@@ -90,7 +90,7 @@
                                                 @foreach ($data as $key => $value)
                                                     <tr>
                                                         <td>{{ $key + 1 }}</td>
-                                                        <td>{{ $value->noc_a_date }}</td>
+                                                        <td>{{ date('d-m-Y', strtotime($value->noc_a_date)) }}</td>
                                                         <td>{{ $value->f_name }} {{ $value->father_name }} {{ $value->l_name }}</td>
 
                                                         @if ($value->noc_mode == 1)
