@@ -14,7 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('building_noc', function (Blueprint $table) {
-            $table->integer('status')->default('0')->comment('0:Pending, 1:Unpaid, 2:Paid, 3:Approved, 4:Rejected, 5:Underprocess, 6:Reviewed')->after('fire_equipments_install_doc');
+            $table->integer('operator_status')->default('0')->comment('0:Approved, 1:Rejected')->after('application_status');
+            $table->integer('inspector_status')->default('0')->comment('0:Approved, 1:Rejected')->after('operator_status');
+            $table->integer('officer_status')->default('0')->comment('0:Approved, 1:Rejected')->after('inspector_status');
         });
     }
 
@@ -26,7 +28,9 @@ return new class extends Migration
     public function down()
     {
         Schema::table('building_noc', function (Blueprint $table) {
-            $table->dropColumn('status');
+            $table->dropColumn('operator_status');
+            $table->dropColumn('inspector_status');
+            $table->dropColumn('officer_status');
         });
     }
 };

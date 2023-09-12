@@ -58,38 +58,40 @@ Route::group(['middleware' => ['auth:web']], function () {
     // ====== New Business NOC
     Route::get('/admin_new_business_noc_list/{status}', [AdminNewBusinessNOCController::class, 'index'])->name('admin_new_business_noc_list');
     Route::get('/admin_new_business_noc/show/{id}/{status}', [AdminNewBusinessNOCController::class, 'show'])->name('admin_new_business_noc.show');
-    Route::post('/admin_new_business_noc_list/approved/{id}/{n_id}/{status}', [AdminNewBusinessNOCController::class, 'approved'])->name('admin_new_business_noc_list.approved');
-    Route::post('/admin_new_business_noc_list/rejected/{id}/{n_id}/{status}', [AdminNewBusinessNOCController::class, 'rejected'])->name('new_business_noc_list.rejected');
+    Route::get('/admin_new_business_noc/approved/{id}/{status}', [AdminNewBusinessNOCController::class, 'approved'])->name('admin_new_business_noc.approved');
+    Route::post('/admin_new_business_noc/rejected/{id}/{status}', [AdminNewBusinessNOCController::class, 'rejected'])->name('admin_new_business_noc.rejected');
+    Route::get('/all_new_business_noc_list/{status}/{all_status}', [AdminNewBusinessNOCController::class, 'list'])->name('all_new_business_noc_list');
+    Route::get('/all_new_business_noc/show/{id}/{status}/{all_status}', [AdminNewBusinessNOCController::class, 'view'])->name('all_new_business_noc.show');
 
     // ====== Renew Business NOC
     Route::get('/admin_renew_business_noc_list/{status}', [AdminRenewBusinessNOCController::class, 'index'])->name('admin_renew_business_noc_list');
     Route::get('/admin_renew_business_noc/show/{id}/{status}', [AdminRenewBusinessNOCController::class, 'show'])->name('admin_renew_business_noc.show');
-    Route::post('/admin_renew_business_noc/approved/{id}/{n_id}/{status}', [AdminRenewBusinessNOCController::class, 'approved'])->name('admin_renew_business_noc.approved');
-    Route::post('/admin_renew_business_noc/rejected/{id}/{n_id}/{status}', [AdminRenewBusinessNOCController::class, 'rejected'])->name('admin_renew_business_noc.rejected');
+    // Route::get('/admin_renew_business_noc/approved/{id}/{status}', [AdminRenewBusinessNOCController::class, 'approved'])->name('admin_renew_business_noc.approved');
+    // Route::post('/admin_renew_business_noc/rejected/{id}/{status}', [AdminRenewBusinessNOCController::class, 'rejected'])->name('admin_renew_business_noc.rejected');
 
     // ====== New Hospital NOC
     Route::get('/admin_new_hospital_noc_list/{status}', [AdminNewHospitalNOCController::class, 'index'])->name('admin_new_hospital_noc_list');
     Route::get('/admin_new_hospital_noc/show/{id}/{status}', [AdminNewHospitalNOCController::class, 'show'])->name('admin_new_hospital_noc.show');
-    Route::post('/admin_new_hospital_noc/approved/{id}/{n_id}/{status}', [AdminNewHospitalNOCController::class, 'approved'])->name('admin_new_hospital_noc.approved');
-    Route::post('/admin_new_hospital_noc/rejected/{id}/{n_id}/{status}', [AdminNewHospitalNOCController::class, 'rejected'])->name('admin_new_hospital_noc.rejected');
+    // Route::get('/admin_new_hospital_noc/approved/{id}/{status}', [AdminNewHospitalNOCController::class, 'approved'])->name('admin_new_hospital_noc_list.approved');
+    // Route::post('/admin_new_hospital_noc/rejected/{id}/{status}', [AdminNewHospitalNOCController::class, 'rejected'])->name('admin_new_hospital_noc.rejected');
 
     // ====== Renew Hospital NOC
     Route::get('/admin_renew_hospital_noc_list/{status}', [AdminRenewHospitalNOCController::class, 'index'])->name('admin_renew_hospital_noc_list');
     Route::get('/admin_renew_hospital_noc/show/{id}/{status}', [AdminRenewHospitalNOCController::class, 'show'])->name('admin_renew_hospital_noc.show');
-    Route::post('/admin_renew_hospital_noc/approved/{id}/{n_id}/{status}', [AdminRenewHospitalNOCController::class, 'approved'])->name('admin_renew_hospital_noc.approved');
-    Route::post('/admin_renew_hospital_noc/rejected/{id}/{n_id}/{status}', [AdminRenewHospitalNOCController::class, 'rejected'])->name('admin_renew_hospital_noc.rejected');
+    // Route::get('/admin_renew_hospital_noc/approved/{id}/{status}', [AdminRenewHospitalNOCController::class, 'approved'])->name('admin_renew_hospital_noc.approved');
+    // Route::post('/admin_renew_hospital_noc/rejected/{id}/{status}', [AdminRenewHospitalNOCController::class, 'rejected'])->name('admin_renew_hospital_noc.rejected');
 
     // ====== Provisional Building NOC
     Route::get('/admin_provisional_building_noc_list/{status}', [AdminProvisionalBuildingNOCController::class, 'index'])->name('admin_provisional_building_noc_list');
     Route::get('/admin_provisional_building_noc/show/{id}/{status}', [AdminProvisionalBuildingNOCController::class, 'show'])->name('admin_provisional_building_noc.show');
-    Route::post('/admin_provisional_building_noc/approved/{id}/{n_id}/{status}', [AdminProvisionalBuildingNOCController::class, 'approved'])->name('admin_provisional_building_noc.approved');
-    Route::post('/admin_provisional_building_noc/rejected/{id}/{n_id}/{status}', [AdminProvisionalBuildingNOCController::class, 'rejected'])->name('admin_provisional_building_noc.rejected');
+    // Route::get('/admin_provisional_building_noc/approved/{id}/{status}', [AdminProvisionalBuildingNOCController::class, 'approved'])->name('admin_provisional_building_noc.approved');
+    // Route::post('/admin_provisional_building_noc/rejected/{id}/{status}', [AdminProvisionalBuildingNOCController::class, 'rejected'])->name('admin_provisional_building_noc.rejected');
 
     // ====== Final Building NOC
     Route::get('/admin_final_building_noc_list/{status}', [AdminFinalBuildingNOCController::class, 'index'])->name('admin_final_building_noc_list');
     Route::get('/admin_final_building_noc/show/{id}/{status}', [AdminFinalBuildingNOCController::class, 'show'])->name('admin_final_building_noc.show');
-    Route::post('/admin_final_building_noc/approved/{id}/{n_id}/{status}', [AdminFinalBuildingNOCController::class, 'approved'])->name('admin_final_building_noc.approved');
-    Route::post('/admin_final_building_noc/rejected/{id}/{n_id}/{status}', [AdminFinalBuildingNOCController::class, 'rejected'])->name('admin_final_building_noc.rejected');
+    // Route::get('/admin_final_building_noc/approved/{id}/{status}', [AdminFinalBuildingNOCController::class, 'approved'])->name('admin_final_building_noc.approved');
+    // Route::post('/admin_final_building_noc/rejected/{id}/{status}', [AdminFinalBuildingNOCController::class, 'rejected'])->name('admin_final_building_noc.rejected');
 
 });
 

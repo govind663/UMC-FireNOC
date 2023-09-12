@@ -8,6 +8,7 @@ use App\Models\Business_NOC;
 use App\Models\NOC_Master;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\RemarksRequest;
 
 class AdminRenewBusinessNOCController extends Controller
 {
@@ -52,5 +53,44 @@ class AdminRenewBusinessNOCController extends Controller
         // dd($data);
 
         return view('admin.business_noc.renew_business_noc.view')->with('data', $data)->with('status', $status);
+    }
+
+    /**
+     * Approved the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function approved($id, $status)
+    {
+        $update = [
+            'application_status' => 1 ,
+            'approved_dt' => date("Y-m-d H:i:s") ,
+            'approved_by' => Auth::user()->id ,
+        ];
+
+        Business_NOC::where('id', $id)->where('status', $status)->update($update);
+
+        return redirect()->route('new_business_noc_list',$status)->with('message', 'The application form which you had filled for your new business noc has been approved Successfully.');
+    }
+
+    /**
+     * Rejected the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function rejected(RemarksRequest $request, $id, $status)
+    {
+        $update = [
+            'status' => 4 ,
+            'remarks' => $request->get('remarks'),
+            'rejected_dt' => date("Y-m-d H:i:s") ,
+            'rejected_by' => Auth::user()->id ,
+        ];
+
+        Business_NOC::where('id', $id)->where('status', $status)->update($update);
+
+        return redirect()->route('admin_renew_business_noc',$status)->with('message', 'The application form which you had filled for your new business noc has been rejected Successfully.');
     }
 }

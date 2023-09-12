@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\RemarksRequest;
 use App\Models\Business_NOC;
-use App\Models\NOC_Master;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class AdminNewBusinessNOCController extends Controller
 {
@@ -20,14 +19,14 @@ class AdminNewBusinessNOCController extends Controller
     {
 
         $data = DB::table('business_noc AS t1')
-                ->select('t1.*', 't2.*', 't1.id as NB_NOC_ID')
-                ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                ->where('t2.noc_mode', 1)  // ==== New Business NOC (status=1)
-                ->where('t1.status', $status)
-                ->whereNUll('t1.deleted_at')
-                ->whereNUll('t2.deleted_at')
-                ->orderBy('t1.id','DESC')
-                ->get();
+            ->select('t1.*', 't2.*', 't1.id as NB_NOC_ID', 't2.id as d_ID')
+            ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id')
+            ->where('t2.noc_mode', 1) // ==== New Business NOC (status=1)
+            ->where('t1.status', $status)
+            ->whereNUll('t1.deleted_at')
+            ->whereNUll('t2.deleted_at')
+            ->orderBy('t1.id', 'DESC')
+            ->get();
         // dd($data);
 
         return view('admin.business_noc.new_business_noc.grid')->with('data', $data)->with('status', $status);
@@ -42,17 +41,126 @@ class AdminNewBusinessNOCController extends Controller
     public function show($id, $status)
     {
         $data = DB::table('business_noc as t1')
-                ->select('t1.*', 't2.*')
-                ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
-                ->where('t2.noc_mode', 1)  // ==== New Business NOC (status=1)
-                ->where('t1.status', $status)
-                ->where('t1.id', $id)
-                ->whereNUll('t1.deleted_at')
-                ->whereNUll('t2.deleted_at')
-                ->first();
+            ->select('t1.*', 't2.*', 't1.id as NB_NOC_ID', 't2.id as d_ID')
+            ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id')
+            ->where('t2.noc_mode', 1) // ==== New Business NOC (status=1)
+            ->where('t1.status', $status)
+            ->where('t1.id', $id)
+            ->whereNUll('t1.deleted_at')
+            ->whereNUll('t2.deleted_at')
+            ->first();
         // dd($data);
 
         return view('admin.business_noc.new_business_noc.view')->with('data', $data)->with('status', $status);
+    }
+
+    /**
+     * Approved the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function approved($id, $status)
+    {
+        $update = [
+            'status' => 5,
+            'application_status' => 1,
+            'approved_dt' => date("Y-m-d H:i:s"),
+            'approved_by' => Auth::user()->id,
+        ];
+
+        Business_NOC::where('id', $id)->where('status', $status)->update($update);
+
+        return redirect()->route('admin_new_business_noc_list', $status)->with('message', 'The application form which you had filled for your new business noc has been approved Successfully.');
+    }
+
+    /**
+     * Rejected the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function rejected(RemarksRequest $request, $id, $status)
+    {
+
+        $update = [
+            'status' => 4,
+            'remarks' => $request->get('remarks'),
+            'rejected_dt' => date("Y-m-d H:i:s"),
+            'rejected_by' => Auth::user()->id,
+        ];
+
+        Business_NOC::where('id', $id)->where('status', $status)->update($update);
+
+        return redirect()->route('new_business_noc_list', $status)->with('message', 'The application form which you had filled for your new business noc has been rejected Successfully.');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function list($status, $all_status)
+    {
+
+        $query = DB::table('business_noc AS t1')
+            ->select('t1.*', 't2.*', 't1.id as NB_NOC_ID', 't2.id as d_ID')
+            ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id')
+            ->where('t2.noc_mode', 1) // ==== New Business NOC (status=1)
+            ->where('t1.status', $status)
+            ->whereNUll('t1.deleted_at')
+            ->whereNUll('t2.deleted_at')
+            ->orderBy('t1.id', 'DESC');
+
+        if (Auth::user()->role == 0) {
+            $query->where('t1.operator_status', $all_status);
+        } elseif (Auth::user()->role == 1) {
+            $query->where('t1.inspector_status', $all_status);
+        } elseif (Auth::user()->role == 2) {
+            $query->where('t1.officer_status', $all_status);
+        } elseif (Auth::user()->role == 3) {
+            $query->where('t1.operator_status', $all_status);
+        }
+
+        $data = $query->get();
+
+        // dd($data);
+
+        return view('admin.business_noc.all_application.grid')->with('data', $data)->with('status', $status);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function view($id, $status, $all_status)
+    {
+        $query = DB::table('business_noc AS t1')
+            ->select('t1.*', 't2.*', 't1.id as NB_NOC_ID', 't2.id as d_ID')
+            ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id')
+            ->where('t2.noc_mode', 1) // ==== New Business NOC (status=1)
+            ->where('t1.status', $status)
+            ->whereNUll('t1.deleted_at')
+            ->whereNUll('t2.deleted_at')
+            ->orderBy('t1.id', 'DESC');
+
+        if (Auth::user()->role == 0) {
+            $query->where('t1.operator_status', $all_status);
+        } elseif (Auth::user()->role == 1) {
+            $query->where('t1.inspector_status', $all_status);
+        } elseif (Auth::user()->role == 2) {
+            $query->where('t1.officer_status', $all_status);
+        } elseif (Auth::user()->role == 3) {
+            $query->where('t1.operator_status', $all_status);
+        }
+
+        $data = $query->first();
+
+        // dd($data);
+
+        return view('admin.business_noc.all_application.view')->with('data', $data)->with('status', $status);
     }
 
 }

@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'DMC',
             'role' => '3',
-            'email' => 'admin@email.com',
+            'email' => 'admin@gmail.com',
             'password' => Hash::make('1234567890'),
         ]);
 
@@ -40,7 +40,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Operator',
             'role' => '0',
-            'email' => 'operator@email.com',
+            'email' => 'operator@gmail.com',
             'password' => bcrypt('1234567890'),
         ]);
     }

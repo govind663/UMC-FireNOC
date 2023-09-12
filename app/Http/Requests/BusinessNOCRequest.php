@@ -23,80 +23,158 @@ class BusinessNOCRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            // === Basic Details
-            'l_name' => 'required',
-            'f_name' => 'required',
-            'father_name' => 'required',
-            'society_name' => 'required',
-            'designation' => 'required',
+        if ($this->id){
+            $rule = [
+                // === Basic Details
+                'l_name' => 'required',
+                'f_name' => 'required',
+                'father_name' => 'required',
+                'society_name' => 'required',
+                'designation' => 'required',
 
-            // ===== Address Details
-            'house_name' => 'required',
-            'flat_no' => 'required',
-            'wing_name' => 'required',
-            'road_name' => 'required',
-            'area_name' => 'required',
-            'taluka_name' => 'required',
-            'pincode' => 'required',
-            'ward_no' => 'required',
-            'electrol_panel_no' => 'required',
+                // ===== Address Details
+                'house_name' => 'required',
+                'flat_no' => 'required',
+                'wing_name' => 'required',
+                'road_name' => 'required',
+                'area_name' => 'required',
+                'taluka_name' => 'required',
+                'pincode' => 'required',
+                'ward_no' => 'required',
+                'electrol_panel_no' => 'required',
 
-            // ===== Information of Property
-            'types_of_property' => 'required',
-            'property_no' => 'required',
+                // ===== Information of Property
+                'types_of_property' => 'required',
+                'property_no' => 'required',
 
-            // ====== Information of Land
-            'city_name' => 'required',
-            'survey_no' => 'required',
-            'cts_no' => 'required',
-            'part_no' => 'required',
-            'plot_no' => 'required',
-            'land_property_no' => 'required',
+                // ====== Information of Land
+                'city_name' => 'required',
+                'survey_no' => 'required',
+                'cts_no' => 'required',
+                'part_no' => 'required',
+                'plot_no' => 'required',
+                'land_property_no' => 'required',
 
-            // ===== Necessary Particulars about above service
-            'area_pincode' => 'required',
-            'shop_no' => 'required',
-            'building_height' => 'required',
-            'rooms_in_buld' => 'required',
-            'property_on_floor_buld' => 'required',
-            'no_of_accomodation_people' => 'required',
-            'area' => 'required',
-            'no_of_workers' => 'required',
-            'types_of_business' => 'required',
-            'no_of_workers_sleep_night' => 'required',
-            'fire_equips' => 'required',
-            'business_address' => 'required',
+                // ===== Necessary Particulars about above service
+                'area_pincode' => 'required',
+                'shop_no' => 'required',
+                'building_height' => 'required',
+                'rooms_in_buld' => 'required',
+                'property_on_floor_buld' => 'required',
+                'no_of_accomodation_people' => 'required',
+                'area' => 'required',
+                'no_of_workers' => 'required',
+                'types_of_business' => 'required',
+                'no_of_workers_sleep_night' => 'required',
+                'fire_equips' => 'required',
+                'business_address' => 'required',
 
-            // ===== Other Document
-            'location_map_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
-            'electric_license_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
-            'gas_license_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
-            'shop_license_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
-            'food_license' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
-            'tax_bill_paid_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
-            'trade_license' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
-            'gas_certificate_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
-            'commissioning_certificate' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
-            'affidavit_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
+                // ===== Other Document
+                'location_map_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
+                'electric_license_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
+                'gas_license_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
+                'shop_license_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
+                'food_license' => 'mimes:jpeg,png,jpg,pdf|max:2048',
+                'tax_bill_paid_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
+                'trade_license' => 'mimes:jpeg,png,jpg,pdf|max:2048',
+                'gas_certificate_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
+                'commissioning_certificate' => 'mimes:jpeg,png,jpg,pdf|max:2048',
+                'affidavit_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
 
-            // ===== Declaration
-            'declare_by' => 'required',
-            'declare_date' => 'required',
-            'nominated_persion' => 'required',
-            'nominated_persion_name' => 'required',
-            'deliver_by' => 'required',
-            'd_last_name' => 'required',
-            'd_first_name' => 'required',
-            'd_father_name' => 'required',
-            'd_house_name' => 'required',
-            'd_flat_no' => 'required',
-            'd_wing_no' => 'required',
-            'd_road_name' => 'required',
-            'd_area_name' => 'required',
-            'd_taluka_name' => 'required',
-            'd_pincode' => 'required'
-        ];
+                // ===== Declaration
+                'declare_by' => 'required',
+                'declare_date' => 'required',
+                'nominated_persion' => 'required',
+                'nominated_persion_name' => 'required',
+                'deliver_by' => 'required',
+                'd_last_name' => 'required',
+                'd_first_name' => 'required',
+                'd_father_name' => 'required',
+                'd_house_name' => 'required',
+                'd_flat_no' => 'required',
+                'd_wing_no' => 'required',
+                'd_road_name' => 'required',
+                'd_area_name' => 'required',
+                'd_taluka_name' => 'required',
+                'd_pincode' => 'required'
+            ];
+        }else{
+            $rule = [
+                // === Basic Details
+                'l_name' => 'required',
+                'f_name' => 'required',
+                'father_name' => 'required',
+                'society_name' => 'required',
+                'designation' => 'required',
+
+                // ===== Address Details
+                'house_name' => 'required',
+                'flat_no' => 'required',
+                'wing_name' => 'required',
+                'road_name' => 'required',
+                'area_name' => 'required',
+                'taluka_name' => 'required',
+                'pincode' => 'required',
+                'ward_no' => 'required',
+                'electrol_panel_no' => 'required',
+
+                // ===== Information of Property
+                'types_of_property' => 'required',
+                'property_no' => 'required',
+
+                // ====== Information of Land
+                'city_name' => 'required',
+                'survey_no' => 'required',
+                'cts_no' => 'required',
+                'part_no' => 'required',
+                'plot_no' => 'required',
+                'land_property_no' => 'required',
+
+                // ===== Necessary Particulars about above service
+                'area_pincode' => 'required',
+                'shop_no' => 'required',
+                'building_height' => 'required',
+                'rooms_in_buld' => 'required',
+                'property_on_floor_buld' => 'required',
+                'no_of_accomodation_people' => 'required',
+                'area' => 'required',
+                'no_of_workers' => 'required',
+                'types_of_business' => 'required',
+                'no_of_workers_sleep_night' => 'required',
+                'fire_equips' => 'required',
+                'business_address' => 'required',
+
+                // ===== Other Document
+                'location_map_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
+                'electric_license_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
+                'gas_license_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
+                'shop_license_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
+                'food_license' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
+                'tax_bill_paid_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
+                'trade_license' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
+                'gas_certificate_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
+                'commissioning_certificate' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
+                'affidavit_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
+
+                // ===== Declaration
+                'declare_by' => 'required',
+                'declare_date' => 'required',
+                'nominated_persion' => 'required',
+                'nominated_persion_name' => 'required',
+                'deliver_by' => 'required',
+                'd_last_name' => 'required',
+                'd_first_name' => 'required',
+                'd_father_name' => 'required',
+                'd_house_name' => 'required',
+                'd_flat_no' => 'required',
+                'd_wing_no' => 'required',
+                'd_road_name' => 'required',
+                'd_area_name' => 'required',
+                'd_taluka_name' => 'required',
+                'd_pincode' => 'required'
+            ];
+        }
+        return $rule;
     }
 
     public function messages()

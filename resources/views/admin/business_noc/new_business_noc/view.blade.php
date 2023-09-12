@@ -1018,7 +1018,21 @@
                                             <div class="form-group row mt-4" >
                                                 <label class="col-md-3"></label>
                                                 <div class="col-md-9" style="display: flex; justify-content: flex-end;">
-                                                    <a href="{{ url('/admin_new_business_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                    <a href="{{ url('/admin_new_business_noc_list', $data->status) }}" class="btn btn-primary">Cancel</a>&nbsp;&nbsp;
+                                                    @if(Auth::user()->role == 3)
+                                                    <a href='{{ url("/admin_new_business_noc/approved/{$data->NB_NOC_ID}/{$data->status}/{Auth::user()->role}") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
+                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
+                                                    @elseif(Auth::user()->role == 2)
+                                                    <a href='{{ url("/admin_new_business_noc/approved/{$data->NB_NOC_ID}/{$data->status}/{Auth::user()->role}") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
+                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
+                                                    @elseif(Auth::user()->role == 1)
+                                                    <a href='{{ url("/admin_new_business_noc/approved/{$data->NB_NOC_ID}/{$data->status}/{Auth::user()->role}") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
+                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
+                                                    @elseif(Auth::user()->role == 0)
+                                                    <a href='{{ url("/admin_new_business_noc/approved/{$data->NB_NOC_ID}/{$data->status}/{Auth::user()->role}") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
+                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
+                                                    @endif
+
                                                     {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
                                                 </div>
                                             </div>
@@ -1047,6 +1061,46 @@
         </div>
         <!-- END layout-wrapper -->
 
+
+        {{-- Start Reject for Renew Bussiness Application Model --}}
+        <div class="modal fade NB_NOC_Reject" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-primary" id="myLargeModalLabel">Reject for New Bussiness NOC :</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <form class="auth-input p-4"  method="POST" action='{{ url("/admin_new_business_noc/rejected/{$data->NB_NOC_ID}/{$data->status}") }}' enctype="multipart/form-data">
+                                @csrf
+
+                                <div class="form-group row mb-3">
+                                    <label class="col-sm-12"><strong>Remarks : <span style="color:red;">*</span></strong></label>
+                                    <div class="col-sm-12 col-md-12">
+                                        <textarea type="text" name="remarks" id="remarks" class="form-control @error('remarks') is-invalid @enderror" value="{{  old('remarks')  }}" >{{  old('remarks')  }}</textarea>
+                                        @error('remarks')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mt-4" >
+                                    <label class="col-md-3"></label>
+                                    <div class="col-md-9" style="display: flex; justify-content: flex-end;">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>&nbsp;&nbsp;
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- JAVASCRIPT -->
         <script src="{{ url('/') }}/assets/libs/jquery/jquery.min.js"></script>
