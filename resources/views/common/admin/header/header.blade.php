@@ -209,6 +209,7 @@
 
                         </div>
                     </li>
+
                     {{-- Chief Fire Officer --}}
                     @elseif(Auth::user()->role == 2)
                     {{-- Paid Application --}}
@@ -221,12 +222,12 @@
                             <div class="row">
                                 <div class="col-lg-5">
                                     <div>
-                                        <a href="{{ url('#') }}" class="dropdown-item">All New Business NOC List</a>
-                                        <a href="{{ url('#') }}" class="dropdown-item">All Renew Business NOC List</a>
-                                        <a href="{{ url('#') }}" class="dropdown-item">All New Hospital NOC List</a>
-                                        <a href="{{ url('#') }}" class="dropdown-item">All Renew Hospital NOC List</a>
-                                        <a href="{{ url('#') }}" class="dropdown-item">All Provisional Building NOC List</a>
-                                        <a href="{{ url('#') }}" class="dropdown-item">All Final Building NOC List</a>
+                                        <a href="{{ url('/admin_new_business_noc_list',2) }}" class="dropdown-item">New Business NOC List</a>
+                                        <a href="{{ url('/admin_renew_business_noc_list',2) }}" class="dropdown-item">Renew Business NOC List</a>
+                                        <a href="{{ url('/admin_new_hospital_noc_list',2) }}" class="dropdown-item">New Hospital NOC List</a>
+                                        <a href="{{ url('/admin_renew_hospital_noc_list',2) }}" class="dropdown-item">Renew Hospital NOC List</a>
+                                        <a href="{{ url('/admin_provisional_building_noc_list',2) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/admin_final_building_noc_list',2) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
                                 </div>
@@ -247,12 +248,12 @@
                             <div class="row">
                                 <div class="col-lg-5">
                                     <div>
-                                        <a href="{{ url('#') }}" class="dropdown-item">All New Business NOC List</a>
-                                        <a href="{{ url('#') }}" class="dropdown-item">All Renew Business NOC List</a>
-                                        <a href="{{ url('#') }}" class="dropdown-item">All New Hospital NOC List</a>
-                                        <a href="{{ url('#') }}" class="dropdown-item">All Renew Hospital NOC List</a>
-                                        <a href="{{ url('#') }}" class="dropdown-item">All Provisional Building NOC List</a>
-                                        <a href="{{ url('#') }}" class="dropdown-item">All Final Building NOC List</a>
+                                        <a href="{{ url('/admin_new_business_noc_list',1) }}" class="dropdown-item">New Business NOC List</a>
+                                        <a href="{{ url('/admin_renew_business_noc_list',1) }}" class="dropdown-item">Renew Business NOC List</a>
+                                        <a href="{{ url('/admin_new_hospital_noc_list',1) }}" class="dropdown-item">New Hospital NOC List</a>
+                                        <a href="{{ url('/admin_renew_hospital_noc_list',1) }}" class="dropdown-item">Renew Hospital NOC List</a>
+                                        <a href="{{ url('/admin_provisional_building_noc_list',1) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/admin_final_building_noc_list',1) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
                                 </div>
@@ -273,12 +274,12 @@
                             <div class="row">
                                 <div class="col-lg-5">
                                     <div>
-                                        <a href="{{ url('/new_business_noc_list',0) }}" class="dropdown-item">New Business NOC List</a>
-                                        <a href="{{ url('/renew_business_noc_list',0) }}" class="dropdown-item">Renew Business NOC List</a>
-                                        <a href="{{ url('/new_hospital_noc_list',0) }}" class="dropdown-item">New Hospital NOC List</a>
-                                        <a href="{{ url('/renew_hospital_noc_list,0') }}" class="dropdown-item">Renew Hospital NOC List</a>
-                                        <a href="{{ url('/provisional_building_noc_list,0') }}" class="dropdown-item">Provisional Building NOC List</a>
-                                        <a href="{{ url('/final_building_noc_list,0') }}" class="dropdown-item">Final Building NOC List</a>
+                                        <a href="{{ url('/admin_new_business_noc_list',0) }}" class="dropdown-item">New Business NOC List</a>
+                                        <a href="{{ url('/admin_renew_business_noc_list',0) }}" class="dropdown-item">Renew Business NOC List</a>
+                                        <a href="{{ url('/admin_new_hospital_noc_list',0) }}" class="dropdown-item">New Hospital NOC List</a>
+                                        <a href="{{ url('/admin_renew_hospital_noc_list',0) }}" class="dropdown-item">Renew Hospital NOC List</a>
+                                        <a href="{{ url('/admin_provisional_building_noc_list',0) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/admin_final_building_noc_list',0) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
                                 </div>
