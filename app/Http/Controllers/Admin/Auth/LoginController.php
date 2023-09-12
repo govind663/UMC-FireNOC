@@ -47,6 +47,6 @@ class LoginController extends Controller
         Session::flush();
         Auth::logout();
 
-        return redirect('/admin/login')->with('message', 'You are logout Successfully.');
+        return redirect('/')->with('message', 'You are logout Successfully.');
     }
 }

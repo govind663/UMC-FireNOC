@@ -33,7 +33,7 @@ class LoginController extends Controller
         // $remember_me = $request->has('remember_token') ? true : false;
 
         if (auth()->guard('citizen')->attempt($credentials)) {
-            return redirect()->intended('/citizen/dashboard')->with('info', 'You are login Successfully.');
+            return redirect()->intended('/citizen/dashboard')->with('message', 'You are login Successfully.');
         }
         else{
             return redirect('/citizen/login')->with(['Input' => $request->only('email','password'), 'error' => 'Your Mobile Number and Password do not match our records!']);
@@ -49,6 +49,6 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/citizen/login')->with('info', 'You are logout Successfully.');
+        return redirect('/')->with('message', 'You are logout Successfully.');
     }
 }
