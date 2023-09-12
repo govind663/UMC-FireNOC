@@ -145,6 +145,15 @@
                                                             <a href='{{ url("/renew_hospital_noc/edit/{$value->RH_NOC_ID}/{$value->status}") }}' class="btn btn-warning btn-sm text-dark">
                                                                 <b><i class="mdi mdi-account-edit"> Edit</i></b>
                                                             </a>
+                                                            &nbsp;&nbsp;
+                                                            <form action='{{ url("/renew_hospital_noc/delete/{$value->RH_NOC_ID}/{$value->d_ID}/{$value->status}") }}' method="post">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <input name="_method" type="hidden" value="DELETE">
+                                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">
+                                                                    <b><i class="mdi mdi-delete-alert-outline"> Delete</i></b>
+                                                                </button>
+                                                            </form>
                                                         </td>
 
                                                     </tr>
@@ -243,6 +252,15 @@
             }
                     toastr.warning("{{ session('warning') }}");
             @endif
+        </script>
+
+        <script type="text/javascript">
+            function confirmation() {
+                var result = confirm("Are you sure you want to delete this item?");
+                if (result) {
+                    // Delete logic goes here
+                }
+            }
         </script>
     </body>
 </html>

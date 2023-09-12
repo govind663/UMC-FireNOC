@@ -20,7 +20,7 @@ class FinalBuildingNOCController extends Controller
     public function index($status)
     {
         $data = DB::table('building_noc AS t1')
-                ->select('t1.*', 't2.*', 't1.id as F_NOC_ID')
+                ->select('t1.*', 't2.*', 't1.id as F_NOC_ID', 't2.id as d_ID')
                 ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
                 ->where('t2.noc_mode', 6)  // ==== Renew Hospital NOC (status=2)
                 ->where('t1.status', $status)
@@ -362,8 +362,18 @@ class FinalBuildingNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, $n_id, $status)
     {
-        //
+        $data = Building_NOC::findOrFail($id);
+        $data->deleted_by = Auth::user()->id;
+        $data->deleted_at = date("Y-m-d H:i:s");
+        $data->update();
+
+        $data = NOC_Master::findOrFail($n_id);
+        $data->deleted_by = Auth::user()->id;
+        $data->deleted_at = date("Y-m-d H:i:s");
+        $data->update();
+
+        return redirect()->route('final_building_noc_list',$status)->with('message', 'The application form which you had deleted for your final building noc has been done Successfully.');
     }
 }

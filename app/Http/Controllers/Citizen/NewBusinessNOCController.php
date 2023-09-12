@@ -21,7 +21,7 @@ class NewBusinessNOCController extends Controller
     {
 
         $data = DB::table('business_noc AS t1')
-                ->select('t1.*', 't2.*', 't1.id as NB_NOC_ID')
+                ->select('t1.*', 't2.*', 't1.id as NB_NOC_ID', 't2.id as d_ID')
                 ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
                 ->where('t2.noc_mode', 1)  // ==== New Business NOC (status=1)
                 ->where('t1.status', $status)
@@ -871,18 +871,18 @@ class NewBusinessNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, $n_id, $status)
     {
         $data = Business_NOC::findOrFail($id);
         $data->deleted_by = Auth::user()->id;
         $data->deleted_at = date("Y-m-d H:i:s");
         $data->update();
 
-        $data = NOC_Master::findOrFail($id);
+        $data = NOC_Master::findOrFail($n_id);
         $data->deleted_by = Auth::user()->id;
         $data->deleted_at = date("Y-m-d H:i:s");
         $data->update();
 
-        return view('citizen.business_noc.new_business_noc.grid');
+        return redirect( )->route('new_business_noc_list',$status)->with('message', 'The application form which you had deleted for your new business noc has been done Successfully.');
     }
 }
