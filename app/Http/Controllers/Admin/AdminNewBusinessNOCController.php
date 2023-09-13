@@ -60,7 +60,7 @@ class AdminNewBusinessNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function approved($id, $status)
+    public function approved($id, $status, $auth_role)
     {
         $update = [
             'status' => 5, // === Underprocess (Level Up that means application go to field inspector)
@@ -80,7 +80,7 @@ class AdminNewBusinessNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function rejected(RemarksRequest $request, $id, $status)
+    public function rejected(RemarksRequest $request, $id, $status, $auth_role)
     {
         // dd('sdsd');
         $update = [

@@ -1016,7 +1016,7 @@
                                             <div class="form-group row mt-4" >
                                                 <label class="col-md-3"></label>
                                                 <div class="col-md-9" style="display: flex; justify-content: flex-end;">
-                                                    <a href="{{ url('/all_new_business_noc_list', $all_status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                    <a href="{{ url('/all_renew_business_noc_list', $all_status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
                                                     {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
                                                 </div>
                                             </div>

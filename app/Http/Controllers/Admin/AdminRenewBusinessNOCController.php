@@ -61,7 +61,7 @@ class AdminRenewBusinessNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function approved($id, $status)
+    public function approved($id, $status, $auth_role)
     {
         $update = [
             'status' => 5, // === Underprocess (Level Up that means application go to field inspector)
@@ -81,7 +81,7 @@ class AdminRenewBusinessNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function rejected(RemarksRequest $request, $id, $status)
+    public function rejected(RemarksRequest $request, $id, $status, $auth_role)
     {
         // dd('sdsd');
         $update = [
@@ -108,7 +108,7 @@ class AdminRenewBusinessNOCController extends Controller
         $query = DB::table('business_noc AS t1')
                     ->select('t1.*', 't2.*', 't1.id as RB_NOC_ID', 't2.id as d_ID')
                     ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id')
-                    ->where('t2.noc_mode', 1) // ==== New Business NOC (status=1)
+                    ->where('t2.noc_mode', 2) // ==== New Business NOC (status=1)
                     ->whereNUll('t1.deleted_at')
                     ->whereNUll('t2.deleted_at')
                     ->orderBy('t1.id', 'DESC');
@@ -139,7 +139,7 @@ class AdminRenewBusinessNOCController extends Controller
         $query = DB::table('business_noc AS t1')
             ->select('t1.*', 't2.*', 't1.id as RB_NOC_ID', 't2.id as d_ID')
             ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id')
-            ->where('t2.noc_mode', 1) // ==== New Business NOC (status=1)
+            ->where('t2.noc_mode', 2) // ==== New Business NOC (status=1)
             ->where('t1.id', $id)
             ->whereNUll('t1.deleted_at')
             ->whereNUll('t2.deleted_at')

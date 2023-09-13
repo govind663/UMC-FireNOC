@@ -40,6 +40,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 // ======================= Admin Register
 Route::get('/admin/register', [App\Http\Controllers\Admin\Auth\RegisterController::class, 'register'])->name('admin.register');
 Route::post('/admin/register/store', [App\Http\Controllers\Admin\Auth\RegisterController::class, 'store'])->name('admin.register.store');
@@ -100,8 +101,8 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     Route::get('/admin_final_building_noc/show/{id}/{status}', [AdminFinalBuildingNOCController::class, 'show'])->name('admin_final_building_noc.show');
     Route::get('/admin_final_building_noc/approved/{id}/{status}/{auth_role}', [AdminFinalBuildingNOCController::class, 'approved'])->name('admin_final_building_noc.approved');
     Route::post('/admin_final_building_noc/rejected/{id}/{status}/{auth_role}', [AdminFinalBuildingNOCController::class, 'rejected'])->name('admin_final_building_noc.rejected');
-    Route::get('/all_provisional_building_noc_list/{all_status}', [AdminProvisionalBuildingNOCController::class, 'list'])->name('all_provisional_building_noc_list');
-    Route::get('/all_provisional_building_noc/show/{id}/{all_status}', [AdminProvisionalBuildingNOCController::class, 'view'])->name('all_provisional_building_noc.show');
+    Route::get('/all_final_building_noc_list/{all_status}', [AdminFinalBuildingNOCController::class, 'list'])->name('all_final_building_noc_list');
+    Route::get('/all_final_building_noc/show/{id}/{all_status}', [AdminFinalBuildingNOCController::class, 'view'])->name('all_final_building_noc.show');
 
 });
 
