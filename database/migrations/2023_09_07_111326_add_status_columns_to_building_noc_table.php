@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('building_noc', function (Blueprint $table) {
-            $table->integer('status')->default('0')->comment('0:Pending, 1:Unpaid, 2:Paid, 3:Approved, 4:Rejected, 5:Underprocess, 6:Reviewed')->after('fire_equipments_install_doc');
+            $table->integer('status')->default('0')->comment('0:Pending, 1:Unpaid, 2:Paid, 3:Approved, 4:Rejected, 5:Underprocess, 6:Reviewed, 7:New')->after('fire_equipments_install_doc');
         });
     }
 

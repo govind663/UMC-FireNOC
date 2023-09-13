@@ -65,7 +65,7 @@ class AdminRenewHospitalNOCController extends Controller
     {
         if (Auth::user()->role == 0) {
             $update = [
-                'status' => 5, // === Underprocess (Level Up that means application go to field inspector)
+                'status' => 7, // === New (Level Up that means application go to field inspector)
                 'operator_status' => 1, // ===== Approved by operator
                 'approved_dt' => date("Y-m-d H:i:s"),
                 'approved_by' => Auth::user()->id,
@@ -75,8 +75,8 @@ class AdminRenewHospitalNOCController extends Controller
 
         } elseif (Auth::user()->role == 1) {
             $update = [
-                'status' => 5, // === Underprocess (Level Up that means application go to field inspector)
-                'inspector_status' => 1, // ===== Approved by operator
+                'status' => 5, // === Underprocess (Level Up that means application go to Chief Fire Officer)
+                'inspector_status' => 1, // ===== Approved by Field Inspector
                 'approved_dt' => date("Y-m-d H:i:s"),
                 'approved_by' => Auth::user()->id,
             ];
@@ -85,8 +85,8 @@ class AdminRenewHospitalNOCController extends Controller
 
         } elseif (Auth::user()->role == 2) {
             $update = [
-                'status' => 5, // === Underprocess (Level Up that means application go to field inspector)
-                'officer_status	' => 1, // ===== Approved by operator
+                'status' => 6, // === Reviewed (Level Up that means application go to field inspector)
+                'officer_status	' => 1, // ===== Approved by Chief Fire Officer
                 'approved_dt' => date("Y-m-d H:i:s"),
                 'approved_by' => Auth::user()->id,
             ];
