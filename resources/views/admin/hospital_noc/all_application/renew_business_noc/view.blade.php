@@ -79,7 +79,7 @@
 
                                                 <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <select class="form-control select2 " name="noc_mode" id="noc_mode" type="hidden" disabled>
+                                                    <select class="form-control select2 " name="noc_mode" id="noc_mode" type="hidden">
                                                         <option>Select Mode of NOC</option>
                                                         <optgroup label=" ">
                                                             <option value="1" {{ old('noc_mode') == "1" ? 'selected' : '' }} selected>New Bussiness NOC</option>
@@ -216,7 +216,7 @@
 
                                                 <label class="col-sm-2"><strong>Ward Committee No : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <select  disabled class="form-control select2 @error('ward_no') is-invalid @enderror" name="ward_no" id="ward_no">
+                                                    <select class="form-control select2 @error('ward_no') is-invalid @enderror" name="ward_no" id="ward_no" disabled>
                                                         <option value="">Select Ward Committee No</option>
                                                         <optgroup label="">
                                                             <option value="1" {{ $data->ward_no == "1" ? 'selected' : '' }} >Ward 1</option>
@@ -248,7 +248,7 @@
                                             <div class="form-group row  mb-3">
                                                 <label class="col-sm-2"><strong>Type of Property : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <select disabled class="form-control select2 @error('types_of_property') is-invalid @enderror" name="types_of_property" id="types_of_property">
+                                                    <select class="form-control select2 @error('types_of_property') is-invalid @enderror" disabled name="types_of_property" id="types_of_property">
                                                         <option value="">Select Type of Property</option>
                                                         <optgroup label=" ">
                                                             <option value="1" {{ $data->types_of_property == "1"? 'selected' : '' }}>Land</option>
@@ -263,7 +263,7 @@
                                                 </div>
                                                 <label class="col-sm-2"><strong>Property Number : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input disabled type="text" name="property_no" id="property_no" class="form-control @error('property_no') is-invalid @enderror" value="{{ $data->property_no }}" placeholder="Enter Property Number.">
+                                                    <input type="text" disabled name="property_no" id="property_no" class="form-control @error('property_no') is-invalid @enderror" value="{{ $data->property_no }}" placeholder="Enter Property Number.">
                                                     @error('property_no')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -276,7 +276,7 @@
                                             <div class="form-group row  mb-3">
                                                 <label class="col-sm-2"><strong>Town / City : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input disabled type="text" name="city_name" id="city_name" class="form-control @error('city_name') is-invalid @enderror" value="{{ $data->city_name }}" placeholder="Enter Town / City.">
+                                                    <input type="text" disabled name="city_name" id="city_name" class="form-control @error('city_name') is-invalid @enderror" value="{{ $data->city_name }}" placeholder="Enter Town / City.">
                                                     @error('city_name')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -286,7 +286,7 @@
 
                                                 <label class="col-sm-2"><strong>Survey / Block / Barrak No. : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input disabled type="text" name="survey_no" id="survey_no" class="form-control @error('survey_no') is-invalid @enderror" value="{{ $data->survey_no }}" placeholder="Enter Survey / Block / Barrak No.">
+                                                    <input type="text" disabled name="survey_no" id="survey_no" class="form-control @error('survey_no') is-invalid @enderror" value="{{ $data->survey_no }}" placeholder="Enter Survey / Block / Barrak No.">
                                                     @error('survey_no')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -296,7 +296,7 @@
 
                                                 <label class="col-sm-2"><strong>C.T.S. No. : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input disabled type="text" name="cts_no" id="cts_no" class="form-control @error('cts_no') is-invalid @enderror" value="{{ $data->cts_no }}" placeholder="Enter C.T.S. No.">
+                                                    <input type="text" disabled name="cts_no" id="cts_no" class="form-control @error('cts_no') is-invalid @enderror" value="{{ $data->cts_no }}" placeholder="Enter C.T.S. No.">
                                                     @error('cts_no')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -308,7 +308,7 @@
                                             <div class="form-group row  mb-3">
                                                 <label class="col-sm-2"><strong>Part No. / Sheet No. : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input disabled type="text" name="part_no" id="part_no" class="form-control @error('part_no') is-invalid @enderror" value="{{ $data->part_no }}" placeholder="Enter Part No. / Sheet No.">
+                                                    <input type="text" disabled name="part_no" id="part_no" class="form-control @error('part_no') is-invalid @enderror" value="{{ $data->part_no }}" placeholder="Enter Part No. / Sheet No.">
                                                     @error('part_no')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -318,7 +318,7 @@
 
                                                 <label class="col-sm-2"><strong>Plot No. / Unit No. : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input disabled type="text" name="plot_no" id="plot_no" class="form-control @error('plot_no') is-invalid @enderror" value="{{ $data->plot_no }}" placeholder="Enter Plot No. / Unit No.">
+                                                    <input type="text" disabled name="plot_no" id="plot_no" class="form-control @error('plot_no') is-invalid @enderror" value="{{ $data->plot_no }}" placeholder="Enter Plot No. / Unit No.">
                                                     @error('plot_no')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -328,7 +328,7 @@
 
                                                 <label class="col-sm-2"><strong>Property Number : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input disabled type="text" name="land_property_no" id="land_property_no" class="form-control @error('land_property_no') is-invalid @enderror" value="{{ $data->land_property_no }}" placeholder="Enter Property Number.">
+                                                    <input type="text" disabled name="land_property_no" id="land_property_no" class="form-control @error('land_property_no') is-invalid @enderror" value="{{ $data->land_property_no }}" placeholder="Enter Property Number.">
                                                     @error('land_property_no')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -341,7 +341,7 @@
                                             <div class="form-group row  mb-3">
                                                 <label class="col-sm-2"><strong>Pincode : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input disabled type="text" name="area_pincode" id="area_pincode" maxlength="06" class="form-control @error('area_pincode') is-invalid @enderror" value="{{ $data->area_pincode }}" placeholder="Enter Pincode.">
+                                                    <input type="text" disabled name="area_pincode" id="area_pincode" maxlength="06" class="form-control @error('area_pincode') is-invalid @enderror" value="{{ $data->area_pincode }}" placeholder="Enter Pincode.">
                                                     @error('area_pincode')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -351,7 +351,7 @@
 
                                                 <label class="col-sm-2"><strong>Shop No. : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input disabled type="text" name="shop_no" id="shop_no" class="form-control @error('shop_no') is-invalid @enderror" value="{{ $data->shop_no }}" placeholder="Enter Shop No.">
+                                                    <input type="text" disabled name="shop_no" id="shop_no" class="form-control @error('shop_no') is-invalid @enderror" value="{{ $data->shop_no }}" placeholder="Enter Shop No.">
                                                     @error('shop_no')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -361,7 +361,7 @@
 
                                                 <label class="col-sm-2"><strong>Height of Building : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input disabled type="text" name="building_height" id="building_height" class="form-control @error('building_height') is-invalid @enderror" value="{{ $data->building_height }}" placeholder="Enter Height of Building">
+                                                    <input type="text" disabled name="building_height" id="building_height" class="form-control @error('building_height') is-invalid @enderror" value="{{ $data->building_height }}" placeholder="Enter Height of Building">
                                                     @error('building_height')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -373,7 +373,7 @@
                                             <div class="form-group row  mb-3">
                                                 <label class="col-sm-2"><strong>Rooms in Building : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input disabled type="text" name="rooms_in_buld" id="rooms_in_buld"  class="form-control @error('rooms_in_buld') is-invalid @enderror" value="{{ $data->rooms_in_buld }}" placeholder="Enter Rooms in Building.">
+                                                    <input type="text" disabled name="rooms_in_buld" id="rooms_in_buld"  class="form-control @error('rooms_in_buld') is-invalid @enderror" value="{{ $data->rooms_in_buld }}" placeholder="Enter Rooms in Building.">
                                                     @error('rooms_in_buld')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -383,7 +383,7 @@
 
                                                 <label class="col-sm-2"><strong>Property on Floor Building : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input disabled type="text" name="property_on_floor_buld" id="property_on_floor_buld" class="form-control @error('property_on_floor_buld') is-invalid @enderror" value="{{ $data->property_on_floor_buld }}" placeholder="Enter Property on Floor Building">
+                                                    <input type="text" disabled name="property_on_floor_buld" id="property_on_floor_buld" class="form-control @error('property_on_floor_buld') is-invalid @enderror" value="{{ $data->property_on_floor_buld }}" placeholder="Enter Property on Floor Building">
                                                     @error('property_on_floor_buld')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -393,7 +393,7 @@
 
                                                 <label class="col-sm-2"><strong>Accomodation for how many People : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input disabled type="text" name="no_of_accomodation_people" id="no_of_accomodation_people" class="form-control @error('no_of_accomodation_people') is-invalid @enderror" value="{{ $data->no_of_accomodation_people }}" placeholder="Enter Accomodation for how many People">
+                                                    <input type="text" disabled name="no_of_accomodation_people" id="no_of_accomodation_people" class="form-control @error('no_of_accomodation_people') is-invalid @enderror" value="{{ $data->no_of_accomodation_people }}" placeholder="Enter Accomodation for how many People">
                                                     @error('no_of_accomodation_people')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -405,7 +405,7 @@
                                             <div class="form-group row  mb-3">
                                                 <label class="col-sm-2"><strong>Area of Place (Sq. Mt.) : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input disabled type="text" name="area" id="area"  class="form-control @error('area') is-invalid @enderror" value="{{ $data->area }}" placeholder="Enter Area of Place (Sq. Mt.)">
+                                                    <input type="text" disabled name="area" id="area"  class="form-control @error('area') is-invalid @enderror" value="{{ $data->area }}" placeholder="Enter Area of Place (Sq. Mt.)">
                                                     @error('area')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -415,7 +415,7 @@
 
                                                 <label class="col-sm-2"><strong>Numbers of Workers / Servants : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input disabled type="text" name="no_of_workers" id="no_of_workers" class="form-control @error('no_of_workers') is-invalid @enderror" value="{{ $data->no_of_workers }}" placeholder="Enter Numbers of Workers / Servants">
+                                                    <input type="text" disabled name="no_of_workers" id="no_of_workers" class="form-control @error('no_of_workers') is-invalid @enderror" value="{{ $data->no_of_workers }}" placeholder="Enter Numbers of Workers / Servants">
                                                     @error('no_of_workers')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -425,7 +425,7 @@
 
                                                 <label class="col-sm-2"><strong>Type of Business : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <select disabled class="form-control select2 @error('types_of_business') is-invalid @enderror" name="types_of_business" id="types_of_business">
+                                                    <select class="form-control select2 @error('types_of_business') is-invalid @enderror" disabled name="types_of_business" id="types_of_business">
                                                         <option value="">Select Type of Business</option>
                                                         <optgroup label=" ">
                                                             <option value="1" {{ $data->types_of_business == "1"? 'selected' : '' }}>Temporary</option>
@@ -443,7 +443,7 @@
                                             <div class="form-group row  mb-3">
                                                 <label class="col-sm-2"><strong>Number of Workers / Servants sleep at night at working place : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input disabled type="text" name="no_of_workers_sleep_night" id="no_of_workers_sleep_night"  class="form-control @error('no_of_workers_sleep_night') is-invalid @enderror" value="{{ $data->no_of_workers_sleep_night }}" placeholder="Enter Number of Workers / Servants sleep at night at working place">
+                                                    <input type="text" disabled name="no_of_workers_sleep_night" id="no_of_workers_sleep_night"  class="form-control @error('no_of_workers_sleep_night') is-invalid @enderror" value="{{ $data->no_of_workers_sleep_night }}" placeholder="Enter Number of Workers / Servants sleep at night at working place">
                                                     @error('no_of_workers_sleep_night')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -453,7 +453,7 @@
 
                                                 <label class="col-sm-2"><strong>Fire extinguishers/ preventive equipments are installed at working place : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <select disabled class="form-control select2 @error('fire_equips') is-invalid @enderror" name="fire_equips" id="fire_equips" onchange="mySelectfunction()" >
+                                                    <select class="form-control select2 @error('fire_equips') is-invalid @enderror" disabled name="fire_equips" id="fire_equips" onchange="mySelectfunction()" >
                                                         <option value="">Select Fire extinguishers/ preventive equipments are installed at working place</option>
                                                         <optgroup label=" ">
                                                             <option value="1" {{ $data->fire_equips == "1" ? 'selected' : '' }}>Yes</option>
@@ -469,7 +469,7 @@
 
                                                 <label class="col-sm-2"><strong>Address Of Business Place : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <textarea disabled type="text" name="business_address" id="business_address" class="form-control @error('business_address') is-invalid @enderror" value="{{ $data->business_address }}" placeholder="Enter Address Of Business Place">{{ $data->business_address }}</textarea>
+                                                    <textarea type="text" disabled name="business_address" id="business_address" class="form-control @error('business_address') is-invalid @enderror" value="{{ $data->business_address }}" placeholder="Enter Address Of Business Place">{{ $data->business_address }}</textarea>
                                                     @error('business_address')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -829,7 +829,7 @@
                                                         <div class="col-md-12 col-xs-12">
                                                             <p class="text-justify ">
                                                                 <b> I / We..... <br><br>
-                                                                <input disabled type="text" style="width:300px" class="form-control @error('declare_by') is-invalid @enderror" id="declare_by" name="declare_by" value="{{ $data->declare_by }}" placeholder="Enter Applicant Name" >
+                                                                <input type="text" style="width:300px" class="form-control @error('declare_by') is-invalid @enderror" disabled id="declare_by" name="declare_by" value="{{ $data->declare_by }}" placeholder="Enter Applicant Name" >
                                                                 <br>
                                                                 @error('declare_by')
                                                                     <span class="invalid-feedback" role="alert">
@@ -847,7 +847,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-sm-2"><strong>Self / Nominated Person : <span style="color:red;">*</span></strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <select disabled class="form-control select2 @error('nominated_persion') is-invalid @enderror" name="nominated_persion" id="nominated_persion">
+                                                                    <select class="form-control select2 @error('nominated_persion') is-invalid @enderror" disabled name="nominated_persion" id="nominated_persion">
                                                                         <option value="">Select Self / Nominated Person</option>
                                                                         <optgroup label=" ">
                                                                             <option value="1" {{ $data->nominated_persion == "1"? 'selected' : '' }}>Self</option>
@@ -865,7 +865,7 @@
 
                                                                 <label class="col-sm-2"><strong>Name of Nominated Person : <span style="color:red;">*</span></strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <input disabled type="text" name="nominated_persion_name" id="nominated_persion_name" class="form-control @error('nominated_persion_name') is-invalid @enderror" value="{{ $data->nominated_persion_name }}" placeholder="Enter Name of Nominated Person.">
+                                                                    <input type="text" name="nominated_persion_name" disabled id="nominated_persion_name" class="form-control @error('nominated_persion_name') is-invalid @enderror" value="{{ $data->nominated_persion_name }}" placeholder="Enter Name of Nominated Person.">
                                                                     @error('nominated_persion_name')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
@@ -875,7 +875,7 @@
 
                                                                 <label class="col-sm-2"><strong>Deliver by : <span style="color:red;">*</span></strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <select disabled class="form-control select2 @error('deliver_by') is-invalid @enderror" name="deliver_by" id="deliver_by">
+                                                                    <select class="form-control select2 @error('deliver_by') is-invalid @enderror" disabled name="deliver_by" id="deliver_by">
                                                                         <option value="">Select Deliver by</option>
                                                                         <optgroup label=" ">
                                                                             <option value="1" {{ $data->deliver_by == "1"? 'selected' : '' }}>By Post U.P.C</option>
@@ -895,7 +895,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-sm-2"><strong>Last Name / Surname : <span style="color:red;">*</span></strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <input disabled type="text" name="d_last_name" id="d_last_name" class="form-control @error('d_last_name') is-invalid @enderror" value="{{ $data->d_last_name }}" placeholder="Enter Last Name / Surname.">
+                                                                    <input type="text" name="d_last_name" id="d_last_name" disabled class="form-control @error('d_last_name') is-invalid @enderror" value="{{ $data->d_last_name }}" placeholder="Enter Last Name / Surname.">
                                                                     @error('d_last_name')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
@@ -905,7 +905,7 @@
 
                                                                 <label class="col-sm-2"><strong>First Name : <span style="color:red;">*</span></strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <input disabled type="text" name="d_first_name" id="d_first_name" class="form-control @error('d_first_name') is-invalid @enderror" value="{{ $data->d_first_name }}" placeholder="Enter First Name.">
+                                                                    <input type="text" name="d_first_name" id="d_first_name" disabled class="form-control @error('d_first_name') is-invalid @enderror" value="{{ $data->d_first_name }}" placeholder="Enter First Name.">
                                                                     @error('d_first_name')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
@@ -915,7 +915,7 @@
 
                                                                 <label class="col-sm-2"><strong>Father / Husband's Name : <span style="color:red;">*</span></strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <input disabled type="text" name="d_father_name" id="d_father_name" class="form-control @error('d_father_name') is-invalid @enderror" value="{{ $data->d_father_name }}" placeholder="Enter Father / Husband's Name.">
+                                                                    <input type="text" name="d_father_name" id="d_father_name" disabled class="form-control @error('d_father_name') is-invalid @enderror" value="{{ $data->d_father_name }}" placeholder="Enter Father / Husband's Name.">
                                                                     @error('d_father_name')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
@@ -927,7 +927,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-sm-2"><strong>House / Building / Society Name : <span style="color:red;">*</span></strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <input disabled type="text" name="d_house_name" id="d_house_name" class="form-control @error('d_house_name') is-invalid @enderror" value="{{ $data->d_house_name }}" placeholder="Enter House / Building / Society Name.">
+                                                                    <input type="text" name="d_house_name" id="d_house_name" disabled class="form-control @error('d_house_name') is-invalid @enderror" value="{{ $data->d_house_name }}" placeholder="Enter House / Building / Society Name.">
                                                                     @error('d_house_name')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
@@ -937,7 +937,7 @@
 
                                                                 <label class="col-sm-2"><strong>Flat / Block / Barrack No. : <span style="color:red;">*</span></strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <input disabled type="text" name="d_flat_no" id="d_flat_no" class="form-control @error('d_flat_no') is-invalid @enderror" value="{{ $data->d_flat_no }}" placeholder="Enter Flat / Block / Barrack No..">
+                                                                    <input type="text" name="d_flat_no" id="d_flat_no" disabled class="form-control @error('d_flat_no') is-invalid @enderror" value="{{ $data->d_flat_no }}" placeholder="Enter Flat / Block / Barrack No..">
                                                                     @error('d_flat_no')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
@@ -947,7 +947,7 @@
 
                                                                 <label class="col-sm-2"><strong>Wing / Floor : <span style="color:red;">*</span></strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <input disabled type="text" name="d_wing_no" id="d_wing_no" class="form-control @error('d_wing_no') is-invalid @enderror" value="{{ $data->d_wing_no }}" placeholder="Enter Wing / Floor.">
+                                                                    <input type="text" name="d_wing_no" id="d_wing_no" disabled class="form-control @error('d_wing_no') is-invalid @enderror" value="{{ $data->d_wing_no }}" placeholder="Enter Wing / Floor.">
                                                                     @error('d_wing_no')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
@@ -959,7 +959,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-sm-2"><strong>Road / Street / Lane : <span style="color:red;">*</span></strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <input disabled type="text" name="d_road_name" id="d_road_name" class="form-control @error('d_road_name') is-invalid @enderror" value="{{ $data->d_road_name }}" placeholder="Enter Road / Street / Lane.">
+                                                                    <input type="text" name="d_road_name" id="d_road_name" disabled class="form-control @error('d_road_name') is-invalid @enderror" value="{{ $data->d_road_name }}" placeholder="Enter Road / Street / Lane.">
                                                                     @error('d_road_name')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
@@ -969,7 +969,7 @@
 
                                                                 <label class="col-sm-2"><strong>Area / Locality / Town / City : <span style="color:red;">*</span></strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <input disabled type="text" name="d_area_name" id="d_area_name" class="form-control @error('d_area_name') is-invalid @enderror" value="{{ $data->d_area_name }}" placeholder="Enter Area / Locality / Town / City">
+                                                                    <input type="text" name="d_area_name" id="d_area_name" disabled class="form-control @error('d_area_name') is-invalid @enderror" value="{{ $data->d_area_name }}" placeholder="Enter Area / Locality / Town / City">
                                                                     @error('d_area_name')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
@@ -979,7 +979,7 @@
 
                                                                 <label class="col-sm-2"><strong>Taluka : <span style="color:red;">*</span></strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <input disabled type="text" name="d_taluka_name" id="d_taluka_name" class="form-control @error('d_taluka_name') is-invalid @enderror" value="{{ $data->d_taluka_name }}" placeholder="Enter Taluka.">
+                                                                    <input type="text" name="d_taluka_name" id="d_taluka_name" disabled class="form-control @error('d_taluka_name') is-invalid @enderror" value="{{ $data->d_taluka_name }}" placeholder="Enter Taluka.">
                                                                     @error('d_taluka_name')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
@@ -991,7 +991,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-sm-2"><strong>Pincode : <span style="color:red;">*</span></strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <input disabled type="text" name="d_pincode" id="d_pincode" maxlength="06" class="form-control @error('d_pincode') is-invalid @enderror" value="{{ $data->d_pincode }}" placeholder="Enter Pincode.">
+                                                                    <input type="text" name="d_pincode" id="d_pincode" disabled maxlength="06" class="form-control @error('d_pincode') is-invalid @enderror" value="{{ $data->d_pincode }}" placeholder="Enter Pincode.">
                                                                     @error('d_pincode')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
@@ -1001,7 +1001,7 @@
 
                                                                 <label class="col-sm-2"><strong>Email Id (if any) : </strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <input disabled type="text" name="d_email" id="d_email" class="form-control r" value="{{ $data->d_email }}" placeholder="Enter Email Id">
+                                                                    <input type="text" name="d_email" id="d_email" disabled class="form-control r" value="{{ $data->d_email }}" placeholder="Enter Email Id">
 
                                                                 </div>
 
@@ -1013,28 +1013,10 @@
 
                                             </div>
 
-
-                                            @php
-                                                $auth_role = Auth::user()->role;
-                                            @endphp
                                             <div class="form-group row mt-4" >
                                                 <label class="col-md-3"></label>
                                                 <div class="col-md-9" style="display: flex; justify-content: flex-end;">
-                                                    <a href="{{ url('/admin_new_business_noc_list', $data->status) }}" class="btn btn-primary">Cancel</a>&nbsp;&nbsp;
-                                                    @if(Auth::user()->role == 3)
-                                                    <a href='{{ url("/admin_new_business_noc/approved/$data->NB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
-                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
-                                                    @elseif(Auth::user()->role == 2)
-                                                    <a href='{{ url("/admin_new_business_noc/approved/$data->NB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
-                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
-                                                    @elseif(Auth::user()->role == 1)
-                                                    <a href='{{ url("/admin_new_business_noc/approved/$data->NB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
-                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
-                                                    @elseif(Auth::user()->role == 0)
-                                                    <a href='{{ url("/admin_new_business_noc/approved/{$data->NB_NOC_ID}/{$data->status}/{$auth_role}") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
-                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
-                                                    @endif
-
+                                                    <a href="{{ url('/all_new_business_noc_list', $all_status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
                                                     {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
                                                 </div>
                                             </div>
@@ -1063,46 +1045,6 @@
         </div>
         <!-- END layout-wrapper -->
 
-
-        {{-- Start Reject for Renew Bussiness Application Model --}}
-        <div class="modal fade NB_NOC_Reject" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-primary" id="myLargeModalLabel">Reject for New Bussiness NOC :</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <form class="auth-input p-4"  method="POST"  action='{{ url("/admin_new_business_noc/rejected/$data->NB_NOC_ID/$data->status/$auth_role") }}' enctype="multipart/form-data">
-                                @csrf
-
-                                <div class="form-group row mb-3">
-                                    <label class="col-sm-12"><strong>Remarks : <span style="color:red;">*</span></strong></label>
-                                    <div class="col-sm-12 col-md-12">
-                                        <textarea type="text" name="remarks" id="remarks" class="form-control @error('remarks') is-invalid @enderror" value="{{  old('remarks')  }}" >{{  old('remarks')  }}</textarea>
-                                        @error('remarks')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <div class="form-group row mt-4" >
-                                    <label class="col-md-3"></label>
-                                    <div class="col-md-9" style="display: flex; justify-content: flex-end;">
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>&nbsp;&nbsp;
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </div>
-                                </div>
-
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- JAVASCRIPT -->
         <script src="{{ url('/') }}/assets/libs/jquery/jquery.min.js"></script>

@@ -133,8 +133,12 @@
                                                         <td><span class="bg-success text-dark p-2" style="border: 1px;">Paid</span></td>
                                                         @elseif ($value->status == 3)
                                                         <td><span class="bg-success text-dark p-2" style="border: 1px;">Approved</span></td>
-                                                        @else
-                                                        <td><span class="bg-danger text-dark p-2" style="border: 1px;">Rejected</span></td>
+                                                        @elseif ($value->status == 4)
+                                                        <td><span class="bg-danger text-light p-2" style="border: 1px;">Rejected</span></td>
+                                                        @elseif ($value->status == 5)
+                                                        <td><span class="bg-dark text-light p-2" style="border: 1px;">Underprocess</span></td>
+                                                        @elseif ($value->status == 6)
+                                                        <td><span class="bg-danger text-dark p-2" style="border: 1px;">Reviewed</span></td>
                                                         @endif
                                                         <td style="display:flex;">
                                                             <a href='{{ url("/renew_business_noc/show/{$value->RB_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">

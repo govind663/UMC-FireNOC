@@ -64,7 +64,7 @@
                                         <div class="form-group row mb-3">
                                             <label class="col-sm-2"><strong>Appication Date : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" readonly name="nocs_a_date" id="nocs_a_date" class="form-control" value="{{  date('d-m-Y')  }}">
+                                                <input type="text" disabled name="nocs_a_date" id="nocs_a_date" class="form-control" value="{{  date('d-m-Y')  }}">
 
                                             </div>
                                         </div>
@@ -73,7 +73,7 @@
                                             @if(auth()->guard('citizen'))
                                             <label class="col-sm-2"><strong>Citizen ID : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ Auth::user()->id }}">
+                                                <input type="text" disabled name="citizens_id" id="citizens_id" class="form-control" value="{{ Auth::user()->id }}">
 
                                             </div>
                                             @endif
@@ -786,7 +786,7 @@
                                                                 ......
                                                                 State on solemn affirmation that the above information is true and correct to the best of my/our knowledge. If the information given is found wrong then 1/We shali be held iegally liable for its consequences. </b>
                                                         </p>
-                                                        <b>Date : </b> <input type="text" style="width:150px" class="form-control input-style" id="declare_date" placeholder="Permit Date" name="declare_date" value="{{ $data->declare_date }}" readonly>
+                                                        <b>Date : </b> <input type="text" style="width:150px" class="form-control input-style" id="declare_date" placeholder="Permit Date" name="declare_date" value="{{ $data->declare_date }}" disabled>
                                                     </div>
 
                                                     <div class="col-md-12 col-xs-12">

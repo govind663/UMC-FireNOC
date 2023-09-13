@@ -58,10 +58,10 @@
                                 <div class="card">
                                     <div class="card-body" style="border: 1px solid rgb(3, 155, 155);">
 
-                                        @if($status == 0)
-                                        <h4 class="card-header text-primary">All Approved New Business NOC List</h4>
-                                        @elseif($status == 1)
+                                        @if($all_status == 2)
                                         <h4 class="card-header text-primary">All Rejected New Business NOC List</h4>
+                                        @elseif($all_status == 1)
+                                        <h4 class="card-header text-primary">All Approved New Business NOC List</h4>
                                         @endif
 
                                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
@@ -128,14 +128,14 @@
                                                         @elseif ($value->status == 3)
                                                         <td><span class="bg-success text-dark p-2" style="border: 1px;">Approved</span></td>
                                                         @elseif ($value->status == 4)
-                                                        <td><span class="bg-danger text-dark p-2" style="border: 1px;">Rejected</span></td>
+                                                        <td><span class="bg-danger text-light p-2" style="border: 1px;">Rejected</span></td>
                                                         @elseif ($value->status == 5)
-                                                        <td><span class="bg-danger text-dark p-2" style="border: 1px;">Underprocess</span></td>
+                                                        <td><span class="bg-dark text-light p-2" style="border: 1px;">Underprocess</span></td>
                                                         @elseif ($value->status == 6)
                                                         <td><span class="bg-danger text-dark p-2" style="border: 1px;">Reviewed</span></td>
                                                         @endif
                                                         <td style="display:flex;">
-                                                            <a href='{{ url("/admin_new_business_noc/show/{$value->NB_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">
+                                                            <a href='{{ url("/all_new_business_noc/show/{$value->NB_NOC_ID}/{$all_status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
                                                         </td>

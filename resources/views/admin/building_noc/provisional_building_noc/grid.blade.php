@@ -132,9 +132,9 @@
                                                         @elseif ($value->status == 3)
                                                         <td><span class="bg-success text-dark p-2" style="border: 1px;">Approved</span></td>
                                                         @elseif ($value->status == 4)
-                                                        <td><span class="bg-danger text-dark p-2" style="border: 1px;">Rejected</span></td>
+                                                        <td><span class="bg-danger text-light p-2" style="border: 1px;">Rejected</span></td>
                                                         @elseif ($value->status == 5)
-                                                        <td><span class="bg-danger text-dark p-2" style="border: 1px;">Underprocess</span></td>
+                                                        <td><span class="bg-dark text-light p-2" style="border: 1px;">Underprocess</span></td>
                                                         @elseif ($value->status == 6)
                                                         <td><span class="bg-danger text-dark p-2" style="border: 1px;">Reviewed</span></td>
                                                         @endif

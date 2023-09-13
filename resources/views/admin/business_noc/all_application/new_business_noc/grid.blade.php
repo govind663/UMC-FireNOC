@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
 
-        <title>UMC-Fire NOC | New Hospital NOC List</title>
+        <title>UMC-Fire NOC | New Business NOC List</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
         <meta content="Themesdesign" name="author">
@@ -45,7 +45,7 @@
         <!-- Begin page -->
         <div id="layout-wrapper">
 
-            @include('common.citizen.header.header')
+            @include('common.admin.header.header')
 
             <div class="main-content">
 
@@ -58,21 +58,15 @@
                                 <div class="card">
                                     <div class="card-body" style="border: 1px solid rgb(3, 155, 155);">
 
-                                        @if($status == 0)
-                                        <h4 class="card-header text-primary">All Pending New Hospital NOC List</h4>
-                                        @elseif($status == 1)
-                                        <h4 class="card-header text-primary">All Unpaid New Hospital NOC List</h4>
-                                        @elseif($status == 2)
-                                        <h4 class="card-header text-primary">All Paid New Hospital NOC List</h4>
-                                        @elseif($status == 3)
-                                        <h4 class="card-header text-primary">All Approved New Hospital NOC List</h4>
-                                        @elseif($status == 4)
-                                        <h4 class="card-header text-primary">All Rejected New Hospital NOC List</h4>
+                                        @if($all_status == 2)
+                                        <h4 class="card-header text-primary">All Rejected New Business NOC List</h4>
+                                        @elseif($all_status == 1)
+                                        <h4 class="card-header text-primary">All Approved New Business NOC List</h4>
                                         @endif
 
                                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                                            <thead style="color: white; background:#086070;">
-                                                <tr>
+                                            <thead>
+                                                <tr style="color: white; background:#086070;">
                                                     <th><b>Sr. No.</b></th>
                                                     <th><b>Apply Date <br> (DD/MM/YYYY)</b></th>
                                                     <th><b>Appication Name</b></th>
@@ -141,27 +135,15 @@
                                                         <td><span class="bg-danger text-dark p-2" style="border: 1px;">Reviewed</span></td>
                                                         @endif
                                                         <td style="display:flex;">
-                                                            <a href='{{ url("/new_hospital_noc/show/{$value->NH_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">
+                                                            <a href='{{ url("/all_new_business_noc/show/{$value->NB_NOC_ID}/{$all_status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
-                                                            &nbsp;&nbsp;
-                                                            <a href='{{ url("/new_hospital_noc/edit/{$value->NH_NOC_ID}/{$value->status}") }}' class="btn btn-warning btn-sm text-dark">
-                                                                <b><i class="mdi mdi-account-edit"> Edit</i></b>
-                                                            </a>
-                                                            &nbsp;&nbsp;
-                                                            <form action='{{ url("/new_hospital_noc/delete/{$value->NH_NOC_ID}/{$value->d_ID}/{$value->status}") }}' method="post">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <input name="_method" type="hidden" value="DELETE">
-                                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">
-                                                                    <b><i class="mdi mdi-delete-alert-outline"> Delete</i></b>
-                                                                </button>
-                                                            </form>
                                                         </td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
                                         </table>
+
                                     </div>
                                 </div>
                             </div> <!-- end col -->
@@ -173,7 +155,7 @@
                 </div>
                 <!-- End Page-content -->
 
-                @include('common.citizen.footer.footer')
+                @include('common.admin.footer.footer')
 
             </div>
             <!-- end main content-->
@@ -254,15 +236,6 @@
             }
                     toastr.warning("{{ session('warning') }}");
             @endif
-        </script>
-
-        <script type="text/javascript">
-            function confirmation() {
-                var result = confirm("Are you sure you want to delete this item?");
-                if (result) {
-                    // Delete logic goes here
-                }
-            }
         </script>
     </body>
 </html>
