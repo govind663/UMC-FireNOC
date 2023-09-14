@@ -27,66 +27,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 </head>
 
-<style>
-    .btn-11 {
-        border: none;
-        background: rgb(251, 33, 117);
-        background: linear-gradient(to left, #32ff65, #18aff9, #07b8c5);
-        color: #fff;
-        overflow: hidden;
-    }
-
-    .btn-11:hover {
-        text-decoration: none;
-        color: #fff;
-    }
-
-    .btn-11:before {
-        position: absolute;
-        content: '';
-        display: inline-block;
-        top: -180px;
-        left: 0;
-        width: 30px;
-        height: 100%;
-        background-color: #fff;
-        animation: shiny-btn1 3s ease-in-out infinite;
-    }
-
-    .btn-11:hover {
-        opacity: .7;
-    }
-
-    .btn-11:active {
-        box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3),
-            -4px -4px 6px 0 rgba(116, 125, 136, .2),
-            inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
-            inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
-    }
-
-    @-webkit-keyframes shiny-btn1 {
-        0% {
-            -webkit-transform: scale(0) rotate(45deg);
-            opacity: 0;
-        }
-
-        80% {
-            -webkit-transform: scale(0) rotate(45deg);
-            opacity: 0.5;
-        }
-
-        81% {
-            -webkit-transform: scale(4) rotate(45deg);
-            opacity: 1;
-        }
-
-        100% {
-            -webkit-transform: scale(50) rotate(45deg);
-            opacity: 0;
-        }
-    }
-
-</style>
 
 <body data-topbar="colored" data-layout="horizontal">
 
@@ -111,18 +51,18 @@
                                     </h5>
                                 </div>
                                 <div class="card-body text-white">
-                                    <div id="cardCollpase3" class="collapse pt-3 show">
-                                        <div class="row" style="float:left;">
-                                            <div class="box widget-box-one widget-two-custom">
-                                                <h3 class="mb-2">
-                                                    <button type="button" class="btn btn-primary btn-rounded btn-lg waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_1">Apply For New</button>
-                                                </h3>
-                                            </div>
-                                        </div>
+                                    <div id="cardCollpase3" class="collapse p-3 show">
                                         <div class="row" style="float:right;">
                                             <div class="box widget-box-one widget-two-custom">
                                                 <h3 class="mb-2">
-                                                    <button type="button" class="btn btn-primary btn-rounded btn-lg waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_2">Apply For Renew</button>
+                                                    <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_1">New</button>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="float:left;">
+                                            <div class="box widget-box-one widget-two-custom">
+                                                <h3 class="mb-2">
+                                                    <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_2">Renew</button>
                                                 </h3>
                                             </div>
                                         </div>
@@ -140,18 +80,18 @@
                                     </h5>
                                 </div>
                                 <div class="card-body text-white">
-                                    <div id="cardCollpase3" class="collapse pt-3 show">
-                                        <div class="row" style="float:left;">
-                                            <div class="box widget-box-one widget-two-custom">
-                                                <h3 class="mb-2">
-                                                    <button type="button" class="btn btn-primary btn-rounded btn-lg waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_3">Apply For New</button>
-                                                </h3>
-                                            </div>
-                                        </div>
+                                    <div id="cardCollpase3" class="collapse p-3 show">
                                         <div class="row" style="float:right;">
                                             <div class="box widget-box-one widget-two-custom">
                                                 <h3 class="mb-2">
-                                                    <button type="button" class="btn btn-primary btn-rounded btn-lg waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_4">Apply For Renew</button>
+                                                    <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_3">New</button>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="float:left;">
+                                            <div class="box widget-box-one widget-two-custom">
+                                                <h3 class="mb-2">
+                                                    <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_4">Renew</button>
                                                 </h3>
                                             </div>
                                         </div>
@@ -171,18 +111,18 @@
                                 </div>
 
                                 <div class="card-body text-white">
-                                    <div id="cardCollpase3" class="collapse pt-3 show">
-                                        <div class="row" style="float:left;">
-                                            <div class="box widget-box-one widget-two-custom">
-                                                <h3 class="mb-2">
-                                                    <button type="button" class="btn btn-primary btn-rounded btn-lg waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_5">Apply For Provisional</button>
-                                                </h3>
-                                            </div>
-                                        </div>
+                                    <div id="cardCollpase3" class="collapse p-3 show">
                                         <div class="row" style="float:right;">
                                             <div class="box widget-box-one widget-two-custom">
                                                 <h3 class="mb-2">
-                                                    <button type="button" class="btn btn-primary btn-rounded btn-lg waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_6">Apply For Final</button>
+                                                    <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_5">Provisional</button>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="float:left;">
+                                            <div class="box widget-box-one widget-two-custom">
+                                                <h3 class="mb-2">
+                                                    <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_6">Final</button>
                                                 </h3>
                                             </div>
                                         </div>
@@ -227,7 +167,43 @@
                                             </span>
                                         </div>
                                         <div class="flex-grow-1 overflow-hidden ms-4">
-                                            <p class="text-muted font-size-15 mb-2">Total Paid Business <br> NOC</p>
+                                            <p class="text-muted font-size-15 mb-2">Total Underprocess Business NOC</p>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">0</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card" style="border: 1px solid black;">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-md flex-shrink-0">
+                                            <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                <i class="uim uim-briefcase"></i>
+                                            </span>
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden ms-4">
+                                            <p class="text-muted font-size-15 mb-2">Total Unpaid Business NOC</p>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">{{ $business_total_unpaid }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card" style="border: 1px solid black;">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-md flex-shrink-0">
+                                            <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                <i class="uim uim-briefcase"></i>
+                                            </span>
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden ms-4">
+                                            <p class="text-muted font-size-15 mb-2">Total Paid Business NOC</p>
                                             <h3 class="fs-4 flex-grow-1 mb-3">{{ $business_total_paid }}</h3>
                                         </div>
                                     </div>
@@ -245,8 +221,8 @@
                                             </span>
                                         </div>
                                         <div class="flex-grow-1 overflow-hidden ms-4">
-                                            <p class="text-muted font-size-15 mb-2">Total Unpaid Business <br> NOC</p>
-                                            <h3 class="fs-4 flex-grow-1 mb-3">{{ $business_total_unpaid }}</h3>
+                                            <p class="text-muted font-size-15 mb-2">Total Reviewed Business NOC</p>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">0</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -325,7 +301,43 @@
                                             </span>
                                         </div>
                                         <div class="flex-grow-1 overflow-hidden ms-4">
-                                            <p class="text-muted font-size-15 mb-2">Total Paid Hospital <br> NOC</p>
+                                            <p class="text-muted font-size-15 mb-2">Total Underprocess Business NOC</p>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">0</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card" style="border: 1px solid black;">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-md flex-shrink-0">
+                                            <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                <i class="uim uim-briefcase"></i>
+                                            </span>
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden ms-4">
+                                            <p class="text-muted font-size-15 mb-2">Total Unpaid Hospital NOC</p>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">{{ $hospital_total_paid }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card" style="border: 1px solid black;">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-md flex-shrink-0">
+                                            <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                <i class="uim uim-briefcase"></i>
+                                            </span>
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden ms-4">
+                                            <p class="text-muted font-size-15 mb-2">Total Paid Hospital NOC</p>
                                             <h3 class="fs-4 flex-grow-1 mb-3">{{ $hospital_total_unpaid }}</h3>
                                         </div>
                                     </div>
@@ -343,8 +355,8 @@
                                             </span>
                                         </div>
                                         <div class="flex-grow-1 overflow-hidden ms-4">
-                                            <p class="text-muted font-size-15 mb-2">Total Unpaid Hospital <br> NOC</p>
-                                            <h3 class="fs-4 flex-grow-1 mb-3">{{ $hospital_total_paid }}</h3>
+                                            <p class="text-muted font-size-15 mb-2">Total Reviewed Business NOC</p>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">0</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -425,7 +437,43 @@
                                             </span>
                                         </div>
                                         <div class="flex-grow-1 overflow-hidden ms-4">
-                                            <p class="text-muted font-size-15 mb-2">Total Paid Building <br> NOC</p>
+                                            <p class="text-muted font-size-15 mb-2">Total Reviewed Business NOC</p>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">0</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card" style="border: 1px solid black;">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-md flex-shrink-0">
+                                            <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                <i class="uim uim-briefcase"></i>
+                                            </span>
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden ms-4">
+                                            <p class="text-muted font-size-15 mb-2">Total Unpaid Building NOC</p>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_unpaid }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card" style="border: 1px solid black;">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-md flex-shrink-0">
+                                            <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                <i class="uim uim-briefcase"></i>
+                                            </span>
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden ms-4">
+                                            <p class="text-muted font-size-15 mb-2">Total Paid Building NOC</p>
                                             <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_paid }}</h3>
                                         </div>
                                     </div>
@@ -443,8 +491,8 @@
                                             </span>
                                         </div>
                                         <div class="flex-grow-1 overflow-hidden ms-4">
-                                            <p class="text-muted font-size-15 mb-2">Total Unpaid Building <br> NOC</p>
-                                            <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_unpaid }}</h3>
+                                            <p class="text-muted font-size-15 mb-2">Total Reviewed Business NOC</p>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">0</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -702,7 +750,7 @@
     <script src="{{ url('/') }}/assets/libs/node-waves/waves.min.js"></script>
 
     <!-- Icon -->
-    <script src="https://unicons.iconscout.com/release/v2.0.1/script/monochrome/bundle.js"></script>
+    <script src="{{ url('/') }}/assets/release/v2.0.1/script/monochrome/bundle.js"></script>
 
     <!-- App js -->
     <script src="{{ url('/') }}/assets/js/app.js"></script>

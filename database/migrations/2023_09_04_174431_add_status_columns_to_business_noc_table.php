@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('business_noc', function (Blueprint $table) {
-            $table->integer('status')->default('0')->comment('0:Pending, 1:Unpaid, 2:Paid, 3:Approved, 4:Rejected, 5:Underprocess, 6:Reviewed, 7:New')->after('affidavit_doc');
+            $table->integer('status')->default('0')->comment('0:Pending, 1:Unpaid, 2:Paid, 3:Approved, 4:Rejected, 5:Underprocess, 6:Reviewed')->after('affidavit_doc');
         });
     }
 

@@ -63,14 +63,52 @@ class AdminProvisionalBuildingNOCController extends Controller
      */
     public function approved($id, $status, $auth_role)
     {
-        $update = [
-            'status' => 5, // === Underprocess (Level Up that means application go to field inspector)
-            'operator_status' => 1, // ===== Approved by operator
-            'approved_dt' => date("Y-m-d H:i:s"),
-            'approved_by' => Auth::user()->id,
-        ];
+        // display only pending form (status=0)
+        if (Auth::user()->role == 0) {
+            $update = [
+                'status' => 5, // === New (Level Up that means application go to field inspector)
+                'operator_status' => 1, // ===== Approved by operator
+                'application_status' => 1, // ===== Field Inspector will pass
+                'approved_dt' => date("Y-m-d H:i:s"),
+                'approved_by' => Auth::user()->id,
+            ];
 
-        Building_NOC::where('id', $id)->where('status', $status)->update($update);
+            Building_NOC::where('id', $id)->where('status', $status)->update($update);
+
+        // display only underprocess form (status=5)
+        } elseif (Auth::user()->role == 1) {
+            $update = [
+                'status' => 1, // === Unpaid (Level Up that means application go to User End)
+                'inspector_status' => 1, // ===== Approved by Field Inspector
+                'approved_dt' => date("Y-m-d H:i:s"),
+                'approved_by' => Auth::user()->id,
+            ];
+
+            Building_NOC::where('id', $id)->where('status', $status)->update($update);
+
+        // display only Paid form (status=2)
+        } elseif (Auth::user()->role == 2) {
+            $update = [
+                'status' => 6, // === Reviewed (Level Up that means application go to DMC)
+                'officer_status	' => 1, // ===== Approved by Chief Fire Officer
+                'application_status' => 2, // ===== Chief Fire Officer will pass
+                'approved_dt' => date("Y-m-d H:i:s"),
+                'approved_by' => Auth::user()->id,
+            ];
+
+            Building_NOC::where('id', $id)->where('status', $status)->update($update);
+
+        // display only Reviewed form (status=6)
+        } elseif (Auth::user()->role == 3) {
+            $update = [
+                'status' => 3, // === Approved by DMC (This is the final step)
+                'application_status' => 3, // ===== DMC will pass
+                'approved_dt' => date("Y-m-d H:i:s"),
+                'approved_by' => Auth::user()->id,
+            ];
+
+            Building_NOC::where('id', $id)->where('status', $status)->update($update);
+        }
 
         return redirect()->route('all_provisional_building_noc_list',1)->with('message', 'The application form which you had filled for your provisional building noc has been approved Successfully.');
     }
@@ -83,16 +121,52 @@ class AdminProvisionalBuildingNOCController extends Controller
      */
     public function rejected(RemarksRequest $request, $id, $status, $auth_role)
     {
-        // dd('sdsd');
-        $update = [
-            'status' => 4, // === Rejected (this form go to direct display in user rejected list)
-            'operator_status' => 2, // ===== Rejected by operator
-            'remarks' => $request->get('remarks'),
-            'rejected_dt' => date("Y-m-d H:i:s"),
-            'rejected_by' => Auth::user()->id,
-        ];
+        // display only pending form (status=0)
+        if (Auth::user()->role == 0) {
+            $update = [
+                'status' => 4, // === Rejected (this form go to direct display in user rejected list)
+                'operator_status' => 2, // ===== Rejected by operator
+                'remarks' => $request->get('remarks'),
+                'rejected_dt' => date("Y-m-d H:i:s"),
+                'rejected_by' => Auth::user()->id,
+            ];
 
-        Building_NOC::where('id', $id)->where('status', $status)->update($update);
+            Building_NOC::where('id', $id)->where('status', $status)->update($update);
+
+        // display only underprocess form (status=5)
+        } elseif (Auth::user()->role == 1) {
+            $update = [
+                'status' => 4, // === Rejected (this form go to direct display in user rejected list)
+                'inspector_status' => 2, // ===== Rejected by operator
+                'remarks' => $request->get('remarks'),
+                'rejected_dt' => date("Y-m-d H:i:s"),
+                'rejected_by' => Auth::user()->id,
+            ];
+
+            Building_NOC::where('id', $id)->where('status', $status)->update($update);
+
+        // display only Paid form (status=2)
+        } elseif (Auth::user()->role == 2) {
+            $update = [
+                'status' => 4, // === Rejected (this form go to direct display in user rejected list)
+                'officer_status' => 2, // ===== Rejected by operator
+                'remarks' => $request->get('remarks'),
+                'rejected_dt' => date("Y-m-d H:i:s"),
+                'rejected_by' => Auth::user()->id,
+            ];
+
+            Building_NOC::where('id', $id)->where('status', $status)->update($update);
+        // display only Reviewed form (status=6)
+        } elseif (Auth::user()->role == 3) {
+            $update = [
+                'status' => 4, // === Rejected (this form go to direct display in user rejected list)
+                'remarks' => $request->get('remarks'),
+                'rejected_dt' => date("Y-m-d H:i:s"),
+                'rejected_by' => Auth::user()->id,
+            ];
+
+            Building_NOC::where('id', $id)->where('status', $status)->update($update);
+        }
 
         return redirect()->route('all_provisional_building_noc_list', 2)->with('message', 'The application form which you had filled for your provisional building noc has been rejected Successfully.');
     }

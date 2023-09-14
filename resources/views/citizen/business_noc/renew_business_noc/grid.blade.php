@@ -26,6 +26,7 @@
 
         <!-- Layout Js -->
         <script src="{{ url('/') }}/assets/js/layout.js"></script>
+
         <!-- Bootstrap Css -->
         <link href="{{ url('/') }}/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
         <!-- Icons Css -->
