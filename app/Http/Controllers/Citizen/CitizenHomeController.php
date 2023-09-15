@@ -13,7 +13,6 @@ class CitizenHomeController extends Controller
 {
     public function Citizen_Home()
     {
-
         // ==== new_business_noc(pending)
         $business_total_pending = DB::table('business_noc AS t1')
                         ->select('t1.id')
@@ -25,6 +24,18 @@ class CitizenHomeController extends Controller
                         ->orderBy('t1.id','DESC')
                         ->count();
         // dd($business_total_pending);
+
+        // ==== new_business_noc(underprocess)
+        $business_total_underprocess = DB::table('business_noc AS t1')
+                        ->select('t1.id')
+                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
+                        ->where('t1.status', 5)
+                        ->where('t2.citizen_id',  Auth::user()->id)
+                        ->whereNUll('t1.deleted_at')
+                        ->whereNUll('t2.deleted_at')
+                        ->orderBy('t1.id','DESC')
+                        ->count();
+        // dd($business_total_underprocess);
 
         // ==== new_business_noc(unpaid)
         $business_total_unpaid = DB::table('business_noc AS t1')
@@ -49,6 +60,18 @@ class CitizenHomeController extends Controller
                         ->orderBy('t1.id','DESC')
                         ->count();
         // dd($business_total_paid);
+
+        // ==== new_business_noc(reviewed)
+        $business_total_reviewed = DB::table('business_noc AS t1')
+                        ->select('t1.id')
+                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
+                        ->where('t1.status', 6)
+                        ->where('t2.citizen_id',  Auth::user()->id)
+                        ->whereNUll('t1.deleted_at')
+                        ->whereNUll('t2.deleted_at')
+                        ->orderBy('t1.id','DESC')
+                        ->count();
+        // dd($business_total_reviewed);
 
         // ==== new_business_noc(Approved)
         $business_total_approved = DB::table('business_noc AS t1')
@@ -76,6 +99,9 @@ class CitizenHomeController extends Controller
 
 
 
+
+
+
         // ==== new_hospital_noc(pending)
         $hospital_total_pending = DB::table('hospital_noc AS t1')
                         ->select('t1.id')
@@ -87,6 +113,18 @@ class CitizenHomeController extends Controller
                         ->orderBy('t1.id','DESC')
                         ->count();
         // dd($hospital_total_pending);
+
+        // ==== new_hospital_noc(underprocess)
+        $hospital_total_underprocess = DB::table('hospital_noc AS t1')
+                        ->select('t1.id')
+                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
+                        ->where('t1.status', 5)
+                        ->where('t2.citizen_id',  Auth::user()->id)
+                        ->whereNUll('t1.deleted_at')
+                        ->whereNUll('t2.deleted_at')
+                        ->orderBy('t1.id','DESC')
+                        ->count();
+        // dd($hospital_total_underprocess);
 
         // ==== new_hospital_noc(unpaid)
         $hospital_total_unpaid = DB::table('hospital_noc AS t1')
@@ -111,6 +149,18 @@ class CitizenHomeController extends Controller
                         ->orderBy('t1.id','DESC')
                         ->count();
         // dd($hospital_total_paid);
+
+        // ==== new_hospital_noc(reviewed)
+        $hospital_total_reviewed = DB::table('hospital_noc AS t1')
+                        ->select('t1.id')
+                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
+                        ->where('t1.status', 6)
+                        ->where('t2.citizen_id',  Auth::user()->id)
+                        ->whereNUll('t1.deleted_at')
+                        ->whereNUll('t2.deleted_at')
+                        ->orderBy('t1.id','DESC')
+                        ->count();
+        // dd($hospital_total_reviewed);
 
         // ==== new_hospital_noc(Approved)
         $hospital_total_approved = DB::table('hospital_noc AS t1')
@@ -137,6 +187,8 @@ class CitizenHomeController extends Controller
         // dd($hospital_total_rejected);
 
 
+
+
         // ==== new_building_noc(pending)
         $building_total_pending = DB::table('building_noc AS t1')
                         ->select('t1.id')
@@ -148,6 +200,19 @@ class CitizenHomeController extends Controller
                         ->orderBy('t1.id','DESC')
                         ->count();
         // dd($building_total_pending);
+
+
+        // ==== new_building_noc(underprocess)
+        $building_total_underprocess = DB::table('building_noc AS t1')
+                        ->select('t1.id')
+                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
+                        ->where('t1.status', 5)
+                        ->where('t2.citizen_id',  Auth::user()->id)
+                        ->whereNUll('t1.deleted_at')
+                        ->whereNUll('t2.deleted_at')
+                        ->orderBy('t1.id','DESC')
+                        ->count();
+        // dd($building_total_underprocess);
 
         // ==== new_building_noc(unpaid)
         $building_total_unpaid = DB::table('building_noc AS t1')
@@ -172,6 +237,18 @@ class CitizenHomeController extends Controller
                         ->orderBy('t1.id','DESC')
                         ->count();
         // dd($building_total_paid);
+
+        // ==== new_building_noc(reviewed)
+        $building_total_reviewed = DB::table('building_noc AS t1')
+                        ->select('t1.id')
+                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
+                        ->where('t1.status', 5)
+                        ->where('t2.citizen_id',  Auth::user()->id)
+                        ->whereNUll('t1.deleted_at')
+                        ->whereNUll('t2.deleted_at')
+                        ->orderBy('t1.id','DESC')
+                        ->count();
+        // dd($building_total_reviewed);
 
         // ==== new_building_noc(Approved)
         $building_total_approved = DB::table('building_noc AS t1')
@@ -198,8 +275,8 @@ class CitizenHomeController extends Controller
         // dd($building_total_rejected);
 
         return view('citizen.citizen_dashboard')
-        ->with(['business_total_pending' => $business_total_pending,'business_total_unpaid' => $business_total_unpaid,'business_total_paid' => $business_total_paid, 'business_total_rejected' => $business_total_rejected, 'business_total_approved' => $business_total_approved])
-        ->with(['hospital_total_pending' => $hospital_total_pending,'hospital_total_unpaid' => $hospital_total_unpaid,'hospital_total_paid' => $hospital_total_paid, 'hospital_total_rejected' => $hospital_total_rejected, 'hospital_total_approved' => $hospital_total_approved])
-        ->with(['building_total_pending' => $building_total_pending,'building_total_unpaid' => $building_total_unpaid,'building_total_paid' => $building_total_paid, 'building_total_rejected' => $building_total_rejected, 'building_total_approved' => $building_total_approved]);
+        ->with(['business_total_pending' => $business_total_pending, 'business_total_underprocess' => $business_total_underprocess, 'business_total_unpaid' => $business_total_unpaid,'business_total_paid' => $business_total_paid, 'business_total_reviewed' => $business_total_reviewed, 'business_total_rejected' => $business_total_rejected, 'business_total_approved' => $business_total_approved])
+        ->with(['hospital_total_pending' => $hospital_total_pending, 'hospital_total_underprocess' => $hospital_total_underprocess, 'hospital_total_unpaid' => $hospital_total_unpaid,'hospital_total_paid' => $hospital_total_paid, 'hospital_total_reviewed' => $hospital_total_reviewed, 'hospital_total_rejected' => $hospital_total_rejected, 'hospital_total_approved' => $hospital_total_approved])
+        ->with(['building_total_pending' => $building_total_pending, 'building_total_underprocess' => $building_total_underprocess, 'building_total_unpaid' => $building_total_unpaid,'building_total_paid' => $building_total_paid, 'building_total_reviewed' => $building_total_reviewed, 'building_total_rejected' => $building_total_rejected, 'building_total_approved' => $building_total_approved]);
     }
 }

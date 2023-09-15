@@ -144,6 +144,7 @@
                                                             <a href='{{ url("/new_hospital_noc/show/{$value->NH_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
+                                                            @if ($value->status == 0 || $value->status == 4)
                                                             &nbsp;&nbsp;
                                                             <a href='{{ url("/new_hospital_noc/edit/{$value->NH_NOC_ID}/{$value->status}") }}' class="btn btn-warning btn-sm text-dark">
                                                                 <b><i class="mdi mdi-account-edit"> Edit</i></b>
@@ -157,6 +158,7 @@
                                                                     <b><i class="mdi mdi-delete-alert-outline"> Delete</i></b>
                                                                 </button>
                                                             </form>
+                                                            @endif
                                                         </td>
                                                     </tr>
                                                 @endforeach

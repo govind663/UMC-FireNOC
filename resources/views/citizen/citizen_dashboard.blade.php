@@ -168,7 +168,7 @@
                                         </div>
                                         <div class="flex-grow-1 overflow-hidden ms-4">
                                             <p class="text-muted font-size-15 mb-2">Total Underprocess Business NOC</p>
-                                            <h3 class="fs-4 flex-grow-1 mb-3">0</h3>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">{{ $business_total_underprocess }}</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -222,7 +222,7 @@
                                         </div>
                                         <div class="flex-grow-1 overflow-hidden ms-4">
                                             <p class="text-muted font-size-15 mb-2">Total Reviewed Business NOC</p>
-                                            <h3 class="fs-4 flex-grow-1 mb-3">0</h3>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">{{ $business_total_reviewed }}</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -302,7 +302,7 @@
                                         </div>
                                         <div class="flex-grow-1 overflow-hidden ms-4">
                                             <p class="text-muted font-size-15 mb-2">Total Underprocess Business NOC</p>
-                                            <h3 class="fs-4 flex-grow-1 mb-3">0</h3>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">{{ $hospital_total_underprocess }}</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -356,7 +356,7 @@
                                         </div>
                                         <div class="flex-grow-1 overflow-hidden ms-4">
                                             <p class="text-muted font-size-15 mb-2">Total Reviewed Business NOC</p>
-                                            <h3 class="fs-4 flex-grow-1 mb-3">0</h3>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">{{ $hospital_total_reviewed }}</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -438,7 +438,7 @@
                                         </div>
                                         <div class="flex-grow-1 overflow-hidden ms-4">
                                             <p class="text-muted font-size-15 mb-2">Total Reviewed Business NOC</p>
-                                            <h3 class="fs-4 flex-grow-1 mb-3">0</h3>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_underprocess }}</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -492,7 +492,7 @@
                                         </div>
                                         <div class="flex-grow-1 overflow-hidden ms-4">
                                             <p class="text-muted font-size-15 mb-2">Total Reviewed Business NOC</p>
-                                            <h3 class="fs-4 flex-grow-1 mb-3">0</h3>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_reviewed }}</h3>
                                         </div>
                                     </div>
                                 </div>
