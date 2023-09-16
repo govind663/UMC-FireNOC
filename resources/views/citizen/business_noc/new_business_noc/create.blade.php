@@ -245,6 +245,36 @@
                                                 </div>
                                             </div>
 
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-2"><strong>Contact Person : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" name="contact_persion" id="contact_persion" class="form-control @error('contact_persion') is-invalid @enderror" value="{{ old('contact_persion') }}" placeholder="Enter Contact Person.">
+                                                    @error('contact_persion')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                                <label class="col-sm-2"><strong>Telephone No. (if any) : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" name="tel_no" id="tel_no" class="form-control" value="{{ old('tel_no') }}" placeholder="Enter Telephone No. (if any).">
+                                                    @error('tel_no')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                                <label class="col-sm-2"><strong>Email Id (if any) : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}" placeholder="Enter Email Id (if any).">
+                                                    @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
                                             <h4 class="card-title text-primary mb-2" style="font-size: 18px;">Information of Property :</h4>
                                             <div class="form-group row  mb-3">
                                                 <label class="col-sm-2"><strong>Type of Property : <span style="color:red;">*</span></strong></label>

@@ -245,6 +245,36 @@
                                                 </div>
                                             </div>
 
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-2"><strong>Contact Person : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" name="contact_persion" id="contact_persion" class="form-control @error('contact_persion') is-invalid @enderror" value="{{ old('contact_persion') }}" placeholder="Enter Contact Person.">
+                                                    @error('contact_persion')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                                <label class="col-sm-2"><strong>Telephone No. (if any) : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" name="tel_no" id="tel_no" class="form-control" value="{{ old('tel_no') }}" placeholder="Enter Telephone No. (if any).">
+                                                    @error('tel_no')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                                <label class="col-sm-2"><strong>Email Id (if any) : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}" placeholder="Enter Email Id (if any).">
+                                                    @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
                                             <h4 class="card-title text-primary mb-2" style="font-size: 18px;">Information of Property :</h4>
                                             <div class="form-group row  mb-3">
                                                 <label class="col-sm-2"><strong>Type of Property : <span style="color:red;">*</span></strong></label>
@@ -468,8 +498,29 @@
                                                     @enderror
                                                 </div>
 
-                                                <label class="col-sm-2"><strong>Address Of Business Place : <span style="color:red;">*</span></strong></label>
+
+                                                <label class="col-sm-2"><strong>Nature / Particulars of Business : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
+                                                    <select class="form-control select2 @error('business_nature_id') is-invalid @enderror" name="business_nature_id" id="business_nature_id">
+                                                        <option value="">Select Nature / Particulars of Businesso</option>
+                                                        <optgroup label="">
+                                                            <option value="1" {{ old('business_nature_id') == "1" ? 'selected' : '' }} >Ward 1</option>
+                                                            <option value="2" {{ old('business_nature_id') == "2" ? 'selected' : '' }} >Ward 2</option>
+                                                            <option value="3" {{ old('business_nature_id') == "3" ? 'selected' : '' }} >Ward 3</option>
+                                                            <option value="4" {{ old('business_nature_id') == "4" ? 'selected' : '' }} >Ward 4</option>
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('business_nature_id')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-12"><strong>Address Of Business Place : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-6 col-md-6">
                                                     <textarea type="text" name="business_address" id="business_address" class="form-control @error('business_address') is-invalid @enderror" value="{{ old('business_address') }}" placeholder="Enter Address Of Business Place"></textarea>
                                                     @error('business_address')
                                                         <span class="invalid-feedback" role="alert">
