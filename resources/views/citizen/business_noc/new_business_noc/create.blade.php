@@ -513,14 +513,11 @@
                                             <div class="row "  >
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Location of Place (Google Map Link) : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Location of Place (Google Map Link) : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <input type="file" accept=".jpg, .jpeg, .png, .pdf" name="location_map_doc" id="location_map_doc" class="form-control  @error('location_map_doc') is-invalid @enderror "   value="{{ old('location_map_doc') }}" placeholder="Upload Location of Place (Google Map Link)">
-                                                        <small class="text-secondary"> Note : The file size  should be less than 2MB .</small>
-                                                        <br>
-                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</small>
-                                                        <br>
-                                                        @error('location_map_doc')
+                                                        <input type="url" name="location_map_link" id="location_map_link" class="form-control  @error('location_map_link') is-invalid @enderror "   value="{{ old('location_map_link') }}" placeholder="Enter Location of Place (Google Map Link)">
+
+                                                        @error('location_map_link')
                                                             <span class="invalid-feedback" role="alert">
                                                                 <strong>{{ $message }}</strong>
                                                             </span>

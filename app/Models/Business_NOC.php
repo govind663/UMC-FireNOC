@@ -38,6 +38,9 @@ class Business_NOC extends Model
         'pincode',
         'ward_no',
         'electrol_panel_no',
+        'contact_persion',
+        'tel_no',
+        'email',
 
         // ===== Information of Property
         'types_of_property',
@@ -61,6 +64,8 @@ class Business_NOC extends Model
         'area',
         'no_of_workers',
         'types_of_business',
+        'from_date',
+        'to_date',
         'no_of_workers_sleep_night',
         'fire_equips',
         'business_address',

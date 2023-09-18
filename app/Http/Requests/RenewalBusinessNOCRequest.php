@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BusinessNOCRequest extends FormRequest
+class RenewalBusinessNOCRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -70,7 +70,7 @@ class BusinessNOCRequest extends FormRequest
                 'business_address' => 'required',
 
                 // ===== Other Document
-                'location_map_link' => 'required',
+                'location_map_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
                 'electric_license_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
                 'gas_license_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
                 'shop_license_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
@@ -146,7 +146,7 @@ class BusinessNOCRequest extends FormRequest
                 'business_address' => 'required',
 
                 // ===== Other Document
-                'location_map_doc' => 'required',
+                'location_map_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
                 'electric_license_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
                 'gas_license_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
                 'shop_license_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
@@ -227,7 +227,9 @@ class BusinessNOCRequest extends FormRequest
             'business_address.required' => 'Address Of Business Place is required',
 
              // ===== Other Document
-            'location_map_link.required' => 'Location of Place (Google Map Link) is required',
+            'location_map_link.required' => 'Copy of previous NOC is required',
+            'location_map_link.max' => 'The file size should be less than 2MB.',
+            'location_map_link.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
             'electric_license_doc.required' => 'Letter from License Holder regarding proper electric connection is required',
             'electric_license_doc.max' => 'The file size should be less than 2MB.',
