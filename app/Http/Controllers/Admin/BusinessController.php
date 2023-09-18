@@ -59,6 +59,7 @@ class BusinessController extends Controller
     public function show($id)
     {
         $data = Business::whereNUll('deleted_at')->where('id', $id)->orderBy('id', 'desc')->first();
+        // dd($data);
 
         return view('admin.business.view')->with('data', $data);
     }
@@ -72,6 +73,7 @@ class BusinessController extends Controller
     public function edit($id)
     {
         $data = Business::whereNUll('deleted_at')->where('id', $id)->orderBy('id', 'desc')->first();
+        // dd($data);
 
         return view('admin.business.edit')->with('data', $data);
     }
