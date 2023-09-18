@@ -97,14 +97,14 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
-                            <i class="uim uim-grid"></i> Master <div class="arrow-down"></div>
+                            <i class="uim uim-box"></i> Master <div class="arrow-down"></div>
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="topnav-uielement">
                             <div class="row">
                                 <div class="col-lg-5">
                                     <div>
-                                        <a href="{{ url('/all_new_business_noc_list',1) }}"  class="dropdown-item">New Business NOC List</a>
+                                        <a href="{{ url('/business') }}"  class="dropdown-item"><b>Business</b></a>
 
                                     </div>
 

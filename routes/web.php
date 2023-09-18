@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\AdminNewHospitalNOCController;
 use App\Http\Controllers\Admin\AdminRenewHospitalNOCController;
 use App\Http\Controllers\Admin\AdminProvisionalBuildingNOCController;
 use App\Http\Controllers\Admin\AdminFinalBuildingNOCController;
+use App\Http\Controllers\Admin\BusinessController;
 
 // ========== Citizen
 use App\Http\Controllers\Citizen\Auth\LoginController;
@@ -103,6 +104,10 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     Route::post('/admin_final_building_noc/rejected/{id}/{status}/{auth_role}', [AdminFinalBuildingNOCController::class, 'rejected'])->name('admin_final_building_noc.rejected');
     Route::get('/all_final_building_noc_list/{all_status}', [AdminFinalBuildingNOCController::class, 'list'])->name('all_final_building_noc_list');
     Route::get('/all_final_building_noc/show/{id}/{all_status}', [AdminFinalBuildingNOCController::class, 'view'])->name('all_final_building_noc.show');
+
+
+    // ======= Business Master
+    Route::resource('/business', BusinessController::class);
 
 });
 
