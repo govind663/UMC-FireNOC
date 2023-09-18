@@ -185,28 +185,3 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware']],
 
 });
 
-// ========= Clear Route Cache from Browser
-Route::get('/route-cache', function() {
-    $exitCode = Artisan::call('route:cache');
-    return 'Routes cache cleared';
-});
-
-// ========= Clear Config Cache from Browser
-Route::get('/config-cache', function() {
-    $exitCode = Artisan::call('config:cache');
-    return 'Config cache cleared';
-});
-
-
-// ========= Clear Application Cache from Browser
-Route::get('/clear-cache', function() {
-    $exitCode = Artisan::call('cache:clear');
-    return 'Application cache cleared';
-});
-
-
-// ========= Clear View Cache from Browser
-Route::get('/view-clear', function() {
-    $exitCode = Artisan::call('view:clear');
-    return 'View cache cleared';
-});
