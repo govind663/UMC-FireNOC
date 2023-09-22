@@ -82,8 +82,8 @@
                                                     <select class="form-control select2 " name="noc_mode" id="noc_mode" type="hidden">
                                                         <option>Select Mode of NOC</option>
                                                         <optgroup label=" ">
-                                                            <option value="1" {{ old('noc_mode') == "1" ? 'selected' : '' }} selected>New Bussiness NOC</option>
-                                                            <option value="2" {{ old('noc_mode') == "2" ? 'selected' : '' }}>Renewal Bussiness NOC</option>
+                                                            <option value="1" {{ $data->noc_mode == "1" ? 'selected' : '' }} selected>New Bussiness NOC</option>
+                                                            <option value="2" {{ $data->noc_mode == "2" ? 'selected' : '' }}>Renewal Bussiness NOC</option>
                                                         </optgroup>
                                                     </select>
                                                 </div>
@@ -241,6 +241,28 @@
                                                             <strong>{{ $message }}</strong>
                                                         </span>
                                                     @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-2"><strong>Contact Person : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="contact_persion" id="contact_persion" class="form-control @error('contact_persion') is-invalid @enderror" value="{{ $data->contact_persion }}" placeholder="Enter Contact Person.">
+                                                    @error('contact_persion')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                                <label class="col-sm-2"><strong>Telephone No. (if any) : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="tel_no" id="tel_no" class="form-control" value="{{ $data->tel_no }}" placeholder="Enter Telephone No. (if any).">
+
+                                                </div>
+                                                <label class="col-sm-2"><strong>Email Id (if any) : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="email" readonly name="email" id="email" class="form-control" value="{{ $data->email }}" placeholder="Enter Email Id (if any).">
+
                                                 </div>
                                             </div>
 
@@ -440,6 +462,18 @@
                                                 </div>
                                             </div>
 
+                                            <div class="form-group row  mb-3 box 1">
+                                                <label class="col-sm-2"><strong>From Date : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="date" readonly name="from_date" id="from_date" class="form-control " value="{{ $data->from_date }}" placeholder="DD-MM-YYYY">
+                                                </div>
+
+                                                <label class="col-sm-2"><strong>To Date : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="date" readonly name="to_date" id="to_date" class="form-control " value="{{ $data->to_date }}" placeholder="DD-MM-YYYY">
+                                                </div>
+                                            </div>
+
                                             <div class="form-group row  mb-3">
                                                 <label class="col-sm-2"><strong>Number of Workers / Servants sleep at night at working place : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
@@ -453,7 +487,7 @@
 
                                                 <label class="col-sm-2"><strong>Fire extinguishers/ preventive equipments are installed at working place : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <select class="form-control select2 @error('fire_equips') is-invalid @enderror" disabled name="fire_equips" id="fire_equips" onchange="mySelectfunction()" >
+                                                    <select class="form-control select2 @error('fire_equips') is-invalid @enderror" disabled name="fire_equips" id="fire_equips" >
                                                         <option value="">Select Fire extinguishers/ preventive equipments are installed at working place</option>
                                                         <optgroup label=" ">
                                                             <option value="1" {{ $data->fire_equips == "1" ? 'selected' : '' }}>Yes</option>
@@ -484,35 +518,12 @@
                                                 <div class="form-group row  mb-3">
                                                     <label class="col-sm-2"><strong>Upload Location of Place (Google Map Link) : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank">
-                                                            <div class="form-group">
-                                                                <?php
-                                                                        $document_path = $data->location_map_doc;
-                                                                        $filter_path =  explode(".",$document_path);
-                                                                        $size_of_array = count($filter_path);
-                                                                        $filter_ext = $filter_path[$size_of_array - 1];
-
-                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
-                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                                                        {
-                                                                ?>
-
-                                                                <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/location_map_doc/{{ $data->location_map_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
-                                                                </p>
-                                                                <?php }
-                                                                else{
-                                                                    ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank" download>
-                                                                        <p class="mt-3 mb-0" id="image_div">
-                                                                        <button type="button"class="btn btn-primary text-bold">
-                                                                            Download File
-                                                                        </button>
-                                                                        </p>
-                                                                    </a>
-                                                                <?php }?>
-                                                            </div>
-                                                        </a>
+                                                        <input type="text" readonly name="location_map_link" id="location_map_link" class="form-control  @error('location_map_link') is-invalid @enderror "   value="{{ $data->location_map_link }}" placeholder="Enter Location of Place (Google Map Link)">
+                                                        @error('location_map_link')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
                                                     </div>
 
                                                     <label class="col-sm-2"><strong>Upload Letter from License Holder regarding proper electric connection : <span style="color:red;">*</span></strong></label>

@@ -9,7 +9,7 @@ use App\Models\Business;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\BusinessNOCRequest;
+use App\Http\Requests\RenewalBusinessNOCRequest;
 
 class RenewBusinessNOCController extends Controller
 {
@@ -54,7 +54,7 @@ class RenewBusinessNOCController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BusinessNOCRequest $request)
+    public function store(RenewalBusinessNOCRequest $request)
     {
         $noc_master = new NOC_Master();
 
@@ -200,18 +200,6 @@ class RenewBusinessNOCController extends Controller
             $data->commissioning_certificate = $new_name;
         }
 
-        // ==== Upload (affidavit_doc)
-        if (!empty($request->hasFile('affidavit_doc'))) {
-            $image = $request->file('affidavit_doc');
-            $image_name = $image->getClientOriginalName();
-            $extension = $image->getClientOriginalExtension();
-            $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/affidavit_doc'), $new_name);
-
-            $image_path = "/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/affidavit_doc" . $image_name;
-            $data->affidavit_doc = $new_name;
-        }
-
         $data->noc_mst_id = $noc_master->id;
         $data->l_name = $request->get('l_name');
         $data->f_name = $request->get('f_name');
@@ -317,7 +305,7 @@ class RenewBusinessNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(BusinessNOCRequest $request, $id, $n_id, $status)
+    public function update(RenewalBusinessNOCRequest $request, $id, $n_id, $status)
     {
         $noc_master = NOC_Master::findOrFail($n_id);
 
@@ -453,18 +441,6 @@ class RenewBusinessNOCController extends Controller
 
             $image_path = "/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/commissioning_certificate" . $image_name;
             $data->commissioning_certificate = $new_name;
-        }
-
-        // ==== Upload (affidavit_doc)
-        if (!empty($request->hasFile('affidavit_doc'))) {
-            $image = $request->file('affidavit_doc');
-            $image_name = $image->getClientOriginalName();
-            $extension = $image->getClientOriginalExtension();
-            $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/affidavit_doc'), $new_name);
-
-            $image_path = "/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/affidavit_doc" . $image_name;
-            $data->affidavit_doc = $new_name;
         }
 
         $data->noc_mst_id = $noc_master->id;

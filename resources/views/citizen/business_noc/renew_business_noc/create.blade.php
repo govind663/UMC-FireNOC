@@ -63,7 +63,7 @@
                                 <div class="card-body p-0">
                                     <h4 class="card-header text-light bg-primary ">Add Renew Business NOC</h4>
 
-                                    <form class="auth-input p-4" method="POST" action="{{ url('/renew_business_noc/store') }}" enctype="multipart/form-data">
+                                    <form class="auth-input p-4" method="POST" action="{{ url('/renew_business_noc/store') }}" enctype="multipart/form-data" autocomplete="off" >
                                         @csrf
 
                                         <div class="form-group row mb-3">
@@ -263,20 +263,12 @@
                                             <label class="col-sm-2"><strong>Telephone No. (if any) : </strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="tel_no" id="tel_no" class="form-control" value="{{ old('tel_no') }}" placeholder="Enter Telephone No. (if any).">
-                                                @error('tel_no')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
+
                                             </div>
                                             <label class="col-sm-2"><strong>Email Id (if any) : </strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}" placeholder="Enter Email Id (if any).">
-                                                @error('email')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
+
                                             </div>
                                         </div>
 
@@ -501,7 +493,7 @@
 
                                             <label class="col-sm-2"><strong>Fire extinguishers/ preventive equipments are installed at working place : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <select class="form-control select2 @error('fire_equips') is-invalid @enderror" name="fire_equips" id="fire_equips" onchange="mySelectfunction()">
+                                                <select class="form-control select2 @error('fire_equips') is-invalid @enderror" name="fire_equips" id="fire_equips" >
                                                     <option value="">Select Fire extinguishers/ preventive equipments are installed at working place</option>
                                                     <optgroup label=" ">
                                                         <option value="1" {{ old('fire_equips') == "1" ? 'selected' : '' }} selected>Yes</option>
@@ -683,19 +675,6 @@
                                                     @enderror
                                                 </div>
 
-                                                <label class="col-sm-2"><strong>Upload Copy of Affidavit : <span style="color:red;">*</span></strong></label>
-                                                <div class="col-sm-4 col-md-4">
-                                                    <input type="file" accept=".jpg, .jpeg, .png, .pdf" name="affidavit_doc" id="affidavit_doc" class="form-control @error('affidavit_doc') is-invalid @enderror" value="{{ old('affidavit_doc') }}" placeholder="Enter Numbers of Workers / Servants">
-                                                    <small class="text-secondary"> Note : The file size should be less than 2MB .</small>
-                                                    <br>
-                                                    <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</small>
-                                                    <br>
-                                                    @error('affidavit_doc')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
                                             </div>
 
 

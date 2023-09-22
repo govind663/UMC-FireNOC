@@ -59,7 +59,7 @@
                                 <div class="card-body p-0">
                                     <h4 class="card-header text-light bg-primary ">Add Provisional Building NOC</h4>
 
-                                    <form class="auth-input p-4" method="POST" action="{{ url('/provisional_building_noc/store') }}" enctype="multipart/form-data">
+                                    <form class="auth-input p-4" method="POST" action="{{ url('/provisional_building_noc/store') }}" enctype="multipart/form-data" autocomplete="off" >
                                         @csrf
 
                                         <div class="form-group row mb-3">

@@ -56,7 +56,7 @@ return new class extends Migration
             $table->string('fire_equips');
             $table->string('business_address');
 
-            $table->string('location_map_doc');
+            $table->string('location_map_doc')->nullable();
             $table->string('electric_license_doc');
             $table->string('gas_license_doc');
             $table->string('shop_license_doc');
@@ -65,7 +65,6 @@ return new class extends Migration
             $table->string('trade_license');
             $table->string('gas_certificate_doc');
             $table->string('commissioning_certificate');
-            $table->string('affidavit_doc');
 
             $table->integer('application_status')->default('0')->comment('0:Operator, 1:Field Inspector, 2:Chief Fire Officer, 3:DMC');
             $table->date('approved_dt')->nullable();

@@ -69,7 +69,7 @@
                                         </div>
                                     @endif --}}
 
-                                    <form class="auth-input p-4" method="POST" action="{{ url('/renew_hospital_noc/store') }}" enctype="multipart/form-data">
+                                    <form class="auth-input p-4" method="POST" action="{{ url('/renew_hospital_noc/store') }}" enctype="multipart/form-data" autocomplete="off" >
                                         @csrf
 
                                         <div class="form-group row mb-3">

@@ -146,7 +146,7 @@ class BusinessNOCRequest extends FormRequest
                 'business_address' => 'required',
 
                 // ===== Other Document
-                'location_map_doc' => 'required',
+                'location_map_link' => 'required',
                 'electric_license_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
                 'gas_license_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
                 'shop_license_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',

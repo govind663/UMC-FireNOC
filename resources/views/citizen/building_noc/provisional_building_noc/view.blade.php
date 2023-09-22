@@ -83,8 +83,8 @@
                                                 <select disabled class="form-control select2 " name="noc_mode" id="noc_mode" type="hidden">
                                                     <option>Select Mode of NOC</option>
                                                     <optgroup label=" ">
-                                                        <option value="5" {{ old('noc_mode') == "5" ? 'selected' : '' }} selected>Provisional Building NOC</option>
-                                                        <option value="6" {{ old('noc_mode') == "6" ? 'selected' : '' }}>Final Building NOC</option>
+                                                        <option value="5" {{ $data->noc_mode == "5" ? 'selected' : '' }} selected>Provisional Building NOC</option>
+                                                        <option value="6" {{ $data->noc_mode == "6" ? 'selected' : '' }}>Final Building NOC</option>
                                                     </optgroup>
                                                 </select>
                                             </div>

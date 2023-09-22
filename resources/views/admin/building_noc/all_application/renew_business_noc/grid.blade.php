@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
 
-        <title>UMC-Fire NOC | New Business NOC List</title>
+        <title>UMC-Fire NOC | Renew Business NOC List</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
         <meta content="Themesdesign" name="author">
@@ -59,9 +59,9 @@
                                     <div class="card-body" style="border: 1px solid rgb(3, 155, 155);">
 
                                         @if($all_status == 2)
-                                        <h4 class="card-header text-primary">All Rejected New Business NOC List</h4>
+                                        <h4 class="card-header text-primary">All Rejected Renew Business NOC List</h4>
                                         @elseif($all_status == 1)
-                                        <h4 class="card-header text-primary">All Approved New Business NOC List</h4>
+                                        <h4 class="card-header text-primary">All Approved Renew Business NOC List</h4>
                                         @endif
 
                                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
@@ -87,19 +87,12 @@
                                                         <td>{{ date('d-m-Y', strtotime($value->noc_a_date)) }}</td>
                                                         <td>{{ $value->f_name }} {{ $value->father_name }} {{ $value->l_name }}</td>
 
-                                                        @if ($value->noc_mode == 1)
-                                                        <td>New Bussiness NOC</td>
-                                                        @elseif ($value->noc_mode == 2)
-                                                        <td>Renewal Bussiness NOC</td>
-                                                        @elseif ($value->noc_mode == 3)
-                                                        <td>New Hospital NOC</td>
-                                                        @elseif ($value->noc_mode == 4)
-                                                        <td>Renewal Hospital NOC</td>
-                                                        @elseif ($value->noc_mode == 5)
-                                                        <td>Provisional Building NOC</td>
-                                                        @else
-                                                        <td>Final Building NOC</td>
+                                                        @if ($value->types_of_property == 1)
+                                                        <td>Land</td>
+                                                        @elseif ($value->types_of_property == 2)
+                                                        <td>Building</td>
                                                         @endif
+
                                                         <td>{{ $value->property_no }}</td>
                                                         <td>{{ $value->city_name }}</td>
                                                         <td>{{ $value->pincode }}</td>

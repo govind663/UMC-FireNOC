@@ -44,7 +44,7 @@
                     <div class="row">
                         <div class="col-xl-4 col-sm-6">
                             <div class="card text-black" style="border: 1px solid black;">
-                                <div class="card-header text-light" style="background: #083ECE;">
+                                <div class="card-header text-light" style="background: #08806a;">
                                     <h5 class="card-title mb-0 text-white text-center">
                                         <i class="fas fa-city"></i>&nbsp;
                                         Business NOC
@@ -52,14 +52,14 @@
                                 </div>
                                 <div class="card-body text-white">
                                     <div id="cardCollpase3" class="collapse p-3 show">
-                                        <div class="row" style="float:right;">
+                                        <div class="row" style="float:left;">
                                             <div class="box widget-box-one widget-two-custom">
                                                 <h3 class="mb-2">
                                                     <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_1">New</button>
                                                 </h3>
                                             </div>
                                         </div>
-                                        <div class="row" style="float:left;">
+                                        <div class="row" style="float:right;">
                                             <div class="box widget-box-one widget-two-custom">
                                                 <h3 class="mb-2">
                                                     <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_2">Renew</button>
@@ -73,7 +73,7 @@
 
                         <div class="col-xl-4 col-sm-6">
                             <div class="card text-black" style="border: 1px solid black;">
-                                <div class="card-header" style="background: #109705;">
+                                <div class="card-header" style="background: #de0707;">
                                     <h5 class="card-title mb-0 text-white text-center">
                                         <i class="fas fa-clinic-medical"></i>&nbsp;
                                         Hospital NOC
@@ -81,14 +81,14 @@
                                 </div>
                                 <div class="card-body text-white">
                                     <div id="cardCollpase3" class="collapse p-3 show">
-                                        <div class="row" style="float:right;">
+                                        <div class="row" style="float:left;">
                                             <div class="box widget-box-one widget-two-custom">
                                                 <h3 class="mb-2">
                                                     <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_3">New</button>
                                                 </h3>
                                             </div>
                                         </div>
-                                        <div class="row" style="float:left;">
+                                        <div class="row" style="float:right;">
                                             <div class="box widget-box-one widget-two-custom">
                                                 <h3 class="mb-2">
                                                     <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_4">Renew</button>
@@ -112,14 +112,14 @@
 
                                 <div class="card-body text-white">
                                     <div id="cardCollpase3" class="collapse p-3 show">
-                                        <div class="row" style="float:right;">
+                                        <div class="row" style="float:left;">
                                             <div class="box widget-box-one widget-two-custom">
                                                 <h3 class="mb-2">
                                                     <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_5">Provisional</button>
                                                 </h3>
                                             </div>
                                         </div>
-                                        <div class="row" style="float:left;">
+                                        <div class="row" style="float:right;">
                                             <div class="box widget-box-one widget-two-custom">
                                                 <h3 class="mb-2">
                                                     <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_6">Final</button>

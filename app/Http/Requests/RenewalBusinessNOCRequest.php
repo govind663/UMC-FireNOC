@@ -42,6 +42,7 @@ class RenewalBusinessNOCRequest extends FormRequest
                 'pincode' => 'required',
                 'ward_no' => 'required',
                 'electrol_panel_no' => 'required',
+                'contact_persion' => 'required',
 
                 // ===== Information of Property
                 'types_of_property' => 'required',
@@ -79,7 +80,6 @@ class RenewalBusinessNOCRequest extends FormRequest
                 'trade_license' => 'mimes:jpeg,png,jpg,pdf|max:2048',
                 'gas_certificate_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
                 'commissioning_certificate' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'affidavit_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
 
                 // ===== Declaration
                 'declare_by' => 'required',
@@ -155,7 +155,6 @@ class RenewalBusinessNOCRequest extends FormRequest
                 'trade_license' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
                 'gas_certificate_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
                 'commissioning_certificate' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
-                'affidavit_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
 
                 // ===== Declaration
                 'declare_by' => 'required',
@@ -227,9 +226,6 @@ class RenewalBusinessNOCRequest extends FormRequest
             'business_address.required' => 'Address Of Business Place is required',
 
              // ===== Other Document
-            'location_map_link.required' => 'Copy of previous NOC is required',
-            'location_map_link.max' => 'The file size should be less than 2MB.',
-            'location_map_link.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
             'electric_license_doc.required' => 'Letter from License Holder regarding proper electric connection is required',
             'electric_license_doc.max' => 'The file size should be less than 2MB.',
@@ -262,10 +258,6 @@ class RenewalBusinessNOCRequest extends FormRequest
             'commissioning_certificate.required' => 'Commissioning Certificate of Fire extinguishers/ preventive equipments of I.S.I. Mark is required',
             'commissioning_certificate.max' => 'The file size should be less than 2MB.',
             'commissioning_certificate.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
-
-            'affidavit_doc.required' => 'Copy of Affidavit is required',
-            'affidavit_doc.max' => 'The file size should be less than 2MB.',
-            'affidavit_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
 
              // ===== Declaration

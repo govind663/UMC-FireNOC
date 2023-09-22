@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('business_noc', function (Blueprint $table) {
-            $table->date('contact_persion')->nullable()->after('electrol_panel_no');
-            $table->date('tel_no')->nullable()->after('contact_persion');
-            $table->date('email')->nullable()->after('tel_no');
+            $table->string('contact_persion')->nullable()->after('electrol_panel_no');
+            $table->string('tel_no')->nullable()->after('contact_persion');
+            $table->string('email')->nullable()->after('tel_no');
         });
     }
 

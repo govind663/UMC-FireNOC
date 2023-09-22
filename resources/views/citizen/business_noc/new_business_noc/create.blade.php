@@ -58,11 +58,11 @@
                                     <div class="card-body p-0">
                                         <h4 class="card-header text-light bg-primary ">Add New Business NOC</h4>
 
-                                        <form class="auth-input p-4"  method="POST" action="{{ url('/new_business_noc/store') }}" enctype="multipart/form-data">
+                                        <form class="auth-input p-4"  method="POST" action="{{ url('/new_business_noc/store') }}" enctype="multipart/form-data" autocomplete="off" >
                                             @csrf
 
                                             <div class="form-group row mb-3">
-                                                <label class="col-sm-2"><strong>Appication Date : <span style="color:red;">*</span></strong></label>
+                                                <label for="nocs_a_date" class="col-sm-2"><strong>Appication Date : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
                                                     <input type="text" readonly name="nocs_a_date" id="nocs_a_date" class="form-control" value="{{  date('d-m-Y')  }}" >
 
@@ -258,20 +258,12 @@
                                                 <label class="col-sm-2"><strong>Telephone No. (if any) : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
                                                     <input type="text" name="tel_no" id="tel_no" class="form-control" value="{{ old('tel_no') }}" placeholder="Enter Telephone No. (if any).">
-                                                    @error('tel_no')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
+
                                                 </div>
                                                 <label class="col-sm-2"><strong>Email Id (if any) : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
                                                     <input type="email" name="email" id="email" class="form-control" value="{{ old('email') }}" placeholder="Enter Email Id (if any).">
-                                                    @error('email')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
+
                                                 </div>
                                             </div>
 
@@ -471,6 +463,18 @@
                                                 </div>
                                             </div>
 
+                                            <div class="form-group row  mb-3 box 1">
+                                                <label class="col-sm-2"><strong>From Date : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="date" name="from_date" id="from_date" class="form-control " value="{{ old('from_date') }}" placeholder="DD-MM-YYYY">
+                                                </div>
+
+                                                <label class="col-sm-2"><strong>To Date : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="date" name="to_date" id="to_date" class="form-control " value="{{ old('to_date') }}" placeholder="DD-MM-YYYY">
+                                                </div>
+                                            </div>
+
                                             <div class="form-group row  mb-3">
                                                 <label class="col-sm-2"><strong>Number of Workers / Servants sleep at night at working place : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
@@ -484,7 +488,7 @@
 
                                                 <label class="col-sm-2"><strong>Fire extinguishers/ preventive equipments are installed at working place : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <select class="form-control select2 @error('fire_equips') is-invalid @enderror" name="fire_equips" id="fire_equips" onchange="mySelectfunction()" >
+                                                    <select class="form-control select2 @error('fire_equips') is-invalid @enderror" name="fire_equips" id="fire_equips" >
                                                         <option value="">Select Fire extinguishers/ preventive equipments are installed at working place</option>
                                                         <optgroup label=" ">
                                                             <option value="1" {{ old('fire_equips') == "1" ? 'selected' : '' }} selected>Yes</option>
@@ -515,7 +519,7 @@
                                                 <div class="form-group row  mb-3">
                                                     <label class="col-sm-2"><strong>Location of Place (Google Map Link) : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <input type="url" name="location_map_link" id="location_map_link" class="form-control  @error('location_map_link') is-invalid @enderror "   value="{{ old('location_map_link') }}" placeholder="Enter Location of Place (Google Map Link)">
+                                                        <input type="text" name="location_map_link" id="location_map_link" class="form-control  @error('location_map_link') is-invalid @enderror "   value="{{ old('location_map_link') }}" placeholder="Enter Location of Place (Google Map Link)">
 
                                                         @error('location_map_link')
                                                             <span class="invalid-feedback" role="alert">
@@ -907,6 +911,19 @@
         <script src="{{ url('/') }}/assets/js/pages/form-advanced.init.js"></script>
 
         <script src="{{ url('/') }}/assets/js/app.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('.box').hide(); //hide
+                // $('.').show(); //set default class to be shown here, or remove to hide all
+            });
+
+            $('select').change(function() { //on change do stuff
+                $('.box').hide(); //hide all with .box class
+                $('.' + $(this).val()).show(); //show selected option's respective element
+            });
+
+        </script>
 
     </body>
 </html>

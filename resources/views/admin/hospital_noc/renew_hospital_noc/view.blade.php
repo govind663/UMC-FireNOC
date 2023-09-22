@@ -83,8 +83,8 @@
                                                 <select disabled class="form-control select2 " name="noc_mode" id="noc_mode" type="hidden">
                                                     <option>Select Mode of NOC</option>
                                                     <optgroup label=" ">
-                                                        <option value="3" {{ old('noc_mode') == "3" ? 'selected' : '' }}>New Hospital NOC</option>
-                                                        <option value="4" {{ old('noc_mode') == "4" ? 'selected' : '' }} selected>Renewal Hospital NOC</option>
+                                                        <option value="3" {{ $data->noc_mode == "3" ? 'selected' : '' }}>New Hospital NOC</option>
+                                                        <option value="4" {{ $data->noc_mode == "4" ? 'selected' : '' }} selected>Renewal Hospital NOC</option>
                                                     </optgroup>
                                                 </select>
                                             </div>

@@ -246,6 +246,7 @@ class NewBusinessNOCController extends Controller
         $data->no_of_workers_sleep_night = $request->get('no_of_workers_sleep_night');
         $data->fire_equips = $request->get('fire_equips');
         $data->business_address = $request->get('business_address');
+        $data->location_map_link = $request->get('location_map_link');
 
         $data->inserted_dt = date("Y-m-d H:i:s");
         $data->inserted_by = Auth::user()->id;
@@ -306,7 +307,7 @@ class NewBusinessNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, $n_id, $status)
+    public function update(BusinessNOCRequest $request, $id, $n_id, $status)
     {
         $noc_master = NOC_Master::findOrFail($n_id);
 
@@ -488,7 +489,7 @@ class NewBusinessNOCController extends Controller
         $data->no_of_workers_sleep_night = $request->get('no_of_workers_sleep_night');
         $data->fire_equips = $request->get('fire_equips');
         $data->business_address = $request->get('business_address');
-        $data->business_address = $request->get('business_address');
+        $data->location_map_link = $request->get('location_map_link');
 
         $noc_master->modified_dt = date("Y-m-d H:i:s");
         $noc_master->modified_by = Auth::user()->id;

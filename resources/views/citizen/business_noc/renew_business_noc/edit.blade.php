@@ -58,7 +58,7 @@
                                     <div class="card-body p-0">
                                         <h4 class="card-header text-light bg-primary ">Edit Renew Business NOC</h4>
 
-                                        <form class="auth-input p-4"  method="POST" action='{{ url("/renew_business_noc/edit/update/{$data->RB_NOC_ID}/{$data->d_ID}/{$data->status}") }}' enctype="multipart/form-data">
+                                        <form class="auth-input p-4"  method="POST" action='{{ url("/renew_business_noc/edit/update/{$data->RB_NOC_ID}/{$data->d_ID}/{$data->status}") }}' enctype="multipart/form-data" autocomplete="off" >
                                             @csrf
 
                                             <div class="form-group row mb-3">
@@ -242,6 +242,28 @@
                                                             <strong>{{ $message }}</strong>
                                                         </span>
                                                     @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-2"><strong>Contact Person : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" name="contact_persion" id="contact_persion" class="form-control @error('contact_persion') is-invalid @enderror" value="{{ $data->contact_persion }}" placeholder="Enter Contact Person.">
+                                                    @error('contact_persion')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                                <label class="col-sm-2"><strong>Telephone No. (if any) : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" name="tel_no" id="tel_no" class="form-control" value="{{ $data->tel_no }}" placeholder="Enter Telephone No. (if any).">
+
+                                                </div>
+                                                <label class="col-sm-2"><strong>Email Id (if any) : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="email" name="email" id="email" class="form-control" value="{{ $data->email }}" placeholder="Enter Email Id (if any).">
+
                                                 </div>
                                             </div>
 
@@ -441,6 +463,18 @@
                                                 </div>
                                             </div>
 
+                                            <div class="form-group row  mb-3 box 1">
+                                                <label class="col-sm-2"><strong>From Date : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="date" name="from_date" id="from_date" class="form-control " value="{{ $data->from_date }}" placeholder="DD-MM-YYYY">
+                                                </div>
+
+                                                <label class="col-sm-2"><strong>To Date : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="date" name="to_date" id="to_date" class="form-control " value="{{ $data->to_date }}" placeholder="DD-MM-YYYY">
+                                                </div>
+                                            </div>
+
                                             <div class="form-group row  mb-3">
                                                 <label class="col-sm-2"><strong>Number of Workers / Servants sleep at night at working place : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
@@ -454,7 +488,7 @@
 
                                                 <label class="col-sm-2"><strong>Fire extinguishers/ preventive equipments are installed at working place : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <select class="form-control select2 @error('fire_equips') is-invalid @enderror" name="fire_equips" id="fire_equips" onchange="mySelectfunction()" >
+                                                    <select class="form-control select2 @error('fire_equips') is-invalid @enderror" name="fire_equips" id="fire_equips"  >
                                                         <option value="">Select Fire extinguishers/ preventive equipments are installed at working place</option>
                                                         <optgroup label=" ">
                                                             <option value="1" {{ $data->fire_equips == "1" ? 'selected' : '' }}>Yes</option>
@@ -887,49 +921,6 @@
                                                         </a>
                                                     </div>
 
-                                                    <label class="col-sm-2"><strong>Upload Copy of Affidavit : <span style="color:red;">*</span></strong></label>
-                                                    <div class="col-sm-4 col-md-4">
-                                                        <input type="file" accept=".jpg, .jpeg, .png, .pdf" name="affidavit_doc" id="affidavit_doc" class="form-control @error('affidavit_doc') is-invalid @enderror" value="{{ $data->affidavit_doc }}" placeholder="Enter Numbers of Workers / Servants">
-                                                        <small class="text-secondary"> Note : The file size  should be less than 2MB .</small>
-                                                        <br>
-                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</small>
-                                                        <br>
-                                                        @error('affidavit_doc')
-                                                            <span class="invalid-feedback" role="alert">
-                                                                <strong>{{ $message }}</strong>
-                                                            </span>
-                                                        @enderror
-                                                        <br>
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank">
-                                                            <div class="form-group">
-                                                                <?php
-                                                                        $document_path = $data->location_map_doc;
-                                                                        $filter_path =  explode(".",$document_path);
-                                                                        $size_of_array = count($filter_path);
-                                                                        $filter_ext = $filter_path[$size_of_array - 1];
-
-                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
-                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                                                        {
-                                                                ?>
-
-                                                                <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/location_map_doc/{{ $data->location_map_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
-                                                                </p>
-                                                                <?php }
-                                                                else{
-                                                                    ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank" download>
-                                                                        <p class="mt-3 mb-0" id="image_div">
-                                                                        <button type="button"class="btn btn-primary text-bold">
-                                                                            Download File
-                                                                        </button>
-                                                                        </p>
-                                                                    </a>
-                                                                <?php }?>
-                                                            </div>
-                                                        </a>
-                                                    </div>
                                                 </div>
 
                                                 {{-- Start Declaration --}}
@@ -1180,6 +1171,19 @@
         <script src="{{ url('/') }}/assets/js/pages/form-advanced.init.js"></script>
 
         <script src="{{ url('/') }}/assets/js/app.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                $('.box').hide(); //hide
+                // $('.').show(); //set default class to be shown here, or remove to hide all
+            });
+
+            $('select').change(function() { //on change do stuff
+                $('.box').hide(); //hide all with .box class
+                $('.' + $(this).val()).show(); //show selected option's respective element
+            });
+
+        </script>
 
     </body>
 </html>

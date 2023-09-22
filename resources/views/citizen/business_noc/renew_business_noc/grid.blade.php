@@ -94,18 +94,10 @@
                                                         <td>{{ date('d-m-Y', strtotime($value->noc_a_date)) }}</td>
                                                         <td>{{ $value->f_name }} {{ $value->father_name }} {{ $value->l_name }}</td>
 
-                                                        @if ($value->noc_mode == 1)
-                                                        <td>New Bussiness NOC</td>
-                                                        @elseif ($value->noc_mode == 2)
-                                                        <td>Renewal Bussiness NOC</td>
-                                                        @elseif ($value->noc_mode == 3)
-                                                        <td>New Hospital NOC</td>
-                                                        @elseif ($value->noc_mode == 4)
-                                                        <td>Renewal Hospital NOC</td>
-                                                        @elseif ($value->noc_mode == 5)
-                                                        <td>Provisional Building NOC</td>
-                                                        @else
-                                                        <td>Final Building NOC</td>
+                                                        @if ($value->types_of_property == 1)
+                                                        <td>Land</td>
+                                                        @elseif ($value->types_of_property == 2)
+                                                        <td>Building</td>
                                                         @endif
                                                         <td>{{ $value->property_no }}</td>
                                                         <td>{{ $value->city_name }}</td>
