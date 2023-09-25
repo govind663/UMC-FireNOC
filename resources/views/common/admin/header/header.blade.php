@@ -88,7 +88,7 @@
                     {{-- Dashboard --}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/admin/dashboard') }}">
-                            <i class="uim uim-airplay"></i> Dashboard
+                            <i class="uim uim-airplay"></i> <b>Dashboard</b>
                         </a>
                     </li>
 
@@ -96,18 +96,26 @@
                     @if(Auth::user()->role == 3)
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
-                            <i class="uim uim-box"></i> Master <div class="arrow-down"></div>
+                        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-components" role="button">
+                            <i class="uim uim-layer-group"></i> <b>Master</b> <div class="arrow-down"></div>
                         </a>
+                        <div class="dropdown-menu" aria-labelledby="topnav-components">
+                            <div class="dropdown">
+                                <a class="dropdown-item dropdown-toggle arrow-none" href="{{ url('/business') }}" id="topnav-form" role="button">
+                                    <b>Business</b>
+                                </a>
+                            </div>
 
-                        <div class="dropdown-menu" aria-labelledby="topnav-uielement">
-                            <div class="row">
-                                <div class="col-lg-5">
-                                    <div>
-                                        <a href="{{ url('/business') }}"  class="dropdown-item"><b>Business</b></a>
-
-                                    </div>
-
+                            <div class="dropdown">
+                                <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-table" role="button">
+                                    <b>NOC Fees Chart</b> <div class="arrow-down"></div>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="topnav-table">
+                                    <a href="{{ url('/fees_construction') }}"  class="dropdown-item"><b>Construction Type</b></a>
+                                    <a href="{{ url('/fees_mode_operate') }}"  class="dropdown-item"><b>Mode Of Operations</b></a>
+                                    <a href="{{ url('/fees_bldg_ht') }}"  class="dropdown-item"><b>Building Height</b></a>
+                                    <a href="{{ url('/fees_category') }}"  class="dropdown-item"><b>Construction Category</b></a>
+                                    <a href="{{ url('/fees_master') }}"  class="dropdown-item"><b>NOC Fees</b></a>
                                 </div>
                             </div>
 
@@ -116,7 +124,7 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
-                            <i class="uim uim-grid"></i> All Reviewed Application <div class="arrow-down"></div>
+                            <i class="uim uim-grid"></i> <b>All Reviewed Application</b> <div class="arrow-down"></div>
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="topnav-uielement">
@@ -139,7 +147,7 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
-                            <i class="uim uim-grid"></i> Approved Application <div class="arrow-down"></div>
+                            <i class="uim uim-grid"></i> <b>Approved Application</b> <div class="arrow-down"></div>
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="topnav-uielement">
@@ -162,7 +170,7 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
-                            <i class="uim uim-grid"></i> Rejected Application <div class="arrow-down"></div>
+                            <i class="uim uim-grid"></i> <b>Rejected Application</b> <div class="arrow-down"></div>
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="topnav-uielement">

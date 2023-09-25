@@ -10,7 +10,13 @@ use App\Http\Controllers\Admin\AdminNewHospitalNOCController;
 use App\Http\Controllers\Admin\AdminRenewHospitalNOCController;
 use App\Http\Controllers\Admin\AdminProvisionalBuildingNOCController;
 use App\Http\Controllers\Admin\AdminFinalBuildingNOCController;
+
 use App\Http\Controllers\Admin\BusinessController;
+use App\Http\Controllers\Admin\FeeConstructionController;
+use App\Http\Controllers\Admin\FeeModeOperateController;
+use App\Http\Controllers\Admin\FeeBldgHtController;
+use App\Http\Controllers\Admin\FeeCategoryController;
+use App\Http\Controllers\Admin\FeeMasterController;
 
 // ========== Citizen
 use App\Http\Controllers\Citizen\Auth\LoginController;
@@ -108,6 +114,21 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
 
     // ======= Business Master
     Route::resource('/business', BusinessController::class);
+
+    // ======= Fee Construction Master
+    Route::resource('/fees_construction', FeeConstructionController::class);
+
+    // ======= Fee Mode Operate Master
+    Route::resource('/fees_mode_operate', FeeModeOperateController::class);
+
+    // ======= Fee Building height Master
+    Route::resource('/fees_bldg_ht', FeeBldgHtController::class);
+
+    // ======= Fee Category Master
+    Route::resource('/fees_category', FeeCategoryController::class);
+
+    // ======= Fee Master
+    Route::resource('/fees_master', FeeMasterController::class);
 
 });
 

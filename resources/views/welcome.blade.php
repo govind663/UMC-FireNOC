@@ -49,15 +49,16 @@
 
 <body>
     <div class="auth-maintenance d-flex align-items-center min-vh-100">
-        <div class="container">
+        <div class="container auth-maintenance">
             <div class="row justify-content-center">
                 <div class="col-md-10">
-                    <div class="auth-full-page-content d-flex min-vh-100 py-sm-5 py-4">
+                    <div class="auth-full-page-content d-flex min-vh-100 ">
                         <div class="w-100">
+
                             <div class="d-flex flex-column h-100 py-0 py-xl-3">
 
                                 <div class="row g-0 d-flex justify-content-center">
-                                    <div class="col-lg-8 mt-5">
+                                    <div class="col-lg-8 mt-2">
                                         <div class="card my-auto overflow-hidden">
                                             <div class="p-lg-5 p-4">
                                                 <div class="text-center mb-4">
@@ -116,10 +117,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- end card -->
-
 
                             </div>
+
                         </div>
                     </div>
                 </div>
