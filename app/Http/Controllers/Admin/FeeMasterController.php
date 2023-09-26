@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\FeeCategory;
+use App\Models\FeeMaster;
 use Illuminate\Http\Request;
 
-class FeeCategoryController extends Controller
+class FeeMasterController extends Controller
 {
     /**
      * Display a listing of the resource.

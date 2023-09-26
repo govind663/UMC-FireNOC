@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class FeeCategory extends Model
+class FeeBldgHt extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -19,10 +19,9 @@ class FeeCategory extends Model
      */
     protected $fillable = [
         'id',
-        'category_name',
+        'building_ht',
         'fee_construction_id',
         'fee_mode_operate_id',
-        'fee_bldg_ht_id',
         'inserted_by',
         'inserted_dt',
         'modified_by',
@@ -32,4 +31,15 @@ class FeeCategory extends Model
     ];
 
     protected $dates = ['deleted_at'];
+
+
+    public function fee_construction()
+    {
+        return $this->belongsTo(FeeConstruction::class);
+    }
+
+    public function fee_mode_operate()
+    {
+        return $this->belongsTo(FeeModeOperate::class);
+    }
 }

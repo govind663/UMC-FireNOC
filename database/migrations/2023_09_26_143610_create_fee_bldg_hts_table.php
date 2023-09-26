@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\FeeConstruction;
+use App\Models\FeeModeOperate;
 
 return new class extends Migration
 {
@@ -13,9 +15,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('fee_constructions', function (Blueprint $table) {
+        Schema::create('fee_bldg_hts', function (Blueprint $table) {
             $table->id();
-            $table->string('l_name');
+            $table->string('building_ht');
+            $table->foreignIdFor(FeeConstruction::class)->constrained();
+            $table->foreignIdFor(FeeModeOperate::class)->constrained();
             $table->integer('inserted_by')->nullable();
             $table->timestamp('inserted_dt')->nullable();
             $table->integer('modified_by')->nullable();
@@ -32,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fee_constructions');
+        Schema::dropIfExists('fee_bldg_hts');
     }
 };

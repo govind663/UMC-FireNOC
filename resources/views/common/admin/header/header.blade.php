@@ -113,7 +113,7 @@
                                 <div class="dropdown-menu" aria-labelledby="topnav-table">
                                     <a href="{{ url('/fees_construction') }}"  class="dropdown-item"><b>Construction Type</b></a>
                                     <a href="{{ url('/fees_mode_operate') }}"  class="dropdown-item"><b>Mode Of Operations</b></a>
-                                    <a href="{{ url('/fees_bldg_ht') }}"  class="dropdown-item"><b>Building Height</b></a>
+                                    <a href="{{ url('/fees_bldg_ht') }}"  class="dropdown-item"><b>Building Height / Type </b></a>
                                     <a href="{{ url('/fees_category') }}"  class="dropdown-item"><b>Construction Category</b></a>
                                     <a href="{{ url('/fees_master') }}"  class="dropdown-item"><b>NOC Fees</b></a>
                                 </div>

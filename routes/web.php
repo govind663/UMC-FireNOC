@@ -130,6 +130,9 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     // ======= Fee Master
     Route::resource('/fees_master', FeeMasterController::class);
 
+
+    Route::post('fee/mode_of_operation', [FeeBldgHtController::class, 'FetchOperationMode'])->name('fee.mode_of_operation');
+
 });
 
 
