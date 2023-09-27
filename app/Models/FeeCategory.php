@@ -32,4 +32,19 @@ class FeeCategory extends Model
     ];
 
     protected $dates = ['deleted_at'];
+
+    public function fee_construction()
+    {
+        return $this->belongsTo(FeeConstruction::class);
+    }
+
+    public function fee_mode_operate()
+    {
+        return $this->belongsTo(FeeModeOperate::class);
+    }
+
+    public function fee_bldg_ht()
+    {
+        return $this->belongsTo(FeeBldgHt::class);
+    }
 }

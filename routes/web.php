@@ -130,8 +130,14 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     // ======= Fee Master
     Route::resource('/fees_master', FeeMasterController::class);
 
-
+    // ======= Fetch Mode of Operation
     Route::post('fee/mode_of_operation', [FeeBldgHtController::class, 'FetchOperationMode'])->name('fee.mode_of_operation');
+
+    // ======= Fetch Building Heights
+    Route::post('fee/bldg_ht', [FeeBldgHtController::class, 'FetchBuildingHight'])->name('fee.bldg_ht');
+
+    // ======= Fetch Construction Category
+    Route::post('fee/construction_category', [FeeBldgHtController::class, 'FetchConstructionCategory'])->name('fee.construction_category');
 
 });
 

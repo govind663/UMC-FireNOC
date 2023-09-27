@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
 
-        <title>UMC-Fire NOC |  Types of Construction </title>
+        <title>UMC-Fire NOC |  Building Height / Type </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
         <meta content="Themesdesign" name="author">
@@ -56,18 +56,18 @@
                             <div class="col-lg-12">
                                 <div class="card" style="border: 1px solid #000000;">
                                     <div class="card-body p-0">
-                                        <h4 class="card-header text-light bg-primary ">Types of Construction</h4>
+                                        <h4 class="card-header text-light bg-primary ">Building Height / Type</h4>
 
                                         <form class="auth-input p-4" >
 
                                             <div class="form-group row  mb-3">
                                                 <label class="col-sm-3"><strong>Type Of Construction : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-3 col-md-3">
-                                                    <select disabled class="form-control select2  @error('fee_construction_id') is-invalid @enderror" name="fee_construction_id" id="fee_construction_id">
-
+                                                    <select disabled class="form-control select2 @error('fee_construction_id') is-invalid @enderror" name="fee_construction_id" id="fee_construction_id">
+                                                        <option value="">Select Type Of Construction</option>
                                                         <optgroup label="">
                                                             @foreach ($mst_fee_construction as $value)
-                                                            <option value="{{ $value->id }}" {{ $data->fee_construction_id == "1" ? 'selected' : '' }}>{{ $value->construction_type }}</option>
+                                                            <option value="{{ $value->id }}" {{ $data->fee_construction_id == $value->id ? 'selected' : '' }}>{{ $value->construction_type }}</option>
                                                             @endforeach
                                                         </optgroup>
                                                     </select>
@@ -80,8 +80,27 @@
 
                                                 <label class="col-sm-3"><strong>Mode of Operation : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-3 col-md-3">
-                                                    <input readonly type="text" name="operation_mode" id="operation_mode" class="form-control @error('operation_mode') is-invalid @enderror" value="{{ $data->operation_mode }}" placeholder="Enter Type Of Construction.">
-                                                    @error('operation_mode')
+                                                    <select disabled class="form-control select2 @error('fee_mode_operate_id') is-invalid @enderror" name="fee_mode_operate_id" id="fee_mode_operate_id">
+
+                                                        <optgroup label="">
+                                                            @foreach ($mst_fee_mode_operate as $value)
+                                                            <option value="{{ $value->id }}" {{ $data->fee_mode_operate_id == $value->id ? 'selected' : '' }}>{{ $value->operation_mode }}</option>
+                                                            @endforeach
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_mode_operate_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <input readonly type="text" name="building_ht" id="building_ht" class="form-control @error('building_ht') is-invalid @enderror" value="{{ $data->building_ht }}" placeholder="Enter Type Of Construction.">
+                                                    @error('building_ht')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
@@ -89,11 +108,10 @@
                                                 </div>
                                             </div>
 
-
                                             <div class="form-group row mt-4" >
                                                 <label class="col-md-3"></label>
                                                 <div class="col-md-9" style="display: flex; justify-content: flex-end;">
-                                                    <a href="{{ route('fees_mode_operate.index') }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                    <a href="{{ route('fees_bldg_ht.index') }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
                                                     {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
                                                 </div>
                                             </div>

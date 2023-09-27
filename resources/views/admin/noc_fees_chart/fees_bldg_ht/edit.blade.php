@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
 
-        <title>UMC-Fire NOC | Edit Types of Construction </title>
+        <title>UMC-Fire NOC | Edit Building Height / Type </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
         <meta content="Themesdesign" name="author">
@@ -56,9 +56,9 @@
                             <div class="col-lg-12">
                                 <div class="card" style="border: 1px solid #000000;">
                                     <div class="card-body p-0">
-                                        <h4 class="card-header text-light bg-primary ">Edit Types of Construction</h4>
+                                        <h4 class="card-header text-light bg-primary ">Edit Building Height / Type</h4>
 
-                                        <form class="auth-input p-4"  method="POST" action="{{ route('fees_mode_operate.update', $data->id) }}" enctype="multipart/form-data">
+                                        <form class="auth-input p-4"  method="POST" action="{{ route('fees_bldg_ht.update', $data->id) }}" enctype="multipart/form-data">
                                             @csrf
 
                                             @if (!empty($data->id) || 1 == 1)
@@ -69,10 +69,10 @@
                                                 <label class="col-sm-3"><strong>Type Of Construction : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-3 col-md-3">
                                                     <select class="form-control select2 @error('fee_construction_id') is-invalid @enderror" name="fee_construction_id" id="fee_construction_id">
-
+                                                        <option value="">Select Type Of Construction</option>
                                                         <optgroup label="">
                                                             @foreach ($mst_fee_construction as $value)
-                                                            <option value="{{ $value->id }}" {{ $data->fee_construction_id == "1" ? 'selected' : '' }}>{{ $value->construction_type }}</option>
+                                                            <option value="{{ $value->id }}" {{ $data->fee_construction_id == $value->id ? 'selected' : '' }}>{{ $value->construction_type }}</option>
                                                             @endforeach
                                                         </optgroup>
                                                     </select>
@@ -85,8 +85,27 @@
 
                                                 <label class="col-sm-3"><strong>Mode of Operation : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-3 col-md-3">
-                                                    <input type="text" name="operation_mode" id="operation_mode" class="form-control @error('operation_mode') is-invalid @enderror" value="{{ $data->operation_mode }}" placeholder="Enter Type Of Construction.">
-                                                    @error('operation_mode')
+                                                    <select class="form-control select2 @error('fee_mode_operate_id') is-invalid @enderror" name="fee_mode_operate_id" id="fee_mode_operate_id">
+
+                                                        <optgroup label="">
+                                                            @foreach ($mst_fee_mode_operate as $value)
+                                                            <option value="{{ $value->id }}" {{ $data->fee_mode_operate_id == $value->id ? 'selected' : '' }}>{{ $value->operation_mode }}</option>
+                                                            @endforeach
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_mode_operate_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <input type="text" name="building_ht" id="building_ht" class="form-control @error('building_ht') is-invalid @enderror" value="{{ $data->building_ht }}" placeholder="Enter Type Of Construction.">
+                                                    @error('building_ht')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
@@ -98,7 +117,7 @@
                                             <div class="form-group row mt-4" >
                                                 <label class="col-md-3"></label>
                                                 <div class="col-md-9" style="display: flex; justify-content: flex-end;">
-                                                    <a href="{{ route('fees_mode_operate.index') }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                    <a href="{{ route('fees_bldg_ht.index') }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
                                                     <button type="submit" class="btn btn-primary">Submit</button>
                                                 </div>
                                             </div>
@@ -148,6 +167,36 @@
         <script src="{{ url('/') }}/assets/js/pages/form-advanced.init.js"></script>
 
         <script src="{{ url('/') }}/assets/js/app.js"></script>
+
+        <script>
+            $(document).ready(function () {
+
+                $('#fee_construction_id').on('change', function () {
+                    var idOperationMode = this.value;
+                    $("#fee_mode_operate_id").html('');
+                    $.ajax({
+                        url: "{{url('fee/mode_of_operation')}}",
+                        type: "POST",
+                        data: {
+                            mode_of_operation: idOperationMode,
+                            _token: '{{csrf_token()}}'
+                        },
+                        dataType: 'json',
+                        success: function (result) {
+                            $('#fee_mode_operate_id').html('<option value="">-- Select Mode of Operation --</option>');
+                            $.each(result.mode_of_operation, function (key, value) {
+                                $("#fee_mode_operate_id").append('<option value="' + value
+                                    .id + '">' + value.operation_mode + '</option>');
+                            });
+                            // $('#city-dropdown').html('<option value="">-- Select City --</option>');
+                        }
+                    });
+                });
+
+
+
+            });
+        </script>
 
     </body>
 </html>

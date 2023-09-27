@@ -18,7 +18,7 @@ return new class extends Migration
     {
         Schema::create('fee_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('building_ht');
+            $table->string('category_name');
             $table->foreignIdFor(FeeConstruction::class)->constrained();
             $table->foreignIdFor(FeeModeOperate::class)->constrained();
             $table->foreignIdFor(FeeBldgHt::class)->constrained();

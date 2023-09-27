@@ -165,11 +165,6 @@
         <script>
             $(document).ready(function () {
 
-                /*------------------------------------------
-                --------------------------------------------
-                Country Dropdown Change Event
-                --------------------------------------------
-                --------------------------------------------*/
                 $('#fee_construction_id').on('change', function () {
                     var idOperationMode = this.value;
                     $("#fee_mode_operate_id").html('');

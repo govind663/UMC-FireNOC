@@ -58,7 +58,7 @@
                                 <div class="card">
                                     <div class="card-body" style="border: 1px solid rgb(3, 155, 155);">
                                         <div class="col-md-12 col-sm-12 text-left">
-                                            <a class="btn btn-primary" href="{{ route('fees_bldg_ht.create') }}" role="button">
+                                            <a class="btn btn-primary" style="float:right;" href="{{ route('fees_bldg_ht.create') }}" role="button">
                                                 <b>+ &nbsp; Add Building Height / Type</b>
                                             </a>
                                         </div>

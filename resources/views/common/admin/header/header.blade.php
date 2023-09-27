@@ -102,20 +102,20 @@
                         <div class="dropdown-menu" aria-labelledby="topnav-components">
                             <div class="dropdown">
                                 <a class="dropdown-item dropdown-toggle arrow-none" href="{{ url('/business') }}" id="topnav-form" role="button">
-                                    <b>Business</b>
+                                    Business
                                 </a>
                             </div>
 
                             <div class="dropdown">
                                 <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-table" role="button">
-                                    <b>NOC Fees Chart</b> <div class="arrow-down"></div>
+                                    NOC Fees Chart <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-table">
-                                    <a href="{{ url('/fees_construction') }}"  class="dropdown-item"><b>Construction Type</b></a>
-                                    <a href="{{ url('/fees_mode_operate') }}"  class="dropdown-item"><b>Mode Of Operations</b></a>
-                                    <a href="{{ url('/fees_bldg_ht') }}"  class="dropdown-item"><b>Building Height / Type </b></a>
-                                    <a href="{{ url('/fees_category') }}"  class="dropdown-item"><b>Construction Category</b></a>
-                                    <a href="{{ url('/fees_master') }}"  class="dropdown-item"><b>NOC Fees</b></a>
+                                    <a href="{{ url('/fees_construction') }}"  class="dropdown-item">Construction Type</a>
+                                    <a href="{{ url('/fees_mode_operate') }}"  class="dropdown-item">Mode Of Operations</a>
+                                    <a href="{{ url('/fees_bldg_ht') }}"  class="dropdown-item">Building Height / Type </a>
+                                    <a href="{{ url('/fees_category') }}"  class="dropdown-item">Construction Category</a>
+                                    <a href="{{ url('/fees_master') }}"  class="dropdown-item">NOC Fees</a>
                                 </div>
                             </div>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FeeBldgHtRequest;
 use App\Models\FeeBldgHt;
+use App\Models\FeeCategory;
 use App\Models\FeeModeOperate;
 use App\Models\FeeConstruction;
 use Illuminate\Http\Request;
@@ -66,19 +67,17 @@ class FeeBldgHtController extends Controller
      */
     public function show($id)
     {
-        $data = FeeBldgHt::with('fee_construction','fee_mode_operate')->whereNUll('deleted_at')->where('id', $id)->orderBy('id', 'desc')->first();
+        $data = FeeBldgHt::whereNUll('deleted_at')->where('id', $id)->orderBy('id', 'desc')->first();
         // dd($data);
 
         $mst_fee_construction = FeeConstruction::select('id', 'construction_type')->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
         // dd($mst_fee_construction);
 
-        $mst_fee_mode_operator = FeeModeOperate::select('id', 'operation_mode')->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
-        // dd($mst_fee_mode_operator);
+        $mst_fee_mode_operate = FeeModeOperate::select('id', 'operation_mode')->where('id', $id)->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
+        // dd($mst_fee_mode_operate);
 
         return view('admin.noc_fees_chart.fees_bldg_ht.view')
-        ->with('data', $data)
-        ->with('mst_fee_construction', $mst_fee_construction)
-        ->with('mst_fee_mode_operator', $mst_fee_mode_operator);
+        ->with(['data'=> $data, 'mst_fee_construction' => $mst_fee_construction, 'mst_fee_mode_operate' => $mst_fee_mode_operate]);
     }
 
     /**
@@ -89,19 +88,17 @@ class FeeBldgHtController extends Controller
      */
     public function edit($id)
     {
-        $data = FeeBldgHt::with('fee_construction','fee_mode_operate')->whereNUll('deleted_at')->where('id', $id)->orderBy('id', 'desc')->first();
+        $data = FeeBldgHt::whereNUll('deleted_at')->where('id', $id)->orderBy('id', 'desc')->first();
         // dd($data);
 
         $mst_fee_construction = FeeConstruction::select('id', 'construction_type')->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
         // dd($mst_fee_construction);
 
-        $mst_fee_mode_operator = FeeModeOperate::select('id', 'operation_mode')->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
-        // dd($mst_fee_mode_operator);
+        $mst_fee_mode_operate = FeeModeOperate::select('id', 'operation_mode')->where('id', $id)->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
+        // dd($mst_fee_mode_operate);
 
         return view('admin.noc_fees_chart.fees_bldg_ht.edit')
-        ->with('data', $data)
-        ->with('mst_fee_construction', $mst_fee_construction)
-        ->with('mst_fee_mode_operator', $mst_fee_mode_operator);
+        ->with(['data'=> $data, 'mst_fee_construction' => $mst_fee_construction, 'mst_fee_mode_operate' => $mst_fee_mode_operate]);
     }
 
     /**
@@ -149,7 +146,41 @@ class FeeBldgHtController extends Controller
     public function FetchOperationMode(Request $request)
     {
         $data['mode_of_operation'] = FeeModeOperate::select('id', 'operation_mode')
-                                        ->where("fee_construction_id", $request->fee_construction_id)
+                                        ->where("fee_construction_id", $request->mode_of_operation)
+                                        ->whereNUll('deleted_at')
+                                        ->orderBy('id', 'desc')
+                                        ->get();
+
+        return response()->json($data);
+    }
+
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function FetchBuildingHight(Request $request)
+    {
+        $data['building_heights'] = FeeBldgHt::select('id', 'building_ht')
+                                        ->where("fee_mode_operate_id", $request->bldg_hts)
+                                        ->whereNUll('deleted_at')
+                                        ->orderBy('id', 'desc')
+                                        ->get();
+
+        return response()->json($data);
+    }
+
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function FetchConstructionCategory(Request $request)
+    {
+        $data['construction_category'] = FeeCategory::select('id', 'category_name')
+                                        ->where("fee_bldg_ht_id", $request->Construction_Categories)
                                         ->whereNUll('deleted_at')
                                         ->orderBy('id', 'desc')
                                         ->get();

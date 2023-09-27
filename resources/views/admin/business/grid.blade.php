@@ -58,7 +58,7 @@
                                 <div class="card">
                                     <div class="card-body" style="border: 1px solid rgb(3, 155, 155);">
                                         <div class="col-md-12 col-sm-12 text-left">
-                                            <a class="btn btn-primary" href="{{ route('business.create') }}" role="button">
+                                            <a class="btn btn-primary" style="float:right;" href="{{ route('business.create') }}" role="button">
                                                 <b>+ &nbsp; Add Business</b>
                                             </a>
                                         </div>
