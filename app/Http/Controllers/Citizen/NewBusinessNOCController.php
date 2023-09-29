@@ -519,4 +519,15 @@ class NewBusinessNOCController extends Controller
 
         return redirect( )->route('new_business_noc_list',$status)->with('message', 'The application form which you had deleted for your new business noc has been done Successfully.');
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function new_business_noc_pdf()
+    {
+        return view('citizen.business_noc.certificate.new_business_noc_pdf');
+    }
 }

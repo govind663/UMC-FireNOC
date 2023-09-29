@@ -172,6 +172,7 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware']],
     Route::get('/new_business_noc/edit/{id}/{status}', [NewBusinessNOCController::class, 'edit'])->name('new_business_noc.edit');
     Route::post('/new_business_noc/edit/update/{id}/{n_id}/{status}', [NewBusinessNOCController::class, 'update'])->name('new_business_noc.edit.update');
     Route::delete('/new_business_noc/delete/{id}/{n_id}/{status}', [NewBusinessNOCController::class, 'destroy'])->name('new_business_noc.delete');
+    // Route::get('/new_business_noc/pdf', [NewBusinessNOCController::class, 'new_business_noc_pdf'])->name('new_business_noc.pdf');
 
     // ====== Renew Business NOC
     Route::get('/renew_business_noc_list/{status}', [RenewBusinessNOCController::class, 'index'])->name('renew_business_noc_list');
