@@ -86,11 +86,11 @@
                                                 <label class="col-sm-3"><strong>Mode of Operation : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-3 col-md-3">
                                                     <select class="form-control select2 @error('fee_mode_operate_id') is-invalid @enderror" name="fee_mode_operate_id" id="fee_mode_operate_id">
-
+                                                        @foreach ($mst_fee_mode_operate as $value)
+                                                             <option value="{{ $value->id }}" {{ $data->fee_mode_operate_id == $value->id ? 'selected' : '' }}>{{ $value->operation_mode }}</option>
+                                                        @endforeach
                                                         <optgroup label="">
-                                                            @foreach ($mst_fee_mode_operate as $value)
-                                                            <option value="{{ $value->id }}" {{ $data->fee_mode_operate_id == $value->id ? 'selected' : '' }}>{{ $value->operation_mode }}</option>
-                                                            @endforeach
+
                                                         </optgroup>
                                                     </select>
                                                     @error('fee_mode_operate_id')

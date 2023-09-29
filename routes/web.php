@@ -172,7 +172,8 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware']],
     Route::get('/new_business_noc/edit/{id}/{status}', [NewBusinessNOCController::class, 'edit'])->name('new_business_noc.edit');
     Route::post('/new_business_noc/edit/update/{id}/{n_id}/{status}', [NewBusinessNOCController::class, 'update'])->name('new_business_noc.edit.update');
     Route::delete('/new_business_noc/delete/{id}/{n_id}/{status}', [NewBusinessNOCController::class, 'destroy'])->name('new_business_noc.delete');
-    // Route::get('/new_business_noc/pdf', [NewBusinessNOCController::class, 'new_business_noc_pdf'])->name('new_business_noc.pdf');
+    Route::get('/new_business_noc/make_payment/create/{id}/{status}', [NewBusinessNOCController::class, 'make_payment_create'])->name('new_business_noc.make_payment.create');
+    Route::get('/new_business_noc/make_payment/store/{id}/{status}', [NewBusinessNOCController::class, 'make_payment_store'])->name('new_business_noc.make_payment.store');
 
     // ====== Renew Business NOC
     Route::get('/renew_business_noc_list/{status}', [RenewBusinessNOCController::class, 'index'])->name('renew_business_noc_list');
@@ -218,6 +219,18 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware']],
     Route::get('/final_building_noc/edit/{id}/{status}', [FinalBuildingNOCController::class, 'edit'])->name('final_building_noc.edit');
     Route::post('/final_building_noc/edit/update/{id}/{n_id}/{status}', [FinalBuildingNOCController::class, 'update'])->name('final_building_noc.edit.update');
     Route::delete('/final_building_noc/delete/{id}/{n_id}/{status}', [FinalBuildingNOCController::class, 'destroy'])->name('final_building_noc.delete');
+
+    // ======= Fetch Mode of Operation
+    Route::post('user/fee/mode_of_operation', [NewBusinessNOCController::class, 'FetchOperationMode'])->name('user.fee.mode_of_operation');
+
+    // ======= Fetch Building Heights
+    Route::post('user/fee/bldg_ht', [NewBusinessNOCController::class, 'FetchBuildingHight'])->name('user.fee.bldg_ht');
+
+    // ======= Fetch Construction Category
+    Route::post('user/fee/construction_category', [NewBusinessNOCController::class, 'FetchConstructionCategory'])->name('user.fee.construction_category');
+
+    // ======= Fetch NOC Fee Master Charges
+    Route::post('fee/noc_fee_master_rate', [NewBusinessNOCController::class, 'NOCFeeMasterCharges'])->name('fee.noc_fee_master_rate');
 
 });
 

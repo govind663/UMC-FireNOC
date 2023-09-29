@@ -152,8 +152,11 @@
                                                             </form>
                                                             @endif
 
+                                                            &nbsp;&nbsp;
                                                             @if ($value->status == 1)
-                                                            <button type="button" class="btn  btn-sm text-light" style="background: #037e09;" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_1">Make Payment</button>
+                                                            <a href='{{ url("/new_business_noc/make_payment/create/{$value->NB_NOC_ID}/{$value->status}") }}' class="btn btn-success btn-sm ">
+                                                                <b><i class="mdi mdi-contactless-payment"> Make Payment</i></b>
+                                                            </a>
                                                             @endif
                                                         </td>
                                                     </tr>
@@ -179,86 +182,6 @@
 
         </div>
         <!-- END layout-wrapper -->
-
-        {{-- Start Apply for New Bussiness Application Model --}}
-        <div class="modal fade bs-example-modal-lg_1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-primary" id="myLargeModalLabel">Make Payment</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <form class="auth-input p-4"  method="POST" action="{{ url('/new_business_noc/store') }}" enctype="multipart/form-data">
-                                @csrf
-
-                                <div class="form-group row  mb-3">
-                                    <label class="col-sm-2"><strong>Last Name / Surname : <span style="color:red;">*</span></strong></label>
-                                    <div class="col-sm-2 col-md-2">
-                                        <input type="text" name="l_name" id="l_name" class="form-control @error('l_name') is-invalid @enderror" value="{{ old('l_name') }}" placeholder="Enter Last Name / Surname.">
-                                        @error('l_name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                    <label class="col-sm-2"><strong>First Name : <span style="color:red;">*</span></strong></label>
-                                    <div class="col-sm-2 col-md-2">
-                                        <input type="text" name="f_name" id="f_name" class="form-control @error('f_name') is-invalid @enderror" value="{{ old('f_name') }}" placeholder="Enter First Name.">
-                                        @error('f_name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                    <label class="col-sm-2"><strong>Father / Husband's Name : <span style="color:red;">*</span></strong></label>
-                                    <div class="col-sm-2 col-md-2">
-                                        <input type="text" name="father_name" id="father_name" class="form-control @error('father_name') is-invalid @enderror" value="{{ old('father_name') }}" placeholder="Enter Father / Husband's Name.">
-                                        @error('father_name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <div class="form-group row  mb-3">
-                                    <label class="col-sm-2"><strong>Name of Society : <span style="color:red;">*</span></strong></label>
-                                    <div class="col-sm-2 col-md-2">
-                                        <input type="text" name="society_name" id="society_name" class="form-control @error('society_name') is-invalid @enderror" value="{{ old('society_name') }}" placeholder="Enter Name of Society.">
-                                        @error('society_name')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                    <label class="col-sm-2"><strong>Designation : <span style="color:red;">*</span></strong></label>
-                                    <div class="col-sm-2 col-md-2">
-                                        <input type="text" name="designation" id="designation" class="form-control @error('designation') is-invalid @enderror" value="{{ old('designation') }}" placeholder="Enter Designation.">
-                                        @error('designation')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <div class="form-group row mt-4" >
-                                    <label class="col-md-3"></label>
-                                    <div class="col-md-9" style="display: flex; justify-content: flex-end;">
-                                        <a href="{{ url('/citizen/dashboard') }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </div>
-                                </div>
-
-                            </form>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
 
         <!-- JAVASCRIPT -->
         <script src="{{ url('/') }}/assets/libs/jquery/jquery.min.js"></script>

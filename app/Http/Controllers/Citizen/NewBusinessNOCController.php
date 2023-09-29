@@ -6,6 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Business_NOC;
 use App\Models\NOC_Master;
 use App\Models\Business;
+use App\Models\FeeBldgHt;
+use App\Models\FeeCategory;
+use App\Models\FeeModeOperate;
+use App\Models\FeeConstruction;
+use App\Models\FeeMaster;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -526,8 +531,101 @@ class NewBusinessNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function make_payment_create($id, $status)
+    {
+        $data = DB::table('business_noc as t1')
+                ->select('t1.*', 't2.*')
+                ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
+                ->where('t2.noc_mode', 1)  // ==== New Business NOC (status=1)
+                ->where('t2.citizen_id',  Auth::user()->id)
+                ->where('t1.status', $status)
+                ->where('t1.id', $id)
+                ->whereNUll('t1.deleted_at')
+                ->whereNUll('t2.deleted_at')
+                ->first();
+        // dd($data);
+
+        $mst_fee_construction = FeeConstruction::select('id', 'construction_type')->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
+        // dd($mst_fee_construction);
+
+        return view('citizen.business_noc.payment.new_business_noc_payment')->with(['data'=>$data, 'mst_fee_construction'=>$mst_fee_construction]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function new_business_noc_pdf()
     {
         return view('citizen.business_noc.certificate.new_business_noc_pdf');
+    }
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function FetchOperationMode(Request $request)
+    {
+        $data['mode_of_operation'] = FeeModeOperate::select('id', 'operation_mode')
+                                        ->where("fee_construction_id", $request->mode_of_operation)
+                                        ->whereNUll('deleted_at')
+                                        ->orderBy('id', 'desc')
+                                        ->get();
+
+        return response()->json($data);
+    }
+
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function FetchBuildingHight(Request $request)
+    {
+        $data['building_heights'] = FeeBldgHt::select('id', 'building_ht')
+                                        ->where("fee_mode_operate_id", $request->bldg_hts)
+                                        ->whereNUll('deleted_at')
+                                        ->orderBy('id', 'desc')
+                                        ->get();
+
+        return response()->json($data);
+    }
+
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function FetchConstructionCategory(Request $request)
+    {
+        $data['construction_category'] = FeeCategory::select('id', 'category_name')
+                                        ->where("fee_bldg_ht_id", $request->Construction_Categories)
+                                        ->whereNUll('deleted_at')
+                                        ->orderBy('id', 'desc')
+                                        ->get();
+
+        return response()->json($data);
+    }
+
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function NOCFeeMasterCharges(Request $request)
+    {
+        $data['noc_fee_master_charges'] = FeeMaster::select('rate', 'charges')
+                                        ->where("fee_bldg_ht_id", $request->Fee_Master_Rate)
+                                        ->whereNUll('deleted_at')
+                                        ->first();
+
+        // dd($data);
+
+        return response()->json($data);
     }
 }

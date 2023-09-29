@@ -70,10 +70,12 @@ class FeeBldgHtController extends Controller
         $data = FeeBldgHt::whereNUll('deleted_at')->where('id', $id)->orderBy('id', 'desc')->first();
         // dd($data);
 
+        $fee_construction_id = $data->fee_construction_id;
+
         $mst_fee_construction = FeeConstruction::select('id', 'construction_type')->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
         // dd($mst_fee_construction);
 
-        $mst_fee_mode_operate = FeeModeOperate::select('id', 'operation_mode')->where('id', $id)->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
+        $mst_fee_mode_operate = FeeModeOperate::select('id', 'operation_mode')->where('fee_construction_id', $fee_construction_id)->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
         // dd($mst_fee_mode_operate);
 
         return view('admin.noc_fees_chart.fees_bldg_ht.view')
@@ -91,10 +93,12 @@ class FeeBldgHtController extends Controller
         $data = FeeBldgHt::whereNUll('deleted_at')->where('id', $id)->orderBy('id', 'desc')->first();
         // dd($data);
 
+        $fee_construction_id = $data->fee_construction_id;
+
         $mst_fee_construction = FeeConstruction::select('id', 'construction_type')->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
         // dd($mst_fee_construction);
 
-        $mst_fee_mode_operate = FeeModeOperate::select('id', 'operation_mode')->where('id', $id)->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
+        $mst_fee_mode_operate = FeeModeOperate::select('id', 'operation_mode')->where('fee_construction_id', $fee_construction_id)->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
         // dd($mst_fee_mode_operate);
 
         return view('admin.noc_fees_chart.fees_bldg_ht.edit')
