@@ -552,15 +552,29 @@ class NewBusinessNOCController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Update the specified resource in storage.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function new_business_noc_pdf()
+    public function make_payment_store(BusinessNOCRequest $request, $id, $status)
     {
-        return view('citizen.business_noc.certificate.new_business_noc_pdf');
+        $data = Business_NOC::findOrFail($id);
+        $data->l_name = $request->get('l_name');
+        $data->f_name = $request->get('f_name');
+        $data->father_name = $request->get('father_name');
+        $data->society_name = $request->get('society_name');
+        $data->designation = $request->get('designation');
+
+        $data->modified_dt = date("Y-m-d H:i:s");
+        $data->modified_by = Auth::user()->id;
+        $data->save();
+
+        return redirect( )->route('new_business_noc_list',$status)->with('message', 'Your payment done for your new business noc has been done Successfully.');
+
     }
+
 
     /**
      * Write code on Method
