@@ -59,13 +59,19 @@
                                 <div class="card-body p-0">
                                     <h4 class="card-header text-light bg-primary ">Make Payment for New Business NOC</h4>
 
-                                    <form class="auth-input p-4" method="POST" action='{{ url("/new_business_noc/edit/update/{$data->NB_NOC_ID}/{$data->d_ID}/{$data->status}") }}' enctype="multipart/form-data" autocomplete="off">
+                                    <form class="auth-input p-4" method="POST" action='{{ url("/new_business_noc/make_payment/store/{$data->NB_NOC_ID}/{$data->status}") }}' enctype="multipart/form-data" autocomplete="off">
                                         @csrf
 
                                         <div class="form-group row mb-3">
                                             <label class="col-sm-2"><strong>Payment Date : </strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" readonly name="nocs_a_date" id="nocs_a_date" class="form-control" value="{{  date('d-m-Y', strtotime($data->noc_a_date))  }}">
+                                                <input type="text" readonly name="payment_dt" id="payment_dt" class="form-control" value="{{  date('d-m-Y', strtotime($data->noc_a_date))  }}">
+
+                                            </div>
+
+                                            <label class="col-sm-2"><strong>Application Unique Id : </strong></label>
+                                            <div class="col-sm-2 col-md-2">
+                                                <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->mst_token }}">
 
                                             </div>
                                         </div>
@@ -81,7 +87,7 @@
 
                                             <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <select class="form-control select2 " name="noc_mode" id="noc_mode" type="hidden">
+                                                <select class="form-control select2 " name="payment_noc_mode" id="payment_noc_mode" type="hidden">
                                                     <option>Select Mode of NOC</option>
                                                     <optgroup label=" ">
                                                         <option value="1" {{ $data->noc_mode == "1" ? 'selected' : '' }}>New Bussiness NOC</option>
@@ -180,52 +186,36 @@
 
                                         <div class="row  box 1">
                                             <div class="form-group row ">
-                                                <label class="col-sm-3"><strong>Cost for Wing : <span style="color:red;">*</span></strong></label>
+                                                <label class="col-sm-3"><strong>Cost for Wing : </strong></label>
                                                 <div class="col-sm-3 col-md-3">
-                                                    <input type="text" name="wing_rate" id="wing_rate" class="form-control @error('wing_rate') is-invalid @enderror"  value="{{ old('wing_rate') }}" placeholder="Enter Cost for Wing.">
-                                                    @error('wing_rate')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
+                                                    <input type="text" name="wing_rate" id="wing_rate" class="form-control "  value="{{ old('wing_rate') }}" placeholder="Enter Cost for Wing.">
+
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="row  box 2">
                                             <div class="form-group row  mb-3">
-                                                <label class="col-sm-3"><strong>Enter Area per Sq.Mt. : <span style="color:red;">*</span></strong></label>
+                                                <label class="col-sm-3"><strong>Enter Area per Sq.Mt. : </strong></label>
                                                 <div class="col-sm-3 col-md-3">
-                                                    <input type="text" name="new_area_meter" id="new_area_meter" class="form-control @error('new_area_meter') is-invalid @enderror"  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area per Sq.Mt.">
-                                                    @error('new_area_meter')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
+                                                    <input type="text" name="new_area_meter" id="new_area_meter" class="form-control "  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area per Sq.Mt.">
+
                                                 </div>
 
-                                                <label class="col-sm-3"><strong>Cost per Sq.Mt. : <span style="color:red;">*</span></strong></label>
+                                                <label class="col-sm-3"><strong>Cost per Sq.Mt. : </strong></label>
                                                 <div class="col-sm-3 col-md-3">
                                                     <input type="hidden" name="charge_rate" id="charge_rate" class="form-control"  value="charge_rate"  >
 
-                                                    <input type="text" name="meter_rate" id="meter_rate" class="form-control @error('meter_rate') is-invalid @enderror"  value="{{ old('meter_rate') }}" placeholder="Enter Cost per Sq.Mt.">
-                                                    @error('meter_rate')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
+                                                    <input type="text" name="meter_rate" id="meter_rate" class="form-control"  value="{{ old('meter_rate') }}" placeholder="Enter Cost per Sq.Mt.">
+
                                                 </div>
                                             </div>
 
                                             <div class="form-group row  mb-3">
-                                                <label class="col-sm-3"><strong>Total Charges : <span style="color:red;">*</span></strong></label>
+                                                <label class="col-sm-3"><strong>Total Charges : </strong></label>
                                                 <div class="col-sm-3 col-md-3">
-                                                    <input readonly type="text" name="total_charges_cost" id="total_charges_cost" class="form-control @error('total_charges_cost') is-invalid @enderror"  value="{{ old('total_charges_cost') }}" placeholder="Enter Total Charges.">
-                                                    @error('total_charges_cost')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
+                                                    <input readonly type="text" name="total_charges_cost" id="total_charges_cost" class="form-control "  value="{{ old('total_charges_cost') }}" placeholder="Enter Total Charges.">
+
                                                 </div>
                                             </div>
                                         </div>
@@ -233,7 +223,7 @@
                                         <div class="form-group row mt-4">
                                             <label class="col-md-3"></label>
                                             <div class="col-md-9" style="display: flex; justify-content: flex-end;">
-                                                <a href="{{ url('/citizen/dashboard') }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                <a href="{{ url('/new_business_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
                                                 <button type="submit" class="btn btn-primary">Submit</button>
                                             </div>
                                         </div>

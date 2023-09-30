@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Artisan;
 
 // ========== Admin
 use App\Http\Controllers\Admin\AdminNewBusinessNOCController;
@@ -31,6 +30,9 @@ use App\Http\Controllers\Citizen\NewHospitalNOCController;
 use App\Http\Controllers\Citizen\RenewHospitalNOCController;
 use App\Http\Controllers\Citizen\ProvisionalBuildingNOCController;
 use App\Http\Controllers\Citizen\FinalBuildingNOCController;
+
+// ============== Citizen Make Payment
+use App\Http\Controllers\Citizen\CitizenPaypentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -172,8 +174,8 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware']],
     Route::get('/new_business_noc/edit/{id}/{status}', [NewBusinessNOCController::class, 'edit'])->name('new_business_noc.edit');
     Route::post('/new_business_noc/edit/update/{id}/{n_id}/{status}', [NewBusinessNOCController::class, 'update'])->name('new_business_noc.edit.update');
     Route::delete('/new_business_noc/delete/{id}/{n_id}/{status}', [NewBusinessNOCController::class, 'destroy'])->name('new_business_noc.delete');
-    Route::get('/new_business_noc/make_payment/create/{id}/{status}', [NewBusinessNOCController::class, 'make_payment_create'])->name('new_business_noc.make_payment.create');
-    Route::get('/new_business_noc/make_payment/store/{id}/{status}', [NewBusinessNOCController::class, 'make_payment_store'])->name('new_business_noc.make_payment.store');
+    Route::get('/new_business_noc/make_payment/create/{id}/{status}', [CitizenPaypentController::class, 'make_payment_create'])->name('new_business_noc.make_payment.create');
+    Route::post('/new_business_noc/make_payment/store/{id}/{status}', [CitizenPaypentController::class, 'make_payment_store'])->name('new_business_noc.make_payment.store');
 
     // ====== Renew Business NOC
     Route::get('/renew_business_noc_list/{status}', [RenewBusinessNOCController::class, 'index'])->name('renew_business_noc_list');

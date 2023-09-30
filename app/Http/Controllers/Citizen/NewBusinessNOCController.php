@@ -9,7 +9,6 @@ use App\Models\Business;
 use App\Models\FeeBldgHt;
 use App\Models\FeeCategory;
 use App\Models\FeeModeOperate;
-use App\Models\FeeConstruction;
 use App\Models\FeeMaster;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -524,57 +523,6 @@ class NewBusinessNOCController extends Controller
 
         return redirect( )->route('new_business_noc_list',$status)->with('message', 'The application form which you had deleted for your new business noc has been done Successfully.');
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function make_payment_create($id, $status)
-    {
-        $data = DB::table('business_noc as t1')
-                ->select('t1.*', 't2.*')
-                ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
-                ->where('t2.noc_mode', 1)  // ==== New Business NOC (status=1)
-                ->where('t2.citizen_id',  Auth::user()->id)
-                ->where('t1.status', $status)
-                ->where('t1.id', $id)
-                ->whereNUll('t1.deleted_at')
-                ->whereNUll('t2.deleted_at')
-                ->first();
-        // dd($data);
-
-        $mst_fee_construction = FeeConstruction::select('id', 'construction_type')->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
-        // dd($mst_fee_construction);
-
-        return view('citizen.business_noc.payment.new_business_noc_payment')->with(['data'=>$data, 'mst_fee_construction'=>$mst_fee_construction]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function make_payment_store(BusinessNOCRequest $request, $id, $status)
-    {
-        $data = Business_NOC::findOrFail($id);
-        $data->l_name = $request->get('l_name');
-        $data->f_name = $request->get('f_name');
-        $data->father_name = $request->get('father_name');
-        $data->society_name = $request->get('society_name');
-        $data->designation = $request->get('designation');
-
-        $data->modified_dt = date("Y-m-d H:i:s");
-        $data->modified_by = Auth::user()->id;
-        $data->save();
-
-        return redirect( )->route('new_business_noc_list',$status)->with('message', 'Your payment done for your new business noc has been done Successfully.');
-
-    }
-
 
     /**
      * Write code on Method
