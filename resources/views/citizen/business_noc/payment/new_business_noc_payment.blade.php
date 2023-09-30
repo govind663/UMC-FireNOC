@@ -113,10 +113,43 @@
                                         <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Payment Details :</h4>
 
                                         <div class="form-group row  mb-3">
+                                            <label class="col-sm-3"><strong>Type Of Construction : <span style="color:red;">*</span></strong></label>
+                                            <div class="col-sm-3 col-md-3">
+                                                <select class="form-control select2 @error('fee_construction_id') is-invalid @enderror" name="fee_construction_id" id="fee_construction_id">
+                                                    <option value="">Select Type Of Construction</option>
+                                                    <optgroup label="">
+                                                        @foreach ($mst_fee_construction as $value)
+                                                        <option value="{{ $value->id }}" {{ old('fee_construction_id') == "1" ? 'selected' : '' }}>{{ $value->construction_type }}</option>
+                                                        @endforeach
+                                                    </optgroup>
+                                                </select>
+                                                @error('fee_construction_id')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+
+                                            <label class="col-sm-3"><strong>Mode of Operation : <span style="color:red;">*</span></strong></label>
+                                            <div class="col-sm-3 col-md-3">
+                                                <select class="form-control select2 @error('fee_mode_operate_id') is-invalid @enderror" name="fee_mode_operate_id" id="fee_mode_operate_id">
+                                                    <option value="">Select Mode of Operation</option>
+                                                    <optgroup label="">
+                                                    </optgroup>
+                                                </select>
+                                                @error('fee_mode_operate_id')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row  mb-3">
                                             <label class="col-sm-3"><strong>Is this wing or not ? : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-3 col-md-3">
                                                 <select class="form-control select2 @error('wing_option') is-invalid @enderror" name="wing_option" id="wing_option">
-                                                    <option value="">Select Is this wing or not ?</option>
+                                                    <option value="" selected disabled>Select Is this wing or not ?</option>
                                                     <optgroup label=" ">
                                                         <option value="1" {{ old('wing_option') == "1"? 'selected' : '' }}>Yes</option>
                                                         <option value="2" {{ old('wing_option') == "2"? 'selected' : '' }}>No</option>
@@ -128,58 +161,25 @@
                                                     </span>
                                                 @enderror
                                             </div>
+
+                                            <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
+                                            <div class="col-sm-3 col-md-3">
+                                                <select class="form-control select2 @error('fee_bldg_ht_id') is-invalid @enderror" name="fee_bldg_ht_id" id="fee_bldg_ht_id">
+                                                    <option value="">Select Building Height / Type</option>
+                                                    <optgroup label="">
+                                                    </optgroup>
+                                                </select>
+                                                @error('fee_bldg_ht_id')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
                                         </div>
 
-                                        <div class="row  mb-3 box 1">
-                                            <div class="form-group row  mb-3">
-                                                <label class="col-sm-3"><strong>Type Of Construction : <span style="color:red;">*</span></strong></label>
-                                                <div class="col-sm-3 col-md-3">
-                                                    <select class="form-control select2 @error('wing_fee_construction_id') is-invalid @enderror" name="wing_fee_construction_id" id="wing_fee_construction_id">
-                                                        <option value="">Select Type Of Construction</option>
-                                                        <optgroup label="">
-                                                            @foreach ($mst_fee_construction as $value)
-                                                            <option value="{{ $value->id }}" {{ old('wing_fee_construction_id') == "1" ? 'selected' : '' }}>{{ $value->construction_type }}</option>
-                                                            @endforeach
-                                                        </optgroup>
-                                                    </select>
-                                                    @error('wing_fee_construction_id')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
 
-                                                <label class="col-sm-3"><strong>Mode of Operation : <span style="color:red;">*</span></strong></label>
-                                                <div class="col-sm-3 col-md-3">
-                                                    <select class="form-control select2 @error('wing_fee_mode_operate_id') is-invalid @enderror" name="wing_fee_mode_operate_id" id="wing_fee_mode_operate_id">
-                                                        <option value="">Select Mode of Operation</option>
-                                                        <optgroup label="">
-                                                        </optgroup>
-                                                    </select>
-                                                    @error('wing_fee_mode_operate_id')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-
+                                        <div class="row  box 1">
                                             <div class="form-group row ">
-                                                <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
-                                                <div class="col-sm-3 col-md-3">
-                                                    <select class="form-control select2 @error('wing_fee_bldg_ht_id') is-invalid @enderror" name="wing_fee_bldg_ht_id" id="wing_fee_bldg_ht_id">
-                                                        <option value="">Select Building Height / Type</option>
-                                                        <optgroup label="">
-                                                        </optgroup>
-                                                    </select>
-                                                    @error('wing_fee_bldg_ht_id')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-
                                                 <label class="col-sm-3"><strong>Cost for Wing : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-3 col-md-3">
                                                     <input type="text" name="wing_rate" id="wing_rate" class="form-control @error('wing_rate') is-invalid @enderror"  value="{{ old('wing_rate') }}" placeholder="Enter Cost for Wing.">
@@ -192,83 +192,35 @@
                                             </div>
                                         </div>
 
-                                        <div class="row  mb-3 box 2">
-
+                                        <div class="row  box 2">
                                             <div class="form-group row  mb-3">
-                                                <label class="col-sm-3"><strong>Type Of Construction : <span style="color:red;">*</span></strong></label>
-                                                <div class="col-sm-3 col-md-3">
-                                                    <select class="form-control select2 @error('fee_construction_id') is-invalid @enderror" name="fee_construction_id" id="fee_construction_id">
-                                                        <option value="">Select Type Of Construction</option>
-                                                        <optgroup label="">
-                                                            @foreach ($mst_fee_construction as $value)
-                                                            <option value="{{ $value->id }}" {{ old('fee_construction_id') == "1" ? 'selected' : '' }}>{{ $value->construction_type }}</option>
-                                                            @endforeach
-                                                        </optgroup>
-                                                    </select>
-                                                    @error('fee_construction_id')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-
-                                                <label class="col-sm-3"><strong>Mode of Operation : <span style="color:red;">*</span></strong></label>
-                                                <div class="col-sm-3 col-md-3">
-                                                    <select class="form-control select2 @error('fee_mode_operate_id') is-invalid @enderror" name="fee_mode_operate_id" id="fee_mode_operate_id">
-                                                        <option value="">Select Mode of Operation</option>
-                                                        <optgroup label="">
-                                                        </optgroup>
-                                                    </select>
-                                                    @error('fee_mode_operate_id')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row  mb-3">
-                                                <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
-                                                <div class="col-sm-3 col-md-3">
-                                                    <select class="form-control select2 @error('fee_bldg_ht_id') is-invalid @enderror" name="fee_bldg_ht_id" id="fee_bldg_ht_id">
-                                                        <option value="">Select Building Height / Type</option>
-                                                        <optgroup label="">
-                                                        </optgroup>
-                                                    </select>
-                                                    @error('fee_bldg_ht_id')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-
                                                 <label class="col-sm-3"><strong>Enter Area per Sq.Mt. : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-3 col-md-3">
-                                                    <input type="text" name="new_area_meter" id="new_area_meter" class="form-control @error('new_area_meter') is-invalid @enderror" onkeypress='validate(event)' value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area per Sq.Mt.">
+                                                    <input type="text" name="new_area_meter" id="new_area_meter" class="form-control @error('new_area_meter') is-invalid @enderror"  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area per Sq.Mt.">
                                                     @error('new_area_meter')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                     @enderror
                                                 </div>
-                                            </div>
 
-                                            <div class="form-group row  mb-3">
                                                 <label class="col-sm-3"><strong>Cost per Sq.Mt. : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-3 col-md-3">
                                                     <input type="hidden" name="charge_rate" id="charge_rate" class="form-control"  value="charge_rate"  >
 
-                                                    <input type="text" name="meter_rate" id="meter_rate" class="form-control @error('meter_rate') is-invalid @enderror" onkeypress='validate(event)' value="{{ old('meter_rate') }}" placeholder="Enter Cost per Sq.Mt.">
+                                                    <input type="text" name="meter_rate" id="meter_rate" class="form-control @error('meter_rate') is-invalid @enderror"  value="{{ old('meter_rate') }}" placeholder="Enter Cost per Sq.Mt.">
                                                     @error('meter_rate')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                     @enderror
                                                 </div>
+                                            </div>
 
+                                            <div class="form-group row  mb-3">
                                                 <label class="col-sm-3"><strong>Total Charges : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-3 col-md-3">
-                                                    <input readonly type="text" name="total_charges_cost" id="total_charges_cost" class="form-control @error('total_charges_cost') is-invalid @enderror" onkeypress='validate(event)' value="{{ old('total_charges_cost') }}" placeholder="Enter Total Charges.">
+                                                    <input readonly type="text" name="total_charges_cost" id="total_charges_cost" class="form-control @error('total_charges_cost') is-invalid @enderror"  value="{{ old('total_charges_cost') }}" placeholder="Enter Total Charges.">
                                                     @error('total_charges_cost')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
@@ -276,7 +228,6 @@
                                                     @enderror
                                                 </div>
                                             </div>
-
                                         </div>
 
                                         <div class="form-group row mt-4">
@@ -397,6 +348,8 @@
                     , dataType: 'json'
                     , success: function(result) {
                         // alert(result.noc_fee_master_charges.rate)
+
+
                         $('#charge_rate').val(result.noc_fee_master_charges.rate)
                         let wingOption = $('#wing_option').val();
                         // let newAreaMeter = $('#new_area_meter').val();
@@ -417,6 +370,7 @@
                             $('#total_charges_cost').val(amount)
                         }else{
                             $('#wing_rate').val(result.noc_fee_master_charges.charges)
+
                         }
                     }
                 });
@@ -441,6 +395,14 @@
         });
 
         $('#wing_option').change(function() { //on change do stuff
+            let val = $(this).val()
+            if(val == 2){
+                $('#new_area_meter').val('')
+                $('#meter_rate').val('')
+                $('#total_charges_cost').val('')
+            }else if(val == 1){
+                $('#wing_rate').val('')
+            }
             $('.box').hide(); //hide all with .box class
             $('.' + $(this).val()).show(); //show selected option's respective element
         });
