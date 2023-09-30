@@ -30,7 +30,8 @@ use App\Http\Controllers\Citizen\NewHospitalNOCController;
 use App\Http\Controllers\Citizen\RenewHospitalNOCController;
 use App\Http\Controllers\Citizen\ProvisionalBuildingNOCController;
 use App\Http\Controllers\Citizen\FinalBuildingNOCController;
-use App\Http\Controllers\Admin\CertificateController;
+use App\Http\Controllers\Citizen\CertificateController;
+use App\Http\Controllers\Citizen\InvoiceController;
 
 // ============== Citizen Make Payment
 use App\Http\Controllers\Citizen\CitizenPaypentController;
@@ -242,5 +243,14 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware']],
     Route::get('/renew_building_noc_certificate', [CertificateController::class, 'renewFireNocBuildingCertificate']);
     Route::get('/new_hospital_noc_certificate', [CertificateController::class, 'fireNocHospitalCertificate']);
     Route::get('/renew_hospital_noc_certificate', [CertificateController::class, 'renewFireNocHospitalCertificate']);
+
+
+    // ======= All Citizen Invoice
+    Route::get('/new_buisness_noc_invoice', [InvoiceController::class, 'fireNocBuisnessInvoice']);
+    Route::get('/renew_buisness_noc_invoice', [InvoiceController::class, 'renewFireNocBuisnessInvoice']);
+    Route::get('/new_building_noc_invoice', [InvoiceController::class, 'fireNocBuildingInvoice']);
+    Route::get('/renew_building_noc_invoice', [InvoiceController::class, 'renewFireNocBuildingInvoice']);
+    Route::get('/new_hospital_noc_invoice', [InvoiceController::class, 'fireNocHospitalInvoice']);
+    Route::get('/renew_hospital_noc_invoice', [InvoiceController::class, 'renewFireNocHospitalInvoice']);
 });
 
