@@ -30,6 +30,7 @@ use App\Http\Controllers\Citizen\NewHospitalNOCController;
 use App\Http\Controllers\Citizen\RenewHospitalNOCController;
 use App\Http\Controllers\Citizen\ProvisionalBuildingNOCController;
 use App\Http\Controllers\Citizen\FinalBuildingNOCController;
+use App\Http\Controllers\Admin\CertificateController;
 
 // ============== Citizen Make Payment
 use App\Http\Controllers\Citizen\CitizenPaypentController;
@@ -234,5 +235,11 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware']],
     // ======= Fetch NOC Fee Master Charges
     Route::post('fee/noc_fee_master_rate', [NewBusinessNOCController::class, 'NOCFeeMasterCharges'])->name('fee.noc_fee_master_rate');
 
+    Route::get('/new_buisness_noc_certificate', [CertificateController::class, 'fireNocBuisnessCertificate']);
+    Route::get('/renew_buisness_noc_certificate', [CertificateController::class, 'renewFireNocBuisnessCertificate']);
+    Route::get('/new_building_noc_certificate', [CertificateController::class, 'fireNocBuildingCertificate']);
+    Route::get('/renew_building_noc_certificate', [CertificateController::class, 'renewFireNocBuildingCertificate']);
+    Route::get('/new_hospital_noc_certificate', [CertificateController::class, 'fireNocHospitalCertificate']);
+    Route::get('/renew_hospital_noc_certificate', [CertificateController::class, 'renewFireNocHospitalCertificate']);
 });
 
