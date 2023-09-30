@@ -4,30 +4,32 @@ namespace App\Http\Controllers\Citizen;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class CertificateController extends Controller
 {
-    public function fireNocBuisnessCertificate(){
+    public function fireNocBuisnessCertificate($id, $status){
         return view('citizen.certificate.new_buisness_noc_certificate');
     }
 
-    public function renewFireNocBuisnessCertificate(){
+    public function renewFireNocBuisnessCertificate($id, $status){
         return view('citizen.certificate.renew_buisness_noc_certificate');
     }
 
-    public function fireNocBuildingCertificate(){
+    public function fireNocBuildingCertificate($id, $status){
         return view('citizen.certificate.new_building_noc_certificate');
     }
 
-    public function renewFireNocBuildingCertificate(){
+    public function renewFireNocBuildingCertificate($id, $status){
         return view('citizen.certificate.renew_building_noc_certificate');
     }
 
-    public function fireNocHospitalCertificate(){
+    public function fireNocHospitalCertificate($id, $status){
         return view('citizen.certificate.new_hospital_noc_certificate');
     }
 
-    public function renewFireNocHospitalCertificate(){
+    public function renewFireNocHospitalCertificate($id, $status){
         return view('citizen.certificate.renew_hospital_noc_certificate');
     }
 }

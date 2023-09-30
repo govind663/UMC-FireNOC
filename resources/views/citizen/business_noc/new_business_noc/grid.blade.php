@@ -158,6 +158,21 @@
                                                                 <b><i class="mdi mdi-contactless-payment"> Make Payment</i></b>
                                                             </a>
                                                             @endif
+
+                                                            &nbsp;&nbsp;
+                                                            @if ($value->status == 2 && $value->payment_status == 0 )
+                                                            <a href='{{ url("/new_buisness_noc_invoice/{$value->NB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
+                                                                <b><i class="mdi mdi-file"> Invoice</i></b>
+                                                            </a>
+                                                            @endif
+
+                                                            &nbsp;&nbsp;
+                                                            @if ($value->status == 3 )
+                                                            <a href='{{ url("/new_buisness_noc_certificate/{$value->NB_NOC_ID}/{$value->status}") }}' class="btn btn-warning btn-sm text-dark">
+                                                                <b><i class="mdi mdi-file"> View Certificate</i></b>
+                                                            </a>
+                                                            @endif
+
                                                         </td>
                                                     </tr>
                                                 @endforeach

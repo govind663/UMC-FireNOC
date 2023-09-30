@@ -7,6 +7,7 @@ use App\Http\Requests\CitizePaymentRequest;
 use Illuminate\Http\Request;
 use App\Models\CitizenPayment;
 use App\Models\FeeConstruction;
+use App\Models\Business_NOC;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,7 +36,7 @@ class CitizenPaypentController extends Controller
         $mst_fee_construction = FeeConstruction::select('id', 'construction_type')->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
         // dd($mst_fee_construction);
 
-        return view('payment.make_pyment')->with(['data'=>$data, 'mst_fee_construction'=>$mst_fee_construction]);
+        return view('citizen.payment.make_pyment')->with(['data'=>$data, 'mst_fee_construction'=>$mst_fee_construction]);
     }
 
     /**
@@ -47,7 +48,7 @@ class CitizenPaypentController extends Controller
      */
     public function make_payment_store(CitizePaymentRequest $request, $id, $status)
     {
-        $data = CitizenPayment::findOrFail($id);
+        $data = new CitizenPayment();
 
         $data->mst_token = $request->get('mst_token');
         $data->payment_dt = date('Y-m-d', strtotime($request->get('payment_dt')));
@@ -67,11 +68,29 @@ class CitizenPaypentController extends Controller
         $data->meter_rate = $request->get('meter_rate');
         $data->total_charges_cost = $request->get('total_charges_cost');
 
-        $data->modified_dt = date("Y-m-d H:i:s");
-        $data->modified_by = Auth::user()->id;
+        $data->inserted_dt = date("Y-m-d H:i:s");
+        $data->inserted_by = Auth::user()->id;
         $data->save();
 
-        return redirect( )->route('new_business_noc_list', 2)->with('message', 'Your payment done for your new business noc has been done Successfully.');
+        // ==== Generate New Business NOC Invoice Number
+        $invoice_unique_id = "UMC_".rand(1000,10000000).time();
+        $update_invoice_id = [
+            'invoice_number' => $invoice_unique_id.$data->id ,
+            'citizen_payment_status' => 1,
+        ];
+
+        CitizenPayment::where('id', $data->id)->update($update_invoice_id);
+
+
+        // ==== Update Payment Status
+        $update = [
+            'status' => 2,
+            'payment_status' =>  0,
+        ];
+
+        Business_NOC::where('id', $data->mst_token)->update($update);
+
+        return redirect()->route('new_business_noc_list', 2)->with('message', 'Your payment done for your new business noc has been done Successfully.');
 
     }
 }

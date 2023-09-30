@@ -30,41 +30,44 @@
         <!-- App Css-->
         <link href="{{ url('/') }}/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
         <style>
+            .select2 {
+                border: 1px solid rgb(7, 147, 165);
+                border-radius: 5px;
+            }
 
+            .letter {
+                margin: 0 auto;
+                text-align: justify;
+                line-height: 1.6;
+            }
+            .header {
+                text-align: center;
+                font-weight: bold;
+                font-size: 24px;
+            }
+            .date {
+                text-align: right;
+            }
+            .signature {
+                text-align: right;
+                margin-top: 40px;
+            }
+            .lineheight{
+                line-height: 3px;
+            }
+            @page {
+                margin: 0;
+            }
         </style>
     </head>
 
-    <style>
-        .select2 {
-            border: 1px solid rgb(7, 147, 165);
-            border-radius: 5px;
-        }
-
-        .letter {
-            margin: 0 auto;
-            text-align: justify;
-            line-height: 1.6;
-        }
-        .header {
-            text-align: center;
-            font-weight: bold;
-            font-size: 24px;
-        }
-        .date {
-            text-align: right;
-        }
-        .signature {
-            text-align: right;
-            margin-top: 40px;
-        }
-    </style>
 
     <body data-topbar="colored" data-layout="horizontal">
 
         <!-- Begin page -->
         <div id="layout-wrapper">
 
-            @include('common.admin.header.header')
+            @include('common.citizen.header.header')
 
             <div class="main-content">
 
@@ -92,10 +95,10 @@
                                                 <div style="float: left;">टोकन क्र:- ..................</div>
                                                 <div style="float: right;">जा.क्र उपमा/अग्नि/......./२०--</div><br>
                                                 <div style="float: right;padding-right: 58px;">दिनांक:  --/--/२०--</div><br>
-                                                <p>प्रति,</p>
-                                                <p>श्री. .........................,</p>
-                                                <p>.............................</p>
-                                                <p>.............................</p>
+                                                <p class="lineheight">प्रति,</p>
+                                                <p class="lineheight">श्री. .........................,</p>
+                                                <p class="lineheight">.............................</p>
+                                                <p class="lineheight">.............................</p>
                                                 <p>उल्हासनगर -</p>
 
                                                 <b><p style="text-align: center;"> <u>"विविध व्यवसायाकरीता अग्निशमन ना हरकत दाखला"</u></p></b><br>
@@ -118,10 +121,10 @@
                                                 <p>दिनांक: <strong>तारीख</strong></p>
                                             </div> -->
                                             <div class="signature">
-                                                <p>(बाळासाहेब नेटके)</p>
-                                                <p>मुख्य अग्निशमन अधिकारी (प्र.)</p>
-                                                <p>अग्निशमन विभाग</p>
-                                                <p>उल्हासनगर महानगरपालिका</p>
+                                                <p class="lineheight">(बाळासाहेब नेटके)</p>
+                                                <p class="lineheight">मुख्य अग्निशमन अधिकारी (प्र.)</p>
+                                                <p class="lineheight">अग्निशमन विभाग</p>
+                                                <p class="lineheight">उल्हासनगर महानगरपालिका</p>
                                             </div>
                                         </div>
 
@@ -141,7 +144,7 @@
                 </div>
                 <!-- End Page-content -->
 
-                @include('common.admin.footer.footer')
+                @include('common.citizen.footer.footer')
 
             </div>
             <!-- end main content-->

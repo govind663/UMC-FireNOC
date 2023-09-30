@@ -89,7 +89,7 @@ class AdminNewBusinessNOCController extends Controller
         } elseif (Auth::user()->role == 2) {
             $update = [
                 'status' => 6, // === Reviewed (Level Up that means application go to DMC)
-                'officer_status	' => 1, // ===== Approved by Chief Fire Officer
+                'officer_status' => 1, // ===== Approved by Chief Fire Officer
                 'application_status' => 2, // ===== Chief Fire Officer will pass
                 'approved_dt' => date("Y-m-d H:i:s"),
                 'approved_by' => Auth::user()->id,

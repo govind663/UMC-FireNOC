@@ -57,6 +57,9 @@
             text-align: right;
             margin-top: 40px;
         }
+        @page {
+            margin: 0;
+        }
     </style>
 
     <body data-topbar="colored" data-layout="horizontal">
@@ -64,7 +67,7 @@
         <!-- Begin page -->
         <div id="layout-wrapper">
 
-            @include('common.admin.header.header')
+            @include('common.citizen.header.header')
 
             <div class="main-content">
 
@@ -209,7 +212,7 @@
                 </div>
                 <!-- End Page-content -->
 
-                @include('common.admin.footer.footer')
+                @include('common.citizen.footer.footer')
 
             </div>
             <!-- end main content-->

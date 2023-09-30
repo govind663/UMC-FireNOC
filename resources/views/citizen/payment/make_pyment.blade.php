@@ -95,6 +95,12 @@
                                                     </optgroup>
                                                 </select>
                                             </div>
+
+                                            <label class="col-sm-2"><strong>NOC Master Id : </strong></label>
+                                            <div class="col-sm-2 col-md-2">
+                                                <input type="text" readonly name="noc_mst_id" id="noc_mst_id" class="form-control" value="{{  $data->noc_mst_id }}">
+
+                                            </div>
                                         </div>
 
                                         <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Basic Details :</h4>

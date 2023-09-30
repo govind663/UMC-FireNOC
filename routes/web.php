@@ -237,20 +237,20 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware']],
     Route::post('fee/noc_fee_master_rate', [NewBusinessNOCController::class, 'NOCFeeMasterCharges'])->name('fee.noc_fee_master_rate');
 
     // ======= All Citizen NOC Certificate
-    Route::get('/new_buisness_noc_certificate', [CertificateController::class, 'fireNocBuisnessCertificate']);
-    Route::get('/renew_buisness_noc_certificate', [CertificateController::class, 'renewFireNocBuisnessCertificate']);
-    Route::get('/new_building_noc_certificate', [CertificateController::class, 'fireNocBuildingCertificate']);
-    Route::get('/renew_building_noc_certificate', [CertificateController::class, 'renewFireNocBuildingCertificate']);
-    Route::get('/new_hospital_noc_certificate', [CertificateController::class, 'fireNocHospitalCertificate']);
-    Route::get('/renew_hospital_noc_certificate', [CertificateController::class, 'renewFireNocHospitalCertificate']);
+    Route::get('/new_buisness_noc_certificate/{id}/{status}', [CertificateController::class, 'fireNocBuisnessCertificate']);
+    Route::get('/renew_buisness_noc_certificate/{id}/{status}', [CertificateController::class, 'renewFireNocBuisnessCertificate']);
+    Route::get('/new_building_noc_certificate/{id}/{status}', [CertificateController::class, 'fireNocBuildingCertificate']);
+    Route::get('/renew_building_noc_certificate/{id}/{status}', [CertificateController::class, 'renewFireNocBuildingCertificate']);
+    Route::get('/new_hospital_noc_certificate/{id}/{status}', [CertificateController::class, 'fireNocHospitalCertificate']);
+    Route::get('/renew_hospital_noc_certificate/{id}/{status}', [CertificateController::class, 'renewFireNocHospitalCertificate']);
 
 
     // ======= All Citizen Invoice
-    Route::get('/new_buisness_noc_invoice', [InvoiceController::class, 'fireNocBuisnessInvoice']);
-    Route::get('/renew_buisness_noc_invoice', [InvoiceController::class, 'renewFireNocBuisnessInvoice']);
-    Route::get('/new_building_noc_invoice', [InvoiceController::class, 'fireNocBuildingInvoice']);
-    Route::get('/renew_building_noc_invoice', [InvoiceController::class, 'renewFireNocBuildingInvoice']);
-    Route::get('/new_hospital_noc_invoice', [InvoiceController::class, 'fireNocHospitalInvoice']);
-    Route::get('/renew_hospital_noc_invoice', [InvoiceController::class, 'renewFireNocHospitalInvoice']);
+    Route::get('/new_buisness_noc_invoice/{id}/{status}', [InvoiceController::class, 'fireNocBuisnessInvoice']);
+    Route::get('/renew_buisness_noc_invoice/{id}/{status}', [InvoiceController::class, 'renewFireNocBuisnessInvoice']);
+    Route::get('/new_building_noc_invoice/{id}/{status}', [InvoiceController::class, 'fireNocBuildingInvoice']);
+    Route::get('/renew_building_noc_invoice/{id}/{status}', [InvoiceController::class, 'renewFireNocBuildingInvoice']);
+    Route::get('/new_hospital_noc_invoice/{id}/{status}', [InvoiceController::class, 'fireNocHospitalInvoice']);
+    Route::get('/renew_hospital_noc_invoice/{id}/{status}', [InvoiceController::class, 'renewFireNocHospitalInvoice']);
 });
 
