@@ -235,6 +235,7 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware']],
     // ======= Fetch NOC Fee Master Charges
     Route::post('fee/noc_fee_master_rate', [NewBusinessNOCController::class, 'NOCFeeMasterCharges'])->name('fee.noc_fee_master_rate');
 
+    // ======= All Citizen NOC Certificate
     Route::get('/new_buisness_noc_certificate', [CertificateController::class, 'fireNocBuisnessCertificate']);
     Route::get('/renew_buisness_noc_certificate', [CertificateController::class, 'renewFireNocBuisnessCertificate']);
     Route::get('/new_building_noc_certificate', [CertificateController::class, 'fireNocBuildingCertificate']);
