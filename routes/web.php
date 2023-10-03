@@ -244,5 +244,7 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware']],
     // ======= All Citizen Fire NOC Certificate
     Route::get('/certificate/{id}/{status}/{noc_mode}', [CertificateController::class, 'fire_noc_certificate'])->name('certificate');
 
+    // ======= All Payment receipt
+    Route::post('/upload_payment_receipt/{id}/{status}/{noc_mode}', [CertificateController::class, 'upload_payment_receipt'])->name('upload_payment_receipt');
 });
 

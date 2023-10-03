@@ -59,9 +59,9 @@
                                     <div class="card-body" style="border: 1px solid rgb(3, 155, 155);">
 
                                         @if($all_status == 2)
-                                        <h4 class="card-header text-primary">All Rejected New Business NOC List</h4>
+                                        <h4 class="card-header text-primary">All Rejected Renew Hospital NOC List</h4>
                                         @elseif($all_status == 1)
-                                        <h4 class="card-header text-primary">All Approved New Business NOC List</h4>
+                                        <h4 class="card-header text-primary">All Approved Renew Hospital NOC List</h4>
                                         @endif
 
                                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
@@ -128,7 +128,7 @@
                                                         <td><span class="bg-danger text-dark p-2" style="border: 1px;">Reviewed</span></td>
                                                         @endif
                                                         <td style="display:flex;">
-                                                            <a href='{{ url("/all_new_business_noc/show/{$value->NB_NOC_ID}/{$all_status}") }}' class="btn btn-primary btn-sm">
+                                                            <a href='{{ url("/all_new_business_noc/show/{$value->RH_NOC_ID}/{$all_status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
                                                         </td>

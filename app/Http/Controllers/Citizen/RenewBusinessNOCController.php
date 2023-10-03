@@ -261,7 +261,7 @@ class RenewBusinessNOCController extends Controller
     public function show($id, $status)
     {
         $data = DB::table('business_noc as t1')
-                ->select('t1.*', 't2.*')
+                ->select('t1.*', 't2.*', 't1.id as RB_NOC_ID', 't2.id as d_ID')
                 ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
                 ->where('t2.noc_mode', 2)  // ==== Renew Business NOC (status=2)
                 ->where('t2.citizen_id',  Auth::user()->id)

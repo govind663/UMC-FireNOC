@@ -110,7 +110,7 @@ class AdminNewHospitalNOCController extends Controller
             Hospital_NOC::where('id', $id)->where('status', $status)->update($update);
         }
 
-        return redirect()->route('admin_new_hospital_noc_list',1)->with('message', 'The application form which you had filled for your new hospital noc has been approved Successfully.');
+        return redirect()->route('admin_new_hospital_noc_list', 1)->with('message', 'The application form which you had filled for your new hospital noc has been approved Successfully.');
     }
 
     /**

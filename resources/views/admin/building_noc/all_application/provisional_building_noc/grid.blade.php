@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
 
-        <title>UMC-Fire NOC | Renew Business NOC List</title>
+        <title>UMC-Fire NOC | Provisional Building NOC List</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
         <meta content="Themesdesign" name="author">
@@ -59,9 +59,9 @@
                                     <div class="card-body" style="border: 1px solid rgb(3, 155, 155);">
 
                                         @if($all_status == 2)
-                                        <h4 class="card-header text-primary">All Rejected Renew Business NOC List</h4>
+                                        <h4 class="card-header text-primary">All Rejected Provisional Building NOC List</h4>
                                         @elseif($all_status == 1)
-                                        <h4 class="card-header text-primary">All Approved Renew Business NOC List</h4>
+                                        <h4 class="card-header text-primary">All Approved Provisional Building NOC List</h4>
                                         @endif
 
                                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
@@ -72,7 +72,7 @@
                                                     <th><b>Appication Name</b></th>
                                                     <th><b>Property Types</b></th>
                                                     <th><b>Property Number</b></th>
-                                                    <th><b>Town / City</b></th>
+                                                    <th><b>Area Name</b></th>
                                                     <th><b>Pin code</b></th>
                                                     <th><b>Taluka</b></th>
                                                     <th><b>Ward Committee No</b></th>
@@ -94,7 +94,7 @@
                                                         @endif
 
                                                         <td>{{ $value->property_no }}</td>
-                                                        <td>{{ $value->city_name }}</td>
+                                                        <td>{{ $value->area_name }}</td>
                                                         <td>{{ $value->pincode }}</td>
                                                         <td>{{ $value->taluka_name }}</td>
                                                         @php
@@ -128,7 +128,7 @@
                                                         <td><span class="bg-danger text-dark p-2" style="border: 1px;">Reviewed</span></td>
                                                         @endif
                                                         <td style="display:flex;">
-                                                            <a href='{{ url("/all_new_business_noc/show/{$value->NB_NOC_ID}/{$all_status}") }}' class="btn btn-primary btn-sm">
+                                                            <a href='{{ url("/all_provisional_building_noc/show/{$value->P_NOC_ID}/{$all_status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
                                                         </td>

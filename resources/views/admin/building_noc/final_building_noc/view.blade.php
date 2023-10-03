@@ -1,4 +1,4 @@
-df<!doctype html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -567,7 +567,7 @@ df<!doctype html>
                                         <div class="form-group row mt-4" >
                                             <label class="col-md-3"></label>
                                             <div class="col-md-9" style="display: flex; justify-content: flex-end;">
-                                                <a href="{{ url('/admin_final_building_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                <a href="{{ url('/admin_final_building_noc_list', $data->status) }}" class="btn btn-primary">Cancel</a>&nbsp;&nbsp;
                                                 {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
                                                 @if(Auth::user()->role == 3)
                                                 <a href='{{ url("/admin_final_building_noc/approved/$data->F_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;

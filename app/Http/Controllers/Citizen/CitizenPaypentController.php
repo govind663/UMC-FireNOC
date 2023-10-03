@@ -37,9 +37,6 @@ class CitizenPaypentController extends Controller
                 ->first();
                 // dd($data);
 
-                $mst_fee_construction = FeeConstruction::select('id', 'construction_type')->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
-                // dd($mst_fee_construction);
-
         }elseif($noc_mode == 2){
 
             $data = DB::table('business_noc as t1')
@@ -54,9 +51,6 @@ class CitizenPaypentController extends Controller
                 ->first();
                 // dd($data);
 
-                $mst_fee_construction = FeeConstruction::select('id', 'construction_type')->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
-                // dd($mst_fee_construction);
-
         }elseif($noc_mode == 3){
 
             $data = DB::table('hospital_noc as t1')
@@ -70,6 +64,7 @@ class CitizenPaypentController extends Controller
                 ->whereNUll('t2.deleted_at')
                 ->first();
                 // dd($data);
+
         }elseif($noc_mode == 4){
 
             $data = DB::table('hospital_noc as t1')
@@ -96,6 +91,7 @@ class CitizenPaypentController extends Controller
                 ->whereNUll('t2.deleted_at')
                 ->first();
                 // dd($data);
+
         }elseif($noc_mode == 6){
 
             $data = DB::table('building_noc as t1')
@@ -110,6 +106,9 @@ class CitizenPaypentController extends Controller
                 ->first();
                 // dd($data);
         }
+
+        $mst_fee_construction = FeeConstruction::select('id', 'construction_type')->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
+        // dd($mst_fee_construction);
 
         return view('citizen.payment.make_pyment')->with(['data'=>$data, 'mst_fee_construction'=>$mst_fee_construction, 'noc_mode'=>$noc_mode]);
     }

@@ -43,7 +43,7 @@ class AdminProvisionalBuildingNOCController extends Controller
     public function show($id, $status)
     {
         $data = DB::table('building_noc as t1')
-                ->select('t1.*', 't2.*')
+                ->select('t1.*', 't2.*', 't1.id as P_NOC_ID', 't2.id as d_ID')
                 ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
                 ->where('t2.noc_mode', 5)  // ==== Provisional Building NOC (status=5)
                 ->where('t1.status', $status)
@@ -180,7 +180,7 @@ class AdminProvisionalBuildingNOCController extends Controller
     {
         // dd($all_status);
         $query = DB::table('building_noc AS t1')
-                    ->select('t1.*', 't2.*', 't1.id as F_NOC_ID', 't2.id as d_ID')
+                    ->select('t1.*', 't2.*', 't1.id as P_NOC_ID', 't2.id as d_ID')
                     ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id')
                     ->where('t2.noc_mode', 5) // ==== Provisional Building NOC (status=1)
                     ->whereNUll('t1.deleted_at')
@@ -211,7 +211,7 @@ class AdminProvisionalBuildingNOCController extends Controller
     {
         // dd($all_status);
         $query = DB::table('building_noc AS t1')
-            ->select('t1.*', 't2.*', 't1.id as F_NOC_ID', 't2.id as d_ID')
+            ->select('t1.*', 't2.*', 't1.id as P_NOC_ID', 't2.id as d_ID')
             ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id')
             ->where('t2.noc_mode', 5) // ==== Provisional Building NOC (status=1)
             ->where('t1.id', $id)
