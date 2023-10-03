@@ -40,11 +40,6 @@
         background-position: center;
     }
 
-    .text-uppercase {
-        text-transform: uppercase !important;
-        font-size: 27px;
-    }
-
 </style>
 
 <body>
@@ -68,10 +63,10 @@
                                                     </a>
 
                                                     <div class="row">
-                                                        <h4 class="text-uppercase mb-1">Fire Brigade NOC Application</h4>
+                                                        <h3 class="text-uppercase mb-1">Fire Brigade NOC Application</h3>
                                                     </div>
                                                     <div class="row">
-                                                        <h3 class="text-uppercase mb-1">फायर ब्रिगेड एनओसी अर्ज</h3>
+                                                        <h2 class="text-uppercase mb-1">फायर ब्रिगेड एनओसी अर्ज</h2>
                                                     </div>
                                                 </div>
 

@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
 
-    <title>UMC-Fire NOC | Payment For New Business NOC</title>
+    <title>UMC-Fire NOC | Make Payment For Fire NOC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
     <meta content="Themesdesign" name="author">
@@ -57,184 +57,1081 @@
                         <div class="col-lg-12">
                             <div class="card" style="border: 1px solid #000000;">
                                 <div class="card-body p-0">
-                                    <h4 class="card-header text-light bg-primary ">Make Payment for New Business NOC</h4>
+                                    @if ($noc_mode == 1)
+                                        <h4 class="card-header text-light bg-primary ">Make Payment for New Business NOC</h4>
 
-                                    <form class="auth-input p-4" method="POST" action='{{ url("/new_business_noc/make_payment/store/{$data->NB_NOC_ID}/{$data->status}") }}' enctype="multipart/form-data" autocomplete="off">
-                                        @csrf
+                                        <form class="auth-input p-4" method="POST" action='{{ url("/make_payment/store/{$data->NB_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off">
+                                            @csrf
 
-                                        <div class="form-group row mb-3">
-                                            <label class="col-sm-2"><strong>Payment Date : </strong></label>
-                                            <div class="col-sm-2 col-md-2">
-                                                <input type="text" readonly name="payment_dt" id="payment_dt" class="form-control" value="{{  date('d-m-Y', strtotime($data->noc_a_date))  }}">
+                                            <div class="form-group row mb-3">
+                                                <label class="col-sm-2"><strong>Payment Date : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="payment_dt" id="payment_dt" class="form-control" value="{{  date('d-m-Y', strtotime($data->noc_a_date))  }}">
 
+                                                </div>
+
+                                                <label class="col-sm-2"><strong>Application Unique Id : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->mst_token }}">
+
+                                                </div>
                                             </div>
 
-                                            <label class="col-sm-2"><strong>Application Unique Id : </strong></label>
-                                            <div class="col-sm-2 col-md-2">
-                                                <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->mst_token }}">
+                                            <div class="form-group row mb-3 d-none">
+                                                @if(auth()->guard('citizen'))
+                                                <label class="col-sm-2"><strong>Citizen ID : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ Auth::user()->id }}">
 
-                                            </div>
-                                        </div>
+                                                </div>
+                                                @endif
 
-                                        <div class="form-group row mb-3 d-none">
-                                            @if(auth()->guard('citizen'))
-                                            <label class="col-sm-2"><strong>Citizen ID : </strong></label>
-                                            <div class="col-sm-2 col-md-2">
-                                                <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ Auth::user()->id }}">
+                                                <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <select class="form-control select2 " name="payment_noc_mode" id="payment_noc_mode" type="hidden">
+                                                        <option>Select Mode of NOC</option>
+                                                        <optgroup label=" ">
+                                                            <option value="1" {{ $data->noc_mode == "1" ? 'selected' : '' }}>New Bussiness NOC</option>
+                                                            <option value="2" {{ $data->noc_mode == "2" ? 'selected' : '' }}>Renewal Bussiness NOC</option>
+                                                        </optgroup>
+                                                    </select>
+                                                </div>
 
-                                            </div>
-                                            @endif
+                                                <label class="col-sm-2"><strong>NOC Master Id : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="noc_mst_id" id="noc_mst_id" class="form-control" value="{{  $data->noc_mst_id }}">
 
-                                            <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
-                                            <div class="col-sm-2 col-md-2">
-                                                <select class="form-control select2 " name="payment_noc_mode" id="payment_noc_mode" type="hidden">
-                                                    <option>Select Mode of NOC</option>
-                                                    <optgroup label=" ">
-                                                        <option value="1" {{ $data->noc_mode == "1" ? 'selected' : '' }}>New Bussiness NOC</option>
-                                                        <option value="2" {{ $data->noc_mode == "2" ? 'selected' : '' }}>Renewal Bussiness NOC</option>
-                                                    </optgroup>
-                                                </select>
-                                            </div>
-
-                                            <label class="col-sm-2"><strong>NOC Master Id : </strong></label>
-                                            <div class="col-sm-2 col-md-2">
-                                                <input type="text" readonly name="noc_mst_id" id="noc_mst_id" class="form-control" value="{{  $data->noc_mst_id }}">
-
-                                            </div>
-                                        </div>
-
-                                        <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Basic Details :</h4>
-                                        <div class="form-group row  mb-3">
-                                            <label class="col-sm-2"><strong>Last Name / Surname : </strong></label>
-                                            <div class="col-sm-2 col-md-2">
-                                                <input readonly type="text" name="l_name" id="l_name" class="form-control " value="{{ $data->l_name }}" placeholder="Enter Last Name / Surname.">
-
-                                            </div>
-                                            <label class="col-sm-2"><strong>First Name : </strong></label>
-                                            <div class="col-sm-2 col-md-2">
-                                                <input readonly type="text" name="f_name" id="f_name" class="form-control " value="{{ $data->f_name }}" placeholder="Enter First Name.">
-
-                                            </div>
-                                            <label class="col-sm-2"><strong>Father / Husband's Name : </strong></label>
-                                            <div class="col-sm-2 col-md-2">
-                                                <input readonly type="text" name="father_name" id="father_name" class="form-control " value="{{ $data->father_name }}" placeholder="Enter Father / Husband's Name.">
-
-                                            </div>
-                                        </div>
-
-                                        <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Payment Details :</h4>
-
-                                        <div class="form-group row  mb-3">
-                                            <label class="col-sm-3"><strong>Type Of Construction : <span style="color:red;">*</span></strong></label>
-                                            <div class="col-sm-3 col-md-3">
-                                                <select class="form-control select2 @error('fee_construction_id') is-invalid @enderror" name="fee_construction_id" id="fee_construction_id">
-                                                    <option value="">Select Type Of Construction</option>
-                                                    <optgroup label="">
-                                                        @foreach ($mst_fee_construction as $value)
-                                                        <option value="{{ $value->id }}" {{ old('fee_construction_id') == "1" ? 'selected' : '' }}>{{ $value->construction_type }}</option>
-                                                        @endforeach
-                                                    </optgroup>
-                                                </select>
-                                                @error('fee_construction_id')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
+                                                </div>
                                             </div>
 
-                                            <label class="col-sm-3"><strong>Mode of Operation : <span style="color:red;">*</span></strong></label>
-                                            <div class="col-sm-3 col-md-3">
-                                                <select class="form-control select2 @error('fee_mode_operate_id') is-invalid @enderror" name="fee_mode_operate_id" id="fee_mode_operate_id">
-                                                    <option value="">Select Mode of Operation</option>
-                                                    <optgroup label="">
-                                                    </optgroup>
-                                                </select>
-                                                @error('fee_mode_operate_id')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </div>
+                                            <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Basic Details :</h4>
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-2"><strong>Last Name / Surname : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="l_name" id="l_name" class="form-control " value="{{ $data->l_name }}" placeholder="Enter Last Name / Surname.">
 
-                                        <div class="form-group row  mb-3">
-                                            <label class="col-sm-3"><strong>Is this wing or not ? : <span style="color:red;">*</span></strong></label>
-                                            <div class="col-sm-3 col-md-3">
-                                                <select class="form-control select2 @error('wing_option') is-invalid @enderror" name="wing_option" id="wing_option">
-                                                    <option value="" selected disabled>Select Is this wing or not ?</option>
-                                                    <optgroup label=" ">
-                                                        <option value="1" {{ old('wing_option') == "1"? 'selected' : '' }}>Yes</option>
-                                                        <option value="2" {{ old('wing_option') == "2"? 'selected' : '' }}>No</option>
-                                                    </optgroup>
-                                                </select>
-                                                @error('wing_option')
+                                                </div>
+                                                <label class="col-sm-2"><strong>First Name : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="f_name" id="f_name" class="form-control " value="{{ $data->f_name }}" placeholder="Enter First Name.">
+
+                                                </div>
+                                                <label class="col-sm-2"><strong>Father / Husband's Name : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="father_name" id="father_name" class="form-control " value="{{ $data->father_name }}" placeholder="Enter Father / Husband's Name.">
+
+                                                </div>
+                                            </div>
+
+                                            <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Payment Details :</h4>
+
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-3"><strong>Type Of Construction : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_construction_id') is-invalid @enderror" name="fee_construction_id" id="fee_construction_id">
+                                                        <option value="">Select Type Of Construction</option>
+                                                        <optgroup label="">
+                                                            @foreach ($mst_fee_construction as $value)
+                                                            <option value="{{ $value->id }}" {{ old('fee_construction_id') == "1" ? 'selected' : '' }}>{{ $value->construction_type }}</option>
+                                                            @endforeach
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_construction_id')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
-                                                @enderror
-                                            </div>
-
-                                            <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
-                                            <div class="col-sm-3 col-md-3">
-                                                <select class="form-control select2 @error('fee_bldg_ht_id') is-invalid @enderror" name="fee_bldg_ht_id" id="fee_bldg_ht_id">
-                                                    <option value="">Select Building Height / Type</option>
-                                                    <optgroup label="">
-                                                    </optgroup>
-                                                </select>
-                                                @error('fee_bldg_ht_id')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-
-
-                                        <div class="row  box 1">
-                                            <div class="form-group row ">
-                                                <label class="col-sm-3"><strong>Cost for Wing : </strong></label>
-                                                <div class="col-sm-3 col-md-3">
-                                                    <input type="text" name="wing_rate" id="wing_rate" class="form-control "  value="{{ old('wing_rate') }}" placeholder="Enter Cost for Wing.">
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row  box 2">
-                                            <div class="form-group row  mb-3">
-                                                <label class="col-sm-3"><strong>Enter Area per Sq.Mt. : </strong></label>
-                                                <div class="col-sm-3 col-md-3">
-                                                    <input type="text" name="new_area_meter" id="new_area_meter" class="form-control "  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area per Sq.Mt.">
-
+                                                    @enderror
                                                 </div>
 
-                                                <label class="col-sm-3"><strong>Cost per Sq.Mt. : </strong></label>
+                                                <label class="col-sm-3"><strong>Mode of Operation : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-3 col-md-3">
-                                                    <input type="hidden" name="charge_rate" id="charge_rate" class="form-control"  value="charge_rate"  >
-
-                                                    <input type="text" name="meter_rate" id="meter_rate" class="form-control"  value="{{ old('meter_rate') }}" placeholder="Enter Cost per Sq.Mt.">
-
+                                                    <select class="form-control select2 @error('fee_mode_operate_id') is-invalid @enderror" name="fee_mode_operate_id" id="fee_mode_operate_id">
+                                                        <option value="">Select Mode of Operation</option>
+                                                        <optgroup label="">
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_mode_operate_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
                                                 </div>
                                             </div>
 
                                             <div class="form-group row  mb-3">
-                                                <label class="col-sm-3"><strong>Total Charges : </strong></label>
+                                                <label class="col-sm-3"><strong>Is this wing or not ? : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-3 col-md-3">
-                                                    <input readonly type="text" name="total_charges_cost" id="total_charges_cost" class="form-control "  value="{{ old('total_charges_cost') }}" placeholder="Enter Total Charges.">
+                                                    <select class="form-control select2 @error('wing_option') is-invalid @enderror" name="wing_option" id="wing_option">
+                                                        <option value="" selected disabled>Select Is this wing or not ?</option>
+                                                        <optgroup label=" ">
+                                                            <option value="1" {{ old('wing_option') == "1"? 'selected' : '' }}>Yes</option>
+                                                            <option value="2" {{ old('wing_option') == "2"? 'selected' : '' }}>No</option>
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('wing_option')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+
+                                                <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_bldg_ht_id') is-invalid @enderror" name="fee_bldg_ht_id" id="fee_bldg_ht_id">
+                                                        <option value="">Select Building Height / Type</option>
+                                                        <optgroup label="">
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_bldg_ht_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row  box 1">
+                                                <div class="form-group row ">
+                                                    <label class="col-sm-3"><strong>Cost for Wing : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input type="text" name="wing_rate" id="wing_rate" class="form-control "  value="{{ old('wing_rate') }}" placeholder="Enter Cost for Wing.">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row  box 2">
+                                                <div class="form-group row  mb-3">
+                                                    <label class="col-sm-3"><strong>Enter Area per Sq.Mt. : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input type="text" name="new_area_meter" id="new_area_meter" class="form-control "  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area per Sq.Mt.">
+
+                                                    </div>
+
+                                                    <label class="col-sm-3"><strong>Cost per Sq.Mt. : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input type="hidden" name="charge_rate" id="charge_rate" class="form-control"  value="charge_rate"  >
+
+                                                        <input type="text" name="meter_rate" id="meter_rate" class="form-control"  value="{{ old('meter_rate') }}" placeholder="Enter Cost per Sq.Mt.">
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row  mb-3">
+                                                    <label class="col-sm-3"><strong>Total Charges : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input readonly type="text" name="total_charges_cost" id="total_charges_cost" class="form-control "  value="{{ old('total_charges_cost') }}" placeholder="Enter Total Charges.">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row mt-4">
+                                                <label class="col-md-3"></label>
+                                                <div class="col-md-9" style="display: flex; justify-content: flex-end;">
+                                                    <a href="{{ url('/new_business_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    @elseif ($noc_mode == 2)
+                                        <h4 class="card-header text-light bg-primary ">Make Payment for Renew Business NOC</h4>
+
+                                        <form class="auth-input p-4" method="POST" action='{{ url("/make_payment/store/{$data->RB_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off">
+                                            @csrf
+
+                                            <div class="form-group row mb-3">
+                                                <label class="col-sm-2"><strong>Payment Date : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="payment_dt" id="payment_dt" class="form-control" value="{{  date('d-m-Y', strtotime($data->noc_a_date))  }}">
+
+                                                </div>
+
+                                                <label class="col-sm-2"><strong>Application Unique Id : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->mst_token }}">
 
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <div class="form-group row mt-4">
-                                            <label class="col-md-3"></label>
-                                            <div class="col-md-9" style="display: flex; justify-content: flex-end;">
-                                                <a href="{{ url('/new_business_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
-                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                            <div class="form-group row mb-3 d-none">
+                                                @if(auth()->guard('citizen'))
+                                                <label class="col-sm-2"><strong>Citizen ID : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ Auth::user()->id }}">
+
+                                                </div>
+                                                @endif
+
+                                                <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <select class="form-control select2 " name="payment_noc_mode" id="payment_noc_mode" type="hidden">
+                                                        <option>Select Mode of NOC</option>
+                                                        <optgroup label=" ">
+                                                            <option value="1" {{ $data->noc_mode == "1" ? 'selected' : '' }}>New Bussiness NOC</option>
+                                                            <option value="2" {{ $data->noc_mode == "2" ? 'selected' : '' }}>Renewal Bussiness NOC</option>
+                                                        </optgroup>
+                                                    </select>
+                                                </div>
+
+                                                <label class="col-sm-2"><strong>NOC Master Id : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="noc_mst_id" id="noc_mst_id" class="form-control" value="{{  $data->noc_mst_id }}">
+
+                                                </div>
                                             </div>
-                                        </div>
 
-                                    </form>
+                                            <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Basic Details :</h4>
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-2"><strong>Last Name / Surname : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="l_name" id="l_name" class="form-control " value="{{ $data->l_name }}" placeholder="Enter Last Name / Surname.">
+
+                                                </div>
+                                                <label class="col-sm-2"><strong>First Name : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="f_name" id="f_name" class="form-control " value="{{ $data->f_name }}" placeholder="Enter First Name.">
+
+                                                </div>
+                                                <label class="col-sm-2"><strong>Father / Husband's Name : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="father_name" id="father_name" class="form-control " value="{{ $data->father_name }}" placeholder="Enter Father / Husband's Name.">
+
+                                                </div>
+                                            </div>
+
+                                            <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Payment Details :</h4>
+
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-3"><strong>Type Of Construction : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_construction_id') is-invalid @enderror" name="fee_construction_id" id="fee_construction_id">
+                                                        <option value="">Select Type Of Construction</option>
+                                                        <optgroup label="">
+                                                            @foreach ($mst_fee_construction as $value)
+                                                            <option value="{{ $value->id }}" {{ old('fee_construction_id') == "1" ? 'selected' : '' }}>{{ $value->construction_type }}</option>
+                                                            @endforeach
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_construction_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+
+                                                <label class="col-sm-3"><strong>Mode of Operation : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_mode_operate_id') is-invalid @enderror" name="fee_mode_operate_id" id="fee_mode_operate_id">
+                                                        <option value="">Select Mode of Operation</option>
+                                                        <optgroup label="">
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_mode_operate_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-3"><strong>Is this wing or not ? : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('wing_option') is-invalid @enderror" name="wing_option" id="wing_option">
+                                                        <option value="" selected disabled>Select Is this wing or not ?</option>
+                                                        <optgroup label=" ">
+                                                            <option value="1" {{ old('wing_option') == "1"? 'selected' : '' }}>Yes</option>
+                                                            <option value="2" {{ old('wing_option') == "2"? 'selected' : '' }}>No</option>
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('wing_option')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+
+                                                <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_bldg_ht_id') is-invalid @enderror" name="fee_bldg_ht_id" id="fee_bldg_ht_id">
+                                                        <option value="">Select Building Height / Type</option>
+                                                        <optgroup label="">
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_bldg_ht_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row  box 1">
+                                                <div class="form-group row ">
+                                                    <label class="col-sm-3"><strong>Cost for Wing : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input type="text" name="wing_rate" id="wing_rate" class="form-control "  value="{{ old('wing_rate') }}" placeholder="Enter Cost for Wing.">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row  box 2">
+                                                <div class="form-group row  mb-3">
+                                                    <label class="col-sm-3"><strong>Enter Area per Sq.Mt. : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input type="text" name="new_area_meter" id="new_area_meter" class="form-control "  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area per Sq.Mt.">
+
+                                                    </div>
+
+                                                    <label class="col-sm-3"><strong>Cost per Sq.Mt. : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input type="hidden" name="charge_rate" id="charge_rate" class="form-control"  value="charge_rate"  >
+
+                                                        <input type="text" name="meter_rate" id="meter_rate" class="form-control"  value="{{ old('meter_rate') }}" placeholder="Enter Cost per Sq.Mt.">
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row  mb-3">
+                                                    <label class="col-sm-3"><strong>Total Charges : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input readonly type="text" name="total_charges_cost" id="total_charges_cost" class="form-control "  value="{{ old('total_charges_cost') }}" placeholder="Enter Total Charges.">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row mt-4">
+                                                <label class="col-md-3"></label>
+                                                <div class="col-md-9" style="display: flex; justify-content: flex-end;">
+                                                    <a href="{{ url('/renew_business_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    @elseif ($noc_mode == 3)
+                                        <h4 class="card-header text-light bg-primary ">Make Payment for New Hospital NOC</h4>
+
+                                        <form class="auth-input p-4" method="POST" action='{{ url("/make_payment/store/{$data->NH_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off">
+                                            @csrf
+
+                                            <div class="form-group row mb-3">
+                                                <label class="col-sm-2"><strong>Payment Date : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="payment_dt" id="payment_dt" class="form-control" value="{{  date('d-m-Y', strtotime($data->noc_a_date))  }}">
+
+                                                </div>
+
+                                                <label class="col-sm-2"><strong>Application Unique Id : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->mst_token }}">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row mb-3 d-none">
+                                                @if(auth()->guard('citizen'))
+                                                <label class="col-sm-2"><strong>Citizen ID : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ Auth::user()->id }}">
+
+                                                </div>
+                                                @endif
+
+                                                <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <select class="form-control select2 " name="payment_noc_mode" id="payment_noc_mode" type="hidden">
+                                                        <option>Select Mode of NOC</option>
+                                                        <optgroup label=" ">
+                                                            <option value="1" {{ $data->noc_mode == "1" ? 'selected' : '' }}>New Bussiness NOC</option>
+                                                            <option value="2" {{ $data->noc_mode == "2" ? 'selected' : '' }}>Renewal Bussiness NOC</option>
+                                                        </optgroup>
+                                                    </select>
+                                                </div>
+
+                                                <label class="col-sm-2"><strong>NOC Master Id : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="noc_mst_id" id="noc_mst_id" class="form-control" value="{{  $data->noc_mst_id }}">
+
+                                                </div>
+                                            </div>
+
+                                            <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Basic Details :</h4>
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-2"><strong>Last Name / Surname : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="l_name" id="l_name" class="form-control " value="{{ $data->l_name }}" placeholder="Enter Last Name / Surname.">
+
+                                                </div>
+                                                <label class="col-sm-2"><strong>First Name : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="f_name" id="f_name" class="form-control " value="{{ $data->f_name }}" placeholder="Enter First Name.">
+
+                                                </div>
+                                                <label class="col-sm-2"><strong>Father / Husband's Name : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="father_name" id="father_name" class="form-control " value="{{ $data->father_name }}" placeholder="Enter Father / Husband's Name.">
+
+                                                </div>
+                                            </div>
+
+                                            <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Payment Details :</h4>
+
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-3"><strong>Type Of Construction : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_construction_id') is-invalid @enderror" name="fee_construction_id" id="fee_construction_id">
+                                                        <option value="">Select Type Of Construction</option>
+                                                        <optgroup label="">
+                                                            @foreach ($mst_fee_construction as $value)
+                                                            <option value="{{ $value->id }}" {{ old('fee_construction_id') == "1" ? 'selected' : '' }}>{{ $value->construction_type }}</option>
+                                                            @endforeach
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_construction_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+
+                                                <label class="col-sm-3"><strong>Mode of Operation : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_mode_operate_id') is-invalid @enderror" name="fee_mode_operate_id" id="fee_mode_operate_id">
+                                                        <option value="">Select Mode of Operation</option>
+                                                        <optgroup label="">
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_mode_operate_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-3"><strong>Is this wing or not ? : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('wing_option') is-invalid @enderror" name="wing_option" id="wing_option">
+                                                        <option value="" selected disabled>Select Is this wing or not ?</option>
+                                                        <optgroup label=" ">
+                                                            <option value="1" {{ old('wing_option') == "1"? 'selected' : '' }}>Yes</option>
+                                                            <option value="2" {{ old('wing_option') == "2"? 'selected' : '' }}>No</option>
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('wing_option')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+
+                                                <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_bldg_ht_id') is-invalid @enderror" name="fee_bldg_ht_id" id="fee_bldg_ht_id">
+                                                        <option value="">Select Building Height / Type</option>
+                                                        <optgroup label="">
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_bldg_ht_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row  box 1">
+                                                <div class="form-group row ">
+                                                    <label class="col-sm-3"><strong>Cost for Wing : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input type="text" name="wing_rate" id="wing_rate" class="form-control "  value="{{ old('wing_rate') }}" placeholder="Enter Cost for Wing.">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row  box 2">
+                                                <div class="form-group row  mb-3">
+                                                    <label class="col-sm-3"><strong>Enter Area per Sq.Mt. : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input type="text" name="new_area_meter" id="new_area_meter" class="form-control "  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area per Sq.Mt.">
+
+                                                    </div>
+
+                                                    <label class="col-sm-3"><strong>Cost per Sq.Mt. : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input type="hidden" name="charge_rate" id="charge_rate" class="form-control"  value="charge_rate"  >
+
+                                                        <input type="text" name="meter_rate" id="meter_rate" class="form-control"  value="{{ old('meter_rate') }}" placeholder="Enter Cost per Sq.Mt.">
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row  mb-3">
+                                                    <label class="col-sm-3"><strong>Total Charges : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input readonly type="text" name="total_charges_cost" id="total_charges_cost" class="form-control "  value="{{ old('total_charges_cost') }}" placeholder="Enter Total Charges.">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row mt-4">
+                                                <label class="col-md-3"></label>
+                                                <div class="col-md-9" style="display: flex; justify-content: flex-end;">
+                                                    <a href="{{ url('/new_hospital_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    @elseif ($noc_mode == 4)
+                                        <h4 class="card-header text-light bg-primary ">Make Payment for Renew Hospital NOC</h4>
+
+                                        <form class="auth-input p-4" method="POST" action='{{ url("/make_payment/store/{$data->RH_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off">
+                                            @csrf
+
+                                            <div class="form-group row mb-3">
+                                                <label class="col-sm-2"><strong>Payment Date : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="payment_dt" id="payment_dt" class="form-control" value="{{  date('d-m-Y', strtotime($data->noc_a_date))  }}">
+
+                                                </div>
+
+                                                <label class="col-sm-2"><strong>Application Unique Id : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->mst_token }}">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row mb-3 d-none">
+                                                @if(auth()->guard('citizen'))
+                                                <label class="col-sm-2"><strong>Citizen ID : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ Auth::user()->id }}">
+
+                                                </div>
+                                                @endif
+
+                                                <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <select class="form-control select2 " name="payment_noc_mode" id="payment_noc_mode" type="hidden">
+                                                        <option>Select Mode of NOC</option>
+                                                        <optgroup label=" ">
+                                                            <option value="1" {{ $data->noc_mode == "1" ? 'selected' : '' }}>New Bussiness NOC</option>
+                                                            <option value="2" {{ $data->noc_mode == "2" ? 'selected' : '' }}>Renewal Bussiness NOC</option>
+                                                        </optgroup>
+                                                    </select>
+                                                </div>
+
+                                                <label class="col-sm-2"><strong>NOC Master Id : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="noc_mst_id" id="noc_mst_id" class="form-control" value="{{  $data->noc_mst_id }}">
+
+                                                </div>
+                                            </div>
+
+                                            <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Basic Details :</h4>
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-2"><strong>Last Name / Surname : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="l_name" id="l_name" class="form-control " value="{{ $data->l_name }}" placeholder="Enter Last Name / Surname.">
+
+                                                </div>
+                                                <label class="col-sm-2"><strong>First Name : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="f_name" id="f_name" class="form-control " value="{{ $data->f_name }}" placeholder="Enter First Name.">
+
+                                                </div>
+                                                <label class="col-sm-2"><strong>Father / Husband's Name : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="father_name" id="father_name" class="form-control " value="{{ $data->father_name }}" placeholder="Enter Father / Husband's Name.">
+
+                                                </div>
+                                            </div>
+
+                                            <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Payment Details :</h4>
+
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-3"><strong>Type Of Construction : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_construction_id') is-invalid @enderror" name="fee_construction_id" id="fee_construction_id">
+                                                        <option value="">Select Type Of Construction</option>
+                                                        <optgroup label="">
+                                                            @foreach ($mst_fee_construction as $value)
+                                                            <option value="{{ $value->id }}" {{ old('fee_construction_id') == "1" ? 'selected' : '' }}>{{ $value->construction_type }}</option>
+                                                            @endforeach
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_construction_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+
+                                                <label class="col-sm-3"><strong>Mode of Operation : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_mode_operate_id') is-invalid @enderror" name="fee_mode_operate_id" id="fee_mode_operate_id">
+                                                        <option value="">Select Mode of Operation</option>
+                                                        <optgroup label="">
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_mode_operate_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-3"><strong>Is this wing or not ? : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('wing_option') is-invalid @enderror" name="wing_option" id="wing_option">
+                                                        <option value="" selected disabled>Select Is this wing or not ?</option>
+                                                        <optgroup label=" ">
+                                                            <option value="1" {{ old('wing_option') == "1"? 'selected' : '' }}>Yes</option>
+                                                            <option value="2" {{ old('wing_option') == "2"? 'selected' : '' }}>No</option>
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('wing_option')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+
+                                                <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_bldg_ht_id') is-invalid @enderror" name="fee_bldg_ht_id" id="fee_bldg_ht_id">
+                                                        <option value="">Select Building Height / Type</option>
+                                                        <optgroup label="">
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_bldg_ht_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row  box 1">
+                                                <div class="form-group row ">
+                                                    <label class="col-sm-3"><strong>Cost for Wing : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input type="text" name="wing_rate" id="wing_rate" class="form-control "  value="{{ old('wing_rate') }}" placeholder="Enter Cost for Wing.">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row  box 2">
+                                                <div class="form-group row  mb-3">
+                                                    <label class="col-sm-3"><strong>Enter Area per Sq.Mt. : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input type="text" name="new_area_meter" id="new_area_meter" class="form-control "  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area per Sq.Mt.">
+
+                                                    </div>
+
+                                                    <label class="col-sm-3"><strong>Cost per Sq.Mt. : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input type="hidden" name="charge_rate" id="charge_rate" class="form-control"  value="charge_rate"  >
+
+                                                        <input type="text" name="meter_rate" id="meter_rate" class="form-control"  value="{{ old('meter_rate') }}" placeholder="Enter Cost per Sq.Mt.">
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row  mb-3">
+                                                    <label class="col-sm-3"><strong>Total Charges : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input readonly type="text" name="total_charges_cost" id="total_charges_cost" class="form-control "  value="{{ old('total_charges_cost') }}" placeholder="Enter Total Charges.">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row mt-4">
+                                                <label class="col-md-3"></label>
+                                                <div class="col-md-9" style="display: flex; justify-content: flex-end;">
+                                                    <a href="{{ url('/renew_hospital_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    @elseif ($noc_mode == 5)
+                                        <h4 class="card-header text-light bg-primary ">Make Payment for Provisional Building NOC</h4>
+
+                                        <form class="auth-input p-4" method="POST" action='{{ url("/make_payment/store/{$data->P_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off">
+                                            @csrf
+
+                                            <div class="form-group row mb-3">
+                                                <label class="col-sm-2"><strong>Payment Date : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="payment_dt" id="payment_dt" class="form-control" value="{{  date('d-m-Y', strtotime($data->noc_a_date))  }}">
+
+                                                </div>
+
+                                                <label class="col-sm-2"><strong>Application Unique Id : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->mst_token }}">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row mb-3 d-none">
+                                                @if(auth()->guard('citizen'))
+                                                <label class="col-sm-2"><strong>Citizen ID : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ Auth::user()->id }}">
+
+                                                </div>
+                                                @endif
+
+                                                <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <select class="form-control select2 " name="payment_noc_mode" id="payment_noc_mode" type="hidden">
+                                                        <option>Select Mode of NOC</option>
+                                                        <optgroup label=" ">
+                                                            <option value="1" {{ $data->noc_mode == "1" ? 'selected' : '' }}>New Bussiness NOC</option>
+                                                            <option value="2" {{ $data->noc_mode == "2" ? 'selected' : '' }}>Renewal Bussiness NOC</option>
+                                                        </optgroup>
+                                                    </select>
+                                                </div>
+
+                                                <label class="col-sm-2"><strong>NOC Master Id : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="noc_mst_id" id="noc_mst_id" class="form-control" value="{{  $data->noc_mst_id }}">
+
+                                                </div>
+                                            </div>
+
+                                            <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Basic Details :</h4>
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-2"><strong>Last Name / Surname : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="l_name" id="l_name" class="form-control " value="{{ $data->l_name }}" placeholder="Enter Last Name / Surname.">
+
+                                                </div>
+                                                <label class="col-sm-2"><strong>First Name : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="f_name" id="f_name" class="form-control " value="{{ $data->f_name }}" placeholder="Enter First Name.">
+
+                                                </div>
+                                                <label class="col-sm-2"><strong>Father / Husband's Name : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="father_name" id="father_name" class="form-control " value="{{ $data->father_name }}" placeholder="Enter Father / Husband's Name.">
+
+                                                </div>
+                                            </div>
+
+                                            <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Payment Details :</h4>
+
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-3"><strong>Type Of Construction : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_construction_id') is-invalid @enderror" name="fee_construction_id" id="fee_construction_id">
+                                                        <option value="">Select Type Of Construction</option>
+                                                        <optgroup label="">
+                                                            @foreach ($mst_fee_construction as $value)
+                                                            <option value="{{ $value->id }}" {{ old('fee_construction_id') == "1" ? 'selected' : '' }}>{{ $value->construction_type }}</option>
+                                                            @endforeach
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_construction_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+
+                                                <label class="col-sm-3"><strong>Mode of Operation : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_mode_operate_id') is-invalid @enderror" name="fee_mode_operate_id" id="fee_mode_operate_id">
+                                                        <option value="">Select Mode of Operation</option>
+                                                        <optgroup label="">
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_mode_operate_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-3"><strong>Is this wing or not ? : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('wing_option') is-invalid @enderror" name="wing_option" id="wing_option">
+                                                        <option value="" selected disabled>Select Is this wing or not ?</option>
+                                                        <optgroup label=" ">
+                                                            <option value="1" {{ old('wing_option') == "1"? 'selected' : '' }}>Yes</option>
+                                                            <option value="2" {{ old('wing_option') == "2"? 'selected' : '' }}>No</option>
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('wing_option')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+
+                                                <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_bldg_ht_id') is-invalid @enderror" name="fee_bldg_ht_id" id="fee_bldg_ht_id">
+                                                        <option value="">Select Building Height / Type</option>
+                                                        <optgroup label="">
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_bldg_ht_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row  box 1">
+                                                <div class="form-group row ">
+                                                    <label class="col-sm-3"><strong>Cost for Wing : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input type="text" name="wing_rate" id="wing_rate" class="form-control "  value="{{ old('wing_rate') }}" placeholder="Enter Cost for Wing.">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row  box 2">
+                                                <div class="form-group row  mb-3">
+                                                    <label class="col-sm-3"><strong>Enter Area per Sq.Mt. : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input type="text" name="new_area_meter" id="new_area_meter" class="form-control "  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area per Sq.Mt.">
+
+                                                    </div>
+
+                                                    <label class="col-sm-3"><strong>Cost per Sq.Mt. : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input type="hidden" name="charge_rate" id="charge_rate" class="form-control"  value="charge_rate"  >
+
+                                                        <input type="text" name="meter_rate" id="meter_rate" class="form-control"  value="{{ old('meter_rate') }}" placeholder="Enter Cost per Sq.Mt.">
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row  mb-3">
+                                                    <label class="col-sm-3"><strong>Total Charges : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input readonly type="text" name="total_charges_cost" id="total_charges_cost" class="form-control "  value="{{ old('total_charges_cost') }}" placeholder="Enter Total Charges.">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row mt-4">
+                                                <label class="col-md-3"></label>
+                                                <div class="col-md-9" style="display: flex; justify-content: flex-end;">
+                                                    <a href="{{ url('/provisional_building_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    @elseif ($noc_mode == 6)
+                                        <h4 class="card-header text-light bg-primary ">Make Payment for Final Building NOC</h4>
+
+                                        <form class="auth-input p-4" method="POST" action='{{ url("/make_payment/store/{$data->F_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off">
+                                            @csrf
+
+                                            <div class="form-group row mb-3">
+                                                <label class="col-sm-2"><strong>Payment Date : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="payment_dt" id="payment_dt" class="form-control" value="{{  date('d-m-Y', strtotime($data->noc_a_date))  }}">
+
+                                                </div>
+
+                                                <label class="col-sm-2"><strong>Application Unique Id : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->mst_token }}">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row mb-3 d-none">
+                                                @if(auth()->guard('citizen'))
+                                                <label class="col-sm-2"><strong>Citizen ID : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ Auth::user()->id }}">
+
+                                                </div>
+                                                @endif
+
+                                                <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <select class="form-control select2 " name="payment_noc_mode" id="payment_noc_mode" type="hidden">
+                                                        <option>Select Mode of NOC</option>
+                                                        <optgroup label=" ">
+                                                            <option value="1" {{ $data->noc_mode == "1" ? 'selected' : '' }}>New Bussiness NOC</option>
+                                                            <option value="2" {{ $data->noc_mode == "2" ? 'selected' : '' }}>Renewal Bussiness NOC</option>
+                                                        </optgroup>
+                                                    </select>
+                                                </div>
+
+                                                <label class="col-sm-2"><strong>NOC Master Id : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="noc_mst_id" id="noc_mst_id" class="form-control" value="{{  $data->noc_mst_id }}">
+
+                                                </div>
+                                            </div>
+
+                                            <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Basic Details :</h4>
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-2"><strong>Last Name / Surname : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="l_name" id="l_name" class="form-control " value="{{ $data->l_name }}" placeholder="Enter Last Name / Surname.">
+
+                                                </div>
+                                                <label class="col-sm-2"><strong>First Name : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="f_name" id="f_name" class="form-control " value="{{ $data->f_name }}" placeholder="Enter First Name.">
+
+                                                </div>
+                                                <label class="col-sm-2"><strong>Father / Husband's Name : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="father_name" id="father_name" class="form-control " value="{{ $data->father_name }}" placeholder="Enter Father / Husband's Name.">
+
+                                                </div>
+                                            </div>
+
+                                            <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Payment Details :</h4>
+
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-3"><strong>Type Of Construction : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_construction_id') is-invalid @enderror" name="fee_construction_id" id="fee_construction_id">
+                                                        <option value="">Select Type Of Construction</option>
+                                                        <optgroup label="">
+                                                            @foreach ($mst_fee_construction as $value)
+                                                            <option value="{{ $value->id }}" {{ old('fee_construction_id') == "1" ? 'selected' : '' }}>{{ $value->construction_type }}</option>
+                                                            @endforeach
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_construction_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+
+                                                <label class="col-sm-3"><strong>Mode of Operation : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_mode_operate_id') is-invalid @enderror" name="fee_mode_operate_id" id="fee_mode_operate_id">
+                                                        <option value="">Select Mode of Operation</option>
+                                                        <optgroup label="">
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_mode_operate_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-3"><strong>Is this wing or not ? : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('wing_option') is-invalid @enderror" name="wing_option" id="wing_option">
+                                                        <option value="" selected disabled>Select Is this wing or not ?</option>
+                                                        <optgroup label=" ">
+                                                            <option value="1" {{ old('wing_option') == "1"? 'selected' : '' }}>Yes</option>
+                                                            <option value="2" {{ old('wing_option') == "2"? 'selected' : '' }}>No</option>
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('wing_option')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
+
+                                                <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_bldg_ht_id') is-invalid @enderror" name="fee_bldg_ht_id" id="fee_bldg_ht_id">
+                                                        <option value="">Select Building Height / Type</option>
+                                                        <optgroup label="">
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_bldg_ht_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row  box 1">
+                                                <div class="form-group row ">
+                                                    <label class="col-sm-3"><strong>Cost for Wing : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input type="text" name="wing_rate" id="wing_rate" class="form-control "  value="{{ old('wing_rate') }}" placeholder="Enter Cost for Wing.">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row  box 2">
+                                                <div class="form-group row  mb-3">
+                                                    <label class="col-sm-3"><strong>Enter Area per Sq.Mt. : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input type="text" name="new_area_meter" id="new_area_meter" class="form-control "  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area per Sq.Mt.">
+
+                                                    </div>
+
+                                                    <label class="col-sm-3"><strong>Cost per Sq.Mt. : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input type="hidden" name="charge_rate" id="charge_rate" class="form-control"  value="charge_rate"  >
+
+                                                        <input type="text" name="meter_rate" id="meter_rate" class="form-control"  value="{{ old('meter_rate') }}" placeholder="Enter Cost per Sq.Mt.">
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row  mb-3">
+                                                    <label class="col-sm-3"><strong>Total Charges : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input readonly type="text" name="total_charges_cost" id="total_charges_cost" class="form-control "  value="{{ old('total_charges_cost') }}" placeholder="Enter Total Charges.">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row mt-4">
+                                                <label class="col-md-3"></label>
+                                                <div class="col-md-9" style="display: flex; justify-content: flex-end;">
+                                                    <a href="{{ url('/final_building_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    @endif
 
                                 </div>
                             </div>

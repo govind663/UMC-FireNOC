@@ -14,7 +14,6 @@ Password : 1234567890
 Email id : operator@gmail.com
 Password : 1234567890
 
-
 ========= Citizen
 Mobile No : user@gmail.com
 Password : 1234567890

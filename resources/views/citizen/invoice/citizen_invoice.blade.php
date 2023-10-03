@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
 
-        <title>UMC-Fire NOC | New Business NOC</title>
+        <title>UMC-Fire NOC | Generate Invoice For Fire NOC</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
         <meta content="Themesdesign" name="author">
@@ -29,9 +29,7 @@
         <link href="{{ url('/') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="{{ url('/') }}/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
-        <style>
 
-        </style>
     </head>
 
     <style>
@@ -216,7 +214,19 @@
                                             <div class="d-print-none mt-4">
                                                 <div class="float-end">
                                                     <a href="javascript:window.print()" class="btn btn-primary me-1"><i class="fa fa-print"></i></a>
+                                                    @if ($noc_mode == 1)
                                                     <a href="{{ url('/new_business_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                    @elseif ($noc_mode == 2)
+                                                    <a href="{{ url('/renew_business_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                    @elseif ($noc_mode == 3)
+                                                    <a href="{{ url('/new_hospital_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                    @elseif ($noc_mode == 4)
+                                                    <a href="{{ url('/renew_hospital_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                    @elseif ($noc_mode == 5)
+                                                    <a href="{{ url('/provisional_building_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                    @elseif ($noc_mode == 6)
+                                                    <a href="{{ url('/final_building_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>

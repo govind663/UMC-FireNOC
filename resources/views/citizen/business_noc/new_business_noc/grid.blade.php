@@ -68,6 +68,10 @@
                                         <h4 class="card-header text-primary">All Approved New Business NOC List</h4>
                                         @elseif($status == 4)
                                         <h4 class="card-header text-primary">All Rejected New Business NOC List</h4>
+                                        @elseif($status == 5)
+                                        <h4 class="card-header text-primary">All Underprocess New Business NOC List</h4>
+                                        @elseif($status == 6)
+                                        <h4 class="card-header text-primary">All Reviewed New Business NOC List</h4>
                                         @endif
 
                                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
@@ -136,6 +140,7 @@
                                                             <a href='{{ url("/new_business_noc/show/{$value->NB_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
+
                                                             @if ($value->status == 0 || $value->status == 4)
                                                             &nbsp;&nbsp;
                                                             <a href='{{ url("/new_business_noc/edit/{$value->NB_NOC_ID}/{$value->status}") }}' class="btn btn-warning btn-sm text-dark">
@@ -154,21 +159,21 @@
 
                                                             &nbsp;&nbsp;
                                                             @if ($value->status == 1)
-                                                            <a href='{{ url("/new_business_noc/make_payment/create/{$value->NB_NOC_ID}/{$value->status}") }}' class="btn btn-success btn-sm ">
+                                                            <a href='{{ url("/make_payment/create/{$value->NB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-success btn-sm ">
                                                                 <b><i class="mdi mdi-contactless-payment"> Make Payment</i></b>
                                                             </a>
                                                             @endif
 
                                                             &nbsp;&nbsp;
                                                             @if ($value->status == 2 && $value->payment_status == 0 )
-                                                            <a href='{{ url("/new_buisness_noc_invoice/{$value->NB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
+                                                            <a href='{{ url("/invoice/{$value->NB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-dark btn-sm ">
                                                                 <b><i class="mdi mdi-file"> Invoice</i></b>
                                                             </a>
                                                             @endif
 
                                                             &nbsp;&nbsp;
                                                             @if ($value->status == 3 )
-                                                            <a href='{{ url("/new_buisness_noc_certificate/{$value->NB_NOC_ID}/{$value->status}") }}' class="btn btn-warning btn-sm text-dark">
+                                                            <a href='{{ url("/certificate/{$value->NB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-warning btn-sm text-dark">
                                                                 <b><i class="mdi mdi-file"> View Certificate</i></b>
                                                             </a>
                                                             @endif

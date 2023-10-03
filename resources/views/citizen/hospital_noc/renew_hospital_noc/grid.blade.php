@@ -59,15 +59,19 @@
                                     <div class="card-body" style="border: 1px solid rgb(3, 155, 155);">
 
                                         @if($status == 0)
-                                        <h4 class="card-header text-primary">All Pending New Hospital NOC List</h4>
+                                        <h4 class="card-header text-primary">All Pending Renew Hospital NOC List</h4>
                                         @elseif($status == 1)
-                                        <h4 class="card-header text-primary">All Unpaid New Hospital NOC List</h4>
+                                        <h4 class="card-header text-primary">All Unpaid Renew Hospital NOC List</h4>
                                         @elseif($status == 2)
-                                        <h4 class="card-header text-primary">All Paid New Hospital NOC List</h4>
+                                        <h4 class="card-header text-primary">All Paid Renew Hospital NOC List</h4>
                                         @elseif($status == 3)
-                                        <h4 class="card-header text-primary">All Approved New Hospital NOC List</h4>
+                                        <h4 class="card-header text-primary">All Approved Renew Hospital NOC List</h4>
                                         @elseif($status == 4)
-                                        <h4 class="card-header text-primary">All Rejected New Hospital NOC List</h4>
+                                        <h4 class="card-header text-primary">All Rejected Renew Hospital NOC List</h4>
+                                        @elseif($status == 5)
+                                        <h4 class="card-header text-primary">All Underprocess Renew Hospital NOC List</h4>
+                                        @elseif($status == 6)
+                                        <h4 class="card-header text-primary">All Reviewed Renew Hospital NOC List</h4>
                                         @endif
 
                                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
@@ -134,9 +138,14 @@
                                                         @endif
 
                                                         <td style="display:flex;">
+
+                                                            <button type="button" class="btn btn-dark " data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Upload Payment Receipt</b></button>
+                                                            &nbsp;&nbsp;
                                                             <a href='{{ url("/renew_hospital_noc/show/{$value->RH_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
+                                                            &nbsp;&nbsp;
+
                                                             @if ($value->status == 0 || $value->status == 4)
                                                             &nbsp;&nbsp;
                                                             <a href='{{ url("/renew_hospital_noc/edit/{$value->RH_NOC_ID}/{$value->status}") }}' class="btn btn-warning btn-sm text-dark">
@@ -154,18 +163,27 @@
                                                             @endif
 
                                                             &nbsp;&nbsp;
+                                                            @if ($value->status == 1)
+                                                            <a href='{{ url("/make_payment/create/{$value->RH_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-success btn-sm ">
+                                                                <b><i class="mdi mdi-contactless-payment"> Make Payment</i></b>
+                                                            </a>
+                                                            @endif
+
+                                                            &nbsp;&nbsp;
                                                             @if ($value->status == 2 && $value->payment_status == 0 )
-                                                            <a href='{{ url("/renew_hospital_noc_invoice/{$value->RH_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
+                                                            <a href='{{ url("/invoice/{$value->RH_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-dark btn-sm ">
                                                                 <b><i class="mdi mdi-file"> Invoice</i></b>
                                                             </a>
                                                             @endif
 
                                                             &nbsp;&nbsp;
                                                             @if ($value->status == 3 )
-                                                            <a href='{{ url("/renew_hospital_noc_certificate/{$value->RH_NOC_ID}/{$value->status}") }}' class="btn btn-warning btn-sm text-dark">
+                                                            <a href='{{ url("/certificate/{$value->RH_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-warning btn-sm text-dark">
                                                                 <b><i class="mdi mdi-file"> View Certificate</i></b>
                                                             </a>
                                                             @endif
+
+
                                                         </td>
 
                                                     </tr>

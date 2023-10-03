@@ -56,7 +56,7 @@ return new class extends Migration
             $table->integer('rejected_by')->nullable();
             $table->string('remarks')->nullable();
 
-            $table->string('payment_status')->default('0')->comment('0:Paid, 1:Unpaid');
+            $table->string('payment_status')->default('0')->comment('1:Paid, 2:Unpaid');
             $table->date('payment_dt')->nullable();
             $table->integer('payment_by')->nullable();
 

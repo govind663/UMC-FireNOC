@@ -68,6 +68,10 @@
                                         <h4 class="card-header text-primary">All Approved New Hospital NOC List</h4>
                                         @elseif($status == 4)
                                         <h4 class="card-header text-primary">All Rejected New Hospital NOC List</h4>
+                                        @elseif($status == 5)
+                                        <h4 class="card-header text-primary">All Underprocess New Hospital NOC List</h4>
+                                        @elseif($status == 6)
+                                        <h4 class="card-header text-primary">All Reviewed New Hospital NOC List</h4>
                                         @endif
 
                                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">

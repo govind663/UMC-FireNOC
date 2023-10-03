@@ -69,6 +69,10 @@
                                         <h4 class="card-header text-primary">All Approved Renew Business NOC List</h4>
                                         @elseif($status == 4)
                                         <h4 class="card-header text-primary">All Rejected Renew Business NOC List</h4>
+                                        @elseif($status == 5)
+                                        <h4 class="card-header text-primary">All Underprocess Renew Business NOC List</h4>
+                                        @elseif($status == 6)
+                                        <h4 class="card-header text-primary">All Reviewed Renew Business NOC List</h4>
                                         @endif
 
                                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
@@ -154,15 +158,22 @@
                                                             @endif
 
                                                             &nbsp;&nbsp;
+                                                            @if ($value->status == 1)
+                                                            <a href='{{ url("/make_payment/create/{$value->RB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-success btn-sm ">
+                                                                <b><i class="mdi mdi-contactless-payment"> Make Payment</i></b>
+                                                            </a>
+                                                            @endif
+
+                                                            &nbsp;&nbsp;
                                                             @if ($value->status == 2 && $value->payment_status == 0 )
-                                                            <a href='{{ url("/renew_buisness_noc_invoice/{$value->RB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
+                                                            <a href='{{ url("/invoice/{$value->RB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-dark btn-sm ">
                                                                 <b><i class="mdi mdi-file"> Invoice</i></b>
                                                             </a>
                                                             @endif
 
                                                             &nbsp;&nbsp;
                                                             @if ($value->status == 3 )
-                                                            <a href='{{ url("/renew_buisness_noc_certificate/{$value->RB_NOC_ID}/{$value->status}") }}' class="btn btn-warning btn-sm text-dark">
+                                                            <a href='{{ url("/certificate/{$value->RB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-warning btn-sm text-dark">
                                                                 <b><i class="mdi mdi-file"> View Certificate</i></b>
                                                             </a>
                                                             @endif
