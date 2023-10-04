@@ -840,7 +840,7 @@
                                                         <div class="col-md-12 col-xs-12">
                                                             <p class="text-justify ">
                                                                 <b> I / We..... <br><br>
-                                                                <input type="text" disabled style="width:300px" class="form-control @error('declare_by') is-invalid @enderror" id="declare_by" name="declare_by" value="{{ $data->declare_by }}" placeholder="Enter Applicant Name" >
+                                                                <input type="text" disabled  class="form-control @error('declare_by') is-invalid @enderror" id="declare_by" name="declare_by" value="{{ $data->declare_by }}" placeholder="Enter Applicant Name" >
                                                                 <br>
                                                                 @error('declare_by')
                                                                     <span class="invalid-feedback" role="alert">
@@ -1094,7 +1094,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <form class="auth-input p-4"  method="POST" action='{{ url("/upload_payment_receipt/{$data->RB_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off" >
+                            <form class="auth-input p-4"  method="POST" action='{{ url("/upload_payment_receipt/{$data->NB_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off" >
                                 @csrf
 
                                 <div class="form-group row mb-3 d-none">

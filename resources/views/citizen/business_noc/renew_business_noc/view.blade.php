@@ -832,7 +832,7 @@
                                                         <div class="col-md-12 col-xs-12">
                                                             <p class="text-justify ">
                                                                 <b> I / We..... <br><br>
-                                                                <input disabled type="text" style="width:300px" class="form-control @error('declare_by') is-invalid @enderror" id="declare_by" name="declare_by" value="{{ $data->declare_by }}" placeholder="Enter Applicant Name" >
+                                                                <input disabled type="text"  class="form-control @error('declare_by') is-invalid @enderror" id="declare_by" name="declare_by" value="{{ $data->declare_by }}" placeholder="Enter Applicant Name" >
                                                                 <br>
                                                                 @error('declare_by')
                                                                     <span class="invalid-feedback" role="alert">

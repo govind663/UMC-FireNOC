@@ -628,7 +628,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <form class="auth-input p-4"  method="POST" action='{{ url("/upload_payment_receipt/{$data->RB_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off" >
+                        <form class="auth-input p-4"  method="POST" action='{{ url("/upload_payment_receipt/{$data->F_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off" >
                             @csrf
 
                             <div class="form-group row mb-3 d-none">
