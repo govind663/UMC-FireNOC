@@ -87,6 +87,9 @@
                                                     <th><b>Taluka</b></th>
                                                     <th><b>Ward Committee No</b></th>
                                                     <th><b>Application Status</b></th>
+                                                    @if ( $status == 4 )
+                                                    <th><b>Reason for rejection</b></th>
+                                                    @endif
                                                     <th><b>Action</b></th>
                                                 </tr>
                                             </thead>
@@ -122,20 +125,25 @@
                                                         @endphp
 
                                                         <td>{{ $ward_name }}</td>
+
                                                         @if ($value->status == 0)
-                                                        <td><span class="bg-primary text-white p-2" style="border: 1px;">Pending</span></td>
+                                                        <td><span class="bg-primary text-white p-1">Pending</span></td>
                                                         @elseif ($value->status == 1)
-                                                        <td><span class="bg-warning text-dark p-2" style="border: 1px;">Unpaid</span></td>
+                                                        <td><span class="bg-warning text-dark p-1">Unpaid</span></td>
                                                         @elseif ($value->status == 2)
-                                                        <td><span class="bg-success text-dark p-2" style="border: 1px;">Paid</span></td>
+                                                        <td><span class="bg-success text-dark p-1">Paid</span></td>
                                                         @elseif ($value->status == 3)
-                                                        <td><span class="bg-success text-dark p-2" style="border: 1px;">Approved</span></td>
+                                                        <td><span class="bg-success text-dark p-1">Approved</span></td>
                                                         @elseif ($value->status == 4)
-                                                        <td><span class="bg-danger text-light p-2" style="border: 1px;">Rejected</span></td>
+                                                        <td><span class="bg-danger text-light p-1">Rejected</span></td>
                                                         @elseif ($value->status == 5)
-                                                        <td><span class="bg-dark text-light p-2" style="border: 1px;">Underprocess</span></td>
+                                                        <td><span class="bg-dark text-light p-1">Underprocess</span></td>
                                                         @elseif ($value->status == 6)
-                                                        <td><span class="bg-danger text-dark p-2" style="border: 1px;">Reviewed</span></td>
+                                                        <td><span class="bg-danger text-dark p-1">Reviewed</span></td>
+                                                        @endif
+
+                                                        @if ( $value->status == 4 )
+                                                        <td>{{ $value->remarks }}</td>
                                                         @endif
 
                                                         <td style="display:flex;">

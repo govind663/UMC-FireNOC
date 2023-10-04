@@ -311,7 +311,7 @@ class NewBusinessNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(BusinessNOCRequest $request, $id, $n_id, $status)
+    public function update(BusinessNOCRequest $request, $id, $n_id,  $status)
     {
         $noc_master = NOC_Master::findOrFail($n_id);
 
@@ -499,7 +499,7 @@ class NewBusinessNOCController extends Controller
         $noc_master->modified_by = Auth::user()->id;
         $data->save();
 
-        return redirect( )->route('new_business_noc_list',$status)->with('message', 'The application form which you had updated for your new business noc has been done Successfully.');
+        return redirect( )->route('new_business_noc_list', $status)->with('message', 'The application form which you had updated for your new business noc has been done Successfully.');
 
     }
 
