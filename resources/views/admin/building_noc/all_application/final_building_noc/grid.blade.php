@@ -77,7 +77,7 @@
                                                     <th><b>Taluka</b></th>
                                                     <th><b>Ward Committee No</b></th>
                                                     <th><b>Application Status</b></th>
-                                                    @if ( $status == 4 )
+                                                    @if ( $all_status == 4 )
                                                     <th><b>Reason for rejection</b></th>
                                                     @endif
                                                     <th><b>Action</b></th>
