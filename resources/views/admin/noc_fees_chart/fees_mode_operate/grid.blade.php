@@ -78,7 +78,7 @@
                                                 @foreach ($data as $key => $value)
                                                     <tr>
                                                         <td>{{ $key + 1 }}</td>
-                                                        <td>{{ $value->fee_construction?->operation_mode }}</td>
+                                                        <td>{{ $value->fee_construction?->construction_type }}</td>
                                                         <td>{{ $value->operation_mode }}</td>
                                                         <td>
                                                             <a href="{{ route('fees_mode_operate.show', $value->id) }}" class="btn btn-primary btn-sm">
