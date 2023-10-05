@@ -112,13 +112,13 @@
                                                         @php
                                                             $ward_name = '';
 
-                                                            if($value->ward_no = 1){
+                                                            if($value->ward_no == 1){
                                                             $ward_name = 'Ward 1';
-                                                            }elseif($value->ward_no = 2){
+                                                            }elseif($value->ward_no == 2){
                                                             $ward_name = 'Ward 2';
-                                                            }elseif($value->ward_no = 3){
+                                                            }elseif($value->ward_no == 3){
                                                             $ward_name = 'Ward 3';
-                                                            }elseif($value->ward_no = 4){
+                                                            }elseif($value->ward_no == 4){
                                                             $ward_name = 'Ward 4';
                                                             }
                                                         @endphp

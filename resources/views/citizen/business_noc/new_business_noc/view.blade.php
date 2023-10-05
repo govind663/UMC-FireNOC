@@ -214,6 +214,7 @@
                                                     @enderror
                                                 </div>
 
+
                                                 <label class="col-sm-2"><strong>Ward Committee No : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
                                                     <select disabled class="form-control select2 @error('ward_no') is-invalid @enderror" name="ward_no" id="ward_no">
