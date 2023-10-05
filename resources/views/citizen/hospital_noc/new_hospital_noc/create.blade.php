@@ -399,7 +399,7 @@
 
                                             <label class="col-sm-2"><strong>From Date : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="date" name="from_date" id="from_date" max="<?php echo date("Y-m-d"); ?>" class="form-control " value="{{ old('from_date') }}" placeholder="Enter From Date.">
+                                                <input type="date" name="from_date" id="from_date"  class="form-control " value="{{ old('from_date') }}" placeholder="Enter From Date.">
 
                                             </div>
                                         </div>
@@ -407,7 +407,7 @@
                                         <div class="form-group row  mb-3">
                                             <label class="col-sm-2"><strong>To Date : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="date" name="to_date" id="to_date" max="<?php echo date("Y-m-d"); ?>" class="form-control " value="{{ old('to_date') }}" placeholder="Enter To Date.">
+                                                <input type="date" name="to_date" id="to_date"  class="form-control " value="{{ old('to_date') }}" placeholder="Enter To Date.">
 
                                             </div>
 
