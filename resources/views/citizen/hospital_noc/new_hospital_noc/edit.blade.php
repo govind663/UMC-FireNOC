@@ -399,24 +399,16 @@
 
                                             <label class="col-sm-2"><strong>From Date : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="date" name="from_date" id="from_date" max="<?php echo date("Y-m-d"); ?>" class="form-control @error('from_date') is-invalid @enderror" value="{{  Carbon\Carbon::parse($data->from_date)->format('Y-m-d')  }}" placeholder="Enter From Date.">
-                                                @error('from_date')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
+                                                <input type="date" name="from_date" id="from_date" max="<?php echo date("Y-m-d"); ?>" class="form-control " value="{{  Carbon\Carbon::parse($data->from_date)->format('Y-m-d')  }}" placeholder="Enter From Date.">
+
                                             </div>
                                         </div>
 
                                         <div class="form-group row  mb-3">
                                             <label class="col-sm-2"><strong>To Date : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="date" name="to_date" id="to_date" max="<?php echo date("Y-m-d"); ?>" class="form-control @error('to_date') is-invalid @enderror" value="{{  Carbon\Carbon::parse($data->to_date)->format('Y-m-d')  }}" placeholder="Enter To Date.">
-                                                @error('to_date')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
+                                                <input type="date" name="to_date" id="to_date" max="<?php echo date("Y-m-d"); ?>" class="form-control " value="{{  Carbon\Carbon::parse($data->to_date)->format('Y-m-d')  }}" placeholder="Enter To Date.">
+
                                             </div>
 
                                             <label class="col-sm-2"><strong>Shop No. : <span style="color:red;">*</span></strong></label>

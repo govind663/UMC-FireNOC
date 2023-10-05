@@ -61,8 +61,8 @@ class HospitalNOCRequest extends FormRequest
                 // ===== Necessary Particulars about above service
                 'area_pincode' => 'required',
                 'types_of_hospital' => 'required',
-                'from_date' => 'required',
-                'to_date' => 'required',
+                // 'from_date' => 'required',
+                // 'to_date' => 'required',
                 'shop_no' => 'required',
                 'area_place_measurments' => 'required',
                 'total_staff' => 'required',
@@ -135,8 +135,8 @@ class HospitalNOCRequest extends FormRequest
                 // ===== Necessary Particulars about above service
                 'area_pincode' => 'required',
                 'types_of_hospital' => 'required',
-                'from_date' => 'required',
-                'to_date' => 'required',
+                // 'from_date' => 'required',
+                // 'to_date' => 'required',
                 'shop_no' => 'required',
                 'area_place_measurments' => 'required',
                 'total_staff' => 'required',
@@ -211,8 +211,8 @@ class HospitalNOCRequest extends FormRequest
             // ===== Necessary Particulars about above service
             'area_pincode.required' => 'Pincode is required',
             'types_of_hospital.required' => 'Type of Hospital is required',
-            'from_date.required' => 'From Date is required',
-            'to_date.required' => 'To Date is required',
+            // 'from_date.required' => 'From Date is required',
+            // 'to_date.required' => 'To Date is required',
             'shop_no.required' => 'Shop No. is required',
             'area_place_measurments.required' => 'Area of Place (Sq. Mt.) is required',
             'total_staff.required' => "Numbers of Staff is required",
