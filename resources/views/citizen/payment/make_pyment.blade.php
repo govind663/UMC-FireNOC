@@ -72,7 +72,7 @@
 
                                                 <label class="col-sm-2"><strong>Application Unique Id : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->mst_token }}">
+                                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->noc_mst_id }}">
 
                                                 </div>
                                             </div>
@@ -251,7 +251,7 @@
 
                                                 <label class="col-sm-2"><strong>Application Unique Id : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->mst_token }}">
+                                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->noc_mst_id }}">
 
                                                 </div>
                                             </div>
@@ -430,7 +430,7 @@
 
                                                 <label class="col-sm-2"><strong>Application Unique Id : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->mst_token }}">
+                                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->noc_mst_id }}">
 
                                                 </div>
                                             </div>
@@ -609,7 +609,7 @@
 
                                                 <label class="col-sm-2"><strong>Application Unique Id : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->mst_token }}">
+                                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->noc_mst_id }}">
 
                                                 </div>
                                             </div>
@@ -788,7 +788,7 @@
 
                                                 <label class="col-sm-2"><strong>Application Unique Id : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->mst_token }}">
+                                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->noc_mst_id }}">
 
                                                 </div>
                                             </div>
@@ -967,7 +967,7 @@
 
                                                 <label class="col-sm-2"><strong>Application Unique Id : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->mst_token }}">
+                                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->noc_mst_id }}">
 
                                                 </div>
                                             </div>
