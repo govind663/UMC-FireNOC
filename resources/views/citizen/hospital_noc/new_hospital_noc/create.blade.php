@@ -458,7 +458,7 @@
                                                 <select class="form-control select2 @error('hospital_fireequip') is-invalid @enderror" name="hospital_fireequip" id="hospital_fireequip">
                                                     <option value="">Select Fire extinguishers/ preventive equipments are installed at working place</option>
                                                     <optgroup label=" ">
-                                                        <option value="1" {{ old('hospital_fireequip') == "1"? 'selected' : '' }}>Yes</option>
+                                                        <option value="1" {{ old('hospital_fireequip') == "1"? 'selected' : '' }} selected>Yes</option>
                                                         <option value="2" {{ old('hospital_fireequip') == "2"? 'selected' : '' }}>No</option>
                                                     </optgroup>
                                                 </select>

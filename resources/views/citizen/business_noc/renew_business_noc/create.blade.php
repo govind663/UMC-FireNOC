@@ -497,7 +497,7 @@
                                                     <option value="">Select Fire extinguishers/ preventive equipments are installed at working place</option>
                                                     <optgroup label=" ">
                                                         <option value="1" {{ old('fire_equips') == "1" ? 'selected' : '' }} selected>Yes</option>
-                                                        {{-- <option value="2" {{ old('fire_equips') == "2" ? 'selected' : '' }}>No</option> --}}
+                                                        <option value="2" {{ old('fire_equips') == "2" ? 'selected' : '' }}>No</option>
                                                     </optgroup>
                                                 </select>
                                                 @error('fire_equips')
