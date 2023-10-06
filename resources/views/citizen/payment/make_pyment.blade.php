@@ -449,8 +449,8 @@
                                                     <select class="form-control select2 " name="payment_noc_mode" id="payment_noc_mode" type="hidden">
                                                         <option>Select Mode of NOC</option>
                                                         <optgroup label=" ">
-                                                            <option value="1" {{ $data->noc_mode == "1" ? 'selected' : '' }}>New Bussiness NOC</option>
-                                                            <option value="2" {{ $data->noc_mode == "2" ? 'selected' : '' }}>Renewal Bussiness NOC</option>
+                                                            <option value="3" {{ $data->noc_mode == "3" ? 'selected' : '' }}>New Hospital NOC</option>
+                                                            <option value="4" {{ $data->noc_mode == "4" ? 'selected' : '' }}>Renewal Hospital NOC</option>
                                                         </optgroup>
                                                     </select>
                                                 </div>
@@ -628,8 +628,8 @@
                                                     <select class="form-control select2 " name="payment_noc_mode" id="payment_noc_mode" type="hidden">
                                                         <option>Select Mode of NOC</option>
                                                         <optgroup label=" ">
-                                                            <option value="1" {{ $data->noc_mode == "1" ? 'selected' : '' }}>New Bussiness NOC</option>
-                                                            <option value="2" {{ $data->noc_mode == "2" ? 'selected' : '' }}>Renewal Bussiness NOC</option>
+                                                            <option value="3" {{ $data->noc_mode == "3" ? 'selected' : '' }}>New Hospital NOC</option>
+                                                            <option value="4" {{ $data->noc_mode == "4" ? 'selected' : '' }}>Renewal Hospital NOC</option>
                                                         </optgroup>
                                                     </select>
                                                 </div>
@@ -807,8 +807,8 @@
                                                     <select class="form-control select2 " name="payment_noc_mode" id="payment_noc_mode" type="hidden">
                                                         <option>Select Mode of NOC</option>
                                                         <optgroup label=" ">
-                                                            <option value="1" {{ $data->noc_mode == "1" ? 'selected' : '' }}>New Bussiness NOC</option>
-                                                            <option value="2" {{ $data->noc_mode == "2" ? 'selected' : '' }}>Renewal Bussiness NOC</option>
+                                                            <option value="5" {{ $data->noc_mode == "5" ? 'selected' : '' }}>Provisional Building NOC</option>
+                                                            <option value="6" {{ $data->noc_mode == "6" ? 'selected' : '' }}>Final Building NOC</option>
                                                         </optgroup>
                                                     </select>
                                                 </div>
@@ -986,8 +986,8 @@
                                                     <select class="form-control select2 " name="payment_noc_mode" id="payment_noc_mode" type="hidden">
                                                         <option>Select Mode of NOC</option>
                                                         <optgroup label=" ">
-                                                            <option value="1" {{ $data->noc_mode == "1" ? 'selected' : '' }}>New Bussiness NOC</option>
-                                                            <option value="2" {{ $data->noc_mode == "2" ? 'selected' : '' }}>Renewal Bussiness NOC</option>
+                                                            <option value="5" {{ $data->noc_mode == "5" ? 'selected' : '' }}>Provisional Building NOC</option>
+                                                            <option value="6" {{ $data->noc_mode == "6" ? 'selected' : '' }}>Final Building NOC</option>
                                                         </optgroup>
                                                     </select>
                                                 </div>
