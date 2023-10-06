@@ -246,5 +246,6 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware']],
 
     // ======= All Payment receipt
     Route::post('/upload_payment_receipt/{id}/{status}/{noc_mode}', [CertificateController::class, 'upload_payment_receipt'])->name('upload_payment_receipt');
+
 });
 
