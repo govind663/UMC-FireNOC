@@ -67,6 +67,8 @@ class AdminFinalBuildingNOCController extends Controller
             $update = [
                 'status' => 5, // === New (Level Up that means application go to field inspector)
                 'operator_status' => 1, // ===== Approved by operator
+                'operator_by' => Auth::user()->id,
+                'operator_dt' => date("Y-m-d H:i:s"),
                 'application_status' => 1, // ===== Field Inspector will pass
                 'approved_dt' => date("Y-m-d H:i:s"),
                 'approved_by' => Auth::user()->id,
@@ -79,6 +81,8 @@ class AdminFinalBuildingNOCController extends Controller
             $update = [
                 'status' => 1, // === Unpaid (Level Up that means application go to User End)
                 'inspector_status' => 1, // ===== Approved by Field Inspector
+                'inspector_by' => Auth::user()->id,
+                'inspector_dt' => date("Y-m-d H:i:s"),
                 'approved_dt' => date("Y-m-d H:i:s"),
                 'approved_by' => Auth::user()->id,
             ];
@@ -90,6 +94,8 @@ class AdminFinalBuildingNOCController extends Controller
             $update = [
                 'status' => 6, // === Reviewed (Level Up that means application go to DMC)
                 'officer_status' => 1, // ===== Approved by Chief Fire Officer
+                'officer_by' => Auth::user()->id,
+                'officer_dt' => date("Y-m-d H:i:s"),
                 'application_status' => 2, // ===== Chief Fire Officer will pass
                 'approved_dt' => date("Y-m-d H:i:s"),
                 'approved_by' => Auth::user()->id,
