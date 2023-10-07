@@ -212,7 +212,7 @@
                                         <div class="form-group row  mb-3">
                                             <label class="col-sm-2"><strong>Pin code : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="pincode" id="pincode" maxlength="6" class="form-control @error('pincode') is-invalid @enderror" value="{{ old('pincode') }}" placeholder="Enter Pin code.">
+                                                <input type="text" name="pincode" id="pincode" maxlength="6" class="form-control @error('pincode') is-invalid @enderror" value="{{ old('pincode') }}" placeholder="Enter Pin code." oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" >
                                                 @error('pincode')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -241,7 +241,7 @@
 
                                             <label class="col-sm-2"><strong>Electrol Panel No : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="electrol_panel_no" id="electrol_panel_no" class="form-control @error('electrol_panel_no') is-invalid @enderror" value="{{ old('electrol_panel_no') }}" placeholder="Enter Electrol Panel No.">
+                                                <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" name="electrol_panel_no" id="electrol_panel_no" class="form-control @error('electrol_panel_no') is-invalid @enderror" value="{{ old('electrol_panel_no') }}" placeholder="Enter Electrol Panel No.">
                                                 @error('electrol_panel_no')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -262,7 +262,7 @@
                                             </div>
                                             <label class="col-sm-2"><strong>Telephone No. (if any) : </strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="tel_no" id="tel_no" class="form-control" value="{{ old('tel_no') }}" placeholder="Enter Telephone No. (if any).">
+                                                <input type="text" name="tel_no" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="10" id="tel_no" class="form-control" value="{{ old('tel_no') }}" placeholder="Enter Telephone No. (if any).">
 
                                             </div>
                                             <label class="col-sm-2"><strong>Email Id (if any) : </strong></label>
@@ -369,7 +369,7 @@
                                         <div class="form-group row  mb-3">
                                             <label class="col-sm-2"><strong>Pincode : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="area_pincode" id="area_pincode" maxlength="06" class="form-control @error('area_pincode') is-invalid @enderror" value="{{ old('area_pincode') }}" placeholder="Enter Pincode.">
+                                                <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" name="area_pincode" id="area_pincode" maxlength="06" class="form-control @error('area_pincode') is-invalid @enderror" value="{{ old('area_pincode') }}" placeholder="Enter Pincode.">
                                                 @error('area_pincode')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -506,7 +506,6 @@
                                                 </span>
                                                 @enderror
                                             </div>
-
 
                                             <label class="col-sm-2"><strong>Nature / Particulars of Business : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
@@ -848,7 +847,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-2"><strong>Pincode : <span style="color:red;">*</span></strong></label>
                                                             <div class="col-sm-2 col-md-2">
-                                                                <input type="text" name="d_pincode" id="d_pincode" maxlength="06" class="form-control @error('d_pincode') is-invalid @enderror" value="{{ old('d_pincode') }}" placeholder="Enter Pincode.">
+                                                                <input type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" name="d_pincode" id="d_pincode" maxlength="06" class="form-control @error('d_pincode') is-invalid @enderror" value="{{ old('d_pincode') }}" placeholder="Enter Pincode.">
                                                                 @error('d_pincode')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
