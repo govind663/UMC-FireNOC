@@ -397,7 +397,7 @@
                                                 @enderror
                                             </div>
 
-                                            <label class="col-sm-2"><strong>From Date : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>From Date : </strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="date" name="from_date" id="from_date" max="<?php echo date("Y-m-d"); ?>" class="form-control " value="{{  Carbon\Carbon::parse($data->from_date)->format('Y-m-d')  }}" placeholder="Enter From Date.">
 
@@ -405,7 +405,7 @@
                                         </div>
 
                                         <div class="form-group row  mb-3">
-                                            <label class="col-sm-2"><strong>To Date : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>To Date : </strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="date" name="to_date" id="to_date" max="<?php echo date("Y-m-d"); ?>" class="form-control " value="{{  Carbon\Carbon::parse($data->to_date)->format('Y-m-d')  }}" placeholder="Enter To Date.">
 
