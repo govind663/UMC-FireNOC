@@ -3,261 +3,121 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-
+use App\Repository\BuildingRepository;
+use App\Repository\BusinessRepository;
+use App\Repository\HomeRepository;
+use App\Repository\HospitalRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class HomeController extends Controller
 {
+    protected $homeRepository, $businessRepository, $hospitalRepository, $buildingRepository;
+
+    public function __construct(HomeRepository $homeRepository, BusinessRepository $businessRepository, HospitalRepository $hospitalRepository, BuildingRepository $buildingRepository)
+    {
+        $this->homeRepository = $homeRepository;
+        $this->businessRepository = $businessRepository;
+        $this->hospitalRepository = $hospitalRepository;
+        $this->buildingRepository = $buildingRepository;
+    }
+
     public function Admin_Home()
     {
         // ==== Total Citizen
-        $total_citizen = DB::table('citizens AS t1')
-                        ->select('t1.id')
-                        ->whereNUll('t1.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        $total_citizen = $this->homeRepository->getTotalCitizen();
         // dd($total_citizen);
 
-        // ==== new_business_noc(pending)
-        $business_total_pending = DB::table('business_noc AS t1')
-                        ->select('t1.id')
-                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                        ->where('t1.status', 0)
-                        ->whereNUll('t1.deleted_at')
-                        ->whereNUll('t2.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        // ==== new_business_noc(Pending)
+        $business_total_pending = $this->businessRepository->getPendingBusinessNOC();
         // dd($business_total_pending);
 
-        // ==== new_business_noc(underprocess)
-        $business_total_underprocess = DB::table('business_noc AS t1')
-                        ->select('t1.id')
-                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                        ->where('t1.status', 5)
-                        ->whereNUll('t1.deleted_at')
-                        ->whereNUll('t2.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        // ==== new_business_noc(Underprocess)
+        $business_total_underprocess = $this->businessRepository->getUnderprocessBusinessNOC();
         // dd($business_total_underprocess);
 
-        // ==== new_business_noc(unpaid)
-        $business_total_unpaid = DB::table('business_noc AS t1')
-                        ->select('t1.id')
-                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                        ->where('t1.status', 1)
-                        ->whereNUll('t1.deleted_at')
-                        ->whereNUll('t2.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        // ==== new_business_noc(Unpaid)
+        $business_total_unpaid = $this->businessRepository->getUnpaidBusinessNOC();
         // dd($business_total_unpaid);
 
-        // ==== new_business_noc(paid)
-        $business_total_paid = DB::table('business_noc AS t1')
-                        ->select('t1.id')
-                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                        ->where('t1.status', 2)
-                        ->whereNUll('t1.deleted_at')
-                        ->whereNUll('t2.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        // ==== new_business_noc(Paid)
+        $business_total_paid = $this->businessRepository->getPaidBusinessNOC();
         // dd($business_total_paid);
 
-        // ==== new_business_noc(reviewed)
-        $business_total_reviewed = DB::table('business_noc AS t1')
-                        ->select('t1.id')
-                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                        ->where('t1.status', 6)
-                        ->whereNUll('t1.deleted_at')
-                        ->whereNUll('t2.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        // ==== new_business_noc(Reviewed)
+        $business_total_reviewed = $this->businessRepository->getReviewedBusinessNOC();
         // dd($business_total_reviewed);
 
         // ==== new_business_noc(Approved)
-        $business_total_approved = DB::table('business_noc AS t1')
-                        ->select('t1.id')
-                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                        ->where('t1.status', 3)
-                        ->whereNUll('t1.deleted_at')
-                        ->whereNUll('t2.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        $business_total_approved = $this->businessRepository->getApprovedBusinessNOC();
         // dd($business_total_approved);
 
         // ==== new_business_noc(Rejected)
-        $business_total_rejected = DB::table('business_noc AS t1')
-                        ->select('t1.id')
-                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                        ->where('t1.status', 4)
-                        ->whereNUll('t1.deleted_at')
-                        ->whereNUll('t2.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        $business_total_rejected = $this->businessRepository->getRejectedBusinessNOC();
         // dd($business_total_rejected);
 
 
 
 
-
-
-        // ==== new_hospital_noc(pending)
-        $hospital_total_pending = DB::table('hospital_noc AS t1')
-                        ->select('t1.id')
-                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                        ->where('t1.status', 0)
-                        ->whereNUll('t1.deleted_at')
-                        ->whereNUll('t2.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        // ==== new_hospital_noc(Pending)
+        $hospital_total_pending = $this->hospitalRepository->getPendingHospitalNOC();
         // dd($hospital_total_pending);
 
-        // ==== new_hospital_noc(underprocess)
-        $hospital_total_underprocess = DB::table('hospital_noc AS t1')
-                        ->select('t1.id')
-                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                        ->where('t1.status', 5)
-                        ->whereNUll('t1.deleted_at')
-                        ->whereNUll('t2.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        // ==== new_hospital_noc(Underprocess)
+        $hospital_total_underprocess = $this->hospitalRepository->getUnderprocessHospitalNOC();
         // dd($hospital_total_underprocess);
 
-        // ==== new_hospital_noc(unpaid)
-        $hospital_total_unpaid = DB::table('hospital_noc AS t1')
-                        ->select('t1.id')
-                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                        ->where('t1.status', 1)
-                        ->whereNUll('t1.deleted_at')
-                        ->whereNUll('t2.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        // ==== new_hospital_noc(Unpaid)
+        $hospital_total_unpaid = $this->hospitalRepository->getUnpaidHospitalNOC();
         // dd($hospital_total_unpaid);
 
-        // ==== new_hospital_noc(paid)
-        $hospital_total_paid = DB::table('hospital_noc AS t1')
-                        ->select('t1.id')
-                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                        ->where('t1.status', 2)
-                        ->whereNUll('t1.deleted_at')
-                        ->whereNUll('t2.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        // ==== new_hospital_noc(Paid)
+        $hospital_total_paid = $this->hospitalRepository->getPaidHospitalNOC();
         // dd($hospital_total_paid);
 
-        // ==== new_hospital_noc(reviewed)
-        $hospital_total_reviewed = DB::table('hospital_noc AS t1')
-                        ->select('t1.id')
-                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                        ->where('t1.status', 6)
-                        ->whereNUll('t1.deleted_at')
-                        ->whereNUll('t2.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        // ==== new_hospital_noc(Reviewed)
+        $hospital_total_reviewed = $this->hospitalRepository->getReviewedHospitalNOC();
         // dd($hospital_total_reviewed);
 
         // ==== new_hospital_noc(Approved)
-        $hospital_total_approved = DB::table('hospital_noc AS t1')
-                        ->select('t1.id')
-                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                        ->where('t1.status', 3)
-                        ->whereNUll('t1.deleted_at')
-                        ->whereNUll('t2.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        $hospital_total_approved = $this->hospitalRepository->getApprovedHospitalNOC();
         // dd($hospital_total_approved);
 
         // ==== new_hospital_noc(Rejected)
-        $hospital_total_rejected = DB::table('hospital_noc AS t1')
-                        ->select('t1.id')
-                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                        ->where('t1.status', 4)
-                        ->whereNUll('t1.deleted_at')
-                        ->whereNUll('t2.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        $hospital_total_rejected = $this->hospitalRepository->getRejectedHospitalNOC();
         // dd($hospital_total_rejected);
 
 
 
 
-        // ==== new_building_noc(pending)
-        $building_total_pending = DB::table('building_noc AS t1')
-                        ->select('t1.id')
-                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                        ->where('t1.status', 0)
-                        ->whereNUll('t1.deleted_at')
-                        ->whereNUll('t2.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        // ==== new_building_noc(Pending)
+        $building_total_pending = $this->buildingRepository->getPendingBuildingNOC();
         // dd($building_total_pending);
 
 
-        // ==== new_building_noc(underprocess)
-        $building_total_underprocess = DB::table('building_noc AS t1')
-                        ->select('t1.id')
-                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                        ->where('t1.status', 5)
-                        ->whereNUll('t1.deleted_at')
-                        ->whereNUll('t2.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        // ==== new_building_noc(Underprocess)
+        $building_total_underprocess = $this->buildingRepository->getUnderprocessBuildingNOC();
         // dd($building_total_underprocess);
 
-        // ==== new_building_noc(unpaid)
-        $building_total_unpaid = DB::table('building_noc AS t1')
-                        ->select('t1.id')
-                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                        ->where('t1.status', 1)
-                        ->whereNUll('t1.deleted_at')
-                        ->whereNUll('t2.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        // ==== new_building_noc(Unpaid)
+        $building_total_unpaid = $this->buildingRepository->getUnpaidBuildingNOC();
         // dd($building_total_unpaid);
 
-        // ==== new_building_noc(paid)
-        $building_total_paid = DB::table('building_noc AS t1')
-                        ->select('t1.id')
-                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                        ->where('t1.status', 2)
-                        ->whereNUll('t1.deleted_at')
-                        ->whereNUll('t2.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        // ==== new_building_noc(Paid)
+        $building_total_paid = $this->buildingRepository->getPaidBuildingNOC();
         // dd($building_total_paid);
 
-        // ==== new_building_noc(reviewed)
-        $building_total_reviewed = DB::table('building_noc AS t1')
-                        ->select('t1.id')
-                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                        ->where('t1.status', 5)
-                        ->whereNUll('t1.deleted_at')
-                        ->whereNUll('t2.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        // ==== new_building_noc(Reviewed)
+        $building_total_reviewed = $this->buildingRepository->getReviewedBuildingNOC();
         // dd($building_total_reviewed);
 
         // ==== new_building_noc(Approved)
-        $building_total_approved = DB::table('building_noc AS t1')
-                        ->select('t1.id')
-                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                        ->where('t1.status', 3)
-                        ->whereNUll('t1.deleted_at')
-                        ->whereNUll('t2.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        $building_total_approved = $this->buildingRepository->getApprovedBuildingNOC();
         // dd($building_total_approved);
 
         // ==== new_building_noc(Rejected)
-        $building_total_rejected = DB::table('building_noc AS t1')
-                        ->select('t1.id')
-                        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                        ->where('t1.status', 4)
-                        ->whereNUll('t1.deleted_at')
-                        ->whereNUll('t2.deleted_at')
-                        ->orderBy('t1.id','DESC')
-                        ->count();
+        $building_total_rejected = $this->buildingRepository->getRejectedBuildingNOC();
         // dd($building_total_rejected);
 
         return view('admin.admin_dashboard')

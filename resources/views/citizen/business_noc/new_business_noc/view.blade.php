@@ -214,6 +214,7 @@
                                                     @enderror
                                                 </div>
 
+
                                                 <label class="col-sm-2"><strong>Ward Committee No : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
                                                     <select disabled class="form-control select2 @error('ward_no') is-invalid @enderror" name="ward_no" id="ward_no">
@@ -767,10 +768,10 @@
                                                 <div class="form-group row  mb-3">
                                                     <label class="col-sm-2"><strong>Upload Commissioning Certificate of Fire extinguishers/ preventive equipments of I.S.I. Mark : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank">
+                                                        <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank">
                                                             <div class="form-group">
                                                                 <?php
-                                                                        $document_path = $data->location_map_doc;
+                                                                        $document_path = $data->commissioning_certificate;
                                                                         $filter_path =  explode(".",$document_path);
                                                                         $size_of_array = count($filter_path);
                                                                         $filter_ext = $filter_path[$size_of_array - 1];
@@ -781,12 +782,12 @@
                                                                 ?>
 
                                                                 <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/location_map_doc/{{ $data->location_map_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                    <img src="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/commissioning_certificate/{{ $data->commissioning_certificate }} " alt="image"  width="200" height="100" style="max-height:150px;">
                                                                 </p>
                                                                 <?php }
                                                                 else{
                                                                     ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank" download>
+                                                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank" download>
                                                                         <p class="mt-3 mb-0" id="image_div">
                                                                         <button type="button"class="btn btn-primary text-bold">
                                                                             Download File
@@ -800,10 +801,10 @@
 
                                                     <label class="col-sm-2"><strong>Upload Copy of Affidavit : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank">
+                                                        <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/affidavit_doc/ {{ $data->affidavit_doc }}" target="_blank">
                                                             <div class="form-group">
                                                                 <?php
-                                                                        $document_path = $data->location_map_doc;
+                                                                        $document_path = $data->affidavit_doc;
                                                                         $filter_path =  explode(".",$document_path);
                                                                         $size_of_array = count($filter_path);
                                                                         $filter_ext = $filter_path[$size_of_array - 1];
@@ -814,12 +815,12 @@
                                                                 ?>
 
                                                                 <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/location_map_doc/{{ $data->location_map_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                    <img src="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/affidavit_doc/{{ $data->affidavit_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
                                                                 </p>
                                                                 <?php }
                                                                 else{
                                                                     ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank" download>
+                                                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/affidavit_doc/{{ $data->affidavit_doc }}" target="_blank" download>
                                                                         <p class="mt-3 mb-0" id="image_div">
                                                                         <button type="button"class="btn btn-primary text-bold">
                                                                             Download File
@@ -840,7 +841,7 @@
                                                         <div class="col-md-12 col-xs-12">
                                                             <p class="text-justify ">
                                                                 <b> I / We..... <br><br>
-                                                                <input type="text" disabled style="width:300px" class="form-control @error('declare_by') is-invalid @enderror" id="declare_by" name="declare_by" value="{{ $data->declare_by }}" placeholder="Enter Applicant Name" >
+                                                                <input type="text" disabled  class="form-control @error('declare_by') is-invalid @enderror" id="declare_by" name="declare_by" value="{{ $data->declare_by }}" placeholder="Enter Applicant Name" >
                                                                 <br>
                                                                 @error('declare_by')
                                                                     <span class="invalid-feedback" role="alert">
@@ -1031,6 +1032,10 @@
                                                 <div class="col-md-9" style="display: flex; justify-content: flex-end;">
                                                     <a href="{{ url('/new_business_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
                                                     {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
+
+                                                    @if($data->status == 2 && $data->citizen_payment_status == 1)
+                                                    <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_5">Upload Payment Recepit</button>
+                                                    @endif
                                                 </div>
                                             </div>
 
@@ -1079,6 +1084,78 @@
         <script src="{{ url('/') }}/assets/js/pages/form-advanced.init.js"></script>
 
         <script src="{{ url('/') }}/assets/js/app.js"></script>
+
+        {{-- Upload Payment Receipt --}}
+        <div class="modal fade bs-example-modal-lg_5" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-primary" id="myLargeModalLabel">Upload Payment Receipt :</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <form class="auth-input p-4"  method="POST" action='{{ url("/upload_payment_receipt/{$data->NB_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off" >
+                                @csrf
+
+                                <div class="form-group row mb-3 d-none">
+                                    @if(auth()->guard('citizen'))
+                                    <label class="col-sm-2"><strong>Citizen ID : <span style="color:red;">*</span></strong></label>
+                                    <div class="col-sm-2 col-md-2">
+                                        <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ Auth::user()->id }}" >
+                                        {{-- <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{ $data->mst_token }}" > --}}
+                                    </div>
+                                    @endif
+
+                                    <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
+                                    <div class="col-sm-2 col-md-2">
+                                        <select class="form-control select2 " name="payment_noc_mode" id="payment_noc_mode" type="hidden">
+                                            <option>Select Mode of NOC</option>
+                                            <optgroup label=" ">
+                                                <option value="1" {{ $data->noc_mode == "1" ? 'selected' : '' }}>New Bussiness NOC</option>
+                                                <option value="2" {{ $data->noc_mode == "2" ? 'selected' : '' }}>Renewal Bussiness NOC</option>
+
+                                                <option value="3" {{ $data->noc_mode == "3" ? 'selected' : '' }}>New Hospital NOC</option>
+                                                <option value="4" {{ $data->noc_mode == "4" ? 'selected' : '' }}>Renewal Hospital NOC</option>
+
+                                                <option value="5" {{ $data->noc_mode == "5" ? 'selected' : '' }}>Provisional Building NOC</option>
+                                                <option value="6" {{ $data->noc_mode == "6" ? 'selected' : '' }}>Final Building NOC</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row  mb-3">
+                                    <label class="col-sm-2"><strong>Upload Payment Receipt : <span style="color:red;">*</span></strong></label>
+                                    <div class="col-sm-10 col-md-10">
+                                        <input type="file" accept=".jpg, .jpeg, .png, .pdf"  name="payment_recepit_doc" id="payment_recepit_doc" class="form-control  @error('payment_recepit_doc') is-invalid @enderror " value="{{ old('commissioning_certificate') }}" placeholder="Upload Payment Receipt.">
+                                        <small class="text-secondary"> Note : The file size should be less than 2MB .</small>
+                                        <br>
+                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</small>
+                                        <br>
+                                        @error('payment_recepit_doc')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mt-4">
+                                    <label class="col-md-3"></label>
+                                    <div class="col-md-9" style="display: flex; justify-content: flex-end;">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
     </body>
 </html>

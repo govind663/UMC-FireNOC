@@ -207,7 +207,7 @@
                                             <div class="form-group row  mb-3">
                                                 <label class="col-sm-2"><strong>Pin code : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" name="pincode" id="pincode" maxlength="6" class="form-control @error('pincode') is-invalid @enderror" value="{{ $data->pincode }}" placeholder="Enter Pin code.">
+                                                    <input type="text" name="pincode" id="pincode" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="6" class="form-control @error('pincode') is-invalid @enderror" value="{{ $data->pincode }}" placeholder="Enter Pin code.">
                                                     @error('pincode')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -236,7 +236,7 @@
 
                                                 <label class="col-sm-2"><strong>Electrol Panel No : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" name="electrol_panel_no" id="electrol_panel_no" class="form-control @error('electrol_panel_no') is-invalid @enderror" value="{{ $data->electrol_panel_no }}" placeholder="Enter Electrol Panel No.">
+                                                    <input type="text" name="electrol_panel_no" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" id="electrol_panel_no" class="form-control @error('electrol_panel_no') is-invalid @enderror" value="{{ $data->electrol_panel_no }}" placeholder="Enter Electrol Panel No.">
                                                     @error('electrol_panel_no')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -257,7 +257,7 @@
                                                 </div>
                                                 <label class="col-sm-2"><strong>Telephone No. (if any) : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" name="tel_no" id="tel_no" class="form-control" value="{{ $data->tel_no }}" placeholder="Enter Telephone No. (if any).">
+                                                    <input type="text" name="tel_no" id="tel_no" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control" value="{{ $data->tel_no }}" placeholder="Enter Telephone No. (if any).">
 
                                                 </div>
                                                 <label class="col-sm-2"><strong>Email Id (if any) : </strong></label>
@@ -364,7 +364,7 @@
                                             <div class="form-group row  mb-3">
                                                 <label class="col-sm-2"><strong>Pincode : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" name="area_pincode" id="area_pincode" maxlength="06" class="form-control @error('area_pincode') is-invalid @enderror" value="{{ $data->area_pincode }}" placeholder="Enter Pincode.">
+                                                    <input type="text" name="area_pincode" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" id="area_pincode" maxlength="06" class="form-control @error('area_pincode') is-invalid @enderror" value="{{ $data->area_pincode }}" placeholder="Enter Pincode.">
                                                     @error('area_pincode')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -856,10 +856,10 @@
                                                             </span>
                                                         @enderror
                                                         <br>
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank">
+                                                        <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank">
                                                             <div class="form-group">
                                                                 <?php
-                                                                        $document_path = $data->location_map_doc;
+                                                                        $document_path = $data->commissioning_certificate;
                                                                         $filter_path =  explode(".",$document_path);
                                                                         $size_of_array = count($filter_path);
                                                                         $filter_ext = $filter_path[$size_of_array - 1];
@@ -870,12 +870,12 @@
                                                                 ?>
 
                                                                 <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/location_map_doc/{{ $data->location_map_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                    <img src="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/commissioning_certificate/{{ $data->commissioning_certificate }} " alt="image"  width="200" height="100" style="max-height:150px;">
                                                                 </p>
                                                                 <?php }
                                                                 else{
                                                                     ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank" download>
+                                                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank" download>
                                                                         <p class="mt-3 mb-0" id="image_div">
                                                                         <button type="button"class="btn btn-primary text-bold">
                                                                             Download File
@@ -900,10 +900,10 @@
                                                             </span>
                                                         @enderror
                                                         <br>
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank">
+                                                        <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/affidavit_doc/{{ $data->affidavit_doc }}" target="_blank">
                                                             <div class="form-group">
                                                                 <?php
-                                                                        $document_path = $data->location_map_doc;
+                                                                        $document_path = $data->affidavit_doc;
                                                                         $filter_path =  explode(".",$document_path);
                                                                         $size_of_array = count($filter_path);
                                                                         $filter_ext = $filter_path[$size_of_array - 1];
@@ -914,12 +914,12 @@
                                                                 ?>
 
                                                                 <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/location_map_doc/{{ $data->location_map_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                    <img src="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/affidavit_doc/{{ $data->affidavit_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
                                                                 </p>
                                                                 <?php }
                                                                 else{
                                                                     ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank" download>
+                                                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/affidavit_doc/{{ $data->affidavit_doc }}" target="_blank" download>
                                                                         <p class="mt-3 mb-0" id="image_div">
                                                                         <button type="button"class="btn btn-primary text-bold">
                                                                             Download File
@@ -941,7 +941,7 @@
                                                         <div class="col-md-12 col-xs-12">
                                                             <p class="text-justify ">
                                                                 <b> I / We..... <br><br>
-                                                                <input type="text" style="width:300px" class="form-control @error('declare_by') is-invalid @enderror" id="declare_by" name="declare_by" value="{{ $data->declare_by }}" placeholder="Enter Applicant Name" >
+                                                                <input type="text" class="form-control @error('declare_by') is-invalid @enderror" id="declare_by" name="declare_by" value="{{ $data->declare_by }}" placeholder="Enter Applicant Name" >
                                                                 <br>
                                                                 @error('declare_by')
                                                                     <span class="invalid-feedback" role="alert">
@@ -1103,7 +1103,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-sm-2"><strong>Pincode : <span style="color:red;">*</span></strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <input type="text" name="d_pincode" id="d_pincode" maxlength="06" class="form-control @error('d_pincode') is-invalid @enderror" value="{{ $data->d_pincode }}" placeholder="Enter Pincode.">
+                                                                    <input type="text" name="d_pincode" id="d_pincode" maxlength="06" class="form-control @error('d_pincode') is-invalid @enderror" value="{{ $data->d_pincode }}" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" placeholder="Enter Pincode.">
                                                                     @error('d_pincode')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>

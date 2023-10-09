@@ -97,7 +97,7 @@
                                                     </form>
                                                 </div>
 
-                                                <div class="mt-4 text-center">
+                                                <div class="mt-4 text-center d-none">
                                                     <p class="mb-0">Don't have an account ?
                                                         <a href="{{ url('/admin/register') }}" class="fw-medium text-primary"> Register </a>
                                                     </p>

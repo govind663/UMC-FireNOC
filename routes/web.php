@@ -143,6 +143,8 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     // ======= Fetch Construction Category
     Route::post('fee/construction_category', [FeeBldgHtController::class, 'FetchConstructionCategory'])->name('fee.construction_category');
 
+    // ======= All Citizen Fire NOC Invoice
+    Route::get('/admin_invoice/{id}/{status}/{noc_mode}', [InvoiceController::class, 'fire_noc_invoice'])->name('admin_invoice');
 });
 
 
@@ -176,8 +178,6 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware']],
     Route::get('/new_business_noc/edit/{id}/{status}', [NewBusinessNOCController::class, 'edit'])->name('new_business_noc.edit');
     Route::post('/new_business_noc/edit/update/{id}/{n_id}/{status}', [NewBusinessNOCController::class, 'update'])->name('new_business_noc.edit.update');
     Route::delete('/new_business_noc/delete/{id}/{n_id}/{status}', [NewBusinessNOCController::class, 'destroy'])->name('new_business_noc.delete');
-    Route::get('/new_business_noc/make_payment/create/{id}/{status}', [CitizenPaypentController::class, 'make_payment_create'])->name('new_business_noc.make_payment.create');
-    Route::post('/new_business_noc/make_payment/store/{id}/{status}', [CitizenPaypentController::class, 'make_payment_store'])->name('new_business_noc.make_payment.store');
 
     // ====== Renew Business NOC
     Route::get('/renew_business_noc_list/{status}', [RenewBusinessNOCController::class, 'index'])->name('renew_business_noc_list');
@@ -236,21 +236,18 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware']],
     // ======= Fetch NOC Fee Master Charges
     Route::post('fee/noc_fee_master_rate', [NewBusinessNOCController::class, 'NOCFeeMasterCharges'])->name('fee.noc_fee_master_rate');
 
-    // ======= All Citizen NOC Certificate
-    Route::get('/new_buisness_noc_certificate', [CertificateController::class, 'fireNocBuisnessCertificate']);
-    Route::get('/renew_buisness_noc_certificate', [CertificateController::class, 'renewFireNocBuisnessCertificate']);
-    Route::get('/new_building_noc_certificate', [CertificateController::class, 'fireNocBuildingCertificate']);
-    Route::get('/renew_building_noc_certificate', [CertificateController::class, 'renewFireNocBuildingCertificate']);
-    Route::get('/new_hospital_noc_certificate', [CertificateController::class, 'fireNocHospitalCertificate']);
-    Route::get('/renew_hospital_noc_certificate', [CertificateController::class, 'renewFireNocHospitalCertificate']);
+    // ======= Citizen Make Payments
+    Route::get('make_payment/create/{id}/{status}/{noc_mode}', [CitizenPaypentController::class, 'make_payment_create'])->name('make_payment.create');
+    Route::post('make_payment/store/{id}/{status}/{noc_mode}', [CitizenPaypentController::class, 'make_payment_store'])->name('make_payment.store');
 
+    // ======= All Citizen Fire NOC Invoice
+    Route::get('/invoice/{id}/{status}/{noc_mode}', [InvoiceController::class, 'fire_noc_invoice'])->name('invoice');
 
-    // ======= All Citizen Invoice
-    Route::get('/new_buisness_noc_invoice', [InvoiceController::class, 'fireNocBuisnessInvoice']);
-    Route::get('/renew_buisness_noc_invoice', [InvoiceController::class, 'renewFireNocBuisnessInvoice']);
-    Route::get('/new_building_noc_invoice', [InvoiceController::class, 'fireNocBuildingInvoice']);
-    Route::get('/renew_building_noc_invoice', [InvoiceController::class, 'renewFireNocBuildingInvoice']);
-    Route::get('/new_hospital_noc_invoice', [InvoiceController::class, 'fireNocHospitalInvoice']);
-    Route::get('/renew_hospital_noc_invoice', [InvoiceController::class, 'renewFireNocHospitalInvoice']);
+    // ======= All Citizen Fire NOC Certificate
+    Route::get('/certificate/{id}/{status}/{noc_mode}', [CertificateController::class, 'fire_noc_certificate'])->name('certificate');
+
+    // ======= All Payment receipt
+    Route::post('/upload_payment_receipt/{id}/{status}/{noc_mode}', [CertificateController::class, 'upload_payment_receipt'])->name('upload_payment_receipt');
+
 });
 

@@ -69,6 +69,10 @@
                                         <h4 class="card-header text-primary">All Approved Renew Business NOC List</h4>
                                         @elseif($status == 4)
                                         <h4 class="card-header text-primary">All Rejected Renew Business NOC List</h4>
+                                        @elseif($status == 5)
+                                        <h4 class="card-header text-primary">All Underprocess Renew Business NOC List</h4>
+                                        @elseif($status == 6)
+                                        <h4 class="card-header text-primary">All Reviewed Renew Business NOC List</h4>
                                         @endif
 
                                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
@@ -84,6 +88,9 @@
                                                     <th><b>Taluka</b></th>
                                                     <th><b>Ward Committee No</b></th>
                                                     <th><b>Application Status</b></th>
+                                                    @if ( $status == 4 )
+                                                    <th><b>Reason for rejection</b></th>
+                                                    @endif
                                                     <th><b>Action</b></th>
                                                 </tr>
                                             </thead>
@@ -103,35 +110,42 @@
                                                         <td>{{ $value->city_name }}</td>
                                                         <td>{{ $value->pincode }}</td>
                                                         <td>{{ $value->taluka_name }}</td>
+
                                                         @php
                                                             $ward_name = '';
 
-                                                            if($value->ward_no = 1){
+                                                            if($value->ward_no == 1){
                                                             $ward_name = 'Ward 1';
-                                                            }elseif($value->ward_no = 2){
+                                                            }elseif($value->ward_no == 2){
                                                             $ward_name = 'Ward 2';
-                                                            }elseif($value->ward_no = 3){
+                                                            }elseif($value->ward_no == 3){
                                                             $ward_name = 'Ward 3';
-                                                            }elseif($value->ward_no = 4){
+                                                            }elseif($value->ward_no == 4){
                                                             $ward_name = 'Ward 4';
                                                             }
                                                         @endphp
 
+
                                                         <td>{{ $ward_name }}</td>
+
                                                         @if ($value->status == 0)
-                                                        <td><span class="bg-primary text-white p-2" style="border: 1px;">Pending</span></td>
+                                                        <td><span class="bg-primary text-white p-1">Pending</span></td>
                                                         @elseif ($value->status == 1)
-                                                        <td><span class="bg-warning text-dark p-2" style="border: 1px;">Unpaid</span></td>
+                                                        <td><span class="bg-warning text-dark p-1">Unpaid</span></td>
                                                         @elseif ($value->status == 2)
-                                                        <td><span class="bg-success text-dark p-2" style="border: 1px;">Paid</span></td>
+                                                        <td><span class="bg-success text-dark p-1">Paid</span></td>
                                                         @elseif ($value->status == 3)
-                                                        <td><span class="bg-success text-dark p-2" style="border: 1px;">Approved</span></td>
+                                                        <td><span class="bg-success text-dark p-1">Approved</span></td>
                                                         @elseif ($value->status == 4)
-                                                        <td><span class="bg-danger text-light p-2" style="border: 1px;">Rejected</span></td>
+                                                        <td><span class="bg-danger text-light p-1">Rejected</span></td>
                                                         @elseif ($value->status == 5)
-                                                        <td><span class="bg-dark text-light p-2" style="border: 1px;">Underprocess</span></td>
+                                                        <td><span class="bg-dark text-light p-1">Underprocess</span></td>
                                                         @elseif ($value->status == 6)
-                                                        <td><span class="bg-danger text-dark p-2" style="border: 1px;">Reviewed</span></td>
+                                                        <td><span class="bg-danger text-dark p-1">Reviewed</span></td>
+                                                        @endif
+
+                                                        @if ( $value->status == 4 )
+                                                        <td>{{ $value->remarks }}</td>
                                                         @endif
                                                         <td style="display:flex;">
                                                             <a href='{{ url("/renew_business_noc/show/{$value->RB_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">
@@ -151,6 +165,27 @@
                                                                     <b><i class="mdi mdi-delete-alert-outline"> Delete</i></b>
                                                                 </button>
                                                             </form>
+                                                            @endif
+
+                                                            &nbsp;&nbsp;
+                                                            @if ($value->status == 1)
+                                                            <a href='{{ url("/make_payment/create/{$value->RB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-success btn-sm ">
+                                                                <b><i class="mdi mdi-contactless-payment"> Make Payment</i></b>
+                                                            </a>
+                                                            @endif
+
+                                                            &nbsp;&nbsp;
+                                                            @if ($value->status == 2 && $value->payment_status == 1 )
+                                                            <a href='{{ url("/invoice/{$value->RB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-dark btn-sm ">
+                                                                <b><i class="mdi mdi-file"> Invoice</i></b>
+                                                            </a>
+                                                            @endif
+
+                                                            &nbsp;&nbsp;
+                                                            @if ($value->status == 3 )
+                                                            <a href='{{ url("/certificate/{$value->RB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-warning btn-sm text-dark">
+                                                                <b><i class="mdi mdi-file"> View Certificate</i></b>
+                                                            </a>
                                                             @endif
                                                         </td>
                                                     </tr>

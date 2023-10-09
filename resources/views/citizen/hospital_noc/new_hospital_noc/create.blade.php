@@ -208,7 +208,7 @@
                                         <div class="form-group row  mb-3">
                                             <label class="col-sm-2"><strong>Pin code : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="pincode" id="pincode" maxlength="6" class="form-control @error('pincode') is-invalid @enderror" value="{{ old('pincode') }}" placeholder="Enter Pin code.">
+                                                <input type="text" name="pincode" id="pincode" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"  maxlength="6" class="form-control @error('pincode') is-invalid @enderror" value="{{ old('pincode') }}" placeholder="Enter Pin code.">
                                                 @error('pincode')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -237,7 +237,7 @@
 
                                             <label class="col-sm-2"><strong>Electrol Panel No : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="electrol_panel_no" id="electrol_panel_no" class="form-control @error('electrol_panel_no') is-invalid @enderror" value="{{ old('electrol_panel_no') }}" placeholder="Enter Electrol Panel No.">
+                                                <input type="text" name="electrol_panel_no" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" id="electrol_panel_no" class="form-control @error('electrol_panel_no') is-invalid @enderror" value="{{ old('electrol_panel_no') }}" placeholder="Enter Electrol Panel No.">
                                                 @error('electrol_panel_no')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -258,7 +258,7 @@
                                             </div>
                                             <label class="col-sm-2"><strong>Telephone No. (if any) : </strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="tel_no" id="tel_no" class="form-control" value="{{ old('tel_no') }}" placeholder="Enter Telephone No. (if any).">
+                                                <input type="text" name="tel_no" id="tel_no" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="10" class="form-control" value="{{ old('tel_no') }}" placeholder="Enter Telephone No. (if any).">
                                                 @error('tel_no')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -373,7 +373,7 @@
                                         <div class="form-group row  mb-3">
                                             <label class="col-sm-2"><strong>Pincode : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="area_pincode" id="area_pincode" maxlength="06" class="form-control @error('area_pincode') is-invalid @enderror" value="{{ old('area_pincode') }}" placeholder="Enter Pincode.">
+                                                <input type="text" name="area_pincode" id="area_pincode" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="06" class="form-control @error('area_pincode') is-invalid @enderror" value="{{ old('area_pincode') }}" placeholder="Enter Pincode.">
                                                 @error('area_pincode')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -397,26 +397,18 @@
                                                 @enderror
                                             </div>
 
-                                            <label class="col-sm-2"><strong>From Date : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>From Date : </strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="date" name="from_date" id="from_date" max="<?php echo date("Y-m-d"); ?>" class="form-control @error('from_date') is-invalid @enderror" value="{{ old('from_date') }}" placeholder="Enter From Date.">
-                                                @error('from_date')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
+                                                <input type="date" name="from_date" id="from_date"  class="form-control " value="{{ old('from_date') }}" placeholder="Enter From Date.">
+
                                             </div>
                                         </div>
 
                                         <div class="form-group row  mb-3">
-                                            <label class="col-sm-2"><strong>To Date : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>To Date : </strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="date" name="to_date" id="to_date" max="<?php echo date("Y-m-d"); ?>" class="form-control @error('to_date') is-invalid @enderror" value="{{ old('to_date') }}" placeholder="Enter To Date.">
-                                                @error('to_date')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
+                                                <input type="date" name="to_date" id="to_date"  class="form-control " value="{{ old('to_date') }}" placeholder="Enter To Date.">
+
                                             </div>
 
                                             <label class="col-sm-2"><strong>Shop No. : <span style="color:red;">*</span></strong></label>
@@ -466,7 +458,7 @@
                                                 <select class="form-control select2 @error('hospital_fireequip') is-invalid @enderror" name="hospital_fireequip" id="hospital_fireequip">
                                                     <option value="">Select Fire extinguishers/ preventive equipments are installed at working place</option>
                                                     <optgroup label=" ">
-                                                        <option value="1" {{ old('hospital_fireequip') == "1"? 'selected' : '' }}>Yes</option>
+                                                        <option value="1" {{ old('hospital_fireequip') == "1"? 'selected' : '' }} selected>Yes</option>
                                                         <option value="2" {{ old('hospital_fireequip') == "2"? 'selected' : '' }}>No</option>
                                                     </optgroup>
                                                 </select>
@@ -625,7 +617,7 @@
                                                     <div class="col-md-12 col-xs-12">
                                                         <p class="text-justify ">
                                                             <b> I / We..... <br><br>
-                                                                <input type="text" style="width:300px" class="form-control @error('declare_by') is-invalid @enderror" id="declare_by" name="declare_by" value="{{ old('declare_by') }}" placeholder="Enter Applicant Name">
+                                                                <input type="text"  class="form-control @error('declare_by') is-invalid @enderror" id="declare_by" name="declare_by" value="{{ old('declare_by') }}" placeholder="Enter Applicant Name">
                                                                 <br>
                                                                 @error('declare_by')
                                                                 <span class="invalid-feedback" role="alert">
@@ -787,7 +779,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-2"><strong>Pincode : <span style="color:red;">*</span></strong></label>
                                                             <div class="col-sm-2 col-md-2">
-                                                                <input type="text" name="d_pincode" id="d_pincode" maxlength="06" class="form-control @error('d_pincode') is-invalid @enderror" value="{{ old('d_pincode') }}" placeholder="Enter Pincode.">
+                                                                <input type="text" name="d_pincode" id="d_pincode" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="06" class="form-control @error('d_pincode') is-invalid @enderror" value="{{ old('d_pincode') }}" placeholder="Enter Pincode.">
                                                                 @error('d_pincode')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>

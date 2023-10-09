@@ -49,7 +49,6 @@ class CitizePaymentRequest extends FormRequest
             'fee_mode_operate_id.required' => 'Mode of Operation is required',
             'wing_option.required' => 'Is this wing or not ? is required',
             'fee_bldg_ht_id.required' => 'Building Height / Type is required',
-
         ];
     }
 }

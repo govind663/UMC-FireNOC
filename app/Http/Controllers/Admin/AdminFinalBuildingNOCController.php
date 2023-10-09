@@ -42,7 +42,7 @@ class AdminFinalBuildingNOCController extends Controller
     public function show($id, $status)
     {
         $data = DB::table('building_noc as t1')
-                ->select('t1.*', 't2.*')
+                ->select('t1.*', 't2.*', 't1.id as F_NOC_ID', 't2.id as d_ID')
                 ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
                 ->where('t2.noc_mode', 6)  // ==== Final Building NOC (status=6)
                 ->where('t1.status', $status)
@@ -67,6 +67,8 @@ class AdminFinalBuildingNOCController extends Controller
             $update = [
                 'status' => 5, // === New (Level Up that means application go to field inspector)
                 'operator_status' => 1, // ===== Approved by operator
+                'operator_by' => Auth::user()->id,
+                'operator_dt' => date("Y-m-d H:i:s"),
                 'application_status' => 1, // ===== Field Inspector will pass
                 'approved_dt' => date("Y-m-d H:i:s"),
                 'approved_by' => Auth::user()->id,
@@ -79,6 +81,8 @@ class AdminFinalBuildingNOCController extends Controller
             $update = [
                 'status' => 1, // === Unpaid (Level Up that means application go to User End)
                 'inspector_status' => 1, // ===== Approved by Field Inspector
+                'inspector_by' => Auth::user()->id,
+                'inspector_dt' => date("Y-m-d H:i:s"),
                 'approved_dt' => date("Y-m-d H:i:s"),
                 'approved_by' => Auth::user()->id,
             ];
@@ -89,7 +93,9 @@ class AdminFinalBuildingNOCController extends Controller
         } elseif (Auth::user()->role == 2) {
             $update = [
                 'status' => 6, // === Reviewed (Level Up that means application go to DMC)
-                'officer_status	' => 1, // ===== Approved by Chief Fire Officer
+                'officer_status' => 1, // ===== Approved by Chief Fire Officer
+                'officer_by' => Auth::user()->id,
+                'officer_dt' => date("Y-m-d H:i:s"),
                 'application_status' => 2, // ===== Chief Fire Officer will pass
                 'approved_dt' => date("Y-m-d H:i:s"),
                 'approved_by' => Auth::user()->id,
