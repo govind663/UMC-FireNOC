@@ -971,16 +971,16 @@
                                                 {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
                                                 @if(Auth::user()->role == 3)
                                                 <a href='{{ url("/admin_new_hospital_noc/approved/$data->NH_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
-                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".RH_NOC_Reject_1"><b>Reject</b></button>
+                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".RH_NOC_Reject"><b>Reject</b></button>
                                                 @elseif(Auth::user()->role == 2)
                                                 <a href='{{ url("/admin_new_hospital_noc/approved/$data->NH_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
-                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".RH_NOC_Reject_2"><b>Reject</b></button>
+                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".RH_NOC_Reject"><b>Reject</b></button>
                                                 @elseif(Auth::user()->role == 1)
                                                 <a href='{{ url("/admin_new_hospital_noc/approved/$data->NH_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
-                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".RH_NOC_Rejec_3"><b>Reject</b></button>
+                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".RH_NOC_Rejec"><b>Reject</b></button>
                                                 @elseif(Auth::user()->role == 0)
                                                 <a href='{{ url("/admin_new_hospital_noc/approved/{$data->NH_NOC_ID}/{$data->status}/{$auth_role}") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
-                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".RH_NOC_Rejec_4"><b>Reject</b></button>
+                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".RH_NOC_Rejec"><b>Reject</b></button>
                                                 @endif
                                             </div>
                                         </div>
