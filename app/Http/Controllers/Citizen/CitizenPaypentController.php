@@ -167,7 +167,7 @@ class CitizenPaypentController extends Controller
                 'payment_by' =>  Auth::user()->id,
             ];
 
-            Business_NOC::where('noc_mst_id', $request->get('mst_token'))->update($update);
+            Business_NOC::where('inserted_by', Auth::user()->id)->update($update);
 
             return redirect()->route('new_business_noc_list', 2)->with('message', 'Your payment done for your new business noc has been done Successfully.');
 
@@ -215,7 +215,7 @@ class CitizenPaypentController extends Controller
                 'payment_by' =>  Auth::user()->id,
             ];
 
-            Business_NOC::where('id', $request->get('mst_token'))->update($update);
+            Business_NOC::where('inserted_by', Auth::user()->id)->update($update);
 
             return redirect()->route('renew_business_noc_list', 2)->with('message', 'Your payment done for your new business noc has been done Successfully.');
 
@@ -263,7 +263,7 @@ class CitizenPaypentController extends Controller
                 'payment_by' =>  Auth::user()->id,
             ];
 
-            Hospital_NOC::where('id', $request->get('mst_token'))->update($update);
+            Hospital_NOC::where('inserted_by', Auth::user()->id)->update($update);
 
             return redirect()->route('new_hospital_noc_list', 2)->with('message', 'Your payment done for your new business noc has been done Successfully.');
 
@@ -311,7 +311,7 @@ class CitizenPaypentController extends Controller
                 'payment_by' =>  Auth::user()->id,
             ];
 
-            Hospital_NOC::where('id', $request->get('mst_token'))->update($update);
+            Hospital_NOC::where('inserted_by', Auth::user()->id)->update($update);
 
             return redirect()->route('renew_hospital_noc_list', 2)->with('message', 'Your payment done for your new business noc has been done Successfully.');
 
@@ -359,7 +359,7 @@ class CitizenPaypentController extends Controller
                 'payment_by' =>  Auth::user()->id,
             ];
 
-            Building_NOC::where('id', $request->get('mst_token'))->update($update);
+            Building_NOC::where('inserted_by', Auth::user()->id)->update($update);
 
             return redirect()->route('provisional_building_noc_list', 2)->with('message', 'Your payment done for your new business noc has been done Successfully.');
 
@@ -407,7 +407,7 @@ class CitizenPaypentController extends Controller
                 'payment_by' =>  Auth::user()->id,
             ];
 
-            Building_NOC::where('id', $request->get('mst_token'))->update($update);
+            Building_NOC::where('inserted_by', Auth::user()->id)->update($update);
 
             return redirect()->route('final_building_noc_list', 2)->with('message', 'Your payment done for your new business noc has been done Successfully.');
 
