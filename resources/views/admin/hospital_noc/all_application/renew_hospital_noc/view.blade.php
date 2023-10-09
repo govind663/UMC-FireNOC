@@ -837,7 +837,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            <h6 class="mt-3 mb-3"><b>Correspondence Address (Not to be filled if address is same as above) : </b></h6>
+                                                            <h6 class="mt-3 mb-3"><b>Correspondence Address : </b></h6>
                                                             <div class="form-group row">
                                                                 <label class="col-sm-2"><strong>Last Name / Surname : <span style="color:red;">*</span></strong></label>
                                                                 <div class="col-sm-2 col-md-2">

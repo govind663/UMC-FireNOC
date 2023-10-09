@@ -784,8 +784,181 @@
                                                                 @enderror
                                                                 ......
                                                                 State on solemn affirmation that the above information is true and correct to the best of my/our knowledge. If the information given is found wrong then 1/We shali be held iegally liable for its consequences. </b>
+<<<<<<< HEAD
                                                         </p>
                                                         <b>Date : </b> <input type="text" style="width:150px" class="form-control input-style" id="declare_date" placeholder="Permit Date" name="declare_date" value="{{ $data->declare_date }}" disabled>
+=======
+                                                            </p>
+                                                            <b>Date : </b> <input type="text" style="width:150px" class="form-control input-style" id="declare_date" placeholder="Permit Date" name="declare_date" value="{{ $data->declare_date }}" disabled>
+                                                        </div>
+
+                                                        <div class="col-md-12 col-xs-12">
+                                                            <h6 class="mt-3"><b>The document may please be delivered to : </b></h6>
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2"><strong>Self / Nominated Person : <span style="color:red;">*</span></strong></label>
+                                                                <div class="col-sm-2 col-md-2">
+                                                                    <select class="form-control select2 @error('nominated_persion') is-invalid @enderror" disabled name="nominated_persion" id="nominated_persion">
+                                                                        <option value="">Select Self / Nominated Person</option>
+                                                                        <optgroup label=" ">
+                                                                            <option value="1" {{ $data->nominated_persion == "1"? 'selected' : '' }}>Self</option>
+                                                                            <option value="2" {{ $data->nominated_persion == "2"? 'selected' : '' }}>Nominee</option>
+                                                                            <option value="3" {{ $data->nominated_persion == "3"? 'selected' : '' }}>C.F.C.</option>
+                                                                            <option value="4" {{ $data->nominated_persion == "4"? 'selected' : '' }}>Camp No.</option>
+                                                                        </optgroup>
+                                                                    </select>
+                                                                    @error('nominated_persion')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+
+                                                                <label class="col-sm-2"><strong>Name of Nominated Person : <span style="color:red;">*</span></strong></label>
+                                                                <div class="col-sm-2 col-md-2">
+                                                                    <input type="text" name="nominated_persion_name" disabled id="nominated_persion_name" class="form-control @error('nominated_persion_name') is-invalid @enderror" value="{{ $data->nominated_persion_name }}" placeholder="Enter Name of Nominated Person.">
+                                                                    @error('nominated_persion_name')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+
+                                                                <label class="col-sm-2"><strong>Deliver by : <span style="color:red;">*</span></strong></label>
+                                                                <div class="col-sm-2 col-md-2">
+                                                                    <select class="form-control select2 @error('deliver_by') is-invalid @enderror" disabled name="deliver_by" id="deliver_by">
+                                                                        <option value="">Select Deliver by</option>
+                                                                        <optgroup label=" ">
+                                                                            <option value="1" {{ $data->deliver_by == "1"? 'selected' : '' }}>By Post U.P.C</option>
+                                                                            <option value="2" {{ $data->deliver_by == "2"? 'selected' : '' }}>By Post Register A.D.</option>
+                                                                            <option value="3" {{ $data->deliver_by == "3"? 'selected' : '' }}>Courier</option>
+                                                                        </optgroup>
+                                                                    </select>
+                                                                    @error('deliver_by')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+
+                                                            <h6 class="mt-3 mb-3"><b>Correspondence Address : </b></h6>
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2"><strong>Last Name / Surname : <span style="color:red;">*</span></strong></label>
+                                                                <div class="col-sm-2 col-md-2">
+                                                                    <input type="text" name="d_last_name" id="d_last_name" disabled class="form-control @error('d_last_name') is-invalid @enderror" value="{{ $data->d_last_name }}" placeholder="Enter Last Name / Surname.">
+                                                                    @error('d_last_name')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+
+                                                                <label class="col-sm-2"><strong>First Name : <span style="color:red;">*</span></strong></label>
+                                                                <div class="col-sm-2 col-md-2">
+                                                                    <input type="text" name="d_first_name" id="d_first_name" disabled class="form-control @error('d_first_name') is-invalid @enderror" value="{{ $data->d_first_name }}" placeholder="Enter First Name.">
+                                                                    @error('d_first_name')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+
+                                                                <label class="col-sm-2"><strong>Father / Husband's Name : <span style="color:red;">*</span></strong></label>
+                                                                <div class="col-sm-2 col-md-2">
+                                                                    <input type="text" name="d_father_name" id="d_father_name" disabled class="form-control @error('d_father_name') is-invalid @enderror" value="{{ $data->d_father_name }}" placeholder="Enter Father / Husband's Name.">
+                                                                    @error('d_father_name')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2"><strong>House / Building / Society Name : <span style="color:red;">*</span></strong></label>
+                                                                <div class="col-sm-2 col-md-2">
+                                                                    <input type="text" name="d_house_name" id="d_house_name" disabled class="form-control @error('d_house_name') is-invalid @enderror" value="{{ $data->d_house_name }}" placeholder="Enter House / Building / Society Name.">
+                                                                    @error('d_house_name')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+
+                                                                <label class="col-sm-2"><strong>Flat / Block / Barrack No. : <span style="color:red;">*</span></strong></label>
+                                                                <div class="col-sm-2 col-md-2">
+                                                                    <input type="text" name="d_flat_no" id="d_flat_no" disabled class="form-control @error('d_flat_no') is-invalid @enderror" value="{{ $data->d_flat_no }}" placeholder="Enter Flat / Block / Barrack No..">
+                                                                    @error('d_flat_no')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+
+                                                                <label class="col-sm-2"><strong>Wing / Floor : <span style="color:red;">*</span></strong></label>
+                                                                <div class="col-sm-2 col-md-2">
+                                                                    <input type="text" name="d_wing_no" id="d_wing_no" disabled class="form-control @error('d_wing_no') is-invalid @enderror" value="{{ $data->d_wing_no }}" placeholder="Enter Wing / Floor.">
+                                                                    @error('d_wing_no')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2"><strong>Road / Street / Lane : <span style="color:red;">*</span></strong></label>
+                                                                <div class="col-sm-2 col-md-2">
+                                                                    <input type="text" name="d_road_name" id="d_road_name" disabled class="form-control @error('d_road_name') is-invalid @enderror" value="{{ $data->d_road_name }}" placeholder="Enter Road / Street / Lane.">
+                                                                    @error('d_road_name')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+
+                                                                <label class="col-sm-2"><strong>Area / Locality / Town / City : <span style="color:red;">*</span></strong></label>
+                                                                <div class="col-sm-2 col-md-2">
+                                                                    <input type="text" name="d_area_name" id="d_area_name" disabled class="form-control @error('d_area_name') is-invalid @enderror" value="{{ $data->d_area_name }}" placeholder="Enter Area / Locality / Town / City">
+                                                                    @error('d_area_name')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+
+                                                                <label class="col-sm-2"><strong>Taluka : <span style="color:red;">*</span></strong></label>
+                                                                <div class="col-sm-2 col-md-2">
+                                                                    <input type="text" name="d_taluka_name" id="d_taluka_name" disabled class="form-control @error('d_taluka_name') is-invalid @enderror" value="{{ $data->d_taluka_name }}" placeholder="Enter Taluka.">
+                                                                    @error('d_taluka_name')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group row">
+                                                                <label class="col-sm-2"><strong>Pincode : <span style="color:red;">*</span></strong></label>
+                                                                <div class="col-sm-2 col-md-2">
+                                                                    <input type="text" name="d_pincode" id="d_pincode" disabled maxlength="06" class="form-control @error('d_pincode') is-invalid @enderror" value="{{ $data->d_pincode }}" placeholder="Enter Pincode.">
+                                                                    @error('d_pincode')
+                                                                        <span class="invalid-feedback" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                                                    @enderror
+                                                                </div>
+
+                                                                <label class="col-sm-2"><strong>Email Id (if any) : </strong></label>
+                                                                <div class="col-sm-2 col-md-2">
+                                                                    <input type="text" name="d_email" id="d_email" disabled class="form-control r" value="{{ $data->d_email }}" placeholder="Enter Email Id">
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+>>>>>>> develop
                                                     </div>
 
                                                     <div class="col-md-12 col-xs-12">
@@ -837,7 +1010,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <h6 class="mt-3 mb-3"><b>Correspondence Address (Not to be filled if address is same as above) : </b></h6>
+                                                        <h6 class="mt-3 mb-3"><b>Correspondence Address : </b></h6>
                                                         <div class="form-group row">
                                                             <label class="col-sm-2"><strong>Last Name / Surname : <span style="color:red;">*</span></strong></label>
                                                             <div class="col-sm-2 col-md-2">
