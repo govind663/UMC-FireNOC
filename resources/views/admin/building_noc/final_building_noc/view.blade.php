@@ -571,16 +571,16 @@
                                                 {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
                                                 @if(Auth::user()->role == 3)
                                                 <a href='{{ url("/admin_final_building_noc/approved/$data->F_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
-                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".RH_NOC_Reject"><b>Reject</b></button>
+                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".FB_NOC_Reject"><b>Reject</b></button>
                                                 @elseif(Auth::user()->role == 2)
                                                 <a href='{{ url("/admin_final_building_noc/approved/$data->F_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
-                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".RH_NOC_Reject"><b>Reject</b></button>
+                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".FB_NOC_Reject"><b>Reject</b></button>
                                                 @elseif(Auth::user()->role == 1)
                                                 <a href='{{ url("/admin_final_building_noc/approved/$data->F_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
-                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".RH_NOC_Reject"><b>Reject</b></button>
+                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".FB_NOC_Reject"><b>Reject</b></button>
                                                 @elseif(Auth::user()->role == 0)
                                                 <a href='{{ url("/admin_final_building_noc/approved/{$data->F_NOC_ID}/{$data->status}/{$auth_role}") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
-                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".RH_NOC_Reject"><b>Reject</b></button>
+                                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".FB_NOC_Reject"><b>Reject</b></button>
                                                 @endif
                                             </div>
                                         </div>
@@ -609,30 +609,8 @@
     </div>
     <!-- END layout-wrapper -->
 
-
-    <!-- JAVASCRIPT -->
-    <script src="{{ url('/') }}/assets/libs/jquery/jquery.min.js"></script>
-    <script src="{{ url('/') }}/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ url('/') }}/assets/libs/metismenu/metisMenu.min.js"></script>
-    <script src="{{ url('/') }}/assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="{{ url('/') }}/assets/libs/node-waves/waves.min.js"></script>
-
-    <!-- Icon -->
-    <script src="{{ url('/') }}/assets/release/v2.0.1/script/monochrome/bundle.js"></script>
-
-    <script src="{{ url('/') }}/assets/libs/select2/js/select2.min.js"></script>
-    <script src="{{ url('/') }}/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-    <script src="{{ url('/') }}/assets/libs/spectrum-colorpicker2/spectrum.min.js"></script>
-    <script src="{{ url('/') }}/assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
-    <script src="{{ url('/') }}/assets/libs/admin-resources/bootstrap-filestyle/bootstrap-filestyle.min.js"></script>
-    <script src="{{ url('/') }}/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
-
-    <script src="{{ url('/') }}/assets/js/pages/form-advanced.init.js"></script>
-
-    <script src="{{ url('/') }}/assets/js/app.js"></script>
-
-    {{-- Start Reject for Provisional Building Application Model --}}
-    <div class="modal fade NB_NOC_Reject" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    {{-- Start Reject for Final Building Application Model --}}
+    <div class="modal fade FB_NOC_Reject" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -670,6 +648,28 @@
             </div>
         </div>
     </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="{{ url('/') }}/assets/libs/jquery/jquery.min.js"></script>
+    <script src="{{ url('/') }}/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url('/') }}/assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="{{ url('/') }}/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="{{ url('/') }}/assets/libs/node-waves/waves.min.js"></script>
+
+    <!-- Icon -->
+    <script src="{{ url('/') }}/assets/release/v2.0.1/script/monochrome/bundle.js"></script>
+
+    <script src="{{ url('/') }}/assets/libs/select2/js/select2.min.js"></script>
+    <script src="{{ url('/') }}/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="{{ url('/') }}/assets/libs/spectrum-colorpicker2/spectrum.min.js"></script>
+    <script src="{{ url('/') }}/assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
+    <script src="{{ url('/') }}/assets/libs/admin-resources/bootstrap-filestyle/bootstrap-filestyle.min.js"></script>
+    <script src="{{ url('/') }}/assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+
+    <script src="{{ url('/') }}/assets/js/pages/form-advanced.init.js"></script>
+
+    <script src="{{ url('/') }}/assets/js/app.js"></script>
+
 
 </body>
 </html>
