@@ -251,6 +251,7 @@ class FinalBuildingNOCController extends Controller
             $data->modified_dt = date("Y-m-d H:i:s");
             $data->modified_by = Auth::user()->id;
             $data->save();
+
         }elseif($status == 4){
             $noc_master = NOC_Master::findOrFail($n_id);
 
@@ -321,6 +322,7 @@ class FinalBuildingNOCController extends Controller
             $data->modified_dt = date("Y-m-d H:i:s");
             $data->modified_by = Auth::user()->id;
             $data->save();
+
         }
 
         return redirect( )->route('provisional_building_noc_list',$status)->with('message', 'The application form which you had updated for your final building noc has been done Successfully.');

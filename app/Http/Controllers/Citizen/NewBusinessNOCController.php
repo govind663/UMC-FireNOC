@@ -497,8 +497,8 @@ class NewBusinessNOCController extends Controller
             $data->business_address = $request->get('business_address');
             $data->location_map_link = $request->get('location_map_link');
 
-            $noc_master->modified_dt = date("Y-m-d H:i:s");
-            $noc_master->modified_by = Auth::user()->id;
+            $data->modified_dt = date("Y-m-d H:i:s");
+            $data->modified_by = Auth::user()->id;
             $data->save();
 
         } elseif($status == 4){
@@ -686,8 +686,8 @@ class NewBusinessNOCController extends Controller
             $data->location_map_link = $request->get('location_map_link');
 
             $data->status = 0;
-            $noc_master->modified_dt = date("Y-m-d H:i:s");
-            $noc_master->modified_by = Auth::user()->id;
+            $data->modified_dt = date("Y-m-d H:i:s");
+            $data->modified_by = Auth::user()->id;
             $data->save();
 
         }

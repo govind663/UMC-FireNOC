@@ -490,10 +490,12 @@ class RenewBusinessNOCController extends Controller
             $data->fire_equips = $request->get('fire_equips');
             $data->business_address = $request->get('business_address');
 
-            $noc_master->modified_dt = date("Y-m-d H:i:s");
-            $noc_master->modified_by = Auth::user()->id;
+            $data->modified_dt = date("Y-m-d H:i:s");
+            $data->modified_by = Auth::user()->id;
             $data->save();
+
         } elseif($status == 4){
+
             $noc_master = NOC_Master::findOrFail($n_id);
 
             $noc_master->noc_a_date = date('Y-m-d', strtotime($request->get('nocs_a_date')));
@@ -676,9 +678,9 @@ class RenewBusinessNOCController extends Controller
             $data->fire_equips = $request->get('fire_equips');
             $data->business_address = $request->get('business_address');
 
-            $noc_master->status = 0;
-            $noc_master->modified_dt = date("Y-m-d H:i:s");
-            $noc_master->modified_by = Auth::user()->id;
+            $data->status = 0;
+            $data->modified_dt = date("Y-m-d H:i:s");
+            $data->modified_by = Auth::user()->id;
             $data->save();
         }
 

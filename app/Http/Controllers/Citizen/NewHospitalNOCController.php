@@ -453,6 +453,7 @@ class NewHospitalNOCController extends Controller
             $data->modified_dt = date("Y-m-d H:i:s");
             $data->modified_by = Auth::user()->id;
             $data->save();
+
         }elseif($status == 4){
             $noc_master = NOC_Master::findOrFail($n_id);
 
@@ -621,6 +622,7 @@ class NewHospitalNOCController extends Controller
             $data->status = 0;
             $data->modified_dt = date("Y-m-d H:i:s");
             $data->modified_by = Auth::user()->id;
+
             $data->save();
         }
 
