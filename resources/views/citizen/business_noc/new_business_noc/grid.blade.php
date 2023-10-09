@@ -174,7 +174,7 @@
                                                             @endif
 
                                                             &nbsp;&nbsp;
-                                                            @if ($value->status == 2 && $value->payment_status == 0 )
+                                                            @if ($value->status == 2 && $value->payment_status == 1 )
                                                             <a href='{{ url("/invoice/{$value->NB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-dark btn-sm ">
                                                                 <b><i class="mdi mdi-file"> Invoice</i></b>
                                                             </a>
