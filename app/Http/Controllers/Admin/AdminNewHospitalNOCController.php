@@ -19,16 +19,28 @@ class AdminNewHospitalNOCController extends Controller
      */
     public function index($status)
     {
-        $data = DB::table('hospital_noc AS t1')
-                ->select('t1.*', 't2.*', 't1.id as NH_NOC_ID', 't2.id as d_ID')
-                ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                ->where('t2.noc_mode', 3)  // ==== Renew Hospital NOC (status=3)
-                ->where('t1.status', $status)
-                ->whereNUll('t1.deleted_at')
-                ->whereNUll('t2.deleted_at')
-                ->orderBy('t1.id','DESC')
-                ->get();
-        // dd($data);
+        $query = DB::table('hospital_noc AS t1')
+                    ->select('t1.*', 't2.*', 't1.id as NH_NOC_ID', 't2.id as d_ID', 't3.citizen_payment_status')
+                    ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id')
+                    ->leftJoin('citizen_payments as t3', 't3.mst_token', '=', 't2.mst_token' )
+                    ->where('t2.noc_mode', 3) // ==== New Hospital NOC (status=1)
+                    ->whereNUll('t1.deleted_at')
+                    ->whereNUll('t2.deleted_at')
+                    ->whereNUll('t3.deleted_at')
+                    ->orderBy('t1.id', 'DESC');
+
+        if (Auth::user()->role == 0) {
+            $query->where('t1.status', $status);
+        } elseif (Auth::user()->role == 1) {
+            $query->where('t1.status', $status);
+        } elseif (Auth::user()->role == 2) {
+            $query->where('t1.status', $status);
+            $query->where('t3.citizen_payment_status', 2);
+        } elseif (Auth::user()->role == 3) {
+            $query->where('t1.status', $status);
+        }
+
+        $data = $query->get();
 
         return view('admin.hospital_noc.new_hospital_noc.grid')->with('data', $data)->with('status', $status);
     }
