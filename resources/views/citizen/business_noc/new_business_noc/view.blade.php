@@ -1103,7 +1103,7 @@
                                     <label class="col-sm-2"><strong>Citizen ID : <span style="color:red;">*</span></strong></label>
                                     <div class="col-sm-2 col-md-2">
                                         <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ Auth::user()->id }}" >
-                                        <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{ $data->mst_token }}" >
+                                        {{-- <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{ $data->mst_token }}" > --}}
                                     </div>
                                     @endif
 

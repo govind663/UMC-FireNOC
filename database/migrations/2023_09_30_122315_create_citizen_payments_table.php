@@ -32,7 +32,7 @@ return new class extends Migration
             $table->double('meter_rate', 9, 2)->nullable();
             $table->double('total_charges_cost', 9, 2)->nullable();
 
-            $table->integer('citizen_payment_status')->comment('1:Done Successfully 2:Pending')->default(0);
+            $table->integer('citizen_payment_status')->comment('1: Payment Done Successfully 2: Document Uploaded Successfully')->default(0);
 
             $table->integer('inserted_by')->nullable();
             $table->timestamp('inserted_dt')->nullable();

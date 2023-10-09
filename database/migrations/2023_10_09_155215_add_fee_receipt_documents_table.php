@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('fee_receipt_documents', function (Blueprint $table) {
-            $table->integer('document_status')->default('0')->comment('0:Document Not Uploaded, 1:Document Not Uploaded Successfully')->after('payment_recepit_doc');
+            $table->integer('document_status')->default('0')->comment('0: Document Not Uploaded, 1: Document Uploaded Successfully')->after('payment_recepit_doc');
         });
     }
 

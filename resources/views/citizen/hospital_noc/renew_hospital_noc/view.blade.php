@@ -968,7 +968,7 @@
                                                 <a href="{{ url('/renew_hospital_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
                                                 {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
 
-                                                @if($data->status == 2 && $data->citizen_payment_status == 0)
+                                                @if($data->status == 2 && $data->citizen_payment_status == 1)
                                                 <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_5">Upload Payment Recepit</button>
                                                 @endif
                                             </div>
