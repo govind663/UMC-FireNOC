@@ -120,6 +120,7 @@ class CertificateController extends Controller
 
         $data->citizen_id = $request->get('citizens_id');
         $data->payment_noc_mode = $request->get('payment_noc_mode');
+        $data->document_status = 1;
         $data->inserted_dt = date("Y-m-d H:i:s");
         $data->inserted_by = Auth::user()->id;
         $data->save();

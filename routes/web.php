@@ -143,6 +143,8 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     // ======= Fetch Construction Category
     Route::post('fee/construction_category', [FeeBldgHtController::class, 'FetchConstructionCategory'])->name('fee.construction_category');
 
+    // ======= All Citizen Fire NOC Invoice
+    Route::get('/admin_invoice/{id}/{status}/{noc_mode}', [InvoiceController::class, 'fire_noc_invoice'])->name('admin_invoice');
 });
 
 

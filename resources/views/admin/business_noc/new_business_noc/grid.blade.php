@@ -152,6 +152,7 @@
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
                                                         </td>
+
                                                     </tr>
                                                 @endforeach
                                             </tbody>

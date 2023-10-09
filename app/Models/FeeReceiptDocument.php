@@ -24,7 +24,7 @@ class FeeReceiptDocument extends Model
 
         // ===== Other Document
         'payment_recepit_doc',
-
+        'document_status',
 
         'inserted_by',
         'inserted_dt',
