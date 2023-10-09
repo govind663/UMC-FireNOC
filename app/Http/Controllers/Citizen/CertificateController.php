@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Citizen;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FeeReceiptDocumentRequest;
+use App\Models\CitizenPayment;
 use Illuminate\Http\Request;
 use App\Models\FeeReceiptDocument;
 use Illuminate\Support\Facades\DB;
@@ -124,6 +125,14 @@ class CertificateController extends Controller
         $data->inserted_dt = date("Y-m-d H:i:s");
         $data->inserted_by = Auth::user()->id;
         $data->save();
+
+        // ==== Generate New Business NOC Token Number
+
+        $update = [
+            'citizen_payment_status' => 2,
+        ];
+
+        CitizenPayment::where('mst_token', $request->get('mst_token'))->update($update);
 
         return redirect()->back()->with('message', 'The application form which you had filled for your provisional building noc has been done Successfully.');
     }
