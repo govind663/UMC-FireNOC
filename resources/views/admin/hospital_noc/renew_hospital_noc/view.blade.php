@@ -1031,5 +1031,45 @@
 
     <script src="{{ url('/') }}/assets/js/app.js"></script>
 
+    {{-- Start Reject for Renew Hospital Application Model --}}
+    <div class="modal fade NB_NOC_Reject" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary" id="myLargeModalLabel">Reject for New Bussiness NOC :</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <form class="auth-input p-4"  method="POST"  action='{{ url("/admin_renew_hospital_noc/rejected/$data->RH_NOC_ID/$data->status/$auth_role") }}' enctype="multipart/form-data">
+                            @csrf
+
+                            <div class="form-group row mb-3">
+                                <label class="col-sm-12"><strong>Remarks : <span style="color:red;">*</span></strong></label>
+                                <div class="col-sm-12 col-md-12">
+                                    <textarea type="text" name="remarks" id="remarks" class="form-control @error('remarks') is-invalid @enderror" value="{{  old('remarks')  }}" >{{  old('remarks')  }}</textarea>
+                                    @error('remarks')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row mt-4" >
+                                <label class="col-md-3"></label>
+                                <div class="col-md-9" style="display: flex; justify-content: flex-end;">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>&nbsp;&nbsp;
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
