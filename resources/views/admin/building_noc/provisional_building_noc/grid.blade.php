@@ -151,13 +151,13 @@
                                                             </a>
                                                             &nbsp;&nbsp;
                                                             @if ($value->status == 2 && $value->citizen_payment_status == 2 )
-                                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".PB_NOC_Preview"><b>View Field Inspector Remark</b></button>
+                                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".PB_NOC_Preview_{{ $value->P_NOC_ID }}"><b>View Field Inspector Remark</b></button>
                                                             @endif
                                                         </td>
                                                     </tr>
 
                                                     {{-- Start  View Field Inspector Remark  Model --}}
-                                                    <div class="modal fade FB_NOC_Preview" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                    <div class="modal fade FB_NOC_Preview_{{ $value->P_NOC_ID }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-lg">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">

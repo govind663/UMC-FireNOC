@@ -240,7 +240,7 @@ class RenewHospitalNOCController extends Controller
     public function show($id, $status)
     {
         $data = DB::table('hospital_noc as t1')
-                ->select('t1.*', 't2.*', 't1.id as RB_NOC_ID', 't3.citizen_payment_status')
+                ->select('t1.*', 't2.*', 't1.id as RH_NOC_ID', 't3.citizen_payment_status')
                 ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
                 ->leftJoin('citizen_payments as t3', 't3.mst_token', '=', 't2.mst_token' )
                 ->where('t2.noc_mode', 4)  // ==== New Hospital NOC (status=1)
