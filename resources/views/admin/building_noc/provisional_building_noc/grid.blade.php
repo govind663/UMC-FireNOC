@@ -150,7 +150,7 @@
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
                                                             &nbsp;&nbsp;
-                                                            @if ($value->status == 2 $value->citizen_payment_status == 2 )
+                                                            @if ($value->status == 2 && $value->citizen_payment_status == 2 )
                                                             <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/f_inspector_doc/{{ $value->f_inspector_doc }}" class="btn btn-dark btn-sm" target="_blank" >
                                                                 <b><i class="mdi mdi-file-pdf-box-outline"> View Payment Receipt</i></b>
                                                             </a>
