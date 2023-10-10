@@ -147,9 +147,6 @@
                                                         @endif
 
                                                         <td style="display:flex;">
-
-                                                            <button type="button" class="btn btn-dark " data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Upload Payment Receipt</b></button>
-                                                            &nbsp;&nbsp;
                                                             <a href='{{ url("/renew_hospital_noc/show/{$value->RH_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
