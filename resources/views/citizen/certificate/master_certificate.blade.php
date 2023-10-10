@@ -40,7 +40,7 @@
         .letter {
             margin: 0 auto;
             text-align: justify;
-            line-height: 1.6;
+            /* line-height: 1.6; */
         }
         .header {
             text-align: center;

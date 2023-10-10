@@ -16,10 +16,10 @@
                                     <div class="card-body">
                                         <div class="letter">
                                             <div style="float: left;">
-                                                <img src="http://127.0.0.1:8000/assets/logo/favicon.ico" alt="logo" width="60" height="60">
+                                                <img src="{{ url('/') }}/assets/logo/favicon.ico" alt="logo" width="60" height="60">
                                             </div>
                                             <div style="float: right;">
-                                                <img src="http://127.0.0.1:8000/assets/logo/favicon.ico" alt="Logo" width="60" height="60">
+                                                <img src="{{ url('/') }}/assets/logo/favicon.ico" alt="Logo" width="60" height="60">
                                             </div>
                                             <div class="header">
                                                 उल्हासनगर महानगरपालिका <br>
