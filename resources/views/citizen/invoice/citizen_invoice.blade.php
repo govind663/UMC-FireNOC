@@ -30,6 +30,7 @@
         <!-- App Css-->
         <link href="{{ url('/') }}/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
+        
     </head>
 
     <style>
@@ -99,7 +100,20 @@
                                                 <div class="text-muted">
                                                     <h5 class="font-size-16 mb-3">Billed To:</h5>
                                                     <h5 class="font-size-15 mb-1">{{ $data->l_name }} {{ $data->father_name }} {{ $data->f_name }} </h5>
+                                                    @if ($noc_mode == 1)
                                                     <p class="mb-0">{{ $data->society_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} , Pincode : {{ $data->taluka_name }}</p>
+                                                    @elseif ($noc_mode == 2)
+                                                    <p class="mb-0">{{ $data->society_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} , Pincode : {{ $data->taluka_name }}</p>
+                                                    @elseif ($noc_mode == 3)
+                                                    <p class="mb-0">{{ $data->hospital_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} , Pincode : {{ $data->taluka_name }}</p>
+                                                    @elseif ($noc_mode == 4)
+                                                    <p class="mb-0">{{ $data->hospital_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} , Pincode : {{ $data->taluka_name }}</p>
+                                                    @elseif ($noc_mode == 5)
+                                                    <p class="mb-0">{{ $data->society_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} , Pincode : {{ $data->taluka_name }}</p>
+                                                    @elseif ($noc_mode == 6)
+                                                    <p class="mb-0">{{ $data->society_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} , Pincode : {{ $data->taluka_name }}</p>
+                                                    @endif
+                                                    
                                                     <p class="mb-0">{{ $data->tel_no }}</p>
                                                 </div>
                                             </div>

@@ -151,6 +151,10 @@
                                                             <a href='{{ url("/admin_renew_hospital_noc/show/{$value->RH_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
+                                                            &nbsp;&nbsp;
+                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/f_inspector_doc/{{ $value->f_inspector_doc }}" class="btn btn-dark btn-sm" target="_blank" >
+                                                                <b><i class="mdi mdi-file-pdf-box-outline"> View Payment Receipt</i></b>
+                                                            </a>
                                                         </td>
 
                                                     </tr>

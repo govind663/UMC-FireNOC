@@ -1039,7 +1039,8 @@
                                                     <a href='{{ url("/admin_new_business_noc/approved/$data->NB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
                                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
                                                     @elseif(Auth::user()->role == 1)
-                                                    <a href='{{ url("/admin_new_business_noc/approved/$data->NB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
+                                                    {{-- <a href='{{ url("/admin_new_business_noc/approved/$data->NB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp; --}}
+                                                    <button type="button" class="btn btn-warning text-dark" data-bs-toggle="modal" data-bs-target=".NB_NOC_Accept"><b>Accept</b></button>&nbsp;&nbsp;
                                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
                                                     @elseif(Auth::user()->role == 0)
                                                     <a href='{{ url("/admin_new_business_noc/approved/{$data->NB_NOC_ID}/{$data->status}/{$auth_role}") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
@@ -1074,6 +1075,54 @@
         </div>
         <!-- END layout-wrapper -->
 
+        {{-- Start Approved for New Business Application Model --}}
+        <div class="modal fade NB_NOC_Accept" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-primary" id="myLargeModalLabel">Approve By Field Inspector For New Business NOC :</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <form class="auth-input p-3"  method="POST"  action='{{ url("/admin_new_business_noc/field_inspector_approved/$data->NB_NOC_ID/$data->status/$auth_role") }}' enctype="multipart/form-data">
+                                @csrf
+
+                                <div class="form-group row mb-3">
+                                    <label class="col-sm-12"><strong>Upload Document : <span style="color:red;">*</span></strong></label>
+                                    <div class="col-sm-12 col-md-12">
+                                        <input type="file" name="f_inspector_doc" id="f_inspector_doc" class="form-control @error('f_inspector_doc') is-invalid @enderror" value="{{  old('f_inspector_doc')  }}" >
+                                        @error('f_inspector_doc')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <label class="col-sm-12"><strong>Remarks : <span style="color:red;">*</span></strong></label>
+                                    <div class="col-sm-12 col-md-12">
+                                        <textarea type="text" name="f_inspector_remarks" id="f_inspector_remarks" class="form-control @error('f_inspector_remarks') is-invalid @enderror" value="{{  old('f_inspector_remarks')  }}" >{{  old('f_inspector_remarks')  }}</textarea>
+                                        @error('f_inspector_remarks')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group row mt-4" >
+                                    <label class="col-md-3"></label>
+                                    <div class="col-md-9" style="display: flex; justify-content: flex-end;">
+                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>&nbsp;&nbsp;
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         {{-- Start Reject for Renew Bussiness Application Model --}}
         <div class="modal fade NB_NOC_Reject" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">

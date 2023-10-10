@@ -73,7 +73,7 @@ class AdminRenewBusinessNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function approved($id, $status, $auth_role)
+    public function approved(Request $request, $id, $status, $auth_role)
     {
         // display only pending form (status=0)
         if (Auth::user()->role == 0) {
@@ -91,6 +91,21 @@ class AdminRenewBusinessNOCController extends Controller
 
         // display only underprocess form (status=5)
         } elseif (Auth::user()->role == 1) {
+
+            // ==== Upload (f_inspector_doc)
+            $fileName = "";
+            
+            if (!empty($request->hasFile('f_inspector_doc'))) {
+                $image = $request->file('f_inspector_doc');
+                $image_name = $image->getClientOriginalName();
+                $extension = $image->getClientOriginalExtension();
+                $new_name = time() . rand(10, 999) . '.' . $extension;
+                $image->move(public_path('/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/f_inspector_doc'), $new_name);
+
+                $image_path = "/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/f_inspector_doc" . $image_name;
+                $fileName = $new_name;
+            }
+
             $update = [
                 'status' => 1, // === Unpaid (Level Up that means application go to User End)
                 'inspector_status' => 1, // ===== Approved by Field Inspector
@@ -98,6 +113,8 @@ class AdminRenewBusinessNOCController extends Controller
                 'inspector_dt' => date("Y-m-d H:i:s"),
                 'approved_dt' => date("Y-m-d H:i:s"),
                 'approved_by' => Auth::user()->id,
+                'f_inspector_doc' => $fileName,
+                'f_inspector_remarks' => $request->f_inspector_remarks
             ];
 
             Business_NOC::where('id', $id)->where('status', $status)->update($update);

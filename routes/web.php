@@ -71,6 +71,7 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     Route::get('/admin_new_business_noc_list/{status}', [AdminNewBusinessNOCController::class, 'index'])->name('admin_new_business_noc_list');
     Route::get('/admin_new_business_noc/show/{id}/{status}', [AdminNewBusinessNOCController::class, 'show'])->name('admin_new_business_noc.show');
     Route::get('/admin_new_business_noc/approved/{id}/{status}/{auth_role}', [AdminNewBusinessNOCController::class, 'approved'])->name('admin_new_business_noc.approved');
+    Route::post('/admin_new_business_noc/field_inspector_approved/{id}/{status}/{auth_role}', [AdminRenewBusinessNOCController::class, 'approved'])->name('admin_new_business_noc.field_inspector_approved');
     Route::post('/admin_new_business_noc/rejected/{id}/{status}/{auth_role}', [AdminNewBusinessNOCController::class, 'rejected'])->name('admin_new_business_noc.rejected');
     Route::get('/all_new_business_noc_list/{all_status}', [AdminNewBusinessNOCController::class, 'list'])->name('all_new_business_noc_list');
     Route::get('/all_new_business_noc/show/{id}/{all_status}', [AdminNewBusinessNOCController::class, 'view'])->name('all_new_business_noc.show');
@@ -79,6 +80,7 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     Route::get('/admin_renew_business_noc_list/{status}', [AdminRenewBusinessNOCController::class, 'index'])->name('admin_renew_business_noc_list');
     Route::get('/admin_renew_business_noc/show/{id}/{status}', [AdminRenewBusinessNOCController::class, 'show'])->name('admin_renew_business_noc.show');
     Route::get('/admin_renew_business_noc/approved/{id}/{status}/{auth_role}', [AdminRenewBusinessNOCController::class, 'approved'])->name('admin_renew_business_noc.approved');
+    Route::post('/admin_renew_business_noc/field_inspector_approved/{id}/{status}/{auth_role}', [AdminRenewBusinessNOCController::class, 'approved'])->name('admin_renew_business_noc.field_inspector_approved');
     Route::post('/admin_renew_business_noc/rejected/{id}/{status}/{auth_role}', [AdminRenewBusinessNOCController::class, 'rejected'])->name('admin_renew_business_noc.rejected');
     Route::get('/all_renew_business_noc_list/{all_status}', [AdminRenewBusinessNOCController::class, 'list'])->name('all_renew_business_noc_list');
     Route::get('/all_renew_business_noc/show/{id}/{all_status}', [AdminRenewBusinessNOCController::class, 'view'])->name('all_renew_business_noc.show');
@@ -87,6 +89,7 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     Route::get('/admin_new_hospital_noc_list/{status}', [AdminNewHospitalNOCController::class, 'index'])->name('admin_new_hospital_noc_list');
     Route::get('/admin_new_hospital_noc/show/{id}/{status}', [AdminNewHospitalNOCController::class, 'show'])->name('admin_new_hospital_noc.show');
     Route::get('/admin_new_hospital_noc/approved/{id}/{status}/{auth_role}', [AdminNewHospitalNOCController::class, 'approved'])->name('admin_new_hospital_noc_list.approved');
+    Route::post('/admin_new_hospital_noc/field_inspector_approved/{id}/{status}/{auth_role}', [AdminNewHospitalNOCController::class, 'approved'])->name('admin_new_hospital_noc.field_inspector_approved');
     Route::post('/admin_new_hospital_noc/rejected/{id}/{status}/{auth_role}', [AdminNewHospitalNOCController::class, 'rejected'])->name('admin_new_hospital_noc.rejected');
     Route::get('/all_new_hospital_noc_list/{all_status}', [AdminNewHospitalNOCController::class, 'list'])->name('all_new_hospital_noc_list');
     Route::get('/all_new_hospital_noc/show/{id}/{all_status}', [AdminNewHospitalNOCController::class, 'view'])->name('all_new_hospital_noc.show');
@@ -95,6 +98,7 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     Route::get('/admin_renew_hospital_noc_list/{status}', [AdminRenewHospitalNOCController::class, 'index'])->name('admin_renew_hospital_noc_list');
     Route::get('/admin_renew_hospital_noc/show/{id}/{status}', [AdminRenewHospitalNOCController::class, 'show'])->name('admin_renew_hospital_noc.show');
     Route::get('/admin_renew_hospital_noc/approved/{id}/{status}/{auth_role}', [AdminRenewHospitalNOCController::class, 'approved'])->name('admin_renew_hospital_noc.approved');
+    Route::post('/admin_renew_hospital_noc/field_inspector_approved/{id}/{status}/{auth_role}', [AdminRenewHospitalNOCController::class, 'approved'])->name('admin_renew_hospital_noc.field_inspector_approved');
     Route::post('/admin_renew_hospital_noc/rejected/{id}/{status}/{auth_role}', [AdminRenewHospitalNOCController::class, 'rejected'])->name('admin_renew_hospital_noc.rejected');
     Route::get('/all_renew_hospital_noc_list/{all_status}', [AdminRenewHospitalNOCController::class, 'list'])->name('all_renew_hospital_noc_list');
     Route::get('/all_renew_hospital_noc/show/{id}/{all_status}', [AdminRenewHospitalNOCController::class, 'view'])->name('all_renew_hospital_noc.show');
@@ -103,6 +107,7 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     Route::get('/admin_provisional_building_noc_list/{status}', [AdminProvisionalBuildingNOCController::class, 'index'])->name('admin_provisional_building_noc_list');
     Route::get('/admin_provisional_building_noc/show/{id}/{status}', [AdminProvisionalBuildingNOCController::class, 'show'])->name('admin_provisional_building_noc.show');
     Route::get('/admin_provisional_building_noc/approved/{id}/{status}/{auth_role}', [AdminProvisionalBuildingNOCController::class, 'approved'])->name('admin_provisional_building_noc.approved');
+    Route::post('/admin_provisional_building_noc/field_inspector_approved/{id}/{status}/{auth_role}', [AdminProvisionalBuildingNOCController::class, 'approved'])->name('admin_provisional_building_noc.field_inspector_approved');
     Route::post('/admin_provisional_building_noc/rejected/{id}/{status}/{auth_role}', [AdminProvisionalBuildingNOCController::class, 'rejected'])->name('admin_provisional_building_noc.rejected');
     Route::get('/all_provisional_building_noc_list/{all_status}', [AdminProvisionalBuildingNOCController::class, 'list'])->name('all_provisional_building_noc_list');
     Route::get('/all_provisional_building_noc/show/{id}/{all_status}', [AdminProvisionalBuildingNOCController::class, 'view'])->name('all_provisional_building_noc.show');
@@ -111,6 +116,7 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     Route::get('/admin_final_building_noc_list/{status}', [AdminFinalBuildingNOCController::class, 'index'])->name('admin_final_building_noc_list');
     Route::get('/admin_final_building_noc/show/{id}/{status}', [AdminFinalBuildingNOCController::class, 'show'])->name('admin_final_building_noc.show');
     Route::get('/admin_final_building_noc/approved/{id}/{status}/{auth_role}', [AdminFinalBuildingNOCController::class, 'approved'])->name('admin_final_building_noc.approved');
+    Route::post('/admin_final_building_noc/field_inspector_approved/{id}/{status}/{auth_role}', [AdminFinalBuildingNOCController::class, 'approved'])->name('admin_final_building_noc.field_inspector_approved');
     Route::post('/admin_final_building_noc/rejected/{id}/{status}/{auth_role}', [AdminFinalBuildingNOCController::class, 'rejected'])->name('admin_final_building_noc.rejected');
     Route::get('/all_final_building_noc_list/{all_status}', [AdminFinalBuildingNOCController::class, 'list'])->name('all_final_building_noc_list');
     Route::get('/all_final_building_noc/show/{id}/{all_status}', [AdminFinalBuildingNOCController::class, 'view'])->name('all_final_building_noc.show');
@@ -248,6 +254,7 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware']],
 
     // ======= All Payment receipt
     Route::post('/upload_payment_receipt/{id}/{status}/{noc_mode}', [CertificateController::class, 'upload_payment_receipt'])->name('upload_payment_receipt');
+
 
 });
 
