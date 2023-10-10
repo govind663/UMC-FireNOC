@@ -16,10 +16,10 @@
                                     <div class="card-body">
                                         <div class="letter">
                                             <div style="float: left;">
-                                                <img src="http://127.0.0.1:8000/assets/logo/favicon.ico" alt="logo" width="60" height="60">
+                                                <img src="{{ url(/) }}/assets/logo/favicon.ico" alt="logo" width="60" height="60">
                                             </div>
                                             <div style="float: right;">
-                                                <img src="http://127.0.0.1:8000/assets/logo/favicon.ico" alt="Logo" width="60" height="60">
+                                                <img src="{{ url(/) }}/assets/logo/favicon.ico" alt="Logo" width="60" height="60">
                                             </div>
                                             <div class="header">
                                                 उल्हासनगर महानगरपालिका <br>
@@ -28,17 +28,17 @@
                                                 <hr>
                                             </div>
                                             <div>
-                                                <div style="float: left;">टोकन क्र:- ..................</div>
+                                                <div style="float: left;"><b>टोकन क्र :- </b> {{ $data->mst_token }}</div>
                                                 <div style="float: right;">जा.क्र उपमा/अग्नि/......./२०--</div><br>
-                                                <div style="float: right;padding-right: 58px;">दिनांक:  --/--/२०--</div><br>
+                                                <div style="float: right;padding-right: 58px;">दिनांक :- {{ \Carbon\Carbon::parse($data->inserted_dt)->format('j/m/Y') }} </div><br>
                                                 <p class="lineheight">प्रति,</p>
-                                                <p class="lineheight">.............................</p>
-                                                <p class="lineheight">............................,</p>
-                                                <p class="lineheight">............................,</p>
+                                                <p class="lineheight">श्री {{ $data->f_name }}</p>
+                                                <p class="lineheight">{{ $data->father_name }}</p>
+                                                <p class="lineheight">{{ $data->l_name }}</p>
                                                 <p class="lineheight">उल्हासनगर -</p>
 
                                                 <b><p style="text-align: center;"> <u>"विविध व्यवसाय नुतनीकरण ना हरकत दाखला”</u></p></b><br>
-                                                <p>आपला दिनांक :- --/--/२०-- चे अर्जानुसार आपल्या ................ व्यवसायाकरीता या पूर्वीचे जावक क्रं. उमपा /अग्नि / ---/२०-- दिनांक :- --/--/२०-- चे अन्वये देण्यात आलेला "ना हरकत दाखला" त्यांचे नियम अटीसह दिनांक :- --/--/२०-- पर्यंत नुतनीकरण करण्यात येत असून त्यानंतर त्याचे पुन्हा नुतनीकरण करून घ्यावे.उपरोक्त दाखल्याचे नियम व अटीचा भंग केल्यास सदर दाखला रदद करण्यात येईल.</p>
+                                                <p>आपला दिनांक :- {{ \Carbon\Carbon::parse($data->inserted_dt)->format('j/m/Y') }} चे अर्जानुसार आपल्या {{ $data->society_name }} व्यवसायाकरीता या पूर्वीचे जावक क्रं. उमपा /अग्नि / ---/२०-- दिनांक :- {{ \Carbon\Carbon::parse($data->inserted_dt)->format('j/m/Y') }} चे अन्वये देण्यात आलेला "ना हरकत दाखला" त्यांचे नियम अटीसह दिनांक :- {{ \Carbon\Carbon::parse($data->f_inspector_dt)->format('j/m/Y') }} पर्यंत नुतनीकरण करण्यात येत असून त्यानंतर त्याचे पुन्हा नुतनीकरण करून घ्यावे.उपरोक्त दाखल्याचे नियम व अटीचा भंग केल्यास सदर दाखला रदद करण्यात येईल.</p>
                                                 <p><strong>मागील नुतनीकरण ना हरकत दाखला भरलेली फी :- रक्कम रू --------/-</strong></p>
                                                 <p><strong>(टिप:- शासकीय ठराव क्र. ५० दिनांक २८/०२/२०२३ अन्वये एक महिन्यानंतर मुळ नुतनीकरण शुल्कावर विलंब आकार १०% प्रति महीना आकारण्यात येईल.)</strong></p>
                                             </div>
