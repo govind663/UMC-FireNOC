@@ -1024,18 +1024,31 @@
                             @csrf
 
                             <div class="form-group row mb-3">
-                                <label class="col-sm-12"><strong>Upload Document : <span style="color:red;">*</span></strong></label>
-                                <div class="col-sm-12 col-md-12">
-                                    <input type="file" name="f_inspector_doc" id="f_inspector_doc" class="form-control @error('f_inspector_doc') is-invalid @enderror" value="{{  old('f_inspector_doc')  }}" >
+                                <label class="col-sm-2"><strong>Upload Document : <span style="color:red;">*</span></strong></label>
+                                <div class="col-sm-4 col-md-4">
+                                    <input type="file" required name="f_inspector_doc" id="f_inspector_doc" class="form-control @error('f_inspector_doc') is-invalid @enderror" value="{{  old('f_inspector_doc')  }}" >
                                     @error('f_inspector_doc')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
+
+                                <label class="col-sm-2"><strong>Date : <span style="color:red;">*</span></strong></label>
+                                <div class="col-sm-4 col-md-4">
+                                    <input type="date" required name="f_inspector_dt" id="f_inspector_dt" class="form-control @error('f_inspector_dt') is-invalid @enderror" value="{{  old('f_inspector_dt')  }}" >
+                                    @error('f_inspector_dt')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-3">
                                 <label class="col-sm-12"><strong>Remarks : <span style="color:red;">*</span></strong></label>
                                 <div class="col-sm-12 col-md-12">
-                                    <textarea type="text" name="f_inspector_remarks" id="f_inspector_remarks" class="form-control @error('f_inspector_remarks') is-invalid @enderror" value="{{  old('f_inspector_remarks')  }}" >{{  old('f_inspector_remarks')  }}</textarea>
+                                    <textarea type="text" required name="f_inspector_remarks" id="f_inspector_remarks" class="form-control @error('f_inspector_remarks') is-invalid @enderror" value="{{  old('f_inspector_remarks')  }}" >{{  old('f_inspector_remarks')  }}</textarea>
                                     @error('f_inspector_remarks')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

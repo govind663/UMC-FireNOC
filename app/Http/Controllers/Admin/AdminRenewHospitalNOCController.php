@@ -91,7 +91,7 @@ class AdminRenewHospitalNOCController extends Controller
 
         // display only underprocess form (status=5)
         } elseif (Auth::user()->role == 1) {
-            
+
             // ==== Upload (f_inspector_doc)
             $fileName = "";
             if (!empty($request->hasFile('f_inspector_doc'))) {
@@ -109,6 +109,7 @@ class AdminRenewHospitalNOCController extends Controller
                 'status' => 1, // === Unpaid (Level Up that means application go to User End)
                 'inspector_status' => 1, // ===== Approved by Field Inspector
                 'inspector_by' => Auth::user()->id,
+                'f_inspector_dt' => date("Y-m-d H:i:s"),
                 'inspector_dt' => date("Y-m-d H:i:s"),
                 'approved_dt' => date("Y-m-d H:i:s"),
                 'approved_by' => Auth::user()->id,

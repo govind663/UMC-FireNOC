@@ -151,12 +151,87 @@
                                                             </a>
                                                             &nbsp;&nbsp;
                                                             @if ($value->status == 2 && $value->citizen_payment_status == 2 )
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/f_inspector_doc/{{ $value->f_inspector_doc }}" class="btn btn-dark btn-sm" target="_blank" >
-                                                                <b><i class="mdi mdi-file-pdf-box-outline"> View Payment Receipt</i></b>
-                                                            </a>
+                                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".PB_NOC_Preview"><b>View Field Inspector Remark</b></button>
                                                             @endif
                                                         </td>
                                                     </tr>
+
+                                                    {{-- Start  View Field Inspector Remark  Model --}}
+                                                    <div class="modal fade FB_NOC_Preview" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title text-primary" id="myLargeModalLabel">Field Inspector Remark For Provisional Building NOC :</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <form class="auth-input p-3"  enctype="multipart/form-data">
+
+                                                                            <div class="form-group row mb-3">
+                                                                                <label class="col-sm-2"><strong>Upload Document : <span style="color:red;">*</span></strong></label>
+                                                                                <div class="col-sm-4 col-md-4">
+                                                                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/f_inspector_doc/{{ $value->f_inspector_doc }}" target="_blank">
+                                                                                        <div class="form-group">
+                                                                                            <?php
+                                                                                                    $document_path = $value->f_inspector_doc;
+                                                                                                    $filter_path =  explode(".",$document_path);
+                                                                                                    $size_of_array = count($filter_path);
+                                                                                                    $filter_ext = $filter_path[$size_of_array - 1];
+
+                                                                                                    if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
+                                                                                                    $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
+                                                                                                    {
+                                                                                            ?>
+
+                                                                                            <p class="mt-3 mb-0" id="image_div">
+                                                                                                <img src="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/f_inspector_doc/{{ $value->f_inspector_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                                            </p>
+                                                                                            <?php }
+                                                                                            else{
+                                                                                                ?>
+                                                                                                <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/f_inspector_doc/{{ $value->f_inspector_doc }}" target="_blank" download>
+                                                                                                    <p class="mt-3 mb-0" id="image_div">
+                                                                                                    <button type="button"class="btn btn-primary text-bold">
+                                                                                                        Download File
+                                                                                                    </button>
+                                                                                                    </p>
+                                                                                                </a>
+                                                                                            <?php }?>
+                                                                                        </div>
+                                                                                    </a>
+
+                                                                                </div>
+
+                                                                                <label class="col-sm-2"><strong>Date : <span style="color:red;">*</span></strong></label>
+                                                                                <div class="col-sm-4 col-md-4">
+                                                                                    <input readonly class="form-control" value="{{  $value->f_inspector_dt  }}" >
+
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="form-group row mb-3">
+                                                                                <label class="col-sm-12"><strong>Remarks : <span style="color:red;">*</span></strong></label>
+                                                                                <div class="col-sm-12 col-md-12">
+                                                                                    <textarea readonly class="form-control " value="{{  $value->f_inspector_remarks  }}" >{{  $value->f_inspector_remarks  }}</textarea>
+
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="form-group row mt-4" >
+                                                                                <label class="col-md-3"></label>
+                                                                                <div class="col-md-9" style="display: flex; justify-content: flex-end;">
+                                                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>&nbsp;&nbsp;
+                                                                                    {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 @endforeach
                                             </tbody>
                                         </table>
