@@ -103,7 +103,7 @@ class InvoiceController extends Controller
                             ->leftJoin('fee_mode_operates as t3', 't3.id', '=', 't1.fee_mode_operate_id' )
                             ->leftJoin('fee_bldg_hts as t4', 't4.id', '=', 't1.fee_bldg_ht_id' )
                             ->where('t1.citizen_id',  Auth::user()->id)
-                            ->where('t1.id', $id)
+                            ->where('t1.payment_noc_mode', $noc_mode)
                             ->whereNUll('t1.deleted_at')
                             ->whereNUll('t2.deleted_at')
                             ->whereNUll('t3.deleted_at')
