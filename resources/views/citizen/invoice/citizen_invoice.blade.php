@@ -30,7 +30,7 @@
         <!-- App Css-->
         <link href="{{ url('/') }}/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
-        
+
     </head>
 
     <style>
@@ -113,7 +113,7 @@
                                                     @elseif ($noc_mode == 6)
                                                     <p class="mb-0">{{ $data->society_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} , Pincode : {{ $data->taluka_name }}</p>
                                                     @endif
-                                                    
+
                                                     <p class="mb-0">{{ $data->tel_no }}</p>
                                                 </div>
                                             </div>
@@ -179,12 +179,12 @@
                                                             <td>
                                                                 {{ $value->new_area_meter }} m
                                                             </td>
-                                                            <td class="text-end">{{ $data->meter_rate }} Rs </td>
-                                                            <td class="text-end">{{ $data->total_charges_cost }} Rs </td>
+                                                            <td class="text-start">{{ $value->meter_rate }} Rs </td>
+                                                            <td class="text-start">{{ $value->total_charges_cost }} Rs </td>
                                                             @endif
 
                                                             @if ($value->wing_option == 1)
-                                                            <td class="text-end">{{ ($data->wing_rate) ? $data->wing_rate.' Rs' : '-' }} </td>
+                                                            <td class="text-start">{{ ($value->wing_rate) ? $value->wing_rate.' Rs' : '-' }} </td>
                                                             @endif
                                                         </tr>
                                                         <!-- end tr -->
@@ -213,7 +213,7 @@
                                                         </tr> --}}
                                                         <!-- end tr -->
                                                         @php
-                                                            $total_charge = $total_charge + $data->total_charges_cost;
+                                                            $total_charge = $total_charge + $value->total_charges_cost;
                                                         @endphp
                                                         @endforeach
                                                         {{-- <tr>

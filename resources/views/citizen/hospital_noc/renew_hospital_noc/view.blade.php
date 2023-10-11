@@ -500,7 +500,7 @@
                                             <div class="row ">
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Document Of Property : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Document Of Property : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/property_doc/{{ $data->property_doc }}" target="_blank">
                                                             <div class="form-group">
@@ -533,7 +533,7 @@
                                                         </a>
                                                     </div>
 
-                                                    <label class="col-sm-2"><strong>Upload Location of Place : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Location of Place : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/location_doc/{{ $data->location_doc }}" target="_blank">
                                                             <div class="form-group">
@@ -568,7 +568,7 @@
                                                 </div>
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Letter from License Holder regarding proper electric connection : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Letter from License Holder regarding proper electric connection : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/electric_doc/{{ $data->electric_doc }}" target="_blank">
                                                             <div class="form-group">
@@ -601,7 +601,7 @@
                                                         </a>
                                                     </div>
 
-                                                    <label class="col-sm-2"><strong>Upload Shop License : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Shop License : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/shop_license_doc/{{ $data->shop_license_doc }}" target="_blank">
                                                             <div class="form-group">
@@ -636,7 +636,7 @@
                                                 </div>
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Up-to-date receipt of Tax bill paid : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Up-to-date receipt of Tax bill paid : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/paid_tax_bill_doc/{{ $data->paid_tax_bill_doc }}" target="_blank">
                                                             <div class="form-group">
@@ -669,7 +669,7 @@
                                                         </a>
                                                     </div>
 
-                                                    <label class="col-sm-2"><strong>Upload Commissioning Certificate of Fire extinguishers / preventive equipments of I.S.I. Mark : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Commissioning Certificate of Fire extinguishers / preventive equipments of I.S.I. Mark : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank">
                                                             <div class="form-group">
@@ -704,7 +704,7 @@
                                                 </div>
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Copy of Affidavit : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Copy of Affidavit : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/affidavit_doc/{{ $data->affidavit_doc }}" target="_blank">
                                                             <div class="form-group">
@@ -737,7 +737,7 @@
                                                         </a>
                                                     </div>
 
-                                                    <label class="col-sm-2"><strong>Upload Corporation Registration certificate (FOR OLD HOSPITAL) : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Corporation Registration certificate (FOR OLD HOSPITAL) : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/corporation_certificate/{{ $data->corporation_certificate }}" target="_blank">
                                                             <div class="form-group">
@@ -974,7 +974,7 @@
                                                 {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
 
                                                 @if($data->status == 2 && $data->citizen_payment_status == 1)
-                                                <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_5">Upload Payment Recepit</button>
+                                                <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_5">Payment Recepit</button>
                                                 @endif
                                             </div>
                                         </div>
@@ -1025,12 +1025,12 @@
 
     <script src="{{ url('/') }}/assets/js/app.js"></script>
 
-    {{-- Upload Payment Receipt --}}
+    {{-- Payment Receipt --}}
     <div class="modal fade bs-example-modal-lg_5" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title text-primary" id="myLargeModalLabel">Upload Payment Receipt :</h5>
+                    <h5 class="modal-title text-primary" id="myLargeModalLabel">Payment Receipt :</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -1066,9 +1066,9 @@
                             </div>
 
                             <div class="form-group row  mb-3">
-                                <label class="col-sm-2"><strong>Upload Payment Receipt : <span style="color:red;">*</span></strong></label>
+                                <label class="col-sm-2"><strong>Payment Receipt : <span style="color:red;">*</span></strong></label>
                                 <div class="col-sm-10 col-md-10">
-                                    <input type="file" accept=".jpg, .jpeg, .png, .pdf"  name="payment_recepit_doc" id="payment_recepit_doc" class="form-control  @error('payment_recepit_doc') is-invalid @enderror " value="{{ old('commissioning_certificate') }}" placeholder="Upload Payment Receipt.">
+                                    <input type="file" accept=".jpg, .jpeg, .png, .pdf"  name="payment_recepit_doc" id="payment_recepit_doc" class="form-control  @error('payment_recepit_doc') is-invalid @enderror " value="{{ old('commissioning_certificate') }}" placeholder="Payment Receipt.">
                                     <small class="text-secondary"> Note : The file size should be less than 2MB .</small>
                                     <br>
                                     <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</small>

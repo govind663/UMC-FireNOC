@@ -147,7 +147,7 @@ class BuildingNOCRequest extends FormRequest
             'l_name.required' => 'Last Name / Surname is required',
             'f_name.required' => 'First Name is required',
             'father_name.required' => "Father / Husband's Name is required",
-            'society_name.required' => 'Name of Society is required',
+            'society_name.required' => 'Name of Building is required',
             'designation.required' => 'Designation is required',
 
             // ===== Address Details

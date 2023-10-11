@@ -119,6 +119,7 @@ class CertificateController extends Controller
             $data->payment_recepit_doc = $new_name;
         }
 
+        $data->mst_token = $request->get('mst_token');
         $data->citizen_id = $request->get('citizens_id');
         $data->payment_noc_mode = $request->get('payment_noc_mode');
         $data->document_status = 1;

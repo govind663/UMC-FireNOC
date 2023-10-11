@@ -122,7 +122,7 @@
                                             </div>
 
                                             <div class="form-group row  mb-3">
-                                                <label class="col-sm-2"><strong>Name of Society : <span style="color:red;">*</span></strong></label>
+                                                <label class="col-sm-2"><strong>Name of Business : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
                                                     <input type="text" name="society_name" id="society_name" class="form-control @error('society_name') is-invalid @enderror" value="{{ $data->society_name }}" placeholder="Enter Name of Society.">
                                                     @error('society_name')
@@ -257,7 +257,7 @@
                                                 </div>
                                                 <label class="col-sm-2"><strong>Telephone No. (if any) : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" name="tel_no" id="tel_no" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control" value="{{ $data->tel_no }}" placeholder="Enter Telephone No. (if any).">
+                                                    <input type="text" name="tel_no" id="tel_no" maxlength="10" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" class="form-control" value="{{ $data->tel_no }}" placeholder="Enter Telephone No. (if any).">
 
                                                 </div>
                                                 <label class="col-sm-2"><strong>Email Id (if any) : </strong></label>

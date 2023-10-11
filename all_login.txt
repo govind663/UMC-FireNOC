@@ -9,7 +9,7 @@ Email id : cf_officer@gmail.com
 Password : 1234567890
 
 ========= Field Inspector
-Email id : f_officer@gmail.com
+Email id : f_inspector@gmail.com
 Password : 1234567890
 
 ========= Operator

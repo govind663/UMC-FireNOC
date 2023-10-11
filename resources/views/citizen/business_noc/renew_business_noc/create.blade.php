@@ -127,9 +127,9 @@
                                         </div>
 
                                         <div class="form-group row  mb-3">
-                                            <label class="col-sm-2"><strong>Name of Society : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Name of Business : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="society_name" id="society_name" class="form-control @error('society_name') is-invalid @enderror" value="{{ old('society_name') }}" placeholder="Enter Name of Society.">
+                                                <input type="text" name="society_name" id="society_name" class="form-control @error('society_name') is-invalid @enderror" value="{{ old('society_name') }}" placeholder="Enter Name of Business.">
                                                 @error('society_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

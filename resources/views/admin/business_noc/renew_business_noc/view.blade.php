@@ -121,9 +121,9 @@
                                             </div>
 
                                             <div class="form-group row  mb-3">
-                                                <label class="col-sm-2"><strong>Name of Society : <span style="color:red;">*</span></strong></label>
+                                                <label class="col-sm-2"><strong>Name of Business : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" disabled name="society_name" id="society_name" class="form-control @error('society_name') is-invalid @enderror" value="{{ $data->society_name }}" placeholder="Enter Name of Society.">
+                                                    <input type="text" disabled name="society_name" id="society_name" class="form-control @error('society_name') is-invalid @enderror" value="{{ $data->society_name }}" placeholder="Enter Name of Business.">
                                                     @error('society_name')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -516,7 +516,7 @@
                                             <div class="row " >
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Location of Place (Google Map Link) : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Location of Place (Google Map Link) : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank">
                                                             <div class="form-group">
@@ -549,7 +549,7 @@
                                                         </a>
                                                     </div>
 
-                                                    <label class="col-sm-2"><strong>Upload Letter from License Holder regarding proper electric connection : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Letter from License Holder regarding proper electric connection : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/electric_license_doc/{{ $data->electric_license_doc }}" target="_blank">
                                                             <div class="form-group">
@@ -584,7 +584,7 @@
                                                 </div>
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Letter from connection holder and license regarding proper cooking gas connection : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Letter from connection holder and license regarding proper cooking gas connection : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/gas_license_doc/{{ $data->gas_license_doc }}" target="_blank">
                                                             <div class="form-group">
@@ -617,7 +617,7 @@
                                                         </a>
                                                     </div>
 
-                                                    <label class="col-sm-2"><strong>Upload Shop License : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Shop License : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/shop_license_doc/{{ $data->shop_license_doc }}" target="_blank">
                                                             <div class="form-group">
@@ -652,7 +652,7 @@
                                                 </div>
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Food License : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Food License : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/food_license/{{ $data->food_license }}" target="_blank">
                                                             <div class="form-group">
@@ -685,7 +685,7 @@
                                                         </a>
                                                     </div>
 
-                                                    <label class="col-sm-2"><strong>Upload Up-to-date receipt of Tax bill paid : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Up-to-date receipt of Tax bill paid : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/tax_bill_paid_doc/{{ $data->tax_bill_paid_doc }}" target="_blank">
                                                             <div class="form-group">
@@ -720,7 +720,7 @@
                                                 </div>
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Trade License (Kerosene/Other Petroleum Stock/ Explosive goods) : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Trade License (Kerosene/Other Petroleum Stock/ Explosive goods) : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/trade_license/{{ $data->trade_license }}" target="_blank">
                                                             <div class="form-group">
@@ -788,7 +788,7 @@
                                                 </div>
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Commissioning Certificate of Fire extinguishers/ preventive equipments of I.S.I. Mark : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Commissioning Certificate of Fire extinguishers/ preventive equipments of I.S.I. Mark : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank">
                                                             <div class="form-group">
@@ -1080,7 +1080,7 @@
                                 @csrf
 
                                 <div class="form-group row mb-3">
-                                    <label class="col-sm-2"><strong>Upload Document : <span style="color:red;">*</span></strong></label>
+                                    <label class="col-sm-2"><strong>Document : <span style="color:red;">*</span></strong></label>
                                     <div class="col-sm-4 col-md-4">
                                         <input type="file" required name="f_inspector_doc" id="f_inspector_doc" class="form-control @error('f_inspector_doc') is-invalid @enderror" value="{{  old('f_inspector_doc')  }}" >
                                         @error('f_inspector_doc')

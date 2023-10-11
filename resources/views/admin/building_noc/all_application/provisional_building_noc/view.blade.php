@@ -121,9 +121,9 @@
                                             </div>
 
                                             <div class="form-group row  mb-3">
-                                                <label class="col-sm-2"><strong>Name of Society : <span style="color:red;">*</span></strong></label>
+                                                <label class="col-sm-2"><strong>Name of Building : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" disabled name="society_name" id="society_name" class="form-control @error('society_name') is-invalid @enderror" value="{{ $data->society_name }}" placeholder="Enter Name of Society.">
+                                                    <input type="text" disabled name="society_name" id="society_name" class="form-control @error('society_name') is-invalid @enderror" value="{{ $data->society_name }}" placeholder="Enter Name of Building.">
                                                     @error('society_name')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -331,7 +331,7 @@
                                                 <div class="row ">
 
                                                     <div class="form-group row  mb-3">
-                                                        <label class="col-sm-2"><strong>Upload Maps of Proposed Construction : <span style="color:red;">*</span></strong></label>
+                                                        <label class="col-sm-2"><strong>Maps of Proposed Construction : <span style="color:red;">*</span></strong></label>
                                                         <div class="col-sm-4 col-md-4">
                                                             <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/maps_of_proposed_doc/{{ $data->maps_of_proposed_doc }}" target="_blank">
                                                                 <div class="form-group">
@@ -364,7 +364,7 @@
                                                             </a>
                                                         </div>
 
-                                                        <label class="col-sm-2"><strong>Upload 7/12 Extract / City Survey Extract : <span style="color:red;">*</span></strong></label>
+                                                        <label class="col-sm-2"><strong>7/12 Extract / City Survey Extract : <span style="color:red;">*</span></strong></label>
                                                         <div class="col-sm-4 col-md-4">
                                                             <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/city_survey_doc/{{ $data->city_survey_doc }}" target="_blank">
                                                                 <div class="form-group">
@@ -399,7 +399,7 @@
                                                     </div>
 
                                                     <div class="form-group row  mb-3">
-                                                        <label class="col-sm-2"><strong>Upload Sanad / Letter from S.D.O. Ulhasnagar : <span style="color:red;">*</span></strong></label>
+                                                        <label class="col-sm-2"><strong>Sanad / Letter from S.D.O. Ulhasnagar : <span style="color:red;">*</span></strong></label>
                                                         <div class="col-sm-4 col-md-4">
                                                             <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/sanad_doc/{{ $data->sanad_doc }}" target="_blank">
                                                                 <div class="form-group">
@@ -432,7 +432,7 @@
                                                             </a>
                                                         </div>
 
-                                                        <label class="col-sm-2"><strong>Upload Title & Search Report from competent Authority : <span style="color:red;">*</span></strong></label>
+                                                        <label class="col-sm-2"><strong>Title & Search Report from competent Authority : <span style="color:red;">*</span></strong></label>
                                                         <div class="col-sm-4 col-md-4">
                                                             <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc/{{ $data->competent_authority_doc }}" target="_blank">
                                                                 <div class="form-group">
@@ -467,7 +467,7 @@
                                                     </div>
 
                                                     <div class="form-group row  mb-3">
-                                                        <label class="col-sm-2"><strong>Upload No dues certificate of Property & Water Tax : <span style="color:red;">*</span></strong></label>
+                                                        <label class="col-sm-2"><strong>No dues certificate of Property & Water Tax : <span style="color:red;">*</span></strong></label>
                                                         <div class="col-sm-4 col-md-4">
                                                             <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc/{{ $data->dues_certificate_doc }}" target="_blank">
                                                                 <div class="form-group">
