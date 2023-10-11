@@ -3,12 +3,20 @@
 namespace App\Http\Controllers\Citizen\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Repository\LogRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    protected $logRepository;
+
+    public function __construct(LogRepository $logRepository)
+    {
+        $this->logRepository = $logRepository;
+    }
+
     public function Citizen_Login_Form()
     {
         if (Auth::guard('citizen')->check()) {
@@ -33,6 +41,8 @@ class LoginController extends Controller
         // $remember_me = $request->has('remember_token') ? true : false;
 
         if (auth()->guard('citizen')->attempt($credentials)) {
+
+            $this->logRepository->insertLog(Auth::guard('citizen')->user()->id, 'citizens', 'login');
             return redirect()->intended('/citizen/dashboard')->with('message', 'You are login Successfully.');
         }
         else{
@@ -42,6 +52,8 @@ class LoginController extends Controller
     }
 
     public function Citizen_Logout(Request $request) {
+
+        $this->logRepository->insertLog(Auth::guard('citizen')->user()->id, 'citizens', 'logout');
 
         Auth::guard('citizen')->logout();
 

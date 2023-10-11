@@ -175,7 +175,7 @@
                                                             <td>
                                                                 {{ $value->building_ht }}
                                                             </td>
-                                                            @if ($value->wing_option == 2)
+                                                            @if ($data->wing_option == 2)
                                                             <td>
                                                                 {{ $value->new_area_meter }} m
                                                             </td>
@@ -183,7 +183,7 @@
                                                             <td class="text-start">{{ $value->total_charges_cost }} Rs </td>
                                                             @endif
 
-                                                            @if ($value->wing_option == 1)
+                                                            @if ($data->wing_option == 1)
                                                             <td class="text-start">{{ ($value->wing_rate) ? $value->wing_rate.' Rs' : '-' }} </td>
                                                             @endif
                                                         </tr>

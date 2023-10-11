@@ -22,6 +22,7 @@ class InvoiceController extends Controller
                     ->where('t1.id', $id)
                     ->whereNUll('t1.deleted_at')
                     ->whereNUll('t2.deleted_at')
+                    ->whereNUll('t3.deleted_at')
                     ->first();
             // dd($data);
         }elseif($noc_mode == 2){
@@ -35,6 +36,7 @@ class InvoiceController extends Controller
                     ->where('t1.id', $id)
                     ->whereNUll('t1.deleted_at')
                     ->whereNUll('t2.deleted_at')
+                    ->whereNUll('t3.deleted_at')
                     ->first();
             // dd($data);
         }elseif($noc_mode == 3){
@@ -48,6 +50,7 @@ class InvoiceController extends Controller
                     ->where('t1.id', $id)
                     ->whereNUll('t1.deleted_at')
                     ->whereNUll('t2.deleted_at')
+                    ->whereNUll('t3.deleted_at')
                     ->first();
             // dd($data);
         }elseif($noc_mode == 4){
@@ -61,6 +64,7 @@ class InvoiceController extends Controller
                     ->where('t1.id', $id)
                     ->whereNUll('t1.deleted_at')
                     ->whereNUll('t2.deleted_at')
+                    ->whereNUll('t3.deleted_at')
                     ->first();
             // dd($data);
         }elseif($noc_mode == 5){
@@ -74,6 +78,7 @@ class InvoiceController extends Controller
                     ->where('t1.id', $id)
                     ->whereNUll('t1.deleted_at')
                     ->whereNUll('t2.deleted_at')
+                    ->whereNUll('t3.deleted_at')
                     ->first();
             // dd($data);
         }elseif($noc_mode == 6){
@@ -86,6 +91,7 @@ class InvoiceController extends Controller
                     ->where('t1.status', $status)
                     ->where('t1.id', $id)
                     ->whereNUll('t1.deleted_at')
+                    ->whereNUll('t3.deleted_at')
                     ->whereNUll('t2.deleted_at')
                     ->first();
             // dd($data);
@@ -96,12 +102,12 @@ class InvoiceController extends Controller
                             ->leftJoin('fee_constructions as t2', 't2.id', '=', 't1.fee_construction_id' )
                             ->leftJoin('fee_mode_operates as t3', 't3.id', '=', 't1.fee_mode_operate_id' )
                             ->leftJoin('fee_bldg_hts as t4', 't4.id', '=', 't1.fee_bldg_ht_id' )
-                            ->leftJoin('fee_receipt_documents as t5', 't5.mst_token', '=', 't1.mst_token' )
                             ->where('t1.citizen_id',  Auth::user()->id)
-                            ->where('t5.document_status', 1)
                             ->where('t1.id', $id)
                             ->whereNUll('t1.deleted_at')
                             ->whereNUll('t2.deleted_at')
+                            ->whereNUll('t3.deleted_at')
+                            ->whereNUll('t4.deleted_at')
                             ->get();
 
         // dd($fetch_payments);
