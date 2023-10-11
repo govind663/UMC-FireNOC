@@ -37,9 +37,19 @@
                                                 <p class="lineheight">{{ $data->l_name }}</p>
                                                 <p class="lineheight">उल्हासनगर -</p>
 
+                                                @php
+                                                   $total_payment = "";
+
+                                                   if($data->wing_option == 1){
+                                                      $total_payment = $data->wing_rate;
+                                                   }elseif($data->wing_option == 2){
+                                                     $total_payment = $data->total_charges_cost;
+                                                   }
+                                                @endphp
+
                                                 <b><p style="text-align: center;"> <u>"विविध व्यवसाय नुतनीकरण ना हरकत दाखला”</u></p></b><br>
                                                 <p>आपला दिनांक :- {{ \Carbon\Carbon::parse($data->inserted_dt)->format('j/m/Y') }} चे अर्जानुसार आपल्या {{ $data->society_name }} व्यवसायाकरीता या पूर्वीचे जावक क्रं. उमपा /अग्नि / ---/२०-- दिनांक :- {{ \Carbon\Carbon::parse($data->inserted_dt)->format('j/m/Y') }} चे अन्वये देण्यात आलेला "ना हरकत दाखला" त्यांचे नियम अटीसह दिनांक :- {{ \Carbon\Carbon::parse($data->f_inspector_dt)->format('j/m/Y') }} पर्यंत नुतनीकरण करण्यात येत असून त्यानंतर त्याचे पुन्हा नुतनीकरण करून घ्यावे.उपरोक्त दाखल्याचे नियम व अटीचा भंग केल्यास सदर दाखला रदद करण्यात येईल.</p>
-                                                <p><strong>मागील नुतनीकरण ना हरकत दाखला भरलेली फी :- रक्कम रू --------/-</strong></p>
+                                                <p><strong>मागील नुतनीकरण ना हरकत दाखला भरलेली फी :- रक्कम  {{ $total_payment }} रू </strong></p>
                                                 <p><strong>(टिप:- शासकीय ठराव क्र. ५० दिनांक २८/०२/२०२३ अन्वये एक महिन्यानंतर मुळ नुतनीकरण शुल्कावर विलंब आकार १०% प्रति महीना आकारण्यात येईल.)</strong></p>
                                             </div>
                                             <div class="signature">
