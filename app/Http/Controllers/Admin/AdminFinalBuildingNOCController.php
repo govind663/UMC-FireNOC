@@ -20,13 +20,15 @@ class AdminFinalBuildingNOCController extends Controller
     public function index($status)
     {
         $query = DB::table('building_noc AS t1')
-                    ->select('t1.*', 't2.*', 't1.id as F_NOC_ID', 't2.id as d_ID', 't3.citizen_payment_status')
+                    ->select('t1.*', 't2.*', 't1.id as F_NOC_ID', 't2.id as d_ID', 't3.citizen_payment_status', 't4.payment_recepit_doc')
                     ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id')
                     ->leftJoin('citizen_payments as t3', 't3.mst_token', '=', 't2.mst_token' )
+                    ->leftJoin('fee_receipt_documents as t4', 't4.mst_token', '=', 't2.mst_token' )
                     ->where('t2.noc_mode', 6) // ==== Final NOC (status=1)
                     ->whereNUll('t1.deleted_at')
                     ->whereNUll('t2.deleted_at')
                     ->whereNUll('t3.deleted_at')
+                    ->whereNUll('t4.deleted_at')
                     ->orderBy('t1.id', 'DESC');
 
         if (Auth::user()->role == 0) {
