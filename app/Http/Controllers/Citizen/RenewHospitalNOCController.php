@@ -8,7 +8,7 @@ use App\Models\NOC_Master;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\HospitalNOCRequest;
+use App\Http\Requests\RenewalHospitalNOCRequest;
 
 class RenewHospitalNOCController extends Controller
 {
@@ -20,13 +20,15 @@ class RenewHospitalNOCController extends Controller
     public function index($status)
     {
         $data = DB::table('hospital_noc AS t1')
-                ->select('t1.*', 't2.*', 't1.id as RH_NOC_ID', 't1.id as RH_NOC_ID', 't2.id as d_ID')
+                ->select('t1.*', 't2.*', 't1.id as RH_NOC_ID', 't1.id as RH_NOC_ID', 't2.id as d_ID', 't3.citizen_payment_status')
                 ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
+                ->leftJoin('citizen_payments as t3', 't3.mst_token', '=', 't2.mst_token' )
                 ->where('t2.noc_mode', 4)  // ==== Renew Hospital NOC (status=2)
                 ->where('t2.citizen_id',  Auth::user()->id)
                 ->where('t1.status', $status)
                 ->whereNUll('t1.deleted_at')
                 ->whereNUll('t2.deleted_at')
+                ->whereNUll('t3.deleted_at')
                 ->orderBy('t1.id','DESC')
                 ->get();
         // dd($data);
@@ -50,7 +52,7 @@ class RenewHospitalNOCController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(HospitalNOCRequest $request)
+    public function store(RenewalHospitalNOCRequest $request)
     {
         $noc_master = new NOC_Master();
 
@@ -284,7 +286,7 @@ class RenewHospitalNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(HospitalNOCRequest $request, $id, $n_id, $status)
+    public function update(RenewalHospitalNOCRequest $request, $id, $n_id, $status)
     {
         if($status == 0){
             $noc_master = NOC_Master::findOrFail($n_id);

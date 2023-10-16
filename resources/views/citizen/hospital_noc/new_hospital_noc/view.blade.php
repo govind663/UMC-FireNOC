@@ -533,37 +533,9 @@
                                                         </a>
                                                     </div>
 
-                                                    <label class="col-sm-2"><strong>Location of Place : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Location of Place (Google Map Link) : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/location_doc/{{ $data->location_doc }}" target="_blank">
-                                                            <div class="form-group">
-                                                                <?php
-                                                                        $document_path = $data->location_doc;
-                                                                        $filter_path =  explode(".",$document_path);
-                                                                        $size_of_array = count($filter_path);
-                                                                        $filter_ext = $filter_path[$size_of_array - 1];
-
-                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
-                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                                                        {
-                                                                ?>
-
-                                                                <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/location_doc/{{ $data->location_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
-                                                                </p>
-                                                                <?php }
-                                                                else{
-                                                                    ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/location_doc/{{ $data->location_doc }}" target="_blank" download>
-                                                                        <p class="mt-3 mb-0" id="image_div">
-                                                                        <button type="button"class="btn btn-primary text-bold">
-                                                                            Download File
-                                                                        </button>
-                                                                        </p>
-                                                                    </a>
-                                                                <?php }?>
-                                                            </div>
-                                                        </a>
+                                                        <input type="text" readonly  class="form-control" value="{{ $data->location_of_place }}" >
                                                     </div>
                                                 </div>
 
@@ -973,9 +945,7 @@
                                                 <a href="{{ url('/new_hospital_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
                                                 {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
 
-                                                @if($data->status == 2 && $data->citizen_payment_status == 1)
-                                                <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_5">Payment Recepit</button>
-                                                @endif
+
                                             </div>
                                         </div>
 
@@ -1025,77 +995,6 @@
 
     <script src="{{ url('/') }}/assets/js/app.js"></script>
 
-    {{-- Payment Receipt --}}
-    <div class="modal fade bs-example-modal-lg_5" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title text-primary" id="myLargeModalLabel">Payment Receipt :</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <form class="auth-input p-4"  method="POST" action='{{ url("/upload_payment_receipt/{$data->NH_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off" >
-                            @csrf
-
-                            <div class="form-group row mb-3 d-none">
-                                @if(auth()->guard('citizen'))
-                                <label class="col-sm-2"><strong>Citizen ID : <span style="color:red;">*</span></strong></label>
-                                <div class="col-sm-2 col-md-2">
-                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ Auth::user()->id }}" >
-                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{ $data->mst_token }}" >
-                                </div>
-                                @endif
-
-                                <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
-                                <div class="col-sm-2 col-md-2">
-                                    <select class="form-control select2 " name="payment_noc_mode" id="payment_noc_mode" type="hidden">
-                                        <option>Select Mode of NOC</option>
-                                        <optgroup label=" ">
-                                            <option value="1" {{ $data->noc_mode == "1" ? 'selected' : '' }}>New Bussiness NOC</option>
-                                            <option value="2" {{ $data->noc_mode == "2" ? 'selected' : '' }}>Renewal Bussiness NOC</option>
-
-                                            <option value="3" {{ $data->noc_mode == "3" ? 'selected' : '' }}>New Hospital NOC</option>
-                                            <option value="4" {{ $data->noc_mode == "4" ? 'selected' : '' }}>Renewal Hospital NOC</option>
-
-                                            <option value="5" {{ $data->noc_mode == "5" ? 'selected' : '' }}>Provisional Building NOC</option>
-                                            <option value="6" {{ $data->noc_mode == "6" ? 'selected' : '' }}>Final Building NOC</option>
-                                        </optgroup>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row  mb-3">
-                                <label class="col-sm-2"><strong>Payment Receipt : <span style="color:red;">*</span></strong></label>
-                                <div class="col-sm-10 col-md-10">
-                                    <input type="file" accept=".jpg, .jpeg, .png, .pdf"  name="payment_recepit_doc" id="payment_recepit_doc" class="form-control  @error('payment_recepit_doc') is-invalid @enderror " value="{{ old('commissioning_certificate') }}" placeholder="Payment Receipt.">
-                                    <small class="text-secondary"> Note : The file size should be less than 2MB .</small>
-                                    <br>
-                                    <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</small>
-                                    <br>
-                                    @error('payment_recepit_doc')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row mt-4">
-                                <label class="col-md-3"></label>
-                                <div class="col-md-9" style="display: flex; justify-content: flex-end;">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </div>
-
-                        </form>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
 
     <script>
         @if(Session::has('message'))

@@ -20,13 +20,15 @@ class NewHospitalNOCController extends Controller
     public function index($status)
     {
         $data = DB::table('hospital_noc AS t1')
-                ->select('t1.*', 't2.*', 't1.id as NH_NOC_ID', 't2.id as d_ID')
+                ->select('t1.*', 't2.*', 't1.id as NH_NOC_ID', 't2.id as d_ID', 't3.citizen_payment_status')
                 ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
+                ->leftJoin('citizen_payments as t3', 't3.mst_token', '=', 't2.mst_token' )
                 ->where('t2.noc_mode', 3)  // ==== Renew Hospital NOC (status=3)
                 ->where('t2.citizen_id',  Auth::user()->id)
                 ->where('t1.status', $status)
                 ->whereNUll('t1.deleted_at')
                 ->whereNUll('t2.deleted_at')
+                ->whereNUll('t3.deleted_at')
                 ->orderBy('t1.id','DESC')
                 ->get();
         // dd($data);
@@ -96,18 +98,6 @@ class NewHospitalNOCController extends Controller
 
             $image_path = "/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/property_doc" . $image_name;
             $data->property_doc = $new_name;
-        }
-
-        // ==== Upload (location_doc)
-        if (!empty($request->hasFile('location_doc'))) {
-            $image = $request->file('location_doc');
-            $image_name = $image->getClientOriginalName();
-            $extension = $image->getClientOriginalExtension();
-            $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/location_doc'), $new_name);
-
-            $image_path = "/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/location_doc" . $image_name;
-            $data->location_doc = $new_name;
         }
 
         // ==== Upload (electric_doc)
@@ -223,6 +213,8 @@ class NewHospitalNOCController extends Controller
         $data->hospital_fireequip = $request->get('hospital_fireequip');
         $data->hospital_address = $request->get('hospital_address');
 
+        $data->location_of_place = $request->get('location_of_place');
+
         $data->inserted_dt = date("Y-m-d H:i:s");
         $data->inserted_by = Auth::user()->id;
         $data->save();
@@ -327,17 +319,6 @@ class NewHospitalNOCController extends Controller
                 $data->property_doc = $new_name;
             }
 
-            // ==== Upload (location_doc)
-            if (!empty($request->hasFile('location_doc'))) {
-                $image = $request->file('location_doc');
-                $image_name = $image->getClientOriginalName();
-                $extension = $image->getClientOriginalExtension();
-                $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/location_doc'), $new_name);
-
-                $image_path = "/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/location_doc" . $image_name;
-                $data->location_doc = $new_name;
-            }
 
             // ==== Upload (electric_doc)
             if (!empty($request->hasFile('electric_doc'))) {
@@ -451,6 +432,8 @@ class NewHospitalNOCController extends Controller
             $data->total_sleeping_staff = $request->get('total_sleeping_staff');
             $data->hospital_fireequip = $request->get('hospital_fireequip');
             $data->hospital_address = $request->get('hospital_address');
+
+            $data->location_of_place = $request->get('location_of_place');
 
             $data->modified_dt = date("Y-m-d H:i:s");
             $data->modified_by = Auth::user()->id;
@@ -496,18 +479,6 @@ class NewHospitalNOCController extends Controller
                 $data->property_doc = $new_name;
             }
 
-            // ==== Upload (location_doc)
-            if (!empty($request->hasFile('location_doc'))) {
-                $image = $request->file('location_doc');
-                $image_name = $image->getClientOriginalName();
-                $extension = $image->getClientOriginalExtension();
-                $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/location_doc'), $new_name);
-
-                $image_path = "/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/location_doc" . $image_name;
-                $data->location_doc = $new_name;
-            }
-
             // ==== Upload (electric_doc)
             if (!empty($request->hasFile('electric_doc'))) {
                 $image = $request->file('electric_doc');
@@ -620,6 +591,7 @@ class NewHospitalNOCController extends Controller
             $data->total_sleeping_staff = $request->get('total_sleeping_staff');
             $data->hospital_fireequip = $request->get('hospital_fireequip');
             $data->hospital_address = $request->get('hospital_address');
+            $data->location_of_place = $request->get('location_of_place');
 
             $data->status = 0;
             $data->modified_dt = date("Y-m-d H:i:s");

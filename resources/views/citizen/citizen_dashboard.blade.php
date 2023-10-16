@@ -669,10 +669,19 @@
                         <div class="col-md-12">
                             <ol>
                                 <li>Copy of Previous NOC</li>
+                                <li>Document Of Property</li>
                                 <li>Letter from License Holder regarding proper electric connection</li>
                                 <li>Shop License</li>
                                 <li>Up-to-date receipt of Tax bill paid</li>
                                 <li>Commissioning Certificate of Fire extinguishers/ preventive equipments of I.S.I. Mark</li>
+                                <li>Copy of Affidavit</li>
+                                <li>Corporation Registration certificate (FOR OLD HOSPITAL)</li>
+
+                                {{-- <li>Copy of Previous NOC</li>
+                                <li>Letter from License Holder regarding proper electric connection</li>
+                                <li>Shop License</li>
+                                <li>Up-to-date receipt of Tax bill paid</li>
+                                <li>Commissioning Certificate of Fire extinguishers/ preventive equipments of I.S.I. Mark</li> --}}
                             </ol>
                         </div>
                     </div>

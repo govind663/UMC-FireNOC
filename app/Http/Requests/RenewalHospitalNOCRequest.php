@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class HospitalNOCRequest extends FormRequest
+class RenewalHospitalNOCRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -72,7 +72,7 @@ class HospitalNOCRequest extends FormRequest
 
                 // ===== Other Document
                 'property_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'location_of_place' => 'required',
+                'location_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
                 'electric_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
                 'shop_license_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
                 'paid_tax_bill_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
@@ -146,7 +146,7 @@ class HospitalNOCRequest extends FormRequest
 
                 // ===== Other Document
                 'property_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
-                'location_of_place' => 'required',
+                'location_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
                 'electric_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
                 'shop_license_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
                 'paid_tax_bill_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
@@ -174,6 +174,7 @@ class HospitalNOCRequest extends FormRequest
         }
         return $rule;
     }
+
 
     public function messages()
     {
@@ -225,7 +226,9 @@ class HospitalNOCRequest extends FormRequest
             'property_doc.max' => 'The file size should be less than 2MB.',
             'property_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
-            'location_doc.required' => "Location of Place (Google Map Link) is required",
+            'location_doc.required' => 'Copy of Previous NOC is required',
+            'location_doc.max' => 'The file size should be less than 2MB.',
+            'location_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
             'electric_doc.required' => 'Letter from License Holder regarding proper electric connection is required',
             'electric_doc.max' => 'The file size should be less than 2MB.',
@@ -270,5 +273,4 @@ class HospitalNOCRequest extends FormRequest
 
         ];
     }
-
 }

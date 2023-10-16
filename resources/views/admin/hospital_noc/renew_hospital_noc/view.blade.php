@@ -528,7 +528,7 @@
                                                         </a>
                                                     </div>
 
-                                                    <label class="col-sm-2"><strong>Location of Place : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Copy of Previous NOC : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/location_doc/{{ $data->location_doc }}" target="_blank">
                                                             <div class="form-group">

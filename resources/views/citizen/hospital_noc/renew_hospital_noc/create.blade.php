@@ -512,9 +512,9 @@
                                                         @enderror
                                                     </div>
 
-                                                    <label class="col-sm-2"><strong>Upload Location of Place : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Upload Copy of Previous NOC : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <input type="file" accept=".jpg, .jpeg, .png, .pdf" name="location_doc" id="location_doc" class="form-control @error('location_doc') is-invalid @enderror" value="{{ old('location_doc') }}" placeholder="Enter Location of Place.">
+                                                        <input type="file" accept=".jpg, .jpeg, .png, .pdf" name="location_doc" id="location_doc" class="form-control @error('location_doc') is-invalid @enderror" value="{{ old('location_doc') }}" placeholder="Enter Copy of Previous NOC.">
                                                         <small class="text-secondary"> Note : The file size should be less than 2MB .</small>
                                                         <br>
                                                         <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</small>

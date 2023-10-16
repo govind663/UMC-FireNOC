@@ -527,37 +527,9 @@
                                                         </a>
                                                     </div>
 
-                                                    <label class="col-sm-2"><strong>Location of Place : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Location of Place (Google Map Link) : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/location_doc/{{ $data->location_doc }}" target="_blank">
-                                                            <div class="form-group">
-                                                                <?php
-                                                                        $document_path = $data->location_doc;
-                                                                        $filter_path =  explode(".",$document_path);
-                                                                        $size_of_array = count($filter_path);
-                                                                        $filter_ext = $filter_path[$size_of_array - 1];
-
-                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
-                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                                                        {
-                                                                ?>
-
-                                                                <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/location_doc/{{ $data->location_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
-                                                                </p>
-                                                                <?php }
-                                                                else{
-                                                                    ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/location_doc/{{ $data->location_doc }}" target="_blank" download>
-                                                                        <p class="mt-3 mb-0" id="image_div">
-                                                                        <button type="button"class="btn btn-primary text-bold">
-                                                                            Download File
-                                                                        </button>
-                                                                        </p>
-                                                                    </a>
-                                                                <?php }?>
-                                                            </div>
-                                                        </a>
+                                                        <input type="text" readonly  class="form-control" value="{{ $data->location_of_place }}" >
                                                     </div>
                                                 </div>
 

@@ -68,6 +68,7 @@ class Hospital_NOC extends Model
 
         // ===== Other Document
         'property_doc',
+        'location_of_place',
         'location_doc',
         'electric_doc',
         'shop_license_doc',
