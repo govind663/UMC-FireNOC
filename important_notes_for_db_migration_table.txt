@@ -1,0 +1,98 @@
+
+Template ID :
+1207162824551707819
+
+Template Name : 
+mandal register otp
+
+
+php artisan make:migration create_building_noc_table --table=building_noc
+
+php artisan make:migration create_hospital_noc_table --table=hospital_noc
+
+===================== Create New Column in Laravel Migration Table
+php artisan make:migration create_hospital_noc_table
+
+php artisan make:migration create_building_noc_table
+
+===================== Add New Column in Laravel Migration Table 
+php artisan make:migration add_business_noc_table --table=business_noc
+
+php artisan make:migration add_building_noc_table --table=building_noc
+
+php artisan make:migration add_hospital_noc_table --table=hospital_noc
+
+php artisan migrate --path=database/migrations/2023_09_25_165919_create_fee_mode_operate_table.php
+
+php artisan make:migration add_fee_receipt_documents_table --table=fee_receipt_documents
+
+==================== Run Database Seeder Run Command
+php artisan db:seed --class=ProductTableSeeder
+
+Example :- php artisan db:seed --class=UsersTableSeeder
+
+
+===================== Git basic command is given below :
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
+===================== create new migration table ======================
+php artisan make:migration create_fee_construction_table
+php artisan make:migration create_fee_mode_operate_table
+php artisan make:migration create_fee_category_table
+php artisan make:migration create_fee_bldg_ht_table
+php artisan make:migration create_master_fees_table
+
+===================== create new Controllers ======================
+php artisan make:controller Admin/FeeConstructionController --model=FeeConstruction
+php artisan make:controller Admin/FeeModeOperateController --model=FeeModeOperate
+php artisan make:controller Admin/FeeCategoryController --model=FeeCategory
+php artisan make:controller Admin/FeeBldgHtController --model=FeeBldgHt
+php artisan make:controller Admin/FeeMasterController --model=FeeMaster
+
+
+php artisan make:controller Admin/FeeModeOperateController --resource
+
+
+====================== Assign for forinekey in Laravel
+$table->foreignIdFor(ConstructionForm::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate(); //=== Apply When do  you have model 
+$table->foreignId('construction_form_id')->constrained();  //=== Apply When do you using DB:table('table_name'); 
+$table->foreign('construction_form_id')->references('id')->on('construction_forms'); //=== Apply When don't using proper DB:table('table_name'); 
+
+===================== create Migration With Model ======================
+php artisan make:model FeeConstruction -m
+php artisan make:model FeeModeOperate -m
+php artisan make:model FeeBldgHt -m
+php artisan make:model FeeCategory -m
+php artisan make:model FeeMaster -m
+php artisan make:model CitizenPayment -m
+
+
+===================== Create Resource Controllers ======================
+php artisan make:controller Admin/FeeConstructionController --resource
+php artisan make:controller Admin/FeeModeOperateController --resource
+php artisan make:controller Admin/FeeBldgHtController --resource
+php artisan make:controller Admin/FeeCategoryController --resource
+php artisan make:controller Admin/FeeMasterController --resource
+
+
+composer install --ignore-platform-reqs
+
+composer update --ignore-platform-reqs
+
+====== Show Total Branch or Highlight The Current Working Branch
+git branch 
+
+====== Create New Branch
+git checkout -b (branch-name)
+
+====== Switch Curent Branch to Other Branch  
+git checkout (branch-name)
+
+======= Add All / Specific file in git
+git add . (for all files)
+git add filename.txt, filename2.txt
+
+============ Remove Column Name By Migration Table
+php artisan make:migration remove_construction_plan_doc_from_building_noc --table=building_noc
+

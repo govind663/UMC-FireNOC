@@ -80,6 +80,7 @@ class BusinessNOCRequest extends FormRequest
                 'gas_certificate_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
                 'commissioning_certificate' => 'mimes:jpeg,png,jpg,pdf|max:2048',
                 'affidavit_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
+                'construction_plan_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
 
                 // ===== Declaration
                 'declare_by' => 'required',
@@ -156,6 +157,7 @@ class BusinessNOCRequest extends FormRequest
                 'gas_certificate_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
                 'commissioning_certificate' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
                 'affidavit_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
+                'construction_plan_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
 
                 // ===== Declaration
                 'declare_by' => 'required',
@@ -264,6 +266,10 @@ class BusinessNOCRequest extends FormRequest
             'affidavit_doc.required' => 'Copy of Affidavit is required',
             'affidavit_doc.max' => 'The file size should be less than 2MB.',
             'affidavit_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
+
+            'construction_plan_doc.required' => 'Maps of Proposed Construction is required',
+            'construction_plan_doc.max' => 'The file size should be less than 2MB.',
+            'construction_plan_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
 
              // ===== Declaration

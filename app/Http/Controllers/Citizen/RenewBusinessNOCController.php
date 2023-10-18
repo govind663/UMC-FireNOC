@@ -202,6 +202,18 @@ class RenewBusinessNOCController extends Controller
             $data->commissioning_certificate = $new_name;
         }
 
+        // ==== Upload (construction_plan_doc)
+        if (!empty($request->hasFile('construction_plan_doc'))) {
+            $image = $request->file('construction_plan_doc');
+            $image_name = $image->getClientOriginalName();
+            $extension = $image->getClientOriginalExtension();
+            $new_name = time() . rand(10, 999) . '.' . $extension;
+            $image->move(public_path('/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/construction_plan_doc'), $new_name);
+
+            $image_path = "/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/construction_plan_doc" . $image_name;
+            $data->construction_plan_doc = $new_name;
+        }
+
         $data->noc_mst_id = $noc_master->id;
         $data->l_name = $request->get('l_name');
         $data->f_name = $request->get('f_name');
@@ -448,6 +460,17 @@ class RenewBusinessNOCController extends Controller
                 $data->commissioning_certificate = $new_name;
             }
 
+            // ==== Upload (construction_plan_doc)
+            if (!empty($request->hasFile('construction_plan_doc'))) {
+                $image = $request->file('construction_plan_doc');
+                $image_name = $image->getClientOriginalName();
+                $extension = $image->getClientOriginalExtension();
+                $new_name = time() . rand(10, 999) . '.' . $extension;
+                $image->move(public_path('/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/construction_plan_doc'), $new_name);
+
+                $image_path = "/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/construction_plan_doc" . $image_name;
+                $data->construction_plan_doc = $new_name;
+            }
 
             $data->noc_mst_id = $noc_master->id;
             $data->l_name = $request->get('l_name');
@@ -634,6 +657,18 @@ class RenewBusinessNOCController extends Controller
 
                 $image_path = "/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/commissioning_certificate" . $image_name;
                 $data->commissioning_certificate = $new_name;
+            }
+
+            // ==== Upload (construction_plan_doc)
+            if (!empty($request->hasFile('construction_plan_doc'))) {
+                $image = $request->file('construction_plan_doc');
+                $image_name = $image->getClientOriginalName();
+                $extension = $image->getClientOriginalExtension();
+                $new_name = time() . rand(10, 999) . '.' . $extension;
+                $image->move(public_path('/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/construction_plan_doc'), $new_name);
+
+                $image_path = "/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/construction_plan_doc" . $image_name;
+                $data->construction_plan_doc = $new_name;
             }
 
 

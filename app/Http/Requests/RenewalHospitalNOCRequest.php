@@ -79,6 +79,7 @@ class RenewalHospitalNOCRequest extends FormRequest
                 'commissioning_certificate' => 'mimes:jpeg,png,jpg,pdf|max:2048',
                 'affidavit_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
                 'corporation_certificate' => 'mimes:jpeg,png,jpg,pdf|max:2048',
+                'construction_plan_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
 
                 // ===== Declaration
                 'declare_by' => 'required',
@@ -153,6 +154,7 @@ class RenewalHospitalNOCRequest extends FormRequest
                 'commissioning_certificate' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
                 'affidavit_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
                 'corporation_certificate' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
+                'construction_plan_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
 
                 // ===== Declaration
                 'declare_by' => 'required',
@@ -253,6 +255,10 @@ class RenewalHospitalNOCRequest extends FormRequest
             'corporation_certificate.required' => 'Corporation Registration certificate (FOR OLD HOSPITAL) is required',
             'corporation_certificate.max' => 'The file size should be less than 2MB.',
             'corporation_certificate.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
+
+            'construction_plan_doc.required' => 'Maps of Proposed Construction is required',
+            'construction_plan_doc.max' => 'The file size should be less than 2MB.',
+            'construction_plan_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
              // ===== Declaration
              'declare_by.required' => 'Applicant Name is required',

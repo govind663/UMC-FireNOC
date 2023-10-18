@@ -325,7 +325,6 @@ class ProvisionalBuildingNOCController extends Controller
                 $data->dues_certificate_doc = $new_name;
             }
 
-
             $data->noc_mst_id = $noc_master->id;
             $data->l_name = $request->get('l_name');
             $data->f_name = $request->get('f_name');

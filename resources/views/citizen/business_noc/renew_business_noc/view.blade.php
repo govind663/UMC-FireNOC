@@ -521,7 +521,7 @@
                                             <div class="row " >
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Location of Place (Google Map Link) : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Location of Place (Google Map Link) : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank">
                                                             <div class="form-group">
@@ -554,7 +554,7 @@
                                                         </a>
                                                     </div>
 
-                                                    <label class="col-sm-2"><strong>Upload Letter from License Holder regarding proper electric connection : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Letter from License Holder regarding proper electric connection : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/electric_license_doc/{{ $data->electric_license_doc }}" target="_blank">
                                                             <div class="form-group">
@@ -589,7 +589,7 @@
                                                 </div>
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Letter from connection holder and license regarding proper cooking gas connection : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Letter from connection holder and license regarding proper cooking gas connection : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/gas_license_doc/{{ $data->gas_license_doc }}" target="_blank">
                                                             <div class="form-group">
@@ -622,7 +622,7 @@
                                                         </a>
                                                     </div>
 
-                                                    <label class="col-sm-2"><strong>Upload Shop License : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Shop License : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/shop_license_doc/{{ $data->shop_license_doc }}" target="_blank">
                                                             <div class="form-group">
@@ -657,7 +657,7 @@
                                                 </div>
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Food License : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Food License : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/food_license/{{ $data->food_license }}" target="_blank">
                                                             <div class="form-group">
@@ -690,7 +690,7 @@
                                                         </a>
                                                     </div>
 
-                                                    <label class="col-sm-2"><strong>Upload Up-to-date receipt of Tax bill paid : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Up-to-date receipt of Tax bill paid : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/tax_bill_paid_doc/{{ $data->tax_bill_paid_doc }}" target="_blank">
                                                             <div class="form-group">
@@ -725,7 +725,7 @@
                                                 </div>
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Trade License (Kerosene/Other Petroleum Stock/ Explosive goods) : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Trade License (Kerosene/Other Petroleum Stock/ Explosive goods) : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/trade_license/{{ $data->trade_license }}" target="_blank">
                                                             <div class="form-group">
@@ -793,12 +793,12 @@
                                                 </div>
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Commissioning Certificate of Fire extinguishers/ preventive equipments of I.S.I. Mark : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Commissioning Certificate of Fire extinguishers/ preventive equipments of I.S.I. Mark : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank">
+                                                        <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank">
                                                             <div class="form-group">
                                                                 <?php
-                                                                        $document_path = $data->location_map_doc;
+                                                                        $document_path = $data->commissioning_certificate;
                                                                         $filter_path =  explode(".",$document_path);
                                                                         $size_of_array = count($filter_path);
                                                                         $filter_ext = $filter_path[$size_of_array - 1];
@@ -809,12 +809,12 @@
                                                                 ?>
 
                                                                 <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/location_map_doc/{{ $data->location_map_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                    <img src="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/commissioning_certificate/{{ $data->commissioning_certificate }} " alt="image"  width="200" height="100" style="max-height:150px;">
                                                                 </p>
                                                                 <?php }
                                                                 else{
                                                                     ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank" download>
+                                                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank" download>
                                                                         <p class="mt-3 mb-0" id="image_div">
                                                                         <button type="button"class="btn btn-primary text-bold">
                                                                             Download File
@@ -826,7 +826,38 @@
                                                         </a>
                                                     </div>
 
+                                                    <label class="col-sm-2"><strong>Maps of Proposed Construction : <span style="color:red;">*</span></strong></label>
+                                                    <div class="col-sm-4 col-md-4">
+                                                        <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/construction_plan_doc/{{ $data->construction_plan_doc }}" target="_blank">
+                                                            <div class="form-group">
+                                                                <?php
+                                                                        $document_path = $data->construction_plan_doc;
+                                                                        $filter_path =  explode(".",$document_path);
+                                                                        $size_of_array = count($filter_path);
+                                                                        $filter_ext = $filter_path[$size_of_array - 1];
 
+                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
+                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
+                                                                        {
+                                                                ?>
+
+                                                                <p class="mt-3 mb-0" id="image_div">
+                                                                    <img src="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/construction_plan_doc/{{ $data->construction_plan_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                </p>
+                                                                <?php }
+                                                                else{
+                                                                    ?>
+                                                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/construction_plan_doc/{{ $data->construction_plan_doc }}" target="_blank" download>
+                                                                        <p class="mt-3 mb-0" id="image_div">
+                                                                        <button type="button"class="btn btn-primary text-bold">
+                                                                            Download File
+                                                                        </button>
+                                                                        </p>
+                                                                    </a>
+                                                                <?php }?>
+                                                            </div>
+                                                        </a>
+                                                    </div>
                                                 </div>
 
                                                 <div class="card" style="border: 1px solid #1d1f1f;">

@@ -10,6 +10,7 @@ use App\Models\FeeConstruction;
 use App\Models\Business_NOC;
 use App\Models\Hospital_NOC;
 use App\Models\Building_NOC;
+use App\Models\FeeBldgHt;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -110,7 +111,10 @@ class CitizenPaypentController extends Controller
         $mst_fee_construction = FeeConstruction::select('id', 'construction_type')->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
         // dd($mst_fee_construction);
 
-        return view('citizen.payment.make_pyment')->with(['data'=>$data, 'mst_fee_construction'=>$mst_fee_construction, 'noc_mode'=>$noc_mode]);
+        $mst_fee_building_hts = FeeBldgHt::select('id', 'building_ht')->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
+        // dd($mst_fee_building_hts);
+
+        return view('citizen.payment.make_payment')->with(['data'=>$data, 'mst_fee_construction'=>$mst_fee_construction, 'mst_fee_building_hts'=>$mst_fee_building_hts, 'noc_mode'=>$noc_mode]);
     }
 
     /**

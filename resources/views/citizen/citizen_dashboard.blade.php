@@ -575,6 +575,7 @@
                                 <li>Commissioning Certificate of Gas Fitting</li>
                                 <li>Commissioning Certificate of Fire extinguishers/ preventive equipments of I.S.I. Mark</li>
                                 <li>Copy of Affidavit</li>
+                                <li>Maps of Proposed Construction</li>
                             </ol>
                         </div>
                     </div>
@@ -609,7 +610,7 @@
                                 <li>Trade License (Kerosene/Other Petroleum Stock/ Explosive goods)</li>
                                 <li>Commissioning Certificate of Gas Fitting</li>
                                 <li>Commissioning Certificate of Fire extinguishers/ preventive equipments of I.S.I. Mark</li>
-
+                                <li>Maps of Proposed Construction</li>
                             </ol>
                         </div>
                     </div>
@@ -643,6 +644,7 @@
                                 <li>Commissioning Certificate of Fire extinguishers/ preventive equipments of I.S.I. Mark</li>
                                 <li>Copy of Affidavit</li>
                                 <li>Corporation Registration certificate (FOR OLD HOSPITAL)</li>
+                                <li>Maps of Proposed Construction</li>
                             </ol>
                         </div>
                     </div>
@@ -676,6 +678,7 @@
                                 <li>Commissioning Certificate of Fire extinguishers/ preventive equipments of I.S.I. Mark</li>
                                 <li>Copy of Affidavit</li>
                                 <li>Corporation Registration certificate (FOR OLD HOSPITAL)</li>
+                                <li>Maps of Proposed Construction</li>
 
                                 {{-- <li>Copy of Previous NOC</li>
                                 <li>Letter from License Holder regarding proper electric connection</li>

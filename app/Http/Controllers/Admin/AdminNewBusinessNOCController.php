@@ -146,7 +146,7 @@ class AdminNewBusinessNOCController extends Controller
             Business_NOC::where('id', $id)->where('status', $status)->update($update);
         }
 
-        return redirect()->route('all_new_business_noc_list',1)->with('message', 'The application form which you had filled for your new business noc has been approved Successfully.');
+        return redirect()->route('all_new_business_noc_list', 1)->with('message', 'The application form which you had filled for your new business noc has been approved Successfully.');
     }
 
     /**

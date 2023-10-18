@@ -99,7 +99,6 @@ class FinalBuildingNOCController extends Controller
             $data->fire_equipments_install_doc = $new_name;
         }
 
-
         $data->noc_mst_id = $noc_master->id;
         $data->l_name = $request->get('l_name');
         $data->f_name = $request->get('f_name');
@@ -225,7 +224,6 @@ class FinalBuildingNOCController extends Controller
                 $data->fire_equipments_install_doc = $new_name;
             }
 
-
             $data->noc_mst_id = $noc_master->id;
             $data->l_name = $request->get('l_name');
             $data->f_name = $request->get('f_name');
@@ -283,6 +281,7 @@ class FinalBuildingNOCController extends Controller
             $noc_master->save();
 
             $data = Building_NOC::findOrFail($id);
+
             // ==== Upload (fire_equipments_install_doc)
             if (!empty($request->hasFile('fire_equipments_install_doc'))) {
                 $image = $request->file('fire_equipments_install_doc');
@@ -294,7 +293,6 @@ class FinalBuildingNOCController extends Controller
                 $image_path = "/UMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc" . $image_name;
                 $data->fire_equipments_install_doc = $new_name;
             }
-
 
             $data->noc_mst_id = $noc_master->id;
             $data->l_name = $request->get('l_name');

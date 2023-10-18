@@ -80,6 +80,7 @@ class RenewalBusinessNOCRequest extends FormRequest
                 'trade_license' => 'mimes:jpeg,png,jpg,pdf|max:2048',
                 'gas_certificate_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
                 'commissioning_certificate' => 'mimes:jpeg,png,jpg,pdf|max:2048',
+                'construction_plan_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
 
                 // ===== Declaration
                 'declare_by' => 'required',
@@ -155,6 +156,7 @@ class RenewalBusinessNOCRequest extends FormRequest
                 'trade_license' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
                 'gas_certificate_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
                 'commissioning_certificate' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
+                'construction_plan_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
 
                 // ===== Declaration
                 'declare_by' => 'required',
@@ -259,6 +261,9 @@ class RenewalBusinessNOCRequest extends FormRequest
             'commissioning_certificate.max' => 'The file size should be less than 2MB.',
             'commissioning_certificate.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
+            'construction_plan_doc.required' => 'Maps of Proposed Construction is required',
+            'construction_plan_doc.max' => 'The file size should be less than 2MB.',
+            'construction_plan_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
              // ===== Declaration
              'declare_by.required' => 'Applicant Name is required',

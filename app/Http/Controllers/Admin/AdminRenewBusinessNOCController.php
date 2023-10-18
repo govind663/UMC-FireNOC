@@ -147,7 +147,7 @@ class AdminRenewBusinessNOCController extends Controller
             Business_NOC::where('id', $id)->where('status', $status)->update($update);
         }
 
-        return redirect()->route('all_renew_business_noc_list',1)->with('message', 'The application form which you had filled for your renew business noc has been approved Successfully.');
+        return redirect()->route('all_renew_business_noc_list', 1)->with('message', 'The application form which you had filled for your renew business noc has been approved Successfully.');
     }
 
     /**

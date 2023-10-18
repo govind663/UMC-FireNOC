@@ -11,7 +11,7 @@ class LogRepository {
         $data = [
                     'ip' => request()->ip(),
                     'user_aget' => request()->header('user-agent'),
-                    // 'data' => request()->all()
+                    'data' => request()->all()
                 ];
 
         DB::table('logs')->insert([

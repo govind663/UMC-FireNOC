@@ -831,7 +831,7 @@
                                                         </a>
                                                     </div>
 
-                                                    <label class="col-sm-2"><strong>Commissioning Certificate of Gas Fitting : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Upload Commissioning Certificate of Gas Fitting : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <input type="file" accept=".jpg, .jpeg, .png, .pdf" name="gas_certificate_doc" id="gas_certificate_doc" class="form-control @error('gas_certificate_doc') is-invalid @enderror" value="{{ $data->gas_certificate_doc }}" placeholder="Enter Numbers of Workers / Servants">
                                                         <small class="text-secondary"> Note : The file size  should be less than 2MB .</small>
@@ -890,10 +890,10 @@
                                                             </span>
                                                         @enderror
                                                         <br>
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank">
+                                                        <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank">
                                                             <div class="form-group">
                                                                 <?php
-                                                                        $document_path = $data->location_map_doc;
+                                                                        $document_path = $data->commissioning_certificate;
                                                                         $filter_path =  explode(".",$document_path);
                                                                         $size_of_array = count($filter_path);
                                                                         $filter_ext = $filter_path[$size_of_array - 1];
@@ -904,12 +904,12 @@
                                                                 ?>
 
                                                                 <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/location_map_doc/{{ $data->location_map_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                    <img src="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/commissioning_certificate/{{ $data->commissioning_certificate }} " alt="image"  width="200" height="100" style="max-height:150px;">
                                                                 </p>
                                                                 <?php }
                                                                 else{
                                                                     ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank" download>
+                                                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank" download>
                                                                         <p class="mt-3 mb-0" id="image_div">
                                                                         <button type="button"class="btn btn-primary text-bold">
                                                                             Download File
@@ -921,6 +921,49 @@
                                                         </a>
                                                     </div>
 
+                                                    <label class="col-sm-2"><strong>Upload Maps of Proposed Construction : <span style="color:red;">*</span></strong></label>
+                                                    <div class="col-sm-4 col-md-4">
+                                                        <input type="file" accept=".jpg, .jpeg, .png, .pdf" name="construction_plan_doc" id="construction_plan_doc" class="form-control  @error('construction_plan_doc') is-invalid @enderror "   value="{{ $data->construction_plan_doc }}" placeholder="Upload Construction Blueprints for Renew Business">
+                                                        <small class="text-secondary"> Note : The file size  should be less than 2MB .</small>
+                                                        <br>
+                                                        <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</small>
+                                                        <br>
+                                                        @error('construction_plan_doc')
+                                                            <span class="invalid-feedback" role="alert">
+                                                                <strong>{{ $message }}</strong>
+                                                            </span>
+                                                        @enderror
+                                                        <br>
+                                                        <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/construction_plan_doc/{{ $data->construction_plan_doc }}" target="_blank">
+                                                            <div class="form-group">
+                                                                <?php
+                                                                        $document_path = $data->construction_plan_doc;
+                                                                        $filter_path =  explode(".",$document_path);
+                                                                        $size_of_array = count($filter_path);
+                                                                        $filter_ext = $filter_path[$size_of_array - 1];
+
+                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
+                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
+                                                                        {
+                                                                ?>
+
+                                                                <p class="mt-3 mb-0" id="image_div">
+                                                                    <img src="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/construction_plan_doc/{{ $data->construction_plan_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                </p>
+                                                                <?php }
+                                                                else{
+                                                                    ?>
+                                                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/construction_plan_doc/{{ $data->construction_plan_doc }}" target="_blank" download>
+                                                                        <p class="mt-3 mb-0" id="image_div">
+                                                                        <button type="button"class="btn btn-primary text-bold">
+                                                                            Download File
+                                                                        </button>
+                                                                        </p>
+                                                                    </a>
+                                                                <?php }?>
+                                                            </div>
+                                                        </a>
+                                                    </div>
                                                 </div>
 
                                                 {{-- Start Declaration --}}

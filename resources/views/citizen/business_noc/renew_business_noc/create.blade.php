@@ -674,6 +674,20 @@
                                                     @enderror
                                                 </div>
 
+
+                                                <label class="col-sm-2"><strong>Upload Maps of Proposed Construction : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-4 col-md-4">
+                                                    <input type="file" accept=".jpg, .jpeg, .png, .pdf" name="construction_plan_doc" id="construction_plan_doc" class="form-control  @error('construction_plan_doc') is-invalid @enderror "   value="{{ old('construction_plan_doc') }}" placeholder="Upload Construction Blueprints for Business NOC">
+                                                    <small class="text-secondary"> Note : The file size  should be less than 2MB .</small>
+                                                    <br>
+                                                    <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</small>
+                                                    <br>
+                                                    @error('construction_plan_doc')
+                                                        <span class="invalid-feedback" role="alert">
+                                                            <strong>{{ $message }}</strong>
+                                                        </span>
+                                                    @enderror
+                                                </div>
                                             </div>
 
 

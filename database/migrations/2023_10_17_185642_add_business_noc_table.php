@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('hospital_noc', function (Blueprint $table) {
-            $table->string('location_of_place')->nullable()->after('property_doc');
+        Schema::table('business_noc', function (Blueprint $table) {
+            $table->string('construction_plan_doc')->nullable()->after('affidavit_doc');
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('hospital_noc', function (Blueprint $table) {
-            $table->dropColumn('location_of_place');
+        Schema::table('business_noc', function (Blueprint $table) {
+            $table->dropColumn('construction_plan_doc');
         });
     }
 };
