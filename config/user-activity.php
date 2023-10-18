@@ -2,15 +2,13 @@
 
 return [
     'activated'        => true, // active/inactive all logging
-    'middleware'       => ['web', 'citizen', 'auth'],
+    'middleware'       => ['web', 'auth'],
     'route_path'       => 'admin/user-activity',
     'admin_panel_path' => 'admin/dashboard',
-    'citizen_panel_path' => 'citizen/dashboard',
     'delete_limit'     => 7, // default 7 days
 
     'model' => [
-        'user' => "App\Models\User",
-        'citizen' => "App\Models\Citizen"
+        'user' => "App\Models\User"
     ],
 
     'log_events' => [
