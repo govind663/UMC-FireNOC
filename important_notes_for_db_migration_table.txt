@@ -2,7 +2,7 @@
 Template ID :
 1207162824551707819
 
-Template Name : 
+Template Name :
 mandal register otp
 
 
@@ -15,7 +15,7 @@ php artisan make:migration create_hospital_noc_table
 
 php artisan make:migration create_building_noc_table
 
-===================== Add New Column in Laravel Migration Table 
+===================== Add New Column in Laravel Migration Table
 php artisan make:migration add_business_noc_table --table=business_noc
 
 php artisan make:migration add_building_noc_table --table=building_noc
@@ -55,9 +55,9 @@ php artisan make:controller Admin/FeeModeOperateController --resource
 
 
 ====================== Assign for forinekey in Laravel
-$table->foreignIdFor(ConstructionForm::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate(); //=== Apply When do  you have model 
-$table->foreignId('construction_form_id')->constrained();  //=== Apply When do you using DB:table('table_name'); 
-$table->foreign('construction_form_id')->references('id')->on('construction_forms'); //=== Apply When don't using proper DB:table('table_name'); 
+$table->foreignIdFor(ConstructionForm::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate(); //=== Apply When do  you have model
+$table->foreignId('construction_form_id')->constrained();  //=== Apply When do you using DB:table('table_name');
+$table->foreign('construction_form_id')->references('id')->on('construction_forms'); //=== Apply When don't using proper DB:table('table_name');
 
 ===================== create Migration With Model ======================
 php artisan make:model FeeConstruction -m
@@ -81,12 +81,12 @@ composer install --ignore-platform-reqs
 composer update --ignore-platform-reqs
 
 ====== Show Total Branch or Highlight The Current Working Branch
-git branch 
+git branch
 
 ====== Create New Branch
 git checkout -b (branch-name)
 
-====== Switch Curent Branch to Other Branch  
+====== Switch Curent Branch to Other Branch
 git checkout (branch-name)
 
 ======= Add All / Specific file in git
@@ -96,3 +96,21 @@ git add filename.txt, filename2.txt
 ============ Remove Column Name By Migration Table
 php artisan make:migration remove_construction_plan_doc_from_building_noc --table=building_noc
 
+
+
+====== Install Laravel User Activity
+
+composer require haruncpi/laravel-user-activity --ignore-platform-req=php
+OR
+composer require haruncpi/laravel-user-activity
+
+php artisan user-activity:install
+
+use Haruncpi\LaravelUserActivity\Traits\Loggable;
+
+use Loggable;
+
+php artisan user-activity:delete
+
+
+composer remove haruncpi/laravel-user-activity --ignore-platform-req=php
