@@ -172,7 +172,7 @@ Route::get('/citizen/reset-password/{token}', [ResetPasswordController::class, '
 Route::post('/citizen/reset-password', [ResetPasswordController::class, 'updatePassword'])->name('/citizen/reset-password');
 
 // ======================= Citizens Dashboard
-Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware']], function () {
+Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware', 'XSS']], function () {
 
     Route::get('/citizen/dashboard', [CitizenHomeController::class, 'Citizen_Home'])->name('citizen.dashboard');
 
