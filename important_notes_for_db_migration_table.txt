@@ -117,3 +117,6 @@ php artisan user-activity:delete
 
 
 composer remove haruncpi/laravel-user-activity --ignore-platform-req=php
+
+
+php artisan serve --host=192.168.0.150

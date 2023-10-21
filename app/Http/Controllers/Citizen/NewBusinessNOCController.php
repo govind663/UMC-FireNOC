@@ -259,8 +259,8 @@ class NewBusinessNOCController extends Controller
         $data->area = $request->get('area');
         $data->no_of_workers = $request->get('no_of_workers');
         $data->types_of_business = $request->get('types_of_business');
-        $data->from_date = $request->get('from_date');
-        $data->to_date = $request->get('to_date');
+        $data->from_date = ($request->from_date) ? $request->get('from_date') : null;
+        $data->to_date = ($request->to_date) ? $request->get('to_date') : null;
         $data->no_of_workers_sleep_night = $request->get('no_of_workers_sleep_night');
         $data->fire_equips = $request->get('fire_equips');
         $data->business_address = $request->get('business_address');
@@ -518,8 +518,8 @@ class NewBusinessNOCController extends Controller
             $data->area = $request->get('area');
             $data->no_of_workers = $request->get('no_of_workers');
             $data->types_of_business = $request->get('types_of_business');
-            $data->from_date = $request->get('from_date');
-            $data->to_date = $request->get('to_date');
+            $data->from_date = ($request->from_date) ? $request->get('from_date') : null;
+            $data->to_date = ($request->to_date) ? $request->get('to_date') : null;
             $data->no_of_workers_sleep_night = $request->get('no_of_workers_sleep_night');
             $data->fire_equips = $request->get('fire_equips');
             $data->business_address = $request->get('business_address');
@@ -718,8 +718,8 @@ class NewBusinessNOCController extends Controller
             $data->area = $request->get('area');
             $data->no_of_workers = $request->get('no_of_workers');
             $data->types_of_business = $request->get('types_of_business');
-            $data->from_date = $request->get('from_date');
-            $data->to_date = $request->get('to_date');
+            $data->from_date = ($request->from_date) ? $request->get('from_date') : null;
+            $data->to_date = ($request->to_date) ? $request->get('to_date') : null;
             $data->no_of_workers_sleep_night = $request->get('no_of_workers_sleep_night');
             $data->fire_equips = $request->get('fire_equips');
             $data->business_address = $request->get('business_address');

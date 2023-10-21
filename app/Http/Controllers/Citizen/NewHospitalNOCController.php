@@ -216,8 +216,8 @@ class NewHospitalNOCController extends Controller
 
         $data->area_pincode = $request->get('area_pincode');
         $data->types_of_hospital = $request->get('types_of_hospital');
-        $data->from_date = $request->get('from_date');
-        $data->to_date = $request->get('to_date');
+        $data->from_date = ($request->from_date) ? $request->get('from_date') : null;
+        $data->to_date = ($request->to_date) ? $request->get('to_date') : null;
         $data->shop_no = $request->get('shop_no');
         $data->area_place_measurments = $request->get('area_place_measurments');
         $data->total_staff = $request->get('total_staff');
@@ -448,8 +448,8 @@ class NewHospitalNOCController extends Controller
 
             $data->area_pincode = $request->get('area_pincode');
             $data->types_of_hospital = $request->get('types_of_hospital');
-            $data->from_date = $request->get('from_date');
-            $data->to_date = $request->get('to_date');
+            $data->from_date = ($request->from_date) ? $request->get('from_date') : null;
+            $data->to_date = ($request->to_date) ? $request->get('to_date') : null;
             $data->shop_no = $request->get('shop_no');
             $data->area_place_measurments = $request->get('area_place_measurments');
             $data->total_staff = $request->get('total_staff');
@@ -619,8 +619,8 @@ class NewHospitalNOCController extends Controller
 
             $data->area_pincode = $request->get('area_pincode');
             $data->types_of_hospital = $request->get('types_of_hospital');
-            $data->from_date = $request->get('from_date');
-            $data->to_date = $request->get('to_date');
+            $data->from_date = ($request->from_date) ? $request->get('from_date') : null;
+            $data->to_date = ($request->to_date) ? $request->get('to_date') : null;
             $data->shop_no = $request->get('shop_no');
             $data->area_place_measurments = $request->get('area_place_measurments');
             $data->total_staff = $request->get('total_staff');
