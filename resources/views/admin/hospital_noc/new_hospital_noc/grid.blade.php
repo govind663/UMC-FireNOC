@@ -177,10 +177,10 @@
                                                                             <div class="form-group row mb-3">
                                                                                 <label class="col-sm-2"><strong>Upload Document : </strong></label>
                                                                                 <div class="col-sm-4 col-md-4">
-                                                                                    <a href="/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/construction_plan_doc/{{ $value->construction_plan_doc }}" target="_blank">
+                                                                                    <a href="/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/f_inspector_doc/{{ $value->f_inspector_doc }}" target="_blank">
                                                                                         <div class="form-group">
                                                                                             <?php
-                                                                                                    $document_path = $value->construction_plan_doc;
+                                                                                                    $document_path = $value->f_inspector_doc;
                                                                                                     $filter_path =  explode(".",$document_path);
                                                                                                     $size_of_array = count($filter_path);
                                                                                                     $filter_ext = $filter_path[$size_of_array - 1];
@@ -191,12 +191,12 @@
                                                                                             ?>
 
                                                                                             <p class="mt-3 mb-0" id="image_div">
-                                                                                                <img src="/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/construction_plan_doc/{{ $value->construction_plan_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                                                <img src="/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/f_inspector_doc/{{ $value->f_inspector_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
                                                                                             </p>
                                                                                             <?php }
                                                                                             else{
                                                                                                 ?>
-                                                                                                <a href="/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/construction_plan_doc/{{ $value->construction_plan_doc }}" target="_blank" download>
+                                                                                                <a href="/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/f_inspector_doc/{{ $value->f_inspector_doc }}" target="_blank" download>
                                                                                                     <p class="mt-3 mb-0" id="image_div">
                                                                                                     <button type="button"class="btn btn-primary text-bold">
                                                                                                         Download File
