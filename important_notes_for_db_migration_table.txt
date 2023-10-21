@@ -97,6 +97,7 @@ git add filename.txt, filename2.txt
 php artisan make:migration remove_construction_plan_doc_from_building_noc --table=building_noc
 
 php artisan make:migration change_hospital_noc_location_doc_coloumn_null_hospital_noc_table --table=hospital_noc
+php artisan make:migration change_citizen_payments_coloumn_type_citizen_payments_table --table=citizen_payments
 
 
 
