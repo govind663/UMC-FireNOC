@@ -305,7 +305,7 @@
                                                 </div>
                                                 <div class="flex-grow-1 overflow-hidden ms-4">
                                                     <p class="text-muted font-size-15 mb-2"> Total Approved Hospital NOC</p>
-                                                    <h3 class="fs-4 flex-grow-1 mb-3">{{ $hospital_total_paid }}</h3>
+                                                    <h3 class="fs-4 flex-grow-1 mb-3">{{ $hospital_total_approved }}</h3>
                                                 </div>
                                             </div>
                                         </div>
