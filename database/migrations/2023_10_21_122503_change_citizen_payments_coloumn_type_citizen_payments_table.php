@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('citizen_payments', function (Blueprint $table) {
-            $table->string('new_area_meter')->nullable()->change();
-            $table->string('meter_rate')->nullable()->change();
-            $table->string('total_charges_cost')->nullable()->change();
+            $table->integer('new_area_meter')->nullable()->change();
+            $table->integer('meter_rate')->nullable()->change();
+            $table->integer('total_charges_cost')->nullable()->change();
         });
     }
 
@@ -28,9 +28,9 @@ return new class extends Migration
     public function down()
     {
         Schema::table('citizen_payments', function (Blueprint $table) {
-            $table->string('new_area_meter')->change();
-            $table->string('meter_rate')->change();
-            $table->string('total_charges_cost')->change();
+            $table->integer('new_area_meter')->change();
+            $table->integer('meter_rate')->change();
+            $table->integer('total_charges_cost')->change();
         });
     }
 };

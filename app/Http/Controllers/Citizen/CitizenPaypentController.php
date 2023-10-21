@@ -143,10 +143,10 @@ class CitizenPaypentController extends Controller
 
             $data->wing_option = $request->get('wing_option');
             $data->fee_bldg_ht_id = $request->get('fee_bldg_ht_id');
-            $data->wing_rate = $request->get('wing_rate');
-            $data->new_area_meter = $request->get('new_area_meter');
-            $data->meter_rate = $request->get('meter_rate');
-            $data->total_charges_cost = $request->get('total_charges_cost');
+            $data->wing_rate = ($request->wing_rate) ? $request->get('wing_rate') : 0;
+            $data->new_area_meter = ($request->new_area_meter) ? $request->get('new_area_meter') : 0;
+            $data->meter_rate = ($request->meter_rate) ? $request->get('meter_rate') : 0;
+            $data->total_charges_cost = ($request->total_charges_cost) ? $request->get('total_charges_cost') : 0;
 
             $data->inserted_dt = date("Y-m-d H:i:s");
             $data->inserted_by = Auth::user()->id;
@@ -191,10 +191,10 @@ class CitizenPaypentController extends Controller
 
             $data->wing_option = $request->get('wing_option');
             $data->fee_bldg_ht_id = $request->get('fee_bldg_ht_id');
-            $data->wing_rate = $request->get('wing_rate');
-            $data->new_area_meter = $request->get('new_area_meter');
-            $data->meter_rate = $request->get('meter_rate');
-            $data->total_charges_cost = $request->get('total_charges_cost');
+            $data->wing_rate = ($request->wing_rate) ? $request->get('wing_rate') : 0;
+            $data->new_area_meter = ($request->new_area_meter) ? $request->get('new_area_meter') : 0;
+            $data->meter_rate = ($request->meter_rate) ? $request->get('meter_rate') : 0;
+            $data->total_charges_cost = ($request->total_charges_cost) ? $request->get('total_charges_cost') : 0;
 
             $data->inserted_dt = date("Y-m-d H:i:s");
             $data->inserted_by = Auth::user()->id;
@@ -239,10 +239,10 @@ class CitizenPaypentController extends Controller
 
             $data->wing_option = $request->get('wing_option');
             $data->fee_bldg_ht_id = $request->get('fee_bldg_ht_id');
-            $data->wing_rate = $request->get('wing_rate');
-            $data->new_area_meter = $request->get('new_area_meter');
-            $data->meter_rate = $request->get('meter_rate');
-            $data->total_charges_cost = $request->get('total_charges_cost');
+            $data->wing_rate = ($request->wing_rate) ? $request->get('wing_rate') : 0;
+            $data->new_area_meter = ($request->new_area_meter) ? $request->get('new_area_meter') : 0;
+            $data->meter_rate = ($request->meter_rate) ? $request->get('meter_rate') : 0;
+            $data->total_charges_cost = ($request->total_charges_cost) ? $request->get('total_charges_cost') : 0;
 
             $data->inserted_dt = date("Y-m-d H:i:s");
             $data->inserted_by = Auth::user()->id;
@@ -287,10 +287,10 @@ class CitizenPaypentController extends Controller
 
             $data->wing_option = $request->get('wing_option');
             $data->fee_bldg_ht_id = $request->get('fee_bldg_ht_id');
-            $data->wing_rate = $request->get('wing_rate');
-            $data->new_area_meter = $request->get('new_area_meter');
-            $data->meter_rate = $request->get('meter_rate');
-            $data->total_charges_cost = $request->get('total_charges_cost');
+            $data->wing_rate = ($request->wing_rate) ? $request->get('wing_rate') : 0;
+            $data->new_area_meter = ($request->new_area_meter) ? $request->get('new_area_meter') : 0;
+            $data->meter_rate = ($request->meter_rate) ? $request->get('meter_rate') : 0;
+            $data->total_charges_cost = ($request->total_charges_cost) ? $request->get('total_charges_cost') : 0;
 
             $data->inserted_dt = date("Y-m-d H:i:s");
             $data->inserted_by = Auth::user()->id;
@@ -335,10 +335,10 @@ class CitizenPaypentController extends Controller
 
             $data->wing_option = $request->get('wing_option');
             $data->fee_bldg_ht_id = $request->get('fee_bldg_ht_id');
-            $data->wing_rate = $request->get('wing_rate');
-            $data->new_area_meter = $request->get('new_area_meter');
-            $data->meter_rate = $request->get('meter_rate');
-            $data->total_charges_cost = $request->get('total_charges_cost');
+            $data->wing_rate = ($request->wing_rate) ? $request->get('wing_rate') : 0;
+            $data->new_area_meter = ($request->new_area_meter) ? $request->get('new_area_meter') : 0;
+            $data->meter_rate = ($request->meter_rate) ? $request->get('meter_rate') : 0;
+            $data->total_charges_cost = ($request->total_charges_cost) ? $request->get('total_charges_cost') : 0;
 
             $data->inserted_dt = date("Y-m-d H:i:s");
             $data->inserted_by = Auth::user()->id;
@@ -383,10 +383,10 @@ class CitizenPaypentController extends Controller
 
             $data->wing_option = $request->get('wing_option');
             $data->fee_bldg_ht_id = $request->get('fee_bldg_ht_id');
-            $data->wing_rate = $request->get('wing_rate');
-            $data->new_area_meter = $request->get('new_area_meter');
-            $data->meter_rate = $request->get('meter_rate');
-            $data->total_charges_cost = $request->get('total_charges_cost');
+            $data->wing_rate = ($request->wing_rate) ? $request->get('wing_rate') : 0;
+            $data->new_area_meter = ($request->new_area_meter) ? $request->get('new_area_meter') : 0;
+            $data->meter_rate = ($request->meter_rate) ? $request->get('meter_rate') : 0;
+            $data->total_charges_cost = ($request->total_charges_cost) ? $request->get('total_charges_cost') : 0;
 
             $data->inserted_dt = date("Y-m-d H:i:s");
             $data->inserted_by = Auth::user()->id;
