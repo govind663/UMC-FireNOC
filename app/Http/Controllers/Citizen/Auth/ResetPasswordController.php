@@ -19,9 +19,15 @@ class ResetPasswordController extends Controller
     {
         $request->validate([
             'email' => 'required|email|exists:citizens',
-            'password' => 'required|string|min:6|confirmed',
-            'password_confirmation' => 'required',
-
+            'password' => 'required|string|min:8|confirmed',
+            'password_confirmation' => 'required'
+        ],[
+            'email.exists'=>'This email does not exist in our records.',
+            'email.requried'=>'Email Id is required',
+            'password.required'=>'Password is required',
+            'password.min'=>'The password must be at least 8 characters long',
+            'password.confirmed'=>'Confirm Password and Password do not match.',
+            'password_confirmation.required' => 'Confirm Password is required',
         ]);
 
         $updatePassword = DB::table('citizen_password_resets')
@@ -36,7 +42,7 @@ class ResetPasswordController extends Controller
 
           DB::table('citizen_password_resets')->where(['email'=> $request->email])->delete();
 
-          return redirect('/citizen/login')->with('info', 'Your password has been changed!');
+          return redirect('/citizen/login')->with('message', 'Your password has been changed!');
 
     }
 }
