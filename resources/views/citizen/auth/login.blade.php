@@ -90,7 +90,7 @@
                                                         </div>
 
                                                         <div class="mt-3">
-                                                            <a  href="{{ url('/citizen/forget-password') }}" class="register-link text-primary float-end mb-1"><b>Forgot Password?</b></a>
+                                                            {{-- <a  href="{{ url('/citizen/forget-password') }}" class="register-link text-primary float-end mb-1"><b>Forgot Password?</b></a> --}}
                                                             <button class="btn btn-primary w-100" type="submit">Sign In</button>
                                                         </div>
 
