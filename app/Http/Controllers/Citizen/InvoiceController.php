@@ -11,7 +11,7 @@ class InvoiceController extends Controller
 {
     public function fire_noc_invoice($id, $status, $noc_mode){
 
-        if($noc_mode == 1){
+        if($noc_mode == 1 || Auth::user()->role == 2 || Auth::user()->role == 3){
             $data = DB::table('business_noc as t1')
                     ->select('t1.*', 't2.*', 't3.*', 't1.id as NB_NOC_ID', 't2.id as d_ID', 't3.id as payment_id')
                     ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
@@ -25,7 +25,7 @@ class InvoiceController extends Controller
                     ->whereNUll('t3.deleted_at')
                     ->first();
             // dd($data);
-        }elseif($noc_mode == 2){
+        }elseif($noc_mode == 2 || Auth::user()->role == 2 || Auth::user()->role == 3){
             $data = DB::table('business_noc as t1')
                     ->select('t1.*', 't2.*', 't3.*', 't1.id as NB_NOC_ID', 't2.id as d_ID', 't3.id as payment_id')
                     ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
@@ -39,7 +39,7 @@ class InvoiceController extends Controller
                     ->whereNUll('t3.deleted_at')
                     ->first();
             // dd($data);
-        }elseif($noc_mode == 3){
+        }elseif($noc_mode == 3 || Auth::user()->role == 2 || Auth::user()->role == 3){
             $data = DB::table('hospital_noc as t1')
                     ->select('t1.*', 't2.*', 't3.*', 't1.id as NB_NOC_ID', 't2.id as d_ID', 't3.id as payment_id')
                     ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
@@ -53,7 +53,7 @@ class InvoiceController extends Controller
                     ->whereNUll('t3.deleted_at')
                     ->first();
             // dd($data);
-        }elseif($noc_mode == 4){
+        }elseif($noc_mode == 4 || Auth::user()->role == 2 || Auth::user()->role == 3){
             $data = DB::table('hospital_noc as t1')
                     ->select('t1.*', 't2.*', 't3.*', 't1.id as NB_NOC_ID', 't2.id as d_ID', 't3.id as payment_id')
                     ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
@@ -67,7 +67,7 @@ class InvoiceController extends Controller
                     ->whereNUll('t3.deleted_at')
                     ->first();
             // dd($data);
-        }elseif($noc_mode == 5){
+        }elseif($noc_mode == 5 || Auth::user()->role == 2 || Auth::user()->role == 3){
             $data = DB::table('building_noc as t1')
                     ->select('t1.*', 't2.*', 't3.*', 't1.id as NB_NOC_ID', 't2.id as d_ID', 't3.id as payment_id')
                     ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
@@ -81,7 +81,7 @@ class InvoiceController extends Controller
                     ->whereNUll('t3.deleted_at')
                     ->first();
             // dd($data);
-        }elseif($noc_mode == 6){
+        }elseif($noc_mode == 6 || Auth::user()->role == 2 || Auth::user()->role == 3){
             $data = DB::table('building_noc as t1')
                     ->select('t1.*', 't2.*', 't3.*', 't1.id as NB_NOC_ID', 't2.id as d_ID', 't3.id as payment_id')
                     ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )

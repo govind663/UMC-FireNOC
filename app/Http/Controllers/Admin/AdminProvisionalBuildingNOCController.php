@@ -36,7 +36,7 @@ class AdminProvisionalBuildingNOCController extends Controller
             $query->where('t1.status', $status);
         } elseif (Auth::user()->role == 2) {
             $query->where('t1.status', $status);
-            $query->where('t3.citizen_payment_status', 2);
+            // $query->where('t3.citizen_payment_status', 2);
         } elseif (Auth::user()->role == 3) {
             $query->where('t1.status', $status);
         }

@@ -149,8 +149,27 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     // ======= Fetch Construction Category
     Route::post('fee/construction_category', [FeeBldgHtController::class, 'FetchConstructionCategory'])->name('fee.construction_category');
 
+
+
+    // ======= Fetch Mode of Operation
+    Route::post('user/fee/mode_of_operation', [NewBusinessNOCController::class, 'FetchOperationMode'])->name('user.fee.mode_of_operation');
+
+    // ======= Fetch Building Heights
+    Route::post('user/fee/bldg_ht', [NewBusinessNOCController::class, 'FetchBuildingHight'])->name('user.fee.bldg_ht');
+
+    // ======= Fetch Construction Category
+    Route::post('user/fee/construction_category', [NewBusinessNOCController::class, 'FetchConstructionCategory'])->name('user.fee.construction_category');
+
+    // ======= Fetch NOC Fee Master Charges
+    Route::post('fee/noc_fee_master_rate', [NewBusinessNOCController::class, 'NOCFeeMasterCharges'])->name('fee.noc_fee_master_rate');
+
+    // ======= Citizen Make Payments
+    Route::get('make_payment/create/{id}/{status}/{noc_mode}', [CitizenPaypentController::class, 'make_payment_create'])->name('make_payment.create');
+    Route::post('make_payment/store/{id}/{status}/{noc_mode}', [CitizenPaypentController::class, 'make_payment_store'])->name('make_payment.store');
+
     // ======= All Citizen Fire NOC Invoice
     Route::get('/admin_invoice/{id}/{status}/{noc_mode}', [InvoiceController::class, 'fire_noc_invoice'])->name('admin_invoice');
+
 });
 
 
@@ -229,22 +248,6 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware', '
     Route::get('/final_building_noc/edit/{id}/{status}', [FinalBuildingNOCController::class, 'edit'])->name('final_building_noc.edit');
     Route::post('/final_building_noc/edit/update/{id}/{n_id}/{status}', [FinalBuildingNOCController::class, 'update'])->name('final_building_noc.edit.update');
     Route::delete('/final_building_noc/delete/{id}/{n_id}/{status}', [FinalBuildingNOCController::class, 'destroy'])->name('final_building_noc.delete');
-
-    // ======= Fetch Mode of Operation
-    Route::post('user/fee/mode_of_operation', [NewBusinessNOCController::class, 'FetchOperationMode'])->name('user.fee.mode_of_operation');
-
-    // ======= Fetch Building Heights
-    Route::post('user/fee/bldg_ht', [NewBusinessNOCController::class, 'FetchBuildingHight'])->name('user.fee.bldg_ht');
-
-    // ======= Fetch Construction Category
-    Route::post('user/fee/construction_category', [NewBusinessNOCController::class, 'FetchConstructionCategory'])->name('user.fee.construction_category');
-
-    // ======= Fetch NOC Fee Master Charges
-    Route::post('fee/noc_fee_master_rate', [NewBusinessNOCController::class, 'NOCFeeMasterCharges'])->name('fee.noc_fee_master_rate');
-
-    // ======= Citizen Make Payments
-    Route::get('make_payment/create/{id}/{status}/{noc_mode}', [CitizenPaypentController::class, 'make_payment_create'])->name('make_payment.create');
-    Route::post('make_payment/store/{id}/{status}/{noc_mode}', [CitizenPaypentController::class, 'make_payment_store'])->name('make_payment.store');
 
     // ======= All Citizen Fire NOC Invoice
     Route::get('/invoice/{id}/{status}/{noc_mode}', [InvoiceController::class, 'fire_noc_invoice'])->name('invoice');

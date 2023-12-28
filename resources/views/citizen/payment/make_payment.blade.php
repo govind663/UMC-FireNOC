@@ -78,13 +78,11 @@
                                             </div>
 
                                             <div class="form-group row mb-3 d-none">
-                                                @if(auth()->guard('citizen'))
                                                 <label class="col-sm-2"><strong>Citizen ID : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ Auth::user()->id }}">
+                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ $data->citizen_id }}">
 
                                                 </div>
-                                                @endif
 
                                                 <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
@@ -254,13 +252,11 @@
                                             </div>
 
                                             <div class="form-group row mb-3 d-none">
-                                                @if(auth()->guard('citizen'))
                                                 <label class="col-sm-2"><strong>Citizen ID : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ Auth::user()->id }}">
+                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ $data->citizen_id }}">
 
                                                 </div>
-                                                @endif
 
                                                 <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
@@ -434,13 +430,11 @@
                                             </div>
 
                                             <div class="form-group row mb-3 d-none">
-                                                @if(auth()->guard('citizen'))
                                                 <label class="col-sm-2"><strong>Citizen ID : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ Auth::user()->id }}">
+                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ $data->citizen_id }}">
 
                                                 </div>
-                                                @endif
 
                                                 <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
@@ -613,13 +607,11 @@
                                             </div>
 
                                             <div class="form-group row mb-3 d-none">
-                                                @if(auth()->guard('citizen'))
                                                 <label class="col-sm-2"><strong>Citizen ID : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ Auth::user()->id }}">
+                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ $data->citizen_id }}">
 
                                                 </div>
-                                                @endif
 
                                                 <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
@@ -792,13 +784,11 @@
                                             </div>
 
                                             <div class="form-group row mb-3 d-none">
-                                                @if(auth()->guard('citizen'))
                                                 <label class="col-sm-2"><strong>Citizen ID : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ Auth::user()->id }}">
+                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ $data->citizen_id }}">
 
                                                 </div>
-                                                @endif
 
                                                 <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
@@ -971,13 +961,11 @@
                                             </div>
 
                                             <div class="form-group row mb-3 d-none">
-                                                @if(auth()->guard('citizen'))
                                                 <label class="col-sm-2"><strong>Citizen ID : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ Auth::user()->id }}">
+                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ $data->citizen_id }}">
 
                                                 </div>
-                                                @endif
 
                                                 <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
                                                 <div class="col-sm-2 col-md-2">

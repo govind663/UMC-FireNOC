@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\FeeReceiptDocument;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Business_NOC;
 
 class CertificateController extends Controller
 {
@@ -134,6 +135,13 @@ class CertificateController extends Controller
         ];
 
         CitizenPayment::where('mst_token', $request->get('mst_token'))->update($update);
+
+        $update = [
+            'status' => 2,
+            'payment_status' => 2, // ===== Paid by Citizen
+        ];
+
+        Business_NOC::where('noc_mst_id', $request->get('noc_mst_id'))->update($update);
 
         return redirect()->back()->with('message', 'The application form which you had filled for your provisional building noc has been done Successfully.');
     }

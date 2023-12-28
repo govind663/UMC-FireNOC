@@ -30,7 +30,7 @@ class CitizenPaypentController extends Controller
                 ->select('t1.*', 't2.*', 't1.id as NB_NOC_ID', 't2.id as d_ID')
                 ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
                 ->where('t2.noc_mode', 1)  // ==== New Business NOC
-                ->where('t2.citizen_id',  Auth::user()->id)
+                // ->where('t2.citizen_id',  Auth::user()->id)
                 ->where('t1.status', $status)
                 ->where('t1.id', $id)
                 ->whereNUll('t1.deleted_at')
@@ -44,7 +44,7 @@ class CitizenPaypentController extends Controller
                 ->select('t1.*', 't2.*', 't1.id as RB_NOC_ID', 't2.id as d_ID')
                 ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
                 ->where('t2.noc_mode', 2)  // ==== Renew Business NOC
-                ->where('t2.citizen_id',  Auth::user()->id)
+                // ->where('t2.citizen_id',  Auth::user()->id)
                 ->where('t1.status', $status)
                 ->where('t1.id', $id)
                 ->whereNUll('t1.deleted_at')
@@ -58,7 +58,7 @@ class CitizenPaypentController extends Controller
                 ->select('t1.*', 't2.*', 't1.id as NH_NOC_ID', 't2.id as d_ID')
                 ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
                 ->where('t2.noc_mode', 3)  // ==== New Hospital NOC
-                ->where('t2.citizen_id',  Auth::user()->id)
+                // ->where('t2.citizen_id',  Auth::user()->id)
                 ->where('t1.status', $status)
                 ->where('t1.id', $id)
                 ->whereNUll('t1.deleted_at')
@@ -72,7 +72,7 @@ class CitizenPaypentController extends Controller
                 ->select('t1.*', 't2.*', 't1.id as RH_NOC_ID', 't2.id as d_ID')
                 ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
                 ->where('t2.noc_mode', 4)  // ==== New Hospital NOC
-                ->where('t2.citizen_id',  Auth::user()->id)
+                // ->where('t2.citizen_id',  Auth::user()->id)
                 ->where('t1.status', $status)
                 ->where('t1.id', $id)
                 ->whereNUll('t1.deleted_at')
@@ -85,7 +85,7 @@ class CitizenPaypentController extends Controller
                 ->select('t1.*', 't2.*', 't1.id as P_NOC_ID', 't2.id as d_ID')
                 ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
                 ->where('t2.noc_mode', 5)  // ==== Provisional Building NOC
-                ->where('t2.citizen_id',  Auth::user()->id)
+                // ->where('t2.citizen_id',  Auth::user()->id)
                 ->where('t1.status', $status)
                 ->where('t1.id', $id)
                 ->whereNUll('t1.deleted_at')
@@ -99,7 +99,7 @@ class CitizenPaypentController extends Controller
                 ->select('t1.*', 't2.*', 't1.id as F_NOC_ID', 't2.id as d_ID')
                 ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
                 ->where('t2.noc_mode', 6)  // ==== Final Building NOC
-                ->where('t2.citizen_id',  Auth::user()->id)
+                // ->where('t2.citizen_id',  Auth::user()->id)
                 ->where('t1.status', $status)
                 ->where('t1.id', $id)
                 ->whereNUll('t1.deleted_at')
@@ -164,7 +164,7 @@ class CitizenPaypentController extends Controller
 
             // ==== Update Payment Status
             $update = [
-                'status' => 2,
+                'status' => 7,
                 'payment_status' =>  1, // ==== Payment Done Successfully.
                 'payment_dt' =>  date("Y-m-d H:i:s"),
                 'payment_by' =>  Auth::user()->id,
@@ -172,7 +172,7 @@ class CitizenPaypentController extends Controller
 
             Business_NOC::where('id', $id)->update($update);
 
-            return redirect()->route('new_business_noc_list', 2)->with('message', 'Your payment done for your new business noc has been done Successfully.');
+            return redirect()->route('admin_new_business_noc_list', 7)->with('message', 'Your payment done for your new business noc has been done Successfully.');
 
         }elseif($noc_mode == 2){
 
@@ -212,7 +212,7 @@ class CitizenPaypentController extends Controller
 
             // ==== Update Payment Status
             $update = [
-                'status' => 2,
+                'status' => 7,
                 'payment_status' =>  1, // ==== Payment Done Successfully.
                 'payment_dt' =>  date("Y-m-d H:i:s"),
                 'payment_by' =>  Auth::user()->id,
@@ -220,7 +220,7 @@ class CitizenPaypentController extends Controller
 
             Business_NOC::where('id', $id)->update($update);
 
-            return redirect()->route('renew_business_noc_list', 2)->with('message', 'Your payment done for your new business noc has been done Successfully.');
+            return redirect()->route('admin_renew_business_noc_list', 7)->with('message', 'Your payment done for your new business noc has been done Successfully.');
 
         }elseif($noc_mode == 3){
 
@@ -260,7 +260,7 @@ class CitizenPaypentController extends Controller
 
             // ==== Update Payment Status
             $update = [
-                'status' => 2,
+                'status' => 7,
                 'payment_status' =>  1, // ==== Payment Done Successfully.
                 'payment_dt' =>  date("Y-m-d H:i:s"),
                 'payment_by' =>  Auth::user()->id,
@@ -268,7 +268,7 @@ class CitizenPaypentController extends Controller
 
             Hospital_NOC::where('id', $id)->update($update);
 
-            return redirect()->route('new_hospital_noc_list', 2)->with('message', 'Your payment done for your new business noc has been done Successfully.');
+            return redirect()->route('admin_new_hospital_noc_list', 7)->with('message', 'Your payment done for your new business noc has been done Successfully.');
 
         }elseif($noc_mode == 4){
 
@@ -308,7 +308,7 @@ class CitizenPaypentController extends Controller
 
             // ==== Update Payment Status
             $update = [
-                'status' => 2,
+                'status' => 7,
                 'payment_status' =>  1, // ==== Payment Done Successfully.
                 'payment_dt' =>  date("Y-m-d H:i:s"),
                 'payment_by' =>  Auth::user()->id,
@@ -316,7 +316,7 @@ class CitizenPaypentController extends Controller
 
             Hospital_NOC::where('id', $id)->update($update);
 
-            return redirect()->route('renew_hospital_noc_list', 2)->with('message', 'Your payment done for your new business noc has been done Successfully.');
+            return redirect()->route('admin_renew_hospital_noc_list', 7)->with('message', 'Your payment done for your new business noc has been done Successfully.');
 
         }elseif($noc_mode == 5){
 
@@ -356,7 +356,7 @@ class CitizenPaypentController extends Controller
 
             // ==== Update Payment Status
             $update = [
-                'status' => 2,
+                'status' => 7,
                 'payment_status' =>  1, // ==== Payment Done Successfully.
                 'payment_dt' =>  date("Y-m-d H:i:s"),
                 'payment_by' =>  Auth::user()->id,
@@ -364,7 +364,7 @@ class CitizenPaypentController extends Controller
 
             Building_NOC::where('id', $id)->update($update);
 
-            return redirect()->route('provisional_building_noc_list', 2)->with('message', 'Your payment done for your new business noc has been done Successfully.');
+            return redirect()->route('admin_provisional_building_noc_list', 7)->with('message', 'Your payment done for your new business noc has been done Successfully.');
 
         }elseif($noc_mode == 6){
 
@@ -404,7 +404,7 @@ class CitizenPaypentController extends Controller
 
             // ==== Update Payment Status
             $update = [
-                'status' => 2,
+                'status' => 7,
                 'payment_status' =>  1, // ==== Payment Done Successfully.
                 'payment_dt' =>  date("Y-m-d H:i:s"),
                 'payment_by' =>  Auth::user()->id,
@@ -412,7 +412,7 @@ class CitizenPaypentController extends Controller
 
             Building_NOC::where('id', $id)->update($update);
 
-            return redirect()->route('final_building_noc_list', 2)->with('message', 'Your payment done for your new business noc has been done Successfully.');
+            return redirect()->route('admin_final_building_noc_list', 7)->with('message', 'Your payment done for your new business noc has been done Successfully.');
 
         }
 

@@ -167,12 +167,12 @@
                                                             </form>
                                                             @endif
 
-                                                            &nbsp;&nbsp;
+                                                            {{-- &nbsp;&nbsp;
                                                             @if ($value->status == 1)
                                                             <a href='{{ url("/make_payment/create/{$value->P_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-success btn-sm ">
                                                                 <b><i class="mdi mdi-contactless-payment"> Make Payment</i></b>
                                                             </a>
-                                                            @endif
+                                                            @endif --}}
 
                                                             &nbsp;&nbsp;
                                                             @if ($value->status == 2 && $value->payment_status == 1 )

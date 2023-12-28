@@ -36,7 +36,7 @@ class AdminNewHospitalNOCController extends Controller
             $query->where('t1.status', $status);
         } elseif (Auth::user()->role == 2) {
             $query->where('t1.status', $status);
-            $query->where('t3.citizen_payment_status', 2);
+            // $query->where('t3.citizen_payment_status', 2);
         } elseif (Auth::user()->role == 3) {
             $query->where('t1.status', $status);
         }
@@ -146,7 +146,7 @@ class AdminNewHospitalNOCController extends Controller
             Hospital_NOC::where('id', $id)->where('status', $status)->update($update);
         }
 
-        return redirect()->route('admin_new_hospital_noc_list', 1)->with('message', 'The application form which you had filled for your new hospital noc has been approved Successfully.');
+        return redirect('admin_new_hospital_noc_list', 1)->with('message', 'The application form which you had filled for your new hospital noc has been approved Successfully.');
     }
 
     /**

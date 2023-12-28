@@ -143,6 +143,8 @@
                                                         <td><span class="bg-dark text-light p-1">Underprocess</span></td>
                                                         @elseif ($value->status == 6)
                                                         <td><span class="bg-danger text-dark p-1">Reviewed</span></td>
+                                                        @elseif ($value->status == 7)
+                                                        <td><span class="bg-primary text-dark p-1">Invoice Generated Successfully</span></td>
                                                         @endif
 
                                                         @if ( $value->status == 4 )
@@ -154,13 +156,21 @@
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
                                                             &nbsp;&nbsp;
-                                                            @if ($value->status == 2 && $value->citizen_payment_status == 2 || Auth::user()->role == 2 || Auth::user()->role == 3)
-                                                            <a href="{{url('/')}}/UMC_FireNOC/payment/payment_recepit_doc/{{ $value->payment_recepit_doc }}" class="btn btn-warning text-dark btn-sm" target="_blank">
-                                                                <b><i class="mdi mdi-file-pdf-outline"> View Payment Receipt</i></b>
+                                                            @if ($value->status == 1)
+                                                            <a href='{{ url("/make_payment/create/{$value->NB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-success btn-sm ">
+                                                                <b><i class="mdi mdi-contactless-payment"> Check & Make Invoice</i></b>
                                                             </a>
+                                                            @endif
+
+                                                            &nbsp;&nbsp;
+                                                            @if (Auth::user()->role == 2 || Auth::user()->role == 3 && $value->status == 7 || $value->status == 2 && $value->citizen_payment_status == 2)
+                                                                <a href="{{url('/')}}/UMC_FireNOC/payment/payment_recepit_doc/{{ $value->payment_recepit_doc }}" class="btn btn-warning text-dark btn-sm" target="_blank">
+                                                                    <b><i class="mdi mdi-file-pdf-outline"> View Payment Receipt</i></b>
+                                                                </a>
+                                                            @endif
+
                                                             &nbsp;&nbsp;
                                                             <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target=".NB_NOC_Preview_{{ $value->NB_NOC_ID }}"><b><i class="mdi mdi-eye-circle-outline">View Field Inspector Remark</i></b></button>
-                                                            @endif
                                                         </td>
 
                                                     </tr>
@@ -180,10 +190,10 @@
                                                                             <div class="form-group row mb-3">
                                                                                 <label class="col-sm-2"><strong>Upload Document : <span style="color:red;">*</span></strong></label>
                                                                                 <div class="col-sm-4 col-md-4">
-                                                                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/f_inspector_doc/{{ $value->f_inspector_doc }}" target="_blank">
+                                                                                    <a href="{{url('/')}}/UMC_FireNOC/payment/payment_recepit_doc/{{ $value->payment_recepit_doc }}" target="_blank">
                                                                                         <div class="form-group">
                                                                                             <?php
-                                                                                                    $document_path = $value->f_inspector_doc;
+                                                                                                    $document_path = $value->payment_recepit_doc;
                                                                                                     $filter_path =  explode(".",$document_path);
                                                                                                     $size_of_array = count($filter_path);
                                                                                                     $filter_ext = $filter_path[$size_of_array - 1];
@@ -194,12 +204,12 @@
                                                                                             ?>
 
                                                                                             <p class="mt-3 mb-0" id="image_div">
-                                                                                                <img src="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/f_inspector_doc/{{ $value->f_inspector_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                                                <img src="{{url('/')}}/UMC_FireNOC/payment/payment_recepit_doc/{{ $value->payment_recepit_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
                                                                                             </p>
                                                                                             <?php }
                                                                                             else{
                                                                                                 ?>
-                                                                                                <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/f_inspector_doc/{{ $value->f_inspector_doc }}" target="_blank" download>
+                                                                                                <a href="{{url('/')}}/UMC_FireNOC/payment/payment_recepit_doc/{{ $value->payment_recepit_doc }}" target="_blank" download>
                                                                                                     <p class="mt-3 mb-0" id="image_div">
                                                                                                     <button type="button"class="btn btn-primary text-bold">
                                                                                                         Download File

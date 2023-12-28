@@ -138,7 +138,7 @@
                                                         @endif
 
                                                         <td style="display:flex;">
-                                                            <a href='{{ url("/all_new_business_noc/show/{$value->RH_NOC_ID}/{$all_status}") }}' class="btn btn-primary btn-sm">
+                                                            <a href='{{ url("/all_renew_hospital_noc/show/{$value->RH_NOC_ID}/{$all_status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
                                                         </td>

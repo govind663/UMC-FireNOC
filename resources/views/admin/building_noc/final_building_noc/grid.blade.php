@@ -150,7 +150,14 @@
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
                                                             &nbsp;&nbsp;
-                                                            @if ($value->status == 2 && $value->citizen_payment_status == 2 || Auth::user()->role == 2 || Auth::user()->role == 3 )
+                                                            @if ($value->status == 1)
+                                                            <a href='{{ url("/make_payment/create/{$value->F_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-success btn-sm ">
+                                                                <b><i class="mdi mdi-contactless-payment">Check & Make Invoice</i></b>
+                                                            </a>
+                                                            @endif
+
+                                                            &nbsp;&nbsp;
+                                                            @if ($value->status == 2 && $value->citizen_payment_status == 2 && Auth::user()->role == 2 || Auth::user()->role == 3 )
                                                             <a href="{{url('/')}}/UMC_FireNOC/payment/payment_recepit_doc/{{ $value->payment_recepit_doc }}" class="btn btn-warning text-dark btn-sm" target="_blank">
                                                                 <b><i class="mdi mdi-file-pdf-outline"> View Payment Receipt</i></b>
                                                             </a>
