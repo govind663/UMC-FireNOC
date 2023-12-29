@@ -164,11 +164,10 @@
                                                                 <a href="{{url('/')}}/UMC_FireNOC/payment/payment_recepit_doc/{{ $value->payment_recepit_doc }}" class="btn btn-warning text-dark btn-sm" target="_blank">
                                                                     <b><i class="mdi mdi-file-pdf-outline"> View Payment Receipt</i></b>
                                                                 </a>
+                                                                &nbsp;&nbsp;
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target=".PB_NOC_Preview_{{ $value->P_NOC_ID }}"><b><i class="mdi mdi-eye-circle-outline">View Field Inspector Remark</i></b></button>
                                                             @endif
-
-                                                            &nbsp;&nbsp;
-                                                            <!-- Button trigger modal -->
-                                                            <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target=".PB_NOC_Preview_{{ $value->P_NOC_ID }}"><b><i class="mdi mdi-eye-circle-outline">View Field Inspector Remark</i></b></button>
 
                                                         </td>
                                                     </tr>
