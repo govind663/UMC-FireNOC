@@ -527,7 +527,7 @@
                                         <div class="form-group row  mb-3">
                                             <label class="col-sm-12"><strong>Address Of Business Place : <span style="color:red;">*</span></strong></label>
                                             <div class="col-sm-6 col-md-6">
-                                                <textarea type="text" name="business_address" id="business_address" class="form-control @error('business_address') is-invalid @enderror" value="{{ old('business_address') }}" placeholder="Enter Address Of Business Place"></textarea>
+                                                <textarea type="text" name="business_address" id="business_address" class="form-control @error('business_address') is-invalid @enderror" value="{{ old('business_address') }}" placeholder="Enter Address Of Business Place">{{ old('business_address') }}</textarea>
                                                 @error('business_address')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

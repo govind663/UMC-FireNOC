@@ -151,7 +151,7 @@ class BusinessNOCRequest extends FormRequest
                 'electric_license_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
                 'gas_license_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
                 'shop_license_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
-                'food_license' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
+                'food_license' => 'mimes:jpeg,png,jpg,pdf|max:2048',
                 'tax_bill_paid_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
                 'trade_license' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
                 'gas_certificate_doc' => 'required|mimes:jpeg,png,jpg,pdf|max:2048',
@@ -243,7 +243,7 @@ class BusinessNOCRequest extends FormRequest
             'shop_license_doc.max' => 'The file size should be less than 2MB.',
             'shop_license_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
-            'food_license.required' => 'Food License is required',
+            // 'food_license.required' => 'Food License is required',
             'food_license.max' => 'The file size should be less than 2MB.',
             'food_license.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
