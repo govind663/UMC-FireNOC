@@ -139,6 +139,8 @@
                                                         <td><span class="bg-dark text-light p-1">Underprocess</span></td>
                                                         @elseif ($value->status == 6)
                                                         <td><span class="bg-danger text-dark p-1">Reviewed</span></td>
+                                                        @elseif ($value->status == 7)
+                                                        <td><span class="bg-primary text-dark p-1">Invoice Generated Successfully</span></td>
                                                         @endif
 
                                                         @if ( $value->status == 4 )
@@ -173,7 +175,7 @@
                                                             @endif --}}
 
                                                             &nbsp;&nbsp;
-                                                            @if ($value->status == 2 && $value->payment_status == 1 )
+                                                            @if ($value->status == 7 && $value->payment_status == 1 )
                                                             <a href='{{ url("/invoice/{$value->F_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-dark btn-sm ">
                                                                 <b><i class="mdi mdi-file"> Invoice</i></b>
                                                             </a>
@@ -187,7 +189,7 @@
                                                             @endif
 
                                                             &nbsp;&nbsp;
-                                                            @if($value->status == 2 && $value->citizen_payment_status == 1)
+                                                            @if($value->status == 7 && $value->citizen_payment_status == 1)
                                                             <button type="button" class="btn btn-warning text-dark btn-sm waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_{{ $value->F_NOC_ID }}">Upload Payment Recepit</button>
                                                             @endif
                                                         </td>
@@ -210,8 +212,9 @@
                                                                                 @if(auth()->guard('citizen'))
                                                                                 <label class="col-sm-2"><strong>Citizen ID : <span style="color:red;">*</span></strong></label>
                                                                                 <div class="col-sm-2 col-md-2">
-                                                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ Auth::user()->id }}" >
+                                                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ $value->citizen_id }}" >
                                                                                     <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{ $value->mst_token }}" >
+                                                                                    <input type="text" readonly name="noc_mst_id" id="noc_mst_id" class="form-control" value="{{ $value->noc_mst_id }}" >
                                                                                 </div>
                                                                                 @endif
 

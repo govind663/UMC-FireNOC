@@ -139,6 +139,8 @@
                                                         <td><span class="bg-dark text-light p-1">Underprocess</span></td>
                                                         @elseif ($value->status == 6)
                                                         <td><span class="bg-danger text-dark p-1">Reviewed</span></td>
+                                                        @elseif ($value->status == 7)
+                                                        <td><span class="bg-primary text-dark p-1">Invoice Generated Successfully</span></td>
                                                         @endif
 
                                                         @if ( $value->status == 4 )
@@ -149,21 +151,25 @@
                                                             <a href='{{ url("/admin_final_building_noc/show/{$value->F_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
+
                                                             &nbsp;&nbsp;
                                                             @if ($value->status == 1)
                                                             <a href='{{ url("/make_payment/create/{$value->F_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-success btn-sm ">
-                                                                <b><i class="mdi mdi-contactless-payment">Check & Make Invoice</i></b>
+                                                                <b><i class="mdi mdi-contactless-payment"> Check & Make Invoice</i></b>
                                                             </a>
                                                             @endif
 
                                                             &nbsp;&nbsp;
-                                                            @if ($value->status == 2 && $value->citizen_payment_status == 2 && Auth::user()->role == 2 || Auth::user()->role == 3 )
-                                                            <a href="{{url('/')}}/UMC_FireNOC/payment/payment_recepit_doc/{{ $value->payment_recepit_doc }}" class="btn btn-warning text-dark btn-sm" target="_blank">
-                                                                <b><i class="mdi mdi-file-pdf-outline"> View Payment Receipt</i></b>
-                                                            </a>
-                                                            &nbsp;&nbsp;
-                                                            <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target=".FB_NOC_Preview_{{ $value->F_NOC_ID }}"><b><i class="mdi mdi-eye-circle-outline"> View Field Inspector Remark</i></b></button>
+                                                            @if (Auth::user()->role == 2 || Auth::user()->role == 3 && $value->status == 7 || $value->status == 2 && $value->citizen_payment_status == 2)
+                                                                <a href="{{url('/')}}/UMC_FireNOC/payment/payment_recepit_doc/{{ $value->payment_recepit_doc }}" class="btn btn-warning text-dark btn-sm" target="_blank">
+                                                                    <b><i class="mdi mdi-file-pdf-outline"> View Payment Receipt</i></b>
+                                                                </a>
                                                             @endif
+
+                                                            &nbsp;&nbsp;
+                                                            <!-- Button trigger modal -->
+                                                            <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target=".FB_NOC_Preview_{{ $value->F_NOC_ID }}"><b><i class="mdi mdi-eye-circle-outline">View Field Inspector Remark</i></b></button>
+
                                                         </td>
                                                     </tr>
 
