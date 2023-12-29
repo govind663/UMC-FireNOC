@@ -160,14 +160,26 @@
                                                             @endif
 
                                                             &nbsp;&nbsp;
-                                                            @if (Auth::user()->role == 2 || Auth::user()->role == 3 && $value->status == 7 || $value->status == 2 && $value->citizen_payment_status == 2)
+                                                            @if ($value->status == 7 && $value->payment_status == 1 )
+                                                            <a href='{{ url("/admin_invoice/{$value->RB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-dark btn-sm ">
+                                                                <b><i class="mdi mdi-file">Download Invoice</i></b>
+                                                            </a>
+                                                            @endif
+
+
+                                                            &nbsp;&nbsp;
+                                                            @if (Auth::user()->role == 2 && $value->status == 7 && $value->citizen_payment_status == 2)
                                                                 <a href="{{url('/')}}/UMC_FireNOC/payment/payment_recepit_doc/{{ $value->payment_recepit_doc }}" class="btn btn-warning text-dark btn-sm" target="_blank">
                                                                     <b><i class="mdi mdi-file-pdf-outline"> View Payment Receipt</i></b>
                                                                 </a>
-                                                                &nbsp;&nbsp;
-                                                                <!-- Button trigger modal -->
-                                                                <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target=".FB_NOC_Preview_{{ $value->F_NOC_ID }}"><b><i class="mdi mdi-eye-circle-outline">View Field Inspector Remark</i></b></button>
+                                                            @elseif (Auth::user()->role == 3 && $value->status == 2 && $value->citizen_payment_status == 2)
+                                                                <a href="{{url('/')}}/UMC_FireNOC/payment/payment_recepit_doc/{{ $value->payment_recepit_doc }}" class="btn btn-warning text-dark btn-sm" target="_blank">
+                                                                    <b><i class="mdi mdi-file-pdf-outline"> View Payment Receipt</i></b>
+                                                                </a>
                                                             @endif
+
+                                                            &nbsp;&nbsp;
+                                                                <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target=".FB_NOC_Preview_{{ $value->NB_NOC_ID }}"><b><i class="mdi mdi-eye-circle-outline">View Field Inspector Remark</i></b></button>
 
                                                         </td>
                                                     </tr>

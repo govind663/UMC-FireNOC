@@ -168,7 +168,7 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     Route::post('make_payment/store/{id}/{status}/{noc_mode}', [CitizenPaypentController::class, 'make_payment_store'])->name('make_payment.store');
 
     // ======= All Citizen Fire NOC Invoice
-    Route::get('/admin_invoice/{id}/{status}/{noc_mode}', [InvoiceController::class, 'fire_noc_invoice'])->name('admin_invoice');
+    Route::get('/admin_invoice/{id}/{status}/{noc_mode}', [InvoiceController::class, 'admin_fire_noc_invoice'])->name('admin_invoice');
 
 });
 

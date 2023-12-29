@@ -218,6 +218,28 @@
                         </div>
                     </li>
 
+                    {{-- Display Unpaid Application List --}}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
+                            <i class="uim uim-grid"></i> Generated Invoice List <div class="arrow-down"></div>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="topnav-uielement">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div>
+                                        <a href="{{ url('/admin_new_business_noc_list',7) }}" class="dropdown-item">New Business NOC List</a>
+                                        <a href="{{ url('/admin_renew_business_noc_list',7) }}" class="dropdown-item">Renew Business NOC List</a>
+                                        <a href="{{ url('/admin_new_hospital_noc_list',7) }}" class="dropdown-item">New Hospital NOC List</a>
+                                        <a href="{{ url('/admin_renew_hospital_noc_list',7) }}" class="dropdown-item">Renew Hospital NOC List</a>
+                                        <a href="{{ url('/admin_provisional_building_noc_list',7) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/admin_final_building_noc_list',7) }}" class="dropdown-item">Final Building NOC List</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </li>
 
                     {{-- Paid Application --}}
                     <li class="nav-item dropdown">
