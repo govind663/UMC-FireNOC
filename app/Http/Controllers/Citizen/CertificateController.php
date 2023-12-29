@@ -10,6 +10,8 @@ use App\Models\FeeReceiptDocument;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Business_NOC;
+use App\Models\Hospital_NOC;
+use App\Models\Building_NOC;
 
 class CertificateController extends Controller
 {
@@ -128,20 +130,27 @@ class CertificateController extends Controller
         $data->inserted_by = Auth::user()->id;
         $data->save();
 
-        // ==== Generate New Business NOC Token Number
-
+        // === Update Citizen Payment Status
         $update = [
             'citizen_payment_status' => 2,
         ];
 
         CitizenPayment::where('mst_token', $request->get('mst_token'))->update($update);
 
+        // === Update Citizen Application Status.
         $update = [
             'status' => 2,
             'payment_status' => 2, // ===== Paid by Citizen
         ];
 
-        Business_NOC::where('noc_mst_id', $request->get('noc_mst_id'))->update($update);
+        if($request->get('payment_noc_mode') == 1 || $request->get('payment_noc_mode') == 2 ){
+            Business_NOC::where('noc_mst_id', $request->get('noc_mst_id'))->update($update);
+        }elseif($request->get('payment_noc_mode') == 3 || $request->get('payment_noc_mode') == 4 ){
+            Hospital_NOC::where('noc_mst_id', $request->get('noc_mst_id'))->update($update);
+        }elseif($request->get('payment_noc_mode') == 5 || $request->get('payment_noc_mode') == 6 ){
+            Building_NOC::where('noc_mst_id', $request->get('noc_mst_id'))->update($update);
+        }
+
 
         return redirect()->back()->with('message', 'The application form which you had filled for your provisional building noc has been done Successfully.');
     }
