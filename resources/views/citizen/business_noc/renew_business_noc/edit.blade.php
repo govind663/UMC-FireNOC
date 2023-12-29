@@ -697,7 +697,7 @@
                                                 </div>
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Food License : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Upload Food License : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <input type="file" accept=".jpg, .jpeg, .png, .pdf" name="food_license" id="food_license" class="form-control  @error('food_license') is-invalid @enderror "   value="{{ $data->food_license }}" placeholder="Upload Location of Place (Google Map Link)">
                                                         <small class="text-secondary"> Note : The file size  should be less than 2MB .</small>
