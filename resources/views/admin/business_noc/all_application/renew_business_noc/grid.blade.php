@@ -59,9 +59,9 @@
                                     <div class="card-body" style="border: 1px solid rgb(3, 155, 155);">
 
                                         @if($all_status == 2)
-                                        <h4 class="card-header text-primary">All Rejected New Business NOC List</h4>
+                                        <h4 class="card-header text-primary">All Rejected Renew Business NOC List</h4>
                                         @elseif($all_status == 1)
-                                        <h4 class="card-header text-primary">All Approved New Business NOC List</h4>
+                                        <h4 class="card-header text-primary">All Approved Renew Business NOC List</h4>
                                         @endif
 
                                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
