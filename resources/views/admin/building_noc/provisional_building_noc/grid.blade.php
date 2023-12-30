@@ -179,7 +179,7 @@
                                                             @endif
 
                                                             &nbsp;&nbsp;
-                                                            <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target=".PB_NOC_Preview_{{ $value->NB_NOC_ID }}"><b><i class="mdi mdi-eye-circle-outline">View Field Inspector Remark</i></b></button>
+                                                            <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target=".PB_NOC_Preview_{{ $value->P_NOC_ID }}"><b><i class="mdi mdi-eye-circle-outline">View Field Inspector Remark</i></b></button>
 
                                                         </td>
                                                     </tr>
