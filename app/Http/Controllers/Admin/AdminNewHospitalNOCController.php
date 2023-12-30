@@ -229,6 +229,8 @@ class AdminNewHospitalNOCController extends Controller
             $query->where('t1.inspector_status', $all_status);
         } elseif (Auth::user()->role == 2) {
             $query->where('t1.officer_status', $all_status);
+        } elseif (Auth::user()->role == 3) {
+            $query->where('t1.status', 3);
         }
 
         $data = $query->get();
@@ -261,6 +263,8 @@ class AdminNewHospitalNOCController extends Controller
             $query->where('t1.inspector_status', $all_status);
         } elseif (Auth::user()->role == 2) {
             $query->where('t1.officer_status', $all_status);
+        } elseif (Auth::user()->role == 3) {
+            $query->where('t1.status', 3);
         }
 
         $data = $query->first();
