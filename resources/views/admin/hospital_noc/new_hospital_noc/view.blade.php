@@ -977,7 +977,7 @@
                                                 <a href="{{ url('/admin_new_hospital_noc_list', $data->status) }}" class="btn btn-primary">Cancel</a>
                                                 &nbsp;&nbsp;
                                                 @if ($data->status == 1)
-                                                <a href='{{ url("/make_payment/create/{$data->NH_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' class="btn btn-success btn-sm ">
+                                                <a href='{{ url("/make_payment/create/{$data->RB_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' class="btn btn-success btn-sm ">
                                                     <b><i class="mdi mdi-contactless-payment"> Check & Make Invoice</i></b>
                                                 </a>
                                                 @endif
@@ -986,7 +986,7 @@
                                                 @if(Auth::user()->role == 3)
                                                 <a href='{{ url("/admin_new_hospital_noc/approved/$data->NH_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
                                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NH_NOC_Reject"><b>Reject</b></button>
-                                                @elseif(Auth::user()->role == 2 && $data->status == 2)
+                                                @elseif(Auth::user()->role == 2 && &data->status == 2)
                                                 <a href='{{ url("/admin_new_hospital_noc/approved/$data->NH_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
                                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NH_NOC_Reject"><b>Reject</b></button>
                                                 @elseif(Auth::user()->role == 1)
