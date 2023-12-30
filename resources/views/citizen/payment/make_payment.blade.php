@@ -1112,17 +1112,17 @@
                                                 <label class="col-md-3"></label>
                                                 <div class="col-md-9" style="display: flex; justify-content: flex-end;">
                                                     @if ($noc_mode == 1)
-                                                    <a href="{{ url('/admin_new_business_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                    <a href="{{ url('/admin_new_business_noc_list', 1) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
                                                     @elseif ($noc_mode == 2)
-                                                    <a href="{{ url('/admin_renew_business_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                    <a href="{{ url('/admin_renew_business_noc_list', 1) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
                                                     @elseif ($noc_mode == 3)
-                                                    <a href="{{ url('/admin_new_hospital_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                    <a href="{{ url('/admin_new_hospital_noc_list', 1) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
                                                     @elseif ($noc_mode == 4)
-                                                    <a href="{{ url('/admin_renew_hospital_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                    <a href="{{ url('/admin_renew_hospital_noc_list', 1) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
                                                     @elseif ($noc_mode == 5)
-                                                    <a href="{{ url('/admin_provisional_building_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                    <a href="{{ url('/admin_provisional_building_noc_list', 1) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
                                                     @elseif ($noc_mode == 6)
-                                                    <a href="{{ url('/admin_final_building_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                    <a href="{{ url('/admin_final_building_noc_list', 1) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
                                                     @endif
 
                                                     <button type="submit" class="btn btn-primary">Submit</button>
