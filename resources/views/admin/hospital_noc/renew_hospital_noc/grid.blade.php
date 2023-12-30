@@ -132,17 +132,17 @@
                                                         @elseif ($value->status == 1)
                                                         <td><span class="bg-warning text-dark p-1">Unpaid</span></td>
                                                         @elseif ($value->status == 2)
-                                                        <td><span class="bg-success text-dark p-1">Paid</span></td>
+                                                        <td><span class="bg-success text-white p-1">Paid</span></td>
                                                         @elseif ($value->status == 3)
-                                                        <td><span class="bg-success text-dark p-1">Approved</span></td>
+                                                        <td><span class="bg-success text-white p-1">Approved</span></td>
                                                         @elseif ($value->status == 4)
                                                         <td><span class="bg-danger text-light p-1">Rejected</span></td>
                                                         @elseif ($value->status == 5)
                                                         <td><span class="bg-dark text-light p-1">Underprocess</span></td>
                                                         @elseif ($value->status == 6)
-                                                        <td><span class="bg-danger text-dark p-1">Reviewed</span></td>
+                                                        <td><span class="bg-danger text-white p-1">Reviewed</span></td>
                                                         @elseif ($value->status == 7)
-                                                        <td><span class="bg-primary text-dark p-1">Invoice Generated Successfully</span></td>
+                                                        <td><span class="bg-primary text-white p-1">Invoice Generated Successfully</span></td>
                                                         @endif
 
                                                         @if ( $value->status == 4 )

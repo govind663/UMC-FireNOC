@@ -122,9 +122,9 @@
                                                         @elseif ($value->status == 1)
                                                         <td><span class="bg-warning text-dark p-1">Unpaid</span></td>
                                                         @elseif ($value->status == 2)
-                                                        <td><span class="bg-success text-dark p-1">Paid</span></td>
+                                                        <td><span class="bg-success text-white p-1">Paid</span></td>
                                                         @elseif ($value->status == 3)
-                                                        <td><span class="bg-success text-dark p-1">Approved</span></td>
+                                                        <td><span class="bg-success text-white p-1">Approved</span></td>
                                                         @elseif ($value->status == 4)
                                                         <td><span class="bg-danger text-light p-1">Rejected</span></td>
                                                         @elseif ($value->status == 5)
