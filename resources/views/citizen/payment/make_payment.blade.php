@@ -202,9 +202,9 @@
 
                                             <div class="box 2">
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-3"><strong>Enter Area per Sq.Mt. : </strong></label>
+                                                    <label class="col-sm-3"><strong>Enter Area in Sq.Mt. : </strong></label>
                                                     <div class="col-sm-3 col-md-3">
-                                                        <input type="text" name="new_area_meter" id="new_area_meter" class="form-control"  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area per Sq.Mt.">
+                                                        <input type="text" name="new_area_meter" id="new_area_meter" class="form-control"  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area in Sq.Mt.">
                                                     </div>
 
                                                     <label class="col-sm-3"><strong>Cost per Sq.Mt. : </strong></label>
