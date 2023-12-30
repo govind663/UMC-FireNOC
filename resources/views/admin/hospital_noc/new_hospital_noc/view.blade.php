@@ -977,7 +977,7 @@
                                                 <a href="{{ url('/admin_new_hospital_noc_list', $data->status) }}" class="btn btn-primary">Cancel</a>
                                                 &nbsp;&nbsp;
                                                 @if ($data->status == 1)
-                                                <a href='{{ url("/make_payment/create/{$data->RB_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' class="btn btn-success btn-sm ">
+                                                <a href='{{ url("/make_payment/create/{$data->NH_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' class="btn btn-success btn-sm ">
                                                     <b><i class="mdi mdi-contactless-payment"> Check & Make Invoice</i></b>
                                                 </a>
                                                 @endif
