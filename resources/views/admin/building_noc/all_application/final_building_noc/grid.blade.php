@@ -131,6 +131,8 @@
                                                         <td><span class="bg-dark text-light p-1">Underprocess</span></td>
                                                         @elseif ($value->status == 6)
                                                         <td><span class="bg-danger text-dark p-1">Reviewed</span></td>
+                                                        @elseif ($value->status == 7)
+                                                        <td><span class="bg-primary text-white p-1">Invoice Generated Successfully</span></td>
                                                         @endif
 
                                                         @if ( $value->status == 4 )
