@@ -155,13 +155,6 @@
                                                             <a href='{{ url("/admin_new_business_noc/show/{$value->NB_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
-                                                            &nbsp;&nbsp;
-
-                                                            @if ($value->status == 1)
-                                                            <a href='{{ url("/make_payment/create/{$value->NB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-success btn-sm ">
-                                                                <b><i class="mdi mdi-contactless-payment"> Check & Make Invoice</i></b>
-                                                            </a>
-                                                            @endif
 
                                                             &nbsp;&nbsp;
                                                             @if ($value->status == 7 && $value->payment_status == 1 )

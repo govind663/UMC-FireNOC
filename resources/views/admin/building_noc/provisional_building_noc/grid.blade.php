@@ -153,13 +153,6 @@
                                                             </a>
 
                                                             &nbsp;&nbsp;
-                                                            @if ($value->status == 1)
-                                                            <a href='{{ url("/make_payment/create/{$value->P_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-success btn-sm ">
-                                                                <b><i class="mdi mdi-contactless-payment"> Check & Make Invoice</i></b>
-                                                            </a>
-                                                            @endif
-
-                                                            &nbsp;&nbsp;
                                                             @if ($value->status == 7 && $value->payment_status == 1 )
                                                             <a href='{{ url("/admin_invoice/{$value->RB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-dark btn-sm ">
                                                                 <b><i class="mdi mdi-file">Download Invoice</i></b>

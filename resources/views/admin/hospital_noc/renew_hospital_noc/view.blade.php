@@ -1002,12 +1002,18 @@
                                         <div class="form-group row mt-4" >
                                             <label class="col-md-3"></label>
                                             <div class="col-md-9" style="display: flex; justify-content: flex-end;">
-                                                <a href="{{ url('/admin_renew_hospital_noc_list', $data->status) }}" class="btn btn-primary">Cancel</a>&nbsp;&nbsp;
-                                                {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
+                                                <a href="{{ url('/admin_renew_hospital_noc_list', $data->status) }}" class="btn btn-primary">Cancel</a>
+                                                &nbsp;&nbsp;
+                                                @if ($data->status == 1)
+                                                <a href='{{ url("/make_payment/create/{$data->RH_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' class="btn btn-success btn-sm ">
+                                                    <b><i class="mdi mdi-contactless-payment"> Check & Make Invoice</i></b>
+                                                </a>
+                                                @endif
+                                                &nbsp;&nbsp;
                                                 @if(Auth::user()->role == 3)
                                                 <a href='{{ url("/admin_renew_hospital_noc/approved/$data->RH_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
                                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".RH_NOC_Reject"><b>Reject</b></button>
-                                                @elseif(Auth::user()->role == 2)
+                                                @elseif(Auth::user()->role == 2 && $data->status == 2)
                                                 <a href='{{ url("/admin_renew_hospital_noc/approved/$data->RH_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
                                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".RH_NOC_Reject"><b>Reject</b></button>
                                                 @elseif(Auth::user()->role == 1)
