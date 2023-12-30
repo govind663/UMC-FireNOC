@@ -167,7 +167,7 @@
                                                                 <a href="{{url('/')}}/UMC_FireNOC/payment/payment_recepit_doc/{{ $value->payment_recepit_doc }}" class="btn btn-warning text-dark btn-sm" target="_blank">
                                                                     <b><i class="mdi mdi-file-pdf-outline"> View Payment Receipt</i></b>
                                                                 </a>
-                                                            @elseif (Auth::user()->role == 3 && $value->status == 2 && $value->citizen_payment_status == 2)
+                                                            @elseif (Auth::user()->role == 3 && $value->status == 6 && $value->citizen_payment_status == 2)
                                                                 <a href="{{url('/')}}/UMC_FireNOC/payment/payment_recepit_doc/{{ $value->payment_recepit_doc }}" class="btn btn-warning text-dark btn-sm" target="_blank">
                                                                     <b><i class="mdi mdi-file-pdf-outline"> View Payment Receipt</i></b>
                                                                 </a>
