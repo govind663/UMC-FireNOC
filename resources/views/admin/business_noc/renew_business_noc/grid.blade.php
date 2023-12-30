@@ -182,7 +182,7 @@
 
                                                             @endif
 
-                                                            @if (Auth::user()->role == 1 || Auth::user()->role == 2 || Auth::user()->role == 3)
+                                                            @if (Auth::user()->role == 2 || Auth::user()->role == 3)
                                                             &nbsp;&nbsp;
                                                             <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target=".RB_NOC_Preview_{{ $value->RB_NOC_ID }}"><b><i class="mdi mdi-eye-circle-outline">View Field Inspector Remark</i></b></button>
                                                             @endif
