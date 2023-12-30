@@ -221,7 +221,7 @@
                     {{-- Invoice Application List --}}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
-                            <i class="uim uim-grid"></i> All Invoice List <div class="arrow-down"></div>
+                            <i class="uim uim-grid"></i> All Generated Invoice List <div class="arrow-down"></div>
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="topnav-uielement">
