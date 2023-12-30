@@ -229,17 +229,17 @@
                                                 <div class="float-end">
                                                     <a href="javascript:window.print()" class="btn btn-primary me-1"><i class="fa fa-print"></i></a>
                                                     @if ($noc_mode == 1)
-                                                    <a href="{{ url('/new_business_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                    <a href="{{ url('/admin_new_business_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
                                                     @elseif ($noc_mode == 2)
-                                                    <a href="{{ url('/renew_business_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                    <a href="{{ url('/admin_renew_business_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
                                                     @elseif ($noc_mode == 3)
-                                                    <a href="{{ url('/new_hospital_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                    <a href="{{ url('/admin_new_hospital_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
                                                     @elseif ($noc_mode == 4)
-                                                    <a href="{{ url('/renew_hospital_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                    <a href="{{ url('/admin_renew_hospital_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
                                                     @elseif ($noc_mode == 5)
-                                                    <a href="{{ url('/provisional_building_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                    <a href="{{ url('/admin_provisional_building_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
                                                     @elseif ($noc_mode == 6)
-                                                    <a href="{{ url('/final_building_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                    <a href="{{ url('/admin_final_building_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
                                                     @endif
                                                 </div>
                                             </div>
