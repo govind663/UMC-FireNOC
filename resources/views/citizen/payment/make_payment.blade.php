@@ -332,6 +332,20 @@
                                             </div>
 
                                             <div class="form-group row  mb-3">
+                                                <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_bldg_ht_id') is-invalid @enderror" name="fee_bldg_ht_id" id="fee_bldg_ht_id">
+                                                        <option value="">Select Building Height / Type</option>
+                                                        <optgroup label="">
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_bldg_ht_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+
                                                 <label class="col-sm-3"><strong>Is this wing or not ? : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-3 col-md-3">
                                                     <select class="form-control select2 @error('wing_option') is-invalid @enderror" name="wing_option" id="wing_option">
@@ -345,20 +359,6 @@
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
-                                                    @enderror
-                                                </div>
-
-                                                <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
-                                                <div class="col-sm-3 col-md-3">
-                                                    <select class="form-control select2 @error('fee_bldg_ht_id') is-invalid @enderror" name="fee_bldg_ht_id" id="fee_bldg_ht_id">
-                                                        <option value="">Select Building Height / Type</option>
-                                                        <optgroup label="">
-                                                        </optgroup>
-                                                    </select>
-                                                    @error('fee_bldg_ht_id')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
                                                     @enderror
                                                 </div>
                                             </div>
@@ -376,9 +376,9 @@
 
                                             <div class="box 2">
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-3"><strong>Enter Area per Sq.Mt. : </strong></label>
+                                                    <label class="col-sm-3"><strong>Enter Area in Sq.Mt. : </strong></label>
                                                     <div class="col-sm-3 col-md-3">
-                                                        <input type="text" name="new_area_meter" id="new_area_meter" class="form-control "  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area per Sq.Mt.">
+                                                        <input type="text" name="new_area_meter" id="new_area_meter" class="form-control "  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area in Sq.Mt.">
 
                                                     </div>
 
@@ -509,6 +509,20 @@
                                             </div>
 
                                             <div class="form-group row  mb-3">
+                                                <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_bldg_ht_id') is-invalid @enderror" name="fee_bldg_ht_id" id="fee_bldg_ht_id">
+                                                        <option value="">Select Building Height / Type</option>
+                                                        <optgroup label="">
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_bldg_ht_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+
                                                 <label class="col-sm-3"><strong>Is this wing or not ? : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-3 col-md-3">
                                                     <select class="form-control select2 @error('wing_option') is-invalid @enderror" name="wing_option" id="wing_option">
@@ -522,20 +536,6 @@
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
-                                                    @enderror
-                                                </div>
-
-                                                <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
-                                                <div class="col-sm-3 col-md-3">
-                                                    <select class="form-control select2 @error('fee_bldg_ht_id') is-invalid @enderror" name="fee_bldg_ht_id" id="fee_bldg_ht_id">
-                                                        <option value="">Select Building Height / Type</option>
-                                                        <optgroup label="">
-                                                        </optgroup>
-                                                    </select>
-                                                    @error('fee_bldg_ht_id')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
                                                     @enderror
                                                 </div>
                                             </div>
@@ -553,9 +553,9 @@
 
                                             <div class="box 2">
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-3"><strong>Enter Area per Sq.Mt. : </strong></label>
+                                                    <label class="col-sm-3"><strong>Enter Area in Sq.Mt. : </strong></label>
                                                     <div class="col-sm-3 col-md-3">
-                                                        <input type="text" name="new_area_meter" id="new_area_meter" class="form-control "  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area per Sq.Mt.">
+                                                        <input type="text" name="new_area_meter" id="new_area_meter" class="form-control "  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area in Sq.Mt.">
 
                                                     </div>
 
@@ -686,6 +686,20 @@
                                             </div>
 
                                             <div class="form-group row  mb-3">
+                                                <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_bldg_ht_id') is-invalid @enderror" name="fee_bldg_ht_id" id="fee_bldg_ht_id">
+                                                        <option value="">Select Building Height / Type</option>
+                                                        <optgroup label="">
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_bldg_ht_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+
                                                 <label class="col-sm-3"><strong>Is this wing or not ? : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-3 col-md-3">
                                                     <select class="form-control select2 @error('wing_option') is-invalid @enderror" name="wing_option" id="wing_option">
@@ -699,20 +713,6 @@
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
-                                                    @enderror
-                                                </div>
-
-                                                <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
-                                                <div class="col-sm-3 col-md-3">
-                                                    <select class="form-control select2 @error('fee_bldg_ht_id') is-invalid @enderror" name="fee_bldg_ht_id" id="fee_bldg_ht_id">
-                                                        <option value="">Select Building Height / Type</option>
-                                                        <optgroup label="">
-                                                        </optgroup>
-                                                    </select>
-                                                    @error('fee_bldg_ht_id')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
                                                     @enderror
                                                 </div>
                                             </div>
@@ -730,9 +730,9 @@
 
                                             <div class="box 2">
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-3"><strong>Enter Area per Sq.Mt. : </strong></label>
+                                                    <label class="col-sm-3"><strong>Enter Area in Sq.Mt. : </strong></label>
                                                     <div class="col-sm-3 col-md-3">
-                                                        <input type="text" name="new_area_meter" id="new_area_meter" class="form-control "  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area per Sq.Mt.">
+                                                        <input type="text" name="new_area_meter" id="new_area_meter" class="form-control "  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area in Sq.Mt.">
 
                                                     </div>
 
@@ -863,6 +863,20 @@
                                             </div>
 
                                             <div class="form-group row  mb-3">
+                                                <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_bldg_ht_id') is-invalid @enderror" name="fee_bldg_ht_id" id="fee_bldg_ht_id">
+                                                        <option value="">Select Building Height / Type</option>
+                                                        <optgroup label="">
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_bldg_ht_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+
                                                 <label class="col-sm-3"><strong>Is this wing or not ? : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-3 col-md-3">
                                                     <select class="form-control select2 @error('wing_option') is-invalid @enderror" name="wing_option" id="wing_option">
@@ -876,20 +890,6 @@
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
-                                                    @enderror
-                                                </div>
-
-                                                <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
-                                                <div class="col-sm-3 col-md-3">
-                                                    <select class="form-control select2 @error('fee_bldg_ht_id') is-invalid @enderror" name="fee_bldg_ht_id" id="fee_bldg_ht_id">
-                                                        <option value="">Select Building Height / Type</option>
-                                                        <optgroup label="">
-                                                        </optgroup>
-                                                    </select>
-                                                    @error('fee_bldg_ht_id')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
                                                     @enderror
                                                 </div>
                                             </div>
@@ -907,9 +907,9 @@
 
                                             <div class="box 2">
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-3"><strong>Enter Area per Sq.Mt. : </strong></label>
+                                                    <label class="col-sm-3"><strong>Enter Area in Sq.Mt. : </strong></label>
                                                     <div class="col-sm-3 col-md-3">
-                                                        <input type="text" name="new_area_meter" id="new_area_meter" class="form-control "  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area per Sq.Mt.">
+                                                        <input type="text" name="new_area_meter" id="new_area_meter" class="form-control "  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area in Sq.Mt.">
 
                                                     </div>
 
@@ -1040,6 +1040,20 @@
                                             </div>
 
                                             <div class="form-group row  mb-3">
+                                                <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_bldg_ht_id') is-invalid @enderror" name="fee_bldg_ht_id" id="fee_bldg_ht_id">
+                                                        <option value="">Select Building Height / Type</option>
+                                                        <optgroup label="">
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_bldg_ht_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+
                                                 <label class="col-sm-3"><strong>Is this wing or not ? : <span style="color:red;">*</span></strong></label>
                                                 <div class="col-sm-3 col-md-3">
                                                     <select class="form-control select2 @error('wing_option') is-invalid @enderror" name="wing_option" id="wing_option">
@@ -1053,20 +1067,6 @@
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
                                                         </span>
-                                                    @enderror
-                                                </div>
-
-                                                <label class="col-sm-3"><strong>Building Height / Type : <span style="color:red;">*</span></strong></label>
-                                                <div class="col-sm-3 col-md-3">
-                                                    <select class="form-control select2 @error('fee_bldg_ht_id') is-invalid @enderror" name="fee_bldg_ht_id" id="fee_bldg_ht_id">
-                                                        <option value="">Select Building Height / Type</option>
-                                                        <optgroup label="">
-                                                        </optgroup>
-                                                    </select>
-                                                    @error('fee_bldg_ht_id')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
                                                     @enderror
                                                 </div>
                                             </div>
@@ -1084,9 +1084,9 @@
 
                                             <div class="box 2">
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-3"><strong>Enter Area per Sq.Mt. : </strong></label>
+                                                    <label class="col-sm-3"><strong>Enter Area in Sq.Mt. : </strong></label>
                                                     <div class="col-sm-3 col-md-3">
-                                                        <input type="text" name="new_area_meter" id="new_area_meter" class="form-control "  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area per Sq.Mt.">
+                                                        <input type="text" name="new_area_meter" id="new_area_meter" class="form-control "  value="{{ old('new_area_meter') }}" placeholder="Enter Enter Area in Sq.Mt.">
 
                                                     </div>
 

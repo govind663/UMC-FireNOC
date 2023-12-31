@@ -120,7 +120,7 @@
                                                         @if ($value->status == 0)
                                                         <td><span class="bg-primary text-white p-1">Pending</span></td>
                                                         @elseif ($value->status == 1)
-                                                        <td><span class="bg-warning text-dark p-1">Unpaid</span></td>
+                                                        <td><span class="bg-warning text-dark p-1">Unpaid ( Invoice Not Generated )</span></td>
                                                         @elseif ($value->status == 2)
                                                         <td><span class="bg-success text-white p-1">Paid</span></td>
                                                         @elseif ($value->status == 3)

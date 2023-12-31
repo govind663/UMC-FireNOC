@@ -146,16 +146,17 @@
                                                     <thead class="bg-light">
                                                         <tr>
                                                             <th style="width: 70px;">Sr. No.</th>
-                                                            <th>Type Of <br>Construction</th>
-                                                            <th>Mode of <br>Operation</th>
-                                                            <th>Building <br> Height / Type </th>
+                                                            <th>Type Of Construction</th>
+                                                            <th>Mode of Operation</th>
+                                                            <th>Building Height / Type </th>
 
 
                                                             @if ($data->wing_option == 2)
-                                                            <th>Actual Building <br> Height (meter)</th>
-                                                            <th>NOC Charges <br> ( Per Square Meter)</th>
-                                                            <th>Total NOC Charges <br>(all meter)</th>
+                                                            <th>Actual Area ( Sq.Mt. )</th>
+                                                            <th>Actual Charges ( Sq.Mt. )</th>
+                                                            <th>Total NOC Charges (all meter)</th>
                                                             @endif
+
                                                             @if ($data->wing_option == 1)
                                                             <td>NOC Charges ( Wing wise)</td>
                                                             @endif
@@ -163,6 +164,7 @@
                                                     </thead><!-- end thead -->
                                                     <tbody>
                                                         @php $total_charge = 0; @endphp
+
                                                         @foreach ( $fetch_payments as $key => $value )
                                                         <tr>
                                                             <th scope="row">{{ $key+1 }}</th>
@@ -175,15 +177,16 @@
                                                             <td>
                                                                 {{ $value->building_ht }}
                                                             </td>
-                                                            @if ($data->wing_option == 2)
+
+                                                            @if ($value->wing_option == 2)
                                                             <td>
-                                                                {{ $value->new_area_meter }} m
+                                                                {{ $value->new_area_meter }}
                                                             </td>
                                                             <td class="text-start">{{ $value->meter_rate }} Rs </td>
                                                             <td class="text-start">{{ $value->total_charges_cost }} Rs </td>
                                                             @endif
 
-                                                            @if ($data->wing_option == 1)
+                                                            @if ($value->wing_option == 1)
                                                             <td class="text-start">{{ ($value->wing_rate) ? $value->wing_rate.' Rs' : '-' }} </td>
                                                             @endif
                                                         </tr>

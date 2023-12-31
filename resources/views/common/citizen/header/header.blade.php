@@ -127,6 +127,20 @@
                                     <b>Unpaid Application List</b> <div class="arrow-down"></div>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="topnav-table">
+                                    <a href="{{ url('/new_business_noc_list',1) }}" class="dropdown-item"><b>New Business NOC List</b></a>
+                                    <a href="{{ url('/renew_business_noc_list',1) }}" class="dropdown-item"><b>Renew Business NOC List</b></a>
+                                    <a href="{{ url('/new_hospital_noc_list',1) }}" class="dropdown-item"><b>New Hospital NOC List</b></a>
+                                    <a href="{{ url('/renew_hospital_noc_list',1) }}" class="dropdown-item"><b>Renew Hospital NOC List</b></a>
+                                    <a href="{{ url('/provisional_building_noc_list',1) }}" class="dropdown-item"><b>Provisional Building NOC List</b></a>
+                                    <a href="{{ url('/final_building_noc_list',1) }}" class="dropdown-item"><b>Final Building NOC List</b></a>
+                                </div>
+                            </div>
+
+                            <div class="dropdown">
+                                <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-table" role="button">
+                                    <b>Generated Invoice List</b> <div class="arrow-down"></div>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="topnav-table">
                                     <a href="{{ url('/new_business_noc_list',7) }}" class="dropdown-item"><b>New Business NOC List</b></a>
                                     <a href="{{ url('/renew_business_noc_list',7) }}" class="dropdown-item"><b>Renew Business NOC List</b></a>
                                     <a href="{{ url('/new_hospital_noc_list',7) }}" class="dropdown-item"><b>New Hospital NOC List</b></a>
