@@ -221,6 +221,6 @@ class InvoiceController extends Controller
                             ->get();
 
         // dd($fetch_payments);
-        return view('citizen.invoice.citizen_invoice')->with(['data'=>$data, 'fetch_payments'=>$fetch_payments, 'noc_mode'=>$noc_mode]);
+        return view('citizen.invoice.admin_invoice')->with(['data'=>$data, 'fetch_payments'=>$fetch_payments, 'noc_mode'=>$noc_mode]);
     }
 }
