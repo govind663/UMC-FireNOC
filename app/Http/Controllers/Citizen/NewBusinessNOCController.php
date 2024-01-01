@@ -734,15 +734,13 @@ class NewBusinessNOCController extends Controller
 
 
             if($request->get('application_status') == 2 || $request->get('application_status') == 3){
-                $data = CitizenPayment::where("mst_token", $request->mst_token);
-                $data->deleted_by = Auth::user()->id;
-                $data->deleted_at = date("Y-m-d H:i:s");
-                $data->update();
 
-                $data = FeeReceiptDocument::where("mst_token", $request->mst_token);
-                $data->deleted_by = Auth::user()->id;
-                $data->deleted_at = date("Y-m-d H:i:s");
-                $data->update();
+                $update = [
+                    'deleted_by' => Auth::user()->id,
+                    'deleted_at' => date("Y-m-d H:i:s"),
+                ];
+                CitizenPayment::where('mst_token', $request->get('mst_token'))->update($update);
+                FeeReceiptDocument::where('mst_token', $request->get('mst_token'))->update($update);
             }
 
         }
