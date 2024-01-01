@@ -71,7 +71,7 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     Route::get('/admin_new_business_noc_list/{status}', [AdminNewBusinessNOCController::class, 'index'])->name('admin_new_business_noc_list');
     Route::get('/admin_new_business_noc/show/{id}/{status}', [AdminNewBusinessNOCController::class, 'show'])->name('admin_new_business_noc.show');
     Route::get('/admin_new_business_noc/approved/{id}/{status}/{auth_role}', [AdminNewBusinessNOCController::class, 'approved'])->name('admin_new_business_noc.approved');
-    Route::post('/admin_new_business_noc/field_inspector_approved/{id}/{status}/{auth_role}', [AdminRenewBusinessNOCController::class, 'approved'])->name('admin_new_business_noc.field_inspector_approved');
+    Route::post('/admin_new_business_noc/field_inspector_approved/{id}/{status}/{auth_role}', [AdminNewBusinessNOCController::class, 'approved'])->name('admin_new_business_noc.field_inspector_approved');
     Route::post('/admin_new_business_noc/rejected/{id}/{status}/{auth_role}', [AdminNewBusinessNOCController::class, 'rejected'])->name('admin_new_business_noc.rejected');
     Route::get('/all_new_business_noc_list/{all_status}', [AdminNewBusinessNOCController::class, 'list'])->name('all_new_business_noc_list');
     Route::get('/all_new_business_noc/show/{id}/{all_status}', [AdminNewBusinessNOCController::class, 'view'])->name('all_new_business_noc.show');

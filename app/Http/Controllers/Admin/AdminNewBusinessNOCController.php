@@ -88,6 +88,7 @@ class AdminNewBusinessNOCController extends Controller
             ];
 
             Business_NOC::where('id', $id)->where('status', $status)->update($update);
+            return redirect()->route('all_new_business_noc_list', 1)->with('message', 'The application form which you had filled for your new business noc has been approved Successfully.');
 
         // display only underprocess form (status=5)
         } elseif (Auth::user()->role == 1) {
@@ -119,6 +120,7 @@ class AdminNewBusinessNOCController extends Controller
             ];
 
             Business_NOC::where('id', $id)->where('status', $status)->update($update);
+            return redirect()->route('all_new_business_noc_list', 1)->with('message', 'The application form which you had filled for your new business noc has been approved Successfully.');
 
         // display only Paid form (status=2)
         } elseif (Auth::user()->role == 2) {
@@ -133,6 +135,7 @@ class AdminNewBusinessNOCController extends Controller
             ];
 
             Business_NOC::where('id', $id)->where('status', $status)->update($update);
+            return redirect()->route('all_new_business_noc_list', 1)->with('message', 'The application form which you had filled for your new business noc has been approved Successfully.');
 
         // display only Reviewed form (status=6)
         } elseif (Auth::user()->role == 3) {
@@ -144,9 +147,8 @@ class AdminNewBusinessNOCController extends Controller
             ];
 
             Business_NOC::where('id', $id)->where('status', $status)->update($update);
+            return redirect()->route('all_new_business_noc_list', 3)->with('message', 'The application form which you had filled for your new business noc has been approved Successfully.');
         }
-
-        return redirect()->route('all_new_business_noc_list', 1)->with('message', 'The application form which you had filled for your new business noc has been approved Successfully.');
     }
 
     /**
@@ -168,6 +170,7 @@ class AdminNewBusinessNOCController extends Controller
             ];
 
             Business_NOC::where('id', $id)->where('status', $status)->update($update);
+            return redirect()->route('all_new_business_noc_list', 2)->with('message', 'The application form which you had filled for your new business noc has been rejected Successfully.');
 
         // display only underprocess form (status=5)
         } elseif (Auth::user()->role == 1) {
@@ -180,6 +183,7 @@ class AdminNewBusinessNOCController extends Controller
             ];
 
             Business_NOC::where('id', $id)->where('status', $status)->update($update);
+            return redirect()->route('all_new_business_noc_list', 2)->with('message', 'The application form which you had filled for your new business noc has been rejected Successfully.');
 
         // display only Paid form (status=2)
         } elseif (Auth::user()->role == 2) {
@@ -192,6 +196,8 @@ class AdminNewBusinessNOCController extends Controller
             ];
 
             Business_NOC::where('id', $id)->where('status', $status)->update($update);
+            return redirect()->route('all_new_business_noc_list', 2)->with('message', 'The application form which you had filled for your new business noc has been rejected Successfully.');
+
         // display only Reviewed form (status=6)
         } elseif (Auth::user()->role == 3) {
             $update = [
@@ -202,10 +208,8 @@ class AdminNewBusinessNOCController extends Controller
             ];
 
             Business_NOC::where('id', $id)->where('status', $status)->update($update);
+            return redirect()->route('all_new_business_noc_list', 4)->with('message', 'The application form which you had filled for your new business noc has been rejected Successfully.');
         }
-
-
-        return redirect()->route('all_new_business_noc_list', 2)->with('message', 'The application form which you had filled for your new business noc has been rejected Successfully.');
     }
 
     /**

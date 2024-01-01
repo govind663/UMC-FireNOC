@@ -72,6 +72,8 @@
                                         <h4 class="card-header text-primary">All Underprocess New Business NOC List</h4>
                                         @elseif($status == 6)
                                         <h4 class="card-header text-primary">All Reviewed New Business NOC List</h4>
+                                        @elseif($status == 7)
+                                        <h4 class="card-header text-primary">All Invoice Generated New Business NOC List</h4>
                                         @endif
 
                                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
@@ -128,7 +130,7 @@
                                                         @if ($value->status == 0)
                                                         <td><span class="bg-primary text-white p-1">Pending</span></td>
                                                         @elseif ($value->status == 1)
-                                                        <td><span class="bg-warning text-dark p-1">Unpaid</span></td>
+                                                        <td><span class="bg-warning text-dark p-1">Unpaid ( Invoice Not Generated )</span></td>
                                                         @elseif ($value->status == 2)
                                                         <td><span class="bg-success text-dark p-1">Paid</span></td>
                                                         @elseif ($value->status == 3)

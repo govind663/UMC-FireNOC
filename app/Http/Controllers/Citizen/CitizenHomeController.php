@@ -34,6 +34,10 @@ class CitizenHomeController extends Controller
         $business_total_unpaid = $this->citizenbusinessRepository->getUnpaidCitizenBusinessNOC();
         // dd($business_total_unpaid);
 
+        // ==== new_business_noc(Generated Invoice)
+        $business_total_generated_invoice = $this->citizenbusinessRepository->getGeneratedInvoiceCitizenBusinessNOC();
+        // dd($business_total_generated_invoice);
+
         // ==== new_business_noc(Paid)
         $business_total_paid = $this->citizenbusinessRepository->getPaidCitizenBusinessNOC();
         // dd($business_total_paid);
@@ -62,6 +66,10 @@ class CitizenHomeController extends Controller
         // ==== new_hospital_noc(Unpaid)
         $hospital_total_unpaid = $this->citizenhospitalRepository->getUnpaidCitizenHospitalNOC();
         // dd($hospital_total_unpaid);
+
+        // ==== new_hospital_noc(Generated Invoice)
+        $hospital_total_generated_invoice = $this->citizenhospitalRepository->getGeneratedInvoiceCitizenHospitalNOC();
+        // dd($hospital_total_generated_invoice);
 
         // ==== new_hospital_noc(Paid)
         $hospital_total_paid = $this->citizenhospitalRepository->getPaidCitizenHospitalNOC();
@@ -93,6 +101,10 @@ class CitizenHomeController extends Controller
         $building_total_unpaid = $this->citizenbuildingRepository->getUnpaidCitizenBuildingNOC();
         // dd($building_total_unpaid);
 
+        // ==== new_building_noc(Generated Invoice)
+        $building_total_generated_invoice = $this->citizenbuildingRepository->getGeneratedInvoiceCitizenBuildingNOC();
+        // dd($building_total_generated_invoice);
+
         // ==== new_building_noc(Paid)
         $building_total_paid = $this->citizenbuildingRepository->getPaidCitizenBuildingNOC();
         // dd($building_total_paid);
@@ -110,8 +122,8 @@ class CitizenHomeController extends Controller
         // dd($building_total_rejected);
 
         return view('citizen.citizen_dashboard')
-        ->with(['business_total_pending' => $business_total_pending, 'business_total_underprocess' => $business_total_underprocess, 'business_total_unpaid' => $business_total_unpaid,'business_total_paid' => $business_total_paid, 'business_total_reviewed' => $business_total_reviewed, 'business_total_rejected' => $business_total_rejected, 'business_total_approved' => $business_total_approved])
-        ->with(['hospital_total_pending' => $hospital_total_pending, 'hospital_total_underprocess' => $hospital_total_underprocess, 'hospital_total_unpaid' => $hospital_total_unpaid,'hospital_total_paid' => $hospital_total_paid, 'hospital_total_reviewed' => $hospital_total_reviewed, 'hospital_total_rejected' => $hospital_total_rejected, 'hospital_total_approved' => $hospital_total_approved])
-        ->with(['building_total_pending' => $building_total_pending, 'building_total_underprocess' => $building_total_underprocess, 'building_total_unpaid' => $building_total_unpaid,'building_total_paid' => $building_total_paid, 'building_total_reviewed' => $building_total_reviewed, 'building_total_rejected' => $building_total_rejected, 'building_total_approved' => $building_total_approved]);
+        ->with(['business_total_pending' => $business_total_pending, 'business_total_underprocess' => $business_total_underprocess, 'business_total_unpaid' => $business_total_unpaid, 'business_total_generated_invoice' => $business_total_generated_invoice , 'business_total_paid' => $business_total_paid, 'business_total_reviewed' => $business_total_reviewed, 'business_total_rejected' => $business_total_rejected, 'business_total_approved' => $business_total_approved])
+        ->with(['hospital_total_pending' => $hospital_total_pending, 'hospital_total_underprocess' => $hospital_total_underprocess, 'hospital_total_unpaid' => $hospital_total_unpaid, 'hospital_total_generated_invoice' => $hospital_total_generated_invoice , 'hospital_total_paid' => $hospital_total_paid, 'hospital_total_reviewed' => $hospital_total_reviewed, 'hospital_total_rejected' => $hospital_total_rejected, 'hospital_total_approved' => $hospital_total_approved])
+        ->with(['building_total_pending' => $building_total_pending, 'building_total_underprocess' => $building_total_underprocess, 'building_total_unpaid' => $building_total_unpaid, 'building_total_generated_invoice' => $building_total_generated_invoice , 'building_total_paid' => $building_total_paid, 'building_total_reviewed' => $building_total_reviewed, 'building_total_rejected' => $building_total_rejected, 'building_total_approved' => $building_total_approved]);
     }
 }
