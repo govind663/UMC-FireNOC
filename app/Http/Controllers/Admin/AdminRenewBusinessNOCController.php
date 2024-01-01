@@ -192,6 +192,7 @@ class AdminRenewBusinessNOCController extends Controller
                 'status' => 4, // === Rejected (this form go to direct display in user rejected list)
                 'officer_status' => 2, // ===== Rejected by operator
                 'remarks' => $request->get('remarks'),
+                'application_status' => 2, // ===== Chief Fire Officer will pass
                 'rejected_dt' => date("Y-m-d H:i:s"),
                 'rejected_by' => Auth::user()->id,
             ];
@@ -204,6 +205,7 @@ class AdminRenewBusinessNOCController extends Controller
             $update = [
                 'status' => 4, // === Rejected (this form go to direct display in user rejected list)
                 'remarks' => $request->get('remarks'),
+                'application_status' => 3, // ===== DMC will pass
                 'rejected_dt' => date("Y-m-d H:i:s"),
                 'rejected_by' => Auth::user()->id,
             ];

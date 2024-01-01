@@ -62,8 +62,8 @@
                                     <form class="auth-input p-4" method="POST" action='{{ url("/new_hospital_noc/edit/update/{$data->NH_NOC_ID}/{$data->d_ID}/{$data->status}") }}' enctype="multipart/form-data" autocomplete="off" >
                                         @csrf
 
-                                        <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->mst_token  }}" >
-                                        <input type="text" readonly name="application_status" id="application_status" class="form-control" value="{{  $data->application_status  }}" >
+                                        <input type="text" hidden name="mst_token" id="mst_token" class="form-control" value="{{  $data->mst_token  }}" >
+                                        <input type="text" hidden name="application_status" id="application_status" class="form-control" value="{{  $data->application_status  }}" >
 
                                         <div class="form-group row mb-3">
                                             <label class="col-sm-2"><strong>Appication Date : <span style="color:red;">*</span></strong></label>

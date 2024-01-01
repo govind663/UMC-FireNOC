@@ -327,7 +327,7 @@ class FinalBuildingNOCController extends Controller
             $data->modified_by = Auth::user()->id;
             $data->save();
 
-            if(!empty($request->get('application_status') == 2 || $request->get('application_status') == 3)){
+            if($request->get('application_status') == 2 || $request->get('application_status') == 3){
                 $data = CitizenPayment::where("mst_token", $request->mst_token);
                 $data->deleted_by = Auth::user()->id;
                 $data->deleted_at = date("Y-m-d H:i:s");
