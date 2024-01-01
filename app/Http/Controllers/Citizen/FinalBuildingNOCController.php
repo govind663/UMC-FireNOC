@@ -21,7 +21,7 @@ class FinalBuildingNOCController extends Controller
      */
     public function index($status)
     {
-        if($status = 0){
+        if($status == 0 || $status == 5 || $status == 1){
             $data = DB::table('building_noc AS t1')
                 ->select('t1.*', 't2.*', 't1.id as F_NOC_ID', 't2.id as d_ID')
                 ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
@@ -155,7 +155,7 @@ class FinalBuildingNOCController extends Controller
      */
     public function show($id, $status)
     {
-        if($status == 0){
+        if($status == 0 || $status == 5 || $status == 1){
             $data = DB::table('building_noc as t1')
                 ->select('t1.*', 't2.*', 't1.id as F_NOC_ID', 't2.id as d_ID', 't3.citizen_payment_status')
                 ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )

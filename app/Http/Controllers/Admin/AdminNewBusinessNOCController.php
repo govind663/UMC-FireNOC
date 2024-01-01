@@ -18,7 +18,7 @@ class AdminNewBusinessNOCController extends Controller
      */
     public function index($status)
     {
-        if($status == 0){
+        if($status == 0 || $status == 5 || $status == 1){
             $query = DB::table('business_noc AS t1')
                     ->select('t1.*', 't2.*', 't1.id as NB_NOC_ID', 't2.id as d_ID')
                     ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id')

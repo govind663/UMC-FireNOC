@@ -19,7 +19,7 @@ class AdminProvisionalBuildingNOCController extends Controller
      */
     public function index($status)
     {
-        if($status == 0){
+        if($status == 0 || $status == 5 || $status == 1){
             $query = DB::table('building_noc AS t1')
                     ->select('t1.*', 't2.*', 't1.id as P_NOC_ID', 't2.id as d_ID')
                     ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id')
