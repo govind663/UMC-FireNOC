@@ -166,6 +166,7 @@
                                                         @php $total_charge = 0; @endphp
 
                                                         @foreach ( $fetch_payments as $key => $value )
+                                                        @if($value->mst_token == $data->mst_token )
                                                         <tr>
                                                             <th scope="row">{{ $key+1 }}</th>
                                                             <td>
@@ -218,6 +219,7 @@
                                                         @php
                                                             $total_charge = $total_charge + $value->total_charges_cost;
                                                         @endphp
+                                                        @endif
                                                         @endforeach
                                                         {{-- <tr>
                                                             <th scope="row" colspan="4" class="border-0 text-end">Total</th>

@@ -166,6 +166,7 @@
                                                         @php $total_charge = 0; @endphp
 
                                                         @foreach ( $fetch_payments as $key => $value )
+                                                        @if($value->mst_token == $data->mst_token )
                                                         <tr>
                                                             <th scope="row">{{ $key+1 }}</th>
                                                             <td>
@@ -190,6 +191,7 @@
                                                             <td class="text-start">{{ ($value->wing_rate) ? $value->wing_rate.' Rs' : '-' }} </td>
                                                             @endif
                                                         </tr>
+                                                        @endif
                                                         <!-- end tr -->
 
                                                         {{-- <tr>
