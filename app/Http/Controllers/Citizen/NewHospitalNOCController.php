@@ -259,7 +259,20 @@ class NewHospitalNOCController extends Controller
      */
     public function show($id, $status)
     {
-        $data = DB::table('hospital_noc as t1')
+        if($status == 0){
+            $data = DB::table('hospital_noc as t1')
+                    ->select('t1.*', 't2.*', 't1.id as NH_NOC_ID', 't2.id as d_ID')
+                    ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
+                    ->where('t2.noc_mode', 3)  // ==== New Hospital NOC (status=3)
+                    ->where('t2.citizen_id',  Auth::user()->id)
+                    ->where('t1.status', $status)
+                    ->where('t1.id', $id)
+                    ->whereNUll('t1.deleted_at')
+                    ->whereNUll('t2.deleted_at')
+                    ->first();
+            // dd($data);
+        }else{
+            $data = DB::table('hospital_noc as t1')
                 ->select('t1.*', 't2.*', 't1.id as NH_NOC_ID', 't2.id as d_ID', 't3.citizen_payment_status')
                 ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
                 ->leftJoin('citizen_payments as t3', 't3.mst_token', '=', 't2.mst_token' )
@@ -271,7 +284,8 @@ class NewHospitalNOCController extends Controller
                 ->whereNUll('t2.deleted_at')
                 ->whereNUll('t3.deleted_at')
                 ->first();
-        // dd($data);
+            // dd($data);
+        }
 
         return view('citizen.hospital_noc.new_hospital_noc.view')->with('data', $data)->with('status', $status);
     }
