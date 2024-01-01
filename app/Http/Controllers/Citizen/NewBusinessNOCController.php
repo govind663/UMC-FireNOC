@@ -14,6 +14,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\BusinessNOCRequest;
+use App\Models\CitizenPayment;
+use App\Models\FeeReceiptDocument;
 
 class NewBusinessNOCController extends Controller
 {
@@ -729,6 +731,19 @@ class NewBusinessNOCController extends Controller
             $data->modified_dt = date("Y-m-d H:i:s");
             $data->modified_by = Auth::user()->id;
             $data->save();
+
+
+            if(!empty($request->get('application_status') == 2 || $request->get('application_status') == 3)){
+                $data = CitizenPayment::where("mst_token", $request->mst_token);
+                $data->deleted_by = Auth::user()->id;
+                $data->deleted_at = date("Y-m-d H:i:s");
+                $data->update();
+
+                $data = FeeReceiptDocument::where("mst_token", $request->mst_token);
+                $data->deleted_by = Auth::user()->id;
+                $data->deleted_at = date("Y-m-d H:i:s");
+                $data->update();
+            }
 
         }
 
