@@ -21,18 +21,31 @@ class FinalBuildingNOCController extends Controller
      */
     public function index($status)
     {
-        $data = DB::table('building_noc AS t1')
-                ->select('t1.*', 't2.*', 't1.id as F_NOC_ID', 't2.id as d_ID', 't3.citizen_payment_status')
+        if($status = 0){
+            $data = DB::table('building_noc AS t1')
+                ->select('t1.*', 't2.*', 't1.id as F_NOC_ID', 't2.id as d_ID')
                 ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
-                ->leftJoin('citizen_payments as t3', 't3.mst_token', '=', 't2.mst_token' )
-                ->where('t2.noc_mode', 6)  // ==== Renew Hospital NOC (status=2)
+                ->where('t2.noc_mode', 6)  // ==== Final Building NOC (status=2)
                 ->where('t1.status', $status)
-                ->whereNUll('t3.deleted_at')
                 ->whereNUll('t1.deleted_at')
                 ->whereNUll('t2.deleted_at')
                 ->orderBy('t1.id','DESC')
                 ->get();
         // dd($data);
+        }else{
+            $data = DB::table('building_noc AS t1')
+                    ->select('t1.*', 't2.*', 't1.id as F_NOC_ID', 't2.id as d_ID', 't3.citizen_payment_status')
+                    ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
+                    ->leftJoin('citizen_payments as t3', 't3.mst_token', '=', 't2.mst_token' )
+                    ->where('t2.noc_mode', 6)  // ==== Final Building NOC (status=2)
+                    ->where('t1.status', $status)
+                    ->whereNUll('t3.deleted_at')
+                    ->whereNUll('t1.deleted_at')
+                    ->whereNUll('t2.deleted_at')
+                    ->orderBy('t1.id','DESC')
+                    ->get();
+            // dd($data);
+        }
 
         return view('citizen.building_noc.final_building_noc.grid')->with('data', $data)->with('status', $status);
     }
