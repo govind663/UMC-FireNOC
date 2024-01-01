@@ -37,6 +37,7 @@ class AdminProvisionalBuildingNOCController extends Controller
                     ->whereNUll('t1.deleted_at')
                     ->whereNUll('t2.deleted_at')
                     ->whereNUll('t3.deleted_at')
+                    ->whereNUll('t4.deleted_at')
                     ->orderBy('t1.id', 'DESC');
         }
 
