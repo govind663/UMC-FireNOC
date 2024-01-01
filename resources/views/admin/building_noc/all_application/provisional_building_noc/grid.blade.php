@@ -77,7 +77,7 @@
                                                     <th><b>Taluka</b></th>
                                                     <th><b>Ward Committee No</b></th>
                                                     <th><b>Application Status</b></th>
-                                                    @if ( $all_status == 2 )
+                                                    @if ( $all_status == 2 || $all_status == 4 )
                                                     <th><b>Reason for rejection</b></th>
                                                     @endif
                                                     <th><b>Action</b></th>
@@ -135,7 +135,7 @@
                                                         <td><span class="bg-primary text-white p-1">Invoice Generated Successfully</span></td>
                                                         @endif
 
-                                                        @if ( $value->status == 4 )
+                                                        @if ( $value->status == 2 || $value->status == 4 )
                                                         <td>{{ $value->remarks }}</td>
                                                         @endif
 
