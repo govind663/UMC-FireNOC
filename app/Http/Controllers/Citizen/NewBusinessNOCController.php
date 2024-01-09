@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\BusinessNOCRequest;
 use App\Models\CitizenPayment;
 use App\Models\FeeReceiptDocument;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 
 class NewBusinessNOCController extends Controller
 {
@@ -906,7 +907,10 @@ class NewBusinessNOCController extends Controller
               // dd($data);
         }
 
-        return view('citizen.business_noc.new_business_noc.new_business_noc_pdf')->with('data', $data)->with('status', $status);
+        // return view('citizen.business_noc.new_business_noc.new_business_noc_pdf')->with('data', $data)->with('status', $status);
 
+        $pdf = FacadePdf::loadView('citizen.business_noc.new_business_noc.new_business_noc_pdf', compact('data', 'status') );
+        $pdf->download('NewBusinessNOC.pdf');
+        return $pdf->stream();
     }
 }
