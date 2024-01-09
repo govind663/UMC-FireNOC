@@ -40,6 +40,12 @@
 
     </head>
 
+    <style>
+        .p-1 {
+            border-radius: 7px !important;
+        }
+    </style>
+
     <body data-topbar="colored" data-layout="horizontal">
 
         <!-- Begin page -->
@@ -151,6 +157,10 @@
                                                         <td style="display:flex;">
                                                             <a href='{{ url("/new_business_noc/show/{$value->NB_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
+                                                            </a>
+                                                            &nbsp;&nbsp;
+                                                            <a href='{{ url("/download_new_business_noc_pdf/{$value->NB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
+                                                                <b><i class="mdi mdi-file"> Download View </i></b>
                                                             </a>
 
                                                             @if ($value->status == 0 || $value->status == 4)

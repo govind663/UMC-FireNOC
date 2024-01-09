@@ -330,6 +330,7 @@ class NewBusinessNOCController extends Controller
         return view('citizen.business_noc.new_business_noc.view')->with('data', $data)->with('status', $status);
     }
 
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -866,5 +867,46 @@ class NewBusinessNOCController extends Controller
         // dd($data);
 
         return response()->json($data);
+    }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function download_new_business_noc_pdf($id, $status)
+    {
+        if($status == 0 || $status == 5 || $status == 1){
+            $data = DB::table('business_noc as t1')
+                ->select('t1.*', 't2.*', 't1.id as NB_NOC_ID', 't2.id as d_ID')
+                ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
+                ->where('t2.noc_mode', 1)  // ==== New Business NOC (status=1)
+                ->where('t2.citizen_id',  Auth::user()->id)
+                ->where('t1.status', $status)
+                ->where('t1.id', $id)
+                ->whereNUll('t1.deleted_at')
+                ->whereNUll('t2.deleted_at')
+                ->first();
+             // dd($data);
+        }else{
+            $data = DB::table('business_noc as t1')
+                ->select('t1.*', 't2.*', 't1.id as NB_NOC_ID', 't2.id as d_ID' , 't3.citizen_payment_status')
+                ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
+                ->leftJoin('citizen_payments as t3', 't3.mst_token', '=', 't2.mst_token' )
+                ->where('t2.noc_mode', 1)  // ==== New Business NOC (status=1)
+                ->where('t2.citizen_id',  Auth::user()->id)
+                ->where('t1.status', $status)
+                ->where('t1.id', $id)
+                ->whereNUll('t1.deleted_at')
+                ->whereNUll('t2.deleted_at')
+                ->whereNUll('t3.deleted_at')
+                ->first();
+              // dd($data);
+        }
+
+        return view('citizen.business_noc.new_business_noc.new_business_noc_pdf')->with('data', $data)->with('status', $status);
+
     }
 }

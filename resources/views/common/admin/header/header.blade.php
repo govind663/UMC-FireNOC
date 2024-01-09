@@ -95,7 +95,7 @@
                     {{-- DMC --}}
                     @if(Auth::user()->role == 3)
 
-                    {{-- <li class="nav-item dropdown">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-components" role="button">
                             <i class="uim uim-layer-group"></i> <b>Master</b> <div class="arrow-down"></div>
                         </a>
@@ -107,6 +107,12 @@
                             </div>
 
                             <div class="dropdown">
+                                <a class="dropdown-item dropdown-toggle arrow-none" href="{{ url('/signature') }}" id="topnav-form" role="button">
+                                    Signature
+                                </a>
+                            </div>
+
+                            {{-- <div class="dropdown">
                                 <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-table" role="button">
                                     NOC Fees Chart <div class="arrow-down"></div>
                                 </a>
@@ -117,10 +123,10 @@
                                     <a href="{{ url('/fees_category') }}"  class="dropdown-item">Construction Category</a>
                                     <a href="{{ url('/fees_master') }}"  class="dropdown-item">NOC Fees</a>
                                 </div>
-                            </div>
+                            </div> --}}
 
                         </div>
-                    </li> --}}
+                    </li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">

@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
 
-        <title>UMC-Fire NOC | New Business NOC List</title>
+        <title>UMC-Fire NOC | Signature List</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
         <meta content="Themesdesign" name="author">
@@ -40,12 +40,6 @@
 
     </head>
 
-    <style>
-        .p-1 {
-            border-radius: 7px !important;
-        }
-    </style>
-
     <body data-topbar="colored" data-layout="horizontal">
 
         <!-- Begin page -->
@@ -63,91 +57,46 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body" style="border: 1px solid rgb(3, 155, 155);">
-
-                                        @if($all_status == 2)
-                                        <h4 class="card-header text-primary">All Rejected New Business NOC List</h4>
-                                        @elseif($all_status == 1)
-                                        <h4 class="card-header text-primary">All Approved New Business NOC List</h4>
-                                        @endif
-
+                                        <div class="col-md-12 col-sm-12 text-left">
+                                            <a class="btn btn-primary" style="float:right;" href="{{ route('signature.create') }}" role="button">
+                                                <b>+ &nbsp; Add Signature</b>
+                                            </a>
+                                        </div>
+                                        <h4 class="card-header text-primary">All Signature List</h4>
                                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                             <thead>
                                                 <tr style="color: white; background:#086070;">
                                                     <th><b>Sr. No.</b></th>
-                                                    <th><b>Apply Date <br> (DD/MM/YYYY)</b></th>
-                                                    <th><b>Appication Name</b></th>
-                                                    <th><b>Property Types</b></th>
-                                                    <th><b>Property Number</b></th>
-                                                    <th><b>Town / City</b></th>
-                                                    <th><b>Pin code</b></th>
-                                                    <th><b>Taluka</b></th>
-                                                    <th><b>Ward Committee No</b></th>
-                                                    <th><b>Application Status</b></th>
-                                                    @if ( $all_status == 2 || $all_status == 4 )
-                                                    <th><b>Reason for rejection</b></th>
-                                                    @endif
-                                                    <th><b>Action</b></th>
+                                                    <th><b>Uploaded Signature</b></th>
+                                                    <th><b>Edit</b></th>
+                                                    <th><b>Delete</b></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach ($data as $key => $value)
                                                     <tr>
                                                         <td>{{ $key + 1 }}</td>
-                                                        <td>{{ date('d-m-Y', strtotime($value->noc_a_date)) }}</td>
-                                                        <td>{{ $value->f_name }} {{ $value->father_name }} {{ $value->l_name }}</td>
-
-                                                        @if ($value->types_of_property == 1)
-                                                        <td>Land</td>
-                                                        @elseif ($value->types_of_property == 2)
-                                                        <td>Building</td>
-                                                        @endif
-                                                        <td>{{ $value->property_no }}</td>
-                                                        <td>{{ $value->city_name }}</td>
-                                                        <td>{{ $value->pincode }}</td>
-                                                        <td>{{ $value->taluka_name }}</td>
-
-                                                        @php
-                                                            $ward_name = '';
-
-                                                            if($value->ward_no == 1){
-                                                            $ward_name = 'Ward 1';
-                                                            }elseif($value->ward_no == 2){
-                                                            $ward_name = 'Ward 2';
-                                                            }elseif($value->ward_no == 3){
-                                                            $ward_name = 'Ward 3';
-                                                            }elseif($value->ward_no == 4){
-                                                            $ward_name = 'Ward 4';
-                                                            }
-                                                        @endphp
-
-                                                        <td>{{ $ward_name }}</td>
-
-                                                        @if ($value->status == 0)
-                                                        <td><span class="bg-primary text-white p-1">Pending</span></td>
-                                                        @elseif ($value->status == 1)
-                                                        <td><span class="bg-warning text-dark p-1">Unpaid ( Invoice Not Generated )</span></td>
-                                                        @elseif ($value->status == 2)
-                                                        <td><span class="bg-success text-white p-1">Paid</span></td>
-                                                        @elseif ($value->status == 3)
-                                                        <td><span class="bg-success text-white p-1">Approved</span></td>
-                                                        @elseif ($value->status == 4)
-                                                        <td><span class="bg-danger text-light p-1">Rejected</span></td>
-                                                        @elseif ($value->status == 5)
-                                                        <td><span class="bg-dark text-light p-1">Underprocess</span></td>
-                                                        @elseif ($value->status == 6)
-                                                        <td><span class="bg-danger text-white p-1">Reviewed</span></td>
-                                                        @elseif ($value->status == 7)
-                                                        <td><span class="bg-primary text-white p-1">Invoice Generated Successfully</span></td>
-                                                        @endif
-
-                                                        @if ( $value->status == 2 || $value->status == 4 )
-                                                        <td>{{ $value->remarks }}</td>
-                                                        @endif
-
-                                                        <td style="display:flex;">
-                                                            <a href='{{ url("/all_new_business_noc/show/{$value->NB_NOC_ID}/{$all_status}") }}' class="btn btn-primary btn-sm">
-                                                                <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
+                                                        <td>
+                                                            <a href="{{ url('/') }}/UMC_FireNOC/signature_doc/{{ $value->upload_signature_doc }}" target="_blank" class="btn btn-info btn-sm">
+                                                                <b><i class="mdi mdi-eye-circle-outline"> View Signature </i></b>
                                                             </a>
+                                                        </td>
+
+                                                        <td>
+                                                            <a href="{{ route('signature.edit', $value->id) }}" class="btn btn-warning btn-sm text-dark">
+                                                                <b><i class="mdi mdi-account-edit"> Edit</i></b>
+                                                            </a>
+                                                        </td>
+
+                                                        <td>
+                                                            <form action="{{ route('signature.destroy', $value->id) }}" method="post">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <input name="_method" type="hidden" value="DELETE">
+                                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this item?');">
+                                                                    <b><i class="mdi mdi-delete-alert-outline"> Delete</i></b>
+                                                                </button>
+                                                            </form>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -246,6 +195,15 @@
             }
                     toastr.warning("{{ session('warning') }}");
             @endif
+        </script>
+
+        <script type="text/javascript">
+            function confirmation() {
+                var result = confirm("Are you sure you want to delete this item?");
+                if (result) {
+                    // Delete logic goes here
+                }
+            }
         </script>
     </body>
 </html>

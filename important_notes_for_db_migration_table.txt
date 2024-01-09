@@ -49,6 +49,7 @@ php artisan make:controller Admin/FeeModeOperateController --model=FeeModeOperat
 php artisan make:controller Admin/FeeCategoryController --model=FeeCategory
 php artisan make:controller Admin/FeeBldgHtController --model=FeeBldgHt
 php artisan make:controller Admin/FeeMasterController --model=FeeMaster
+php artisan make:controller Admin/SignatureController --model=Signature
 
 
 php artisan make:controller Admin/FeeModeOperateController --resource
@@ -74,6 +75,7 @@ php artisan make:controller Admin/FeeModeOperateController --resource
 php artisan make:controller Admin/FeeBldgHtController --resource
 php artisan make:controller Admin/FeeCategoryController --resource
 php artisan make:controller Admin/FeeMasterController --resource
+php artisan make:controller Admin/SignatureController --resource
 
 
 composer install --ignore-platform-reqs

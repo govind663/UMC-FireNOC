@@ -41,6 +41,12 @@
 
     </head>
 
+    <style>
+        .p-1 {
+            border-radius: 7px !important;
+        }
+    </style>
+
     <body data-topbar="colored" data-layout="horizontal">
 
         <!-- Begin page -->

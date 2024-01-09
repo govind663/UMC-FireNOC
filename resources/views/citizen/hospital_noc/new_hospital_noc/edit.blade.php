@@ -504,35 +504,11 @@
                                                         </span>
                                                         @enderror
                                                         <br>
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/property_doc/{{ $data->property_doc }}" target="_blank">
-                                                            <div class="form-group">
-                                                                <?php
-                                                                        $document_path = $data->property_doc;
-                                                                        $filter_path =  explode(".",$document_path);
-                                                                        $size_of_array = count($filter_path);
-                                                                        $filter_ext = $filter_path[$size_of_array - 1];
-
-                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
-                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                                                        {
-                                                                ?>
-
-                                                                <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/property_doc/{{ $data->property_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
-                                                                </p>
-                                                                <?php }
-                                                                else{
-                                                                    ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/property_doc/{{ $data->property_doc }}" target="_blank" download>
-                                                                        <p class="mt-3 mb-0" id="image_div">
-                                                                        <button type="button"class="btn btn-primary text-bold">
-                                                                            Download File
-                                                                        </button>
-                                                                        </p>
-                                                                    </a>
-                                                                <?php }?>
-                                                            </div>
-                                                        </a>
+                                                        @if(!empty($data->property_doc))
+                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/property_doc/{{ $data->property_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                                <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
+                                                            </a>
+                                                        @endif
                                                     </div>
 
                                                     <label class="col-sm-2"><strong>Location of Place (Google Map Link) : <span style="color:red;">*</span></strong></label>
@@ -562,35 +538,11 @@
                                                         </span>
                                                         @enderror
                                                         <br>
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/electric_doc/{{ $data->electric_doc }}" target="_blank">
-                                                            <div class="form-group">
-                                                                <?php
-                                                                        $document_path = $data->electric_doc;
-                                                                        $filter_path =  explode(".",$document_path);
-                                                                        $size_of_array = count($filter_path);
-                                                                        $filter_ext = $filter_path[$size_of_array - 1];
-
-                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
-                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                                                        {
-                                                                ?>
-
-                                                                <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/electric_doc/{{ $data->electric_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
-                                                                </p>
-                                                                <?php }
-                                                                else{
-                                                                    ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/electric_doc/{{ $data->electric_doc }}" target="_blank" download>
-                                                                        <p class="mt-3 mb-0" id="image_div">
-                                                                        <button type="button"class="btn btn-primary text-bold">
-                                                                            Download File
-                                                                        </button>
-                                                                        </p>
-                                                                    </a>
-                                                                <?php }?>
-                                                            </div>
-                                                        </a>
+                                                        @if(!empty($data->electric_doc))
+                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/electric_doc/{{ $data->electric_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                                <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
+                                                            </a>
+                                                        @endif
                                                     </div>
 
                                                     <label class="col-sm-2"><strong>Upload Shop License : <span style="color:red;">*</span></strong></label>
@@ -606,35 +558,11 @@
                                                         </span>
                                                         @enderror
                                                         <br>
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/shop_license_doc/{{ $data->shop_license_doc }}" target="_blank">
-                                                            <div class="form-group">
-                                                                <?php
-                                                                        $document_path = $data->shop_license_doc;
-                                                                        $filter_path =  explode(".",$document_path);
-                                                                        $size_of_array = count($filter_path);
-                                                                        $filter_ext = $filter_path[$size_of_array - 1];
-
-                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
-                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                                                        {
-                                                                ?>
-
-                                                                <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/shop_license_doc/{{ $data->shop_license_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
-                                                                </p>
-                                                                <?php }
-                                                                else{
-                                                                    ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/shop_license_doc/{{ $data->shop_license_doc }}" target="_blank" download>
-                                                                        <p class="mt-3 mb-0" id="image_div">
-                                                                        <button type="button"class="btn btn-primary text-bold">
-                                                                            Download File
-                                                                        </button>
-                                                                        </p>
-                                                                    </a>
-                                                                <?php }?>
-                                                            </div>
-                                                        </a>
+                                                        @if(!empty($data->shop_license_doc))
+                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/shop_license_doc/{{ $data->shop_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                                <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
+                                                            </a>
+                                                        @endif
                                                     </div>
                                                 </div>
 
@@ -652,35 +580,11 @@
                                                         </span>
                                                         @enderror
                                                         <br>
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/paid_tax_bill_doc/{{ $data->paid_tax_bill_doc }}" target="_blank">
-                                                            <div class="form-group">
-                                                                <?php
-                                                                        $document_path = $data->paid_tax_bill_doc;
-                                                                        $filter_path =  explode(".",$document_path);
-                                                                        $size_of_array = count($filter_path);
-                                                                        $filter_ext = $filter_path[$size_of_array - 1];
-
-                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
-                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                                                        {
-                                                                ?>
-
-                                                                <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/paid_tax_bill_doc/{{ $data->paid_tax_bill_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
-                                                                </p>
-                                                                <?php }
-                                                                else{
-                                                                    ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/paid_tax_bill_doc/{{ $data->paid_tax_bill_doc }}" target="_blank" download>
-                                                                        <p class="mt-3 mb-0" id="image_div">
-                                                                        <button type="button"class="btn btn-primary text-bold">
-                                                                            Download File
-                                                                        </button>
-                                                                        </p>
-                                                                    </a>
-                                                                <?php }?>
-                                                            </div>
-                                                        </a>
+                                                        @if(!empty($data->paid_tax_bill_doc))
+                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/paid_tax_bill_doc/{{ $data->paid_tax_bill_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                                <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
+                                                            </a>
+                                                        @endif
                                                     </div>
 
                                                     <label class="col-sm-2"><strong>Upload Commissioning Certificate of Fire extinguishers / preventive equipments of I.S.I. Mark : <span style="color:red;">*</span></strong></label>
@@ -696,35 +600,11 @@
                                                         </span>
                                                         @enderror
                                                         <br>
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank">
-                                                            <div class="form-group">
-                                                                <?php
-                                                                        $document_path = $data->commissioning_certificate;
-                                                                        $filter_path =  explode(".",$document_path);
-                                                                        $size_of_array = count($filter_path);
-                                                                        $filter_ext = $filter_path[$size_of_array - 1];
-
-                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
-                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                                                        {
-                                                                ?>
-
-                                                                <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/commissioning_certificate/{{ $data->commissioning_certificate }} " alt="image"  width="200" height="100" style="max-height:150px;">
-                                                                </p>
-                                                                <?php }
-                                                                else{
-                                                                    ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank" download>
-                                                                        <p class="mt-3 mb-0" id="image_div">
-                                                                        <button type="button"class="btn btn-primary text-bold">
-                                                                            Download File
-                                                                        </button>
-                                                                        </p>
-                                                                    </a>
-                                                                <?php }?>
-                                                            </div>
-                                                        </a>
+                                                        @if(!empty($data->commissioning_certificate))
+                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank" class="btn btn-primary btn-sm">
+                                                                <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
+                                                            </a>
+                                                        @endif
                                                     </div>
                                                 </div>
 
@@ -742,35 +622,11 @@
                                                         </span>
                                                         @enderror
                                                         <br>
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/affidavit_doc/{{ $data->affidavit_doc }}" target="_blank">
-                                                            <div class="form-group">
-                                                                <?php
-                                                                        $document_path = $data->affidavit_doc;
-                                                                        $filter_path =  explode(".",$document_path);
-                                                                        $size_of_array = count($filter_path);
-                                                                        $filter_ext = $filter_path[$size_of_array - 1];
-
-                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
-                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                                                        {
-                                                                ?>
-
-                                                                <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/affidavit_doc/{{ $data->affidavit_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
-                                                                </p>
-                                                                <?php }
-                                                                else{
-                                                                    ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/affidavit_doc/{{ $data->affidavit_doc }}" target="_blank" download>
-                                                                        <p class="mt-3 mb-0" id="image_div">
-                                                                        <button type="button"class="btn btn-primary text-bold">
-                                                                            Download File
-                                                                        </button>
-                                                                        </p>
-                                                                    </a>
-                                                                <?php }?>
-                                                            </div>
-                                                        </a>
+                                                        @if(!empty($data->affidavit_doc))
+                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/affidavit_doc/{{ $data->affidavit_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                                <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
+                                                            </a>
+                                                        @endif
                                                     </div>
 
                                                     <label class="col-sm-2"><strong>Upload Corporation Registration certificate (FOR OLD HOSPITAL) : <span style="color:red;">*</span></strong></label>
@@ -786,35 +642,11 @@
                                                         </span>
                                                         @enderror
                                                         <br>
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/corporation_certificate/{{ $data->corporation_certificate }}" target="_blank">
-                                                            <div class="form-group">
-                                                                <?php
-                                                                        $document_path = $data->corporation_certificate;
-                                                                        $filter_path =  explode(".",$document_path);
-                                                                        $size_of_array = count($filter_path);
-                                                                        $filter_ext = $filter_path[$size_of_array - 1];
-
-                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
-                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                                                        {
-                                                                ?>
-
-                                                                <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/corporation_certificate/{{ $data->corporation_certificate }} " alt="image"  width="200" height="100" style="max-height:150px;">
-                                                                </p>
-                                                                <?php }
-                                                                else{
-                                                                    ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/corporation_certificate/{{ $data->corporation_certificate }}" target="_blank" download>
-                                                                        <p class="mt-3 mb-0" id="image_div">
-                                                                        <button type="button"class="btn btn-primary text-bold">
-                                                                            Download File
-                                                                        </button>
-                                                                        </p>
-                                                                    </a>
-                                                                <?php }?>
-                                                            </div>
-                                                        </a>
+                                                        @if(!empty($data->corporation_certificate))
+                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/corporation_certificate/{{ $data->corporation_certificate }}" target="_blank" class="btn btn-primary btn-sm">
+                                                                <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
+                                                            </a>
+                                                        @endif
                                                     </div>
                                                 </div>
 
@@ -832,35 +664,11 @@
                                                         </span>
                                                         @enderror
                                                         <br>
-                                                        <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/construction_plan_doc/{{ $data->construction_plan_doc }}" target="_blank">
-                                                            <div class="form-group">
-                                                                <?php
-                                                                        $document_path = $data->construction_plan_doc;
-                                                                        $filter_path =  explode(".",$document_path);
-                                                                        $size_of_array = count($filter_path);
-                                                                        $filter_ext = $filter_path[$size_of_array - 1];
-
-                                                                        if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
-                                                                        $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                                                        {
-                                                                ?>
-
-                                                                <p class="mt-3 mb-0" id="image_div">
-                                                                    <img src="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/construction_plan_doc/{{ $data->construction_plan_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
-                                                                </p>
-                                                                <?php }
-                                                                else{
-                                                                    ?>
-                                                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/construction_plan_doc/{{ $data->construction_plan_doc }}" target="_blank" download>
-                                                                        <p class="mt-3 mb-0" id="image_div">
-                                                                        <button type="button"class="btn btn-primary text-bold">
-                                                                            Download File
-                                                                        </button>
-                                                                        </p>
-                                                                    </a>
-                                                                <?php }?>
-                                                            </div>
-                                                        </a>
+                                                        @if(!empty($data->construction_plan_doc))
+                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/construction_plan_doc/{{ $data->construction_plan_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                                <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
+                                                            </a>
+                                                        @endif
                                                     </div>
 
                                                 </div>

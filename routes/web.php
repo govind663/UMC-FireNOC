@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\FeeModeOperateController;
 use App\Http\Controllers\Admin\FeeBldgHtController;
 use App\Http\Controllers\Admin\FeeCategoryController;
 use App\Http\Controllers\Admin\FeeMasterController;
+use App\Http\Controllers\Admin\SignatureController;
 
 // ========== Citizen
 use App\Http\Controllers\Citizen\Auth\LoginController;
@@ -170,6 +171,9 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     // ======= All Citizen Fire NOC Invoice
     Route::get('/admin_invoice/{id}/{status}/{noc_mode}', [InvoiceController::class, 'admin_fire_noc_invoice'])->name('admin_invoice');
 
+    // ======= Signature
+    Route::resource('/signature', SignatureController::class);
+
 });
 
 
@@ -200,6 +204,7 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware', '
     Route::get('/new_business_noc/create', [NewBusinessNOCController::class, 'create'])->name('new_business_noc.create');
     Route::post('/new_business_noc/store', [NewBusinessNOCController::class, 'store'])->name('new_business_noc.store');
     Route::get('/new_business_noc/show/{id}/{status}', [NewBusinessNOCController::class, 'show'])->name('new_business_noc.show');
+    Route::get('/download_new_business_noc_pdf/{id}/{status}', [NewBusinessNOCController::class, 'download_new_business_noc_pdf'])->name('download_new_business_noc_pdf');
     Route::get('/new_business_noc/edit/{id}/{status}', [NewBusinessNOCController::class, 'edit'])->name('new_business_noc.edit');
     Route::post('/new_business_noc/edit/update/{id}/{n_id}/{status}', [NewBusinessNOCController::class, 'update'])->name('new_business_noc.edit.update');
     Route::delete('/new_business_noc/delete/{id}/{n_id}/{status}', [NewBusinessNOCController::class, 'destroy'])->name('new_business_noc.delete');

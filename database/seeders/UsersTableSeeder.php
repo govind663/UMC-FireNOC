@@ -17,18 +17,18 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'DMC',
+            'name' => 'Chief Fire Officer',
             'role' => '3',
-            'email' => 'admin@gmail.com',
+            'email' => 'cf_officer@gmail.com',
             'password' => bcrypt('1234567890'),
             'inserted_by' => 1,
             'inserted_dt' => Carbon::now(),
         ]);
 
         DB::table('users')->insert([
-            'name' => 'Chief Fire Officer',
+            'name' => 'Checker Maker',
             'role' => '2',
-            'email' => 'cf_officer@gmail.com',
+            'email' => 'checker_maker@gmail.com',
             'password' => bcrypt('1234567890'),
             'inserted_by' => 2,
             'inserted_dt' => Carbon::now(),

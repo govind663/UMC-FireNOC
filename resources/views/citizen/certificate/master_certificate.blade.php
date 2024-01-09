@@ -32,7 +32,7 @@
 
     </head>
     <style>
-        .select2 {
+.select2 {
             border: 1px solid rgb(7, 147, 165);
             border-radius: 5px;
         }
@@ -57,8 +57,17 @@
         .lineheight{
             line-height: 3px;
         }
+
         @page {
             margin: 0;
+        }
+
+        @media print {
+            .card-body {
+                border: 1px solid #252424;
+                border-radius: 3px;
+                padding: 30px;
+            }
         }
     </style>
 
