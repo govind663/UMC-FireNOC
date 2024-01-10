@@ -214,6 +214,7 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware', '
     Route::get('/renew_business_noc/create', [RenewBusinessNOCController::class, 'create'])->name('renew_business_noc.create');
     Route::post('/renew_business_noc/store', [RenewBusinessNOCController::class, 'store'])->name('renew_business_noc.store');
     Route::get('/renew_business_noc/show/{id}/{status}', [RenewBusinessNOCController::class, 'show'])->name('renew_business_noc.show');
+    Route::get('/download_renew_business_noc_pdf/{id}/{status}', [RenewBusinessNOCController::class, 'download_renew_business_noc_pdf'])->name('download_renew_business_noc_pdf');
     Route::get('/renew_business_noc/edit/{id}/{status}', [RenewBusinessNOCController::class, 'edit'])->name('renew_business_noc.edit');
     Route::post('/renew_business_noc/edit/update/{id}/{n_id}/{status}', [RenewBusinessNOCController::class, 'update'])->name('renew_business_noc.edit.update');
     Route::delete('/renew_business_noc/delete/{id}/{n_id}/{status}', [RenewBusinessNOCController::class, 'destroy'])->name('renew_business_noc.delete');
@@ -223,6 +224,7 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware', '
     Route::get('/new_hospital_noc/create', [NewHospitalNOCController::class, 'create'])->name('new_hospital_noc.create');
     Route::post('/new_hospital_noc/store', [NewHospitalNOCController::class, 'store'])->name('new_hospital_noc.store');
     Route::get('/new_hospital_noc/show/{id}/{status}', [NewHospitalNOCController::class, 'show'])->name('new_hospital_noc.show');
+    Route::get('/download_new_hospital_noc_pdf/{id}/{status}', [NewHospitalNOCController::class, 'download_new_hospital_noc_pdf'])->name('download_new_hospital_noc_pdf');
     Route::get('/new_hospital_noc/edit/{id}/{status}', [NewHospitalNOCController::class, 'edit'])->name('new_hospital_noc.edit');
     Route::post('/new_hospital_noc/edit/update/{id}/{n_id}/{status}', [NewHospitalNOCController::class, 'update'])->name('new_hospital_noc.edit.update');
     Route::delete('/new_hospital_noc/delete/{id}/{n_id}/{status}', [NewHospitalNOCController::class, 'destroy'])->name('new_hospital_noc.delete');
@@ -232,6 +234,7 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware', '
     Route::get('/renew_hospital_noc/create', [RenewHospitalNOCController::class, 'create'])->name('renew_hospital_noc.create');
     Route::post('/renew_hospital_noc/store', [RenewHospitalNOCController::class, 'store'])->name('renew_hospital_noc.store');
     Route::get('/renew_hospital_noc/show/{id}/{status}', [RenewHospitalNOCController::class, 'show'])->name('renew_hospital_noc.show');
+    Route::get('/download_renew_hospital_noc_pdf/{id}/{status}', [RenewHospitalNOCController::class, 'download_renew_hospital_noc_pdf'])->name('download_renew_hospital_noc_pdf');
     Route::get('/renew_hospital_noc/edit/{id}/{status}', [RenewHospitalNOCController::class, 'edit'])->name('renew_hospital_noc.edit');
     Route::post('/renew_hospital_noc/edit/update/{id}/{n_id}/{status}', [RenewHospitalNOCController::class, 'update'])->name('renew_hospital_noc.edit.update');
     Route::delete('/renew_hospital_noc/delete/{id}/{n_id}/{status}', [RenewHospitalNOCController::class, 'destroy'])->name('renew_hospital_noc.delete');
@@ -241,6 +244,7 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware', '
     Route::get('/provisional_building_noc/create', [ProvisionalBuildingNOCController::class, 'create'])->name('provisional_building_noc.create');
     Route::post('/provisional_building_noc/store', [ProvisionalBuildingNOCController::class, 'store'])->name('provisional_building_noc.store');
     Route::get('/provisional_building_noc/show/{id}/{status}', [ProvisionalBuildingNOCController::class, 'show'])->name('provisional_building_noc.show');
+    Route::get('/download_provisional_building_noc_pdf/{id}/{status}', [ProvisionalBuildingNOCController::class, 'download_provisional_building_noc_pdf'])->name('download_provisional_building_noc_pdf');
     Route::get('/provisional_building_noc/edit/{id}/{status}', [ProvisionalBuildingNOCController::class, 'edit'])->name('provisional_building_noc.edit');
     Route::post('/provisional_building_noc/edit/update/{id}/{n_id}/{status}', [ProvisionalBuildingNOCController::class, 'update'])->name('provisional_building_noc.edit.update');
     Route::delete('/provisional_building_noc/delete/{id}/{n_id}/{status}', [ProvisionalBuildingNOCController::class, 'destroy'])->name('provisional_building_noc.delete');
@@ -250,6 +254,7 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware', '
     Route::get('/final_building_noc/create', [FinalBuildingNOCController::class, 'create'])->name('final_building_noc.create');
     Route::post('/final_building_noc/store', [FinalBuildingNOCController::class, 'store'])->name('final_building_noc.store');
     Route::get('/final_building_noc/show/{id}/{status}', [FinalBuildingNOCController::class, 'show'])->name('final_building_noc.show');
+    Route::get('/download_final_building_noc_pdf/{id}/{status}', [FinalBuildingNOCController::class, 'download_final_building_noc_pdf'])->name('download_final_building_noc_pdf');
     Route::get('/final_building_noc/edit/{id}/{status}', [FinalBuildingNOCController::class, 'edit'])->name('final_building_noc.edit');
     Route::post('/final_building_noc/edit/update/{id}/{n_id}/{status}', [FinalBuildingNOCController::class, 'update'])->name('final_building_noc.edit.update');
     Route::delete('/final_building_noc/delete/{id}/{n_id}/{status}', [FinalBuildingNOCController::class, 'destroy'])->name('final_building_noc.delete');

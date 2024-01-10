@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\RenewalHospitalNOCRequest;
 use App\Models\CitizenPayment;
 use App\Models\FeeReceiptDocument;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 
 class RenewHospitalNOCController extends Controller
 {
@@ -725,5 +726,42 @@ class RenewHospitalNOCController extends Controller
         $data->update();
 
         return redirect()->route('renew_hospital_noc_list',$status)->with('message', 'The application form which you had deleted for your renew hospital noc has been done Successfully.');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function download_renew_hospital_noc_pdf($id, $status)
+    {
+        if($status == 0 || $status == 5 || $status == 1){
+            $data = DB::table('hospital_noc as t1')
+                ->select('t1.*', 't2.*', 't1.id as RH_NOC_ID')
+                ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
+                ->where('t2.noc_mode', 4)  // ==== New Hospital NOC (status=1)
+                ->where('t2.citizen_id',  Auth::user()->id)
+                ->where('t1.status', $status)
+                ->where('t1.id', $id)
+                ->whereNUll('t1.deleted_at')
+                ->whereNUll('t2.deleted_at')
+                ->first();
+        }else{
+            $data = DB::table('hospital_noc as t1')
+                ->select('t1.*', 't2.*', 't1.id as RH_NOC_ID', 't3.citizen_payment_status')
+                ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
+                ->leftJoin('citizen_payments as t3', 't3.mst_token', '=', 't2.mst_token' )
+                ->where('t2.noc_mode', 4)  // ==== New Hospital NOC (status=1)
+                ->where('t2.citizen_id',  Auth::user()->id)
+                ->where('t1.status', $status)
+                ->where('t1.id', $id)
+                ->whereNUll('t1.deleted_at')
+                ->whereNUll('t2.deleted_at')
+                ->whereNUll('t3.deleted_at')
+                ->first();
+        }
+
+        return FacadePdf::loadView('citizen.hospital_noc.renew_hospital_noc.renew_hospital_noc_pdf', compact('data','status'))->stream("Renew Business NOC #".$data->RH_NOC_ID.".pdf");
     }
 }

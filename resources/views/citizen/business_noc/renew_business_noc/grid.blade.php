@@ -161,6 +161,11 @@
                                                             <a href='{{ url("/renew_business_noc/show/{$value->RB_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
+                                                            &nbsp;&nbsp;
+                                                            <a href='{{ url("/download_renew_business_noc_pdf/{$value->RB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
+                                                                <b><i class="mdi mdi-file"> Download View </i></b>
+                                                            </a>
+
                                                             @if ($value->status == 0 || $value->status == 4)
                                                             &nbsp;&nbsp;
                                                             <a href='{{ url("/renew_business_noc/edit/{$value->RB_NOC_ID}/{$value->status}") }}' class="btn btn-warning btn-sm text-dark">

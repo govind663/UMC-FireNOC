@@ -69,6 +69,11 @@
                 padding: 30px;
             }
         }
+
+        .avatar-sm {
+            height: 4.6rem;
+            width: 8.6rem;
+        }
     </style>
 
     <body data-topbar="colored" data-layout="horizontal">

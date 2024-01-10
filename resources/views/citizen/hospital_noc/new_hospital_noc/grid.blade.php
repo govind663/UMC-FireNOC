@@ -161,6 +161,10 @@
                                                             <a href='{{ url("/new_hospital_noc/show/{$value->NH_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
+                                                            &nbsp;&nbsp;
+                                                            <a href='{{ url("/download_new_hospital_noc_pdf/{$value->NH_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
+                                                                <b><i class="mdi mdi-file"> Download View </i></b>
+                                                            </a>
                                                             @if ($value->status == 0 || $value->status == 4)
                                                             &nbsp;&nbsp;
                                                             <a href='{{ url("/new_hospital_noc/edit/{$value->NH_NOC_ID}/{$value->status}") }}' class="btn btn-warning btn-sm text-dark">

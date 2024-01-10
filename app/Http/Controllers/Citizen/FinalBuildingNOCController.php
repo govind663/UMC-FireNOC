@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\FinalBuildindgNOCRequest;
 use App\Models\CitizenPayment;
 use App\Models\FeeReceiptDocument;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 
 class FinalBuildingNOCController extends Controller
 {
@@ -180,6 +181,7 @@ class FinalBuildingNOCController extends Controller
                 ->first();
         // dd($data);
         }
+
         return view('citizen.building_noc.final_building_noc.view')->with('data', $data)->with('status', $status);
     }
 
@@ -388,5 +390,42 @@ class FinalBuildingNOCController extends Controller
         $data->update();
 
         return redirect()->route('final_building_noc_list',$status)->with('message', 'The application form which you had deleted for your final building noc has been done Successfully.');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function download_final_building_noc_pdf($id, $status)
+    {
+        if($status == 0 || $status == 5 || $status == 1){
+            $data = DB::table('building_noc as t1')
+                ->select('t1.*', 't2.*', 't1.id as F_NOC_ID', 't2.id as d_ID', 't3.citizen_payment_status')
+                ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
+                ->where('t2.noc_mode', 6)  // ==== Final Building NOC (status=6)
+                ->where('t1.status', $status)
+                ->where('t1.id', $id)
+                ->whereNUll('t1.deleted_at')
+                ->whereNUll('t2.deleted_at')
+                ->first();
+           // dd($data);
+        }else{
+            $data = DB::table('building_noc as t1')
+                ->select('t1.*', 't2.*', 't1.id as F_NOC_ID', 't2.id as d_ID', 't3.citizen_payment_status')
+                ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
+                ->leftJoin('citizen_payments as t3', 't3.mst_token', '=', 't2.mst_token' )
+                ->where('t2.noc_mode', 6)  // ==== Final Building NOC (status=6)
+                ->where('t1.status', $status)
+                ->where('t1.id', $id)
+                ->whereNUll('t1.deleted_at')
+                ->whereNUll('t2.deleted_at')
+                ->whereNUll('t3.deleted_at')
+                ->first();
+        // dd($data);
+        }
+
+        return FacadePdf::loadView('citizen.building_noc.final_building_noc.final_building_noc_pdf', compact('data','status'))->stream("Renew Business NOC #".$data->F_NOC_ID.".pdf");
     }
 }

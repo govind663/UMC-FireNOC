@@ -52,7 +52,16 @@
                                                 <p><strong>मागील नुतनीकरण ना हरकत दाखला भरलेली फी :- रक्कम {{ $total_payment }} रू </strong></p>
                                                 <p><strong>(टिप:- शासकीय ठराव क्र. ५० दिनांक २८/०२/२०२३ अन्वये एक महिन्यानंतर मुळ नुतनीकरण शुल्कावर विलंब आकार १०% प्रति महीना आकारण्यात येईल.)</strong></p>
                                             </div>
+
+                                            @php
+                                                $cf_signature = DB::table('signatures as t1')
+                                                                ->select('t1.id', 't1.upload_signature_doc')
+                                                                ->whereNUll('t1.deleted_at')
+                                                                ->latest('inserted_dt')
+                                                                ->first();
+                                            @endphp
                                             <div class="signature">
+                                                <img class="rounded-circle header-profile-user avatar-sm" src="{{ url('/') }}/UMC_FireNOC/signature_doc/{{ $cf_signature->upload_signature_doc }}" alt="Chief Fire Officer">
                                                 <p class="lineheight">(बाळासाहेब नेटके)</p>
                                                 <p class="lineheight">मुख्य अग्निशमन अधिकारी (प्र.)</p>
                                                 <p class="lineheight">अग्निशमन विभाग</p>

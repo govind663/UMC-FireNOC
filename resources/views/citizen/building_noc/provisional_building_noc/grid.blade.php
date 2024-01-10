@@ -159,6 +159,10 @@
                                                             <a href='{{ url("/provisional_building_noc/show/{$value->P_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
+                                                            &nbsp;&nbsp;
+                                                            <a href='{{ url("/download_provisional_building_noc_pdf/{$value->P_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
+                                                                <b><i class="mdi mdi-file"> Download View </i></b>
+                                                            </a>
                                                             @if ($value->status == 0 || $value->status == 4)
 
                                                             &nbsp;&nbsp;

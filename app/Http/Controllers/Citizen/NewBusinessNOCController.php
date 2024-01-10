@@ -906,11 +906,6 @@ class NewBusinessNOCController extends Controller
                 ->first();
               // dd($data);
         }
-
-        // return view('citizen.business_noc.new_business_noc.new_business_noc_pdf')->with('data', $data)->with('status', $status);
-
-        $pdf = FacadePdf::loadView('citizen.business_noc.new_business_noc.new_business_noc_pdf', compact('data', 'status') );
-        $pdf->download('NewBusinessNOC.pdf');
-        return $pdf->stream();
+        return FacadePdf::loadView('citizen.business_noc.new_business_noc.new_business_noc_pdf', compact('data','status'))->setPaper('a4')->stream("New Business NOC".$data->NB_NOC_ID.".pdf");
     }
 }
