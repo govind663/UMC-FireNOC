@@ -323,8 +323,7 @@
                         </div>
                     </div>
 
-                    <br>
-                    <div class="page-break"></div>
+
                     <h4 class="mb-3">Necessary Enclosures related to above application (Documents to attach)</h4>
                     <div class="row ">
                         <div class="form-group row  mb-3">

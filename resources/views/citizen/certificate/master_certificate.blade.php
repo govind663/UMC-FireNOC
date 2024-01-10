@@ -32,7 +32,11 @@
 
     </head>
     <style>
-.select2 {
+        .body{
+            background: #fff;
+            color: #161616;
+        }
+       .select2 {
             border: 1px solid rgb(7, 147, 165);
             border-radius: 5px;
         }
@@ -52,7 +56,7 @@
         }
         .signature {
             text-align: right;
-            margin-top: 40px;
+            /* margin-top: 40px; */
         }
         .lineheight{
             line-height: 3px;
@@ -66,7 +70,7 @@
             .card-body {
                 border: 1px solid #252424;
                 border-radius: 3px;
-                padding: 30px;
+                padding: 50px;
             }
         }
 
