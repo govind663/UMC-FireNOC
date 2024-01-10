@@ -1,5 +1,3 @@
-
-
         <!-- Begin page -->
         <div id="layout-wrapper">
 
@@ -65,7 +63,7 @@
                                                                 ->first();
                                             @endphp
                                             <div class="signature">
-                                                <img class="rounded-circle header-profile-user avatar-sm" src="{{ url('/') }}/UMC_FireNOC/signature_doc/{{ $cf_signature->upload_signature_doc }}" alt="Chief Fire Officer">
+                                                <img class="rounded-circle header-profile-user avatar-image" src="{{ url('/') }}/UMC_FireNOC/signature_doc/{{ $cf_signature->upload_signature_doc }}" alt="Chief Fire Officer">
                                                 <p class="lineheight">(बाळासाहेब नेटके)</p>
                                                 <p class="lineheight">मुख्य अग्निशमन अधिकारी</p>
                                                 <p class="lineheight">अग्निशमन विभाग</p>

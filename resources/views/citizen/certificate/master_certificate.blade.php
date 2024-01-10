@@ -70,7 +70,7 @@
             }
         }
 
-        .avatar-sm {
+        .avatar-image {
             height: 4.6rem;
             width: 8.6rem;
         }
