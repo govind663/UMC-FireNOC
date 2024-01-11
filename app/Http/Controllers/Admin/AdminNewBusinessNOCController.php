@@ -8,6 +8,7 @@ use App\Http\Requests\RemarksRequest;
 use App\Models\Business_NOC;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 
 class AdminNewBusinessNOCController extends Controller
 {
@@ -290,6 +291,29 @@ class AdminNewBusinessNOCController extends Controller
         // dd($data);
 
         return view('admin.business_noc.all_application.new_business_noc.view')->with('data', $data)->with('all_status', $all_status);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function admin_download_new_business_noc_pdf($id, $status)
+    {
+        $data = DB::table('business_noc as t1')
+                ->select('t1.*', 't2.*', 't1.id as NB_NOC_ID', 't2.id as d_ID' , 't3.citizen_payment_status')
+                ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
+                ->leftJoin('citizen_payments as t3', 't3.mst_token', '=', 't2.mst_token' )
+                ->where('t2.noc_mode', 1)  // ==== New Business NOC (status=1)
+                ->where('t1.status', $status)
+                ->where('t1.id', $id)
+                ->whereNUll('t1.deleted_at')
+                ->whereNUll('t2.deleted_at')
+                ->whereNUll('t3.deleted_at')
+                ->first();
+              // dd($data);
+        return FacadePdf::loadView('citizen.business_noc.new_business_noc.new_business_noc_pdf', compact('data','status'))->setPaper('a4')->stream("New Business NOC".$data->NB_NOC_ID.".pdf");
     }
 
 }

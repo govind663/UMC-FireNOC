@@ -9,6 +9,7 @@ use App\Models\NOC_Master;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\RemarksRequest;
+use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 
 class AdminRenewHospitalNOCController extends Controller
 {
@@ -289,5 +290,26 @@ class AdminRenewHospitalNOCController extends Controller
         // dd($data);
 
         return view('admin.hospital_noc.all_application.renew_hospital_noc.view')->with('data', $data)->with('all_status', $all_status);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function admin_download_renew_hospital_noc_pdf($id, $status)
+    {
+        $data = DB::table('hospital_noc as t1')
+                ->select('t1.*', 't2.*', 't1.id as RH_NOC_ID')
+                ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
+                ->where('t2.noc_mode', 4)  // ==== New Hospital NOC (status=1)
+                ->where('t1.status', $status)
+                ->where('t1.id', $id)
+                ->whereNUll('t1.deleted_at')
+                ->whereNUll('t2.deleted_at')
+                ->first();
+
+        return FacadePdf::loadView('citizen.hospital_noc.renew_hospital_noc.renew_hospital_noc_pdf', compact('data','status'))->stream("Renew Business NOC #".$data->RH_NOC_ID.".pdf");
     }
 }

@@ -161,7 +161,12 @@
                                                             <a href='{{ url("/admin_new_hospital_noc/show/{$value->NH_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
-
+                                                            @if ($value->status == 0)
+                                                            &nbsp;&nbsp;
+                                                            <a href='{{ url("/admin_download_new_business_noc_pdf/{$value->NB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
+                                                                <b><i class="mdi mdi-file"> Download View </i></b>
+                                                            </a>
+                                                            @endif
                                                             &nbsp;&nbsp;
                                                             @if ($value->status == 7 && $value->payment_status == 1 )
                                                             <a href='{{ url("/admin_invoice/{$value->NH_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-dark btn-sm ">
