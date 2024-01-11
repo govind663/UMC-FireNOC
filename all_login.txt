@@ -1,11 +1,11 @@
 https://fire.rtsumc.com/
 
-========= DMC
-Email id : admin@gmail.com
-Password : 1234567890
-
 ========= Chief Fire Officer
 Email id : cf_officer@gmail.com
+Password : 1234567890
+
+========= Checker Maker
+Email id : checker_maker@gmail.com
 Password : 1234567890
 
 ========= Field Inspector
