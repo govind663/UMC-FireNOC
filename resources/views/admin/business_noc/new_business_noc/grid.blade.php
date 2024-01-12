@@ -87,7 +87,7 @@
                                                 <tr style="color: white; background:#086070;">
                                                     <th><b>Sr. No.</b></th>
                                                     <th><b>Apply Date <br> (DD/MM/YYYY)</b></th>
-                                                    <th><b>Appication Name</b></th>
+                                                    <th><b>Application Name</b></th>
                                                     <th><b>Property Types</b></th>
                                                     <th><b>Property Number</b></th>
                                                     <th><b>Town / City</b></th>

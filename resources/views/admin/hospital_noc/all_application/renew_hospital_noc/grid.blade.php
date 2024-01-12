@@ -75,7 +75,7 @@
                                                 <tr style="color: white; background:#086070;">
                                                     <th><b>Sr. No.</b></th>
                                                     <th><b>Apply Date <br> (DD/MM/YYYY)</b></th>
-                                                    <th><b>Appication Name</b></th>
+                                                    <th><b>Application Name</b></th>
                                                     <th><b>Property Types</b></th>
                                                     <th><b>Property Number</b></th>
                                                     <th><b>Town / City</b></th>
@@ -149,6 +149,13 @@
                                                             <a href='{{ url("/all_renew_hospital_noc/show/{$value->RH_NOC_ID}/{$all_status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
+
+                                                            @if ($value->status == 0)
+                                                            &nbsp;&nbsp;
+                                                            <a href='{{ url("/admin_download_renew_hospital_noc_pdf/{$value->RH_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
+                                                                <b><i class="mdi mdi-file"> Download View </i></b>
+                                                            </a>
+                                                            @endif
                                                         </td>
                                                     </tr>
                                                 @endforeach

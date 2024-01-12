@@ -87,7 +87,7 @@
                                                 <tr style="color: white; background:#086070;">
                                                     <th><b>Sr. No.</b></th>
                                                     <th><b>Apply Date <br> (DD/MM/YYYY)</b></th>
-                                                    <th><b>Appication Name</b></th>
+                                                    <th><b>Application Name</b></th>
                                                     <th><b>Property Types</b></th>
                                                     <th><b>Property Number</b></th>
                                                     <th><b>Pin code</b></th>
@@ -161,7 +161,7 @@
                                                             </a>
                                                             @if ($value->status == 0)
                                                             &nbsp;&nbsp;
-                                                            <a href='{{ url("/admin_download_new_business_noc_pdf/{$value->NB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
+                                                            <a href='{{ url("/admin_download_provisional_building_noc_pdf/{$value->F_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
                                                                 <b><i class="mdi mdi-file"> Download View </i></b>
                                                             </a>
                                                             @endif
