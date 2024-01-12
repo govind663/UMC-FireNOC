@@ -150,7 +150,7 @@
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
 
-                                                            @if ($value->status == 0)
+                                                            @if ($all_status == 0)
                                                             &nbsp;&nbsp;
                                                             <a href='{{ url("/admin_download_new_hospital_noc_pdf/{$value->NH_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
                                                                 <b><i class="mdi mdi-file"> Download View </i></b>
