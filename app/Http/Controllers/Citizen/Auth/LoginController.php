@@ -43,10 +43,10 @@ class LoginController extends Controller
         if (auth()->guard('citizen')->attempt($credentials)) {
 
             $this->logRepository->insertLog(Auth::guard('citizen')->user()->id, 'citizens', 'login');
-            return redirect()->intended('/citizen/dashboard')->with('message', 'You are login Successfully.');
+            return redirect()->route('citizen.dashboard')->with('message', 'You are login Successfully.');
         }
         else{
-            return redirect('/citizen/login')->with(['Input' => $request->only('email','password'), 'error' => 'Your Mobile Number and Password do not match our records!']);
+            return redirect()->route('citizen.login')->with(['Input' => $request->only('email','password'), 'error' => 'Your Mobile Number and Password do not match our records!']);
         }
 
     }
@@ -61,6 +61,6 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/')->with('message', 'You are logout Successfully.');
+        return redirect()->route('citizen.login')->with('message', 'You are logout Successfully.');
     }
 }

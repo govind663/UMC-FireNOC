@@ -44,10 +44,10 @@ class LoginController extends Controller
             // $roles = auth()->user()->role;
             $this->logRepository->insertLog(Auth::guard('web')->user()->id, 'users', 'login');
 
-            return redirect()->intended('/admin/dashboard')->with('message', 'You are login Successfully.');
+            return redirect()->route('admin.dashboard')->with('message', 'You are login Successfully.');
         }
         else{
-            return redirect('/admin/login')->with(['Input' => $request->only('email','password'), 'error' => 'Your Email id and Password do not match our records!']);
+            return redirect()->route('admin.login')->with(['Input' => $request->only('email','password'), 'error' => 'Your Email id and Password do not match our records!']);
         }
 
     }
@@ -57,6 +57,6 @@ class LoginController extends Controller
         Session::flush();
         Auth::logout();
 
-        return redirect('/')->with('message', 'You are logout Successfully.');
+        return redirect()->route('admin.login')->with('message', 'You are logout Successfully.');
     }
 }

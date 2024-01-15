@@ -188,7 +188,7 @@ Route::get('/citizen/register', [RegisterController::class, 'Citizen_Register_Fo
 Route::post('/citizen/register/store', [RegisterController::class, 'Store_Citizen_Register_Form'])->name('citizen.register.store');
 
 // ======================= Citizens Login/Logout
-Route::get('/citizen/login', [LoginController::class, 'Citizen_Login_Form'])->name('login');
+Route::get('/citizen/login', [LoginController::class, 'Citizen_Login_Form'])->name('citizen.login');
 Route::post('/citizen/login/store', [LoginController::class, 'Citizen_Authenticate'])->name('citizen.login.store');
 Route::post('/citizen/logout', [LoginController::class, 'Citizen_Logout'])->name('citizen.logout');
 
