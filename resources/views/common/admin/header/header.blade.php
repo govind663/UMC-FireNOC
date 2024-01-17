@@ -92,8 +92,221 @@
                         </a>
                     </li>
 
+                    {{-- Commissioner --}}
+                    @if(Auth::user()->role == 6)
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
+                            <i class="uim uim-grid"></i> Application Status <div class="arrow-down"></div>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="topnav-uielement">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div>
+                                        <a href="{{ url('#',) }}" class="dropdown-item">New Business NOC List</a>
+                                        <a href="{{ url('#',) }}" class="dropdown-item">Renew Business NOC List</a>
+                                        <a href="{{ url('#',) }}" class="dropdown-item">New Hospital NOC List</a>
+                                        <a href="{{ url('#',) }}" class="dropdown-item">Renew Hospital NOC List</a>
+                                        <a href="{{ url('#',) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('#',) }}" class="dropdown-item">Final Building NOC List</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
+                            <i class="uim uim-grid"></i> Approved Application <div class="arrow-down"></div>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="topnav-uielement">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div>
+                                        <a href="{{ url('/all_new_business_noc_list',1) }}"  class="dropdown-item">New Business NOC List</a>
+                                        <a href="{{ url('/all_renew_business_noc_list',1) }}" class="dropdown-item">Renew Business NOC List</a>
+                                        <a href="{{ url('/all_new_hospital_noc_list',1) }}" class="dropdown-item">New Hospital NOC List</a>
+                                        <a href="{{ url('/all_renew_hospital_noc_list',1) }}" class="dropdown-item">Renew Hospital NOC List</a>
+                                        <a href="{{ url('/all_provisional_building_noc_list',1) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/all_final_building_noc_list',1) }}" class="dropdown-item">Final Building NOC List</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
+                            <i class="uim uim-grid"></i> Rejected Application <div class="arrow-down"></div>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="topnav-uielement">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div>
+                                        <a href="{{ url('/all_new_business_noc_list',2) }}" class="dropdown-item">New Business NOC List</a>
+                                        <a href="{{ url('/all_renew_business_noc_list',2) }}" class="dropdown-item">Renew Business NOC List</a>
+                                        <a href="{{ url('/all_new_hospital_noc_list',2) }}" class="dropdown-item">New Hospital NOC List</a>
+                                        <a href="{{ url('/all_renew_hospital_noc_list',2) }}" class="dropdown-item">Renew Hospital NOC List</a>
+                                        <a href="{{ url('/all_provisional_building_noc_list',2) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/all_final_building_noc_list',2) }}" class="dropdown-item">Final Building NOC List</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+
+                    {{-- Additional Commissioner --}}
+                    @elseif(Auth::user()->role == 5)
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
+                            <i class="uim uim-grid"></i> Application Status <div class="arrow-down"></div>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="topnav-uielement">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div>
+                                        <a href="{{ url('',) }}" class="dropdown-item">New Business NOC List</a>
+                                        <a href="{{ url('',) }}" class="dropdown-item">Renew Business NOC List</a>
+                                        <a href="{{ url('',) }}" class="dropdown-item">New Hospital NOC List</a>
+                                        <a href="{{ url('',) }}" class="dropdown-item">Renew Hospital NOC List</a>
+                                        <a href="{{ url('',) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('',) }}" class="dropdown-item">Final Building NOC List</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
+                            <i class="uim uim-grid"></i> Approved Application <div class="arrow-down"></div>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="topnav-uielement">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div>
+                                        <a href="{{ url('/all_new_business_noc_list',1) }}"  class="dropdown-item">New Business NOC List</a>
+                                        <a href="{{ url('/all_renew_business_noc_list',1) }}" class="dropdown-item">Renew Business NOC List</a>
+                                        <a href="{{ url('/all_new_hospital_noc_list',1) }}" class="dropdown-item">New Hospital NOC List</a>
+                                        <a href="{{ url('/all_renew_hospital_noc_list',1) }}" class="dropdown-item">Renew Hospital NOC List</a>
+                                        <a href="{{ url('/all_provisional_building_noc_list',1) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/all_final_building_noc_list',1) }}" class="dropdown-item">Final Building NOC List</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
+                            <i class="uim uim-grid"></i> Rejected Application <div class="arrow-down"></div>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="topnav-uielement">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div>
+                                        <a href="{{ url('/all_new_business_noc_list',2) }}" class="dropdown-item">New Business NOC List</a>
+                                        <a href="{{ url('/all_renew_business_noc_list',2) }}" class="dropdown-item">Renew Business NOC List</a>
+                                        <a href="{{ url('/all_new_hospital_noc_list',2) }}" class="dropdown-item">New Hospital NOC List</a>
+                                        <a href="{{ url('/all_renew_hospital_noc_list',2) }}" class="dropdown-item">Renew Hospital NOC List</a>
+                                        <a href="{{ url('/all_provisional_building_noc_list',2) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/all_final_building_noc_list',2) }}" class="dropdown-item">Final Building NOC List</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+
                     {{-- DMC --}}
-                    @if(Auth::user()->role == 3)
+                    @elseif(Auth::user()->role == 4)
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
+                            <i class="uim uim-grid"></i> Application Status <div class="arrow-down"></div>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="topnav-uielement">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div>
+                                        <a href="{{ url('',) }}" class="dropdown-item">New Business NOC List</a>
+                                        <a href="{{ url('',) }}" class="dropdown-item">Renew Business NOC List</a>
+                                        <a href="{{ url('',) }}" class="dropdown-item">New Hospital NOC List</a>
+                                        <a href="{{ url('',) }}" class="dropdown-item">Renew Hospital NOC List</a>
+                                        <a href="{{ url('',) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('',) }}" class="dropdown-item">Final Building NOC List</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
+                            <i class="uim uim-grid"></i> Approved Application <div class="arrow-down"></div>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="topnav-uielement">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div>
+                                        <a href="{{ url('/all_new_business_noc_list',1) }}"  class="dropdown-item">New Business NOC List</a>
+                                        <a href="{{ url('/all_renew_business_noc_list',1) }}" class="dropdown-item">Renew Business NOC List</a>
+                                        <a href="{{ url('/all_new_hospital_noc_list',1) }}" class="dropdown-item">New Hospital NOC List</a>
+                                        <a href="{{ url('/all_renew_hospital_noc_list',1) }}" class="dropdown-item">Renew Hospital NOC List</a>
+                                        <a href="{{ url('/all_provisional_building_noc_list',1) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/all_final_building_noc_list',1) }}" class="dropdown-item">Final Building NOC List</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
+                            <i class="uim uim-grid"></i> Rejected Application <div class="arrow-down"></div>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="topnav-uielement">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div>
+                                        <a href="{{ url('/all_new_business_noc_list',2) }}" class="dropdown-item">New Business NOC List</a>
+                                        <a href="{{ url('/all_renew_business_noc_list',2) }}" class="dropdown-item">Renew Business NOC List</a>
+                                        <a href="{{ url('/all_new_hospital_noc_list',2) }}" class="dropdown-item">New Hospital NOC List</a>
+                                        <a href="{{ url('/all_renew_hospital_noc_list',2) }}" class="dropdown-item">Renew Hospital NOC List</a>
+                                        <a href="{{ url('/all_provisional_building_noc_list',2) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/all_final_building_noc_list',2) }}" class="dropdown-item">Final Building NOC List</a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+
+                    {{-- Chief Fire Officer --}}
+                    @elseif(Auth::user()->role == 3)
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-components" role="button">
@@ -198,7 +411,7 @@
                     </li>
 
 
-                    {{-- Chief Fire Officer --}}
+                    {{-- Checker Maker --}}
                     @elseif(Auth::user()->role == 2)
 
                     {{-- Unpaid Application List --}}

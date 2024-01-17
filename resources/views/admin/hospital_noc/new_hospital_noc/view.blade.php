@@ -789,7 +789,7 @@
                                                 @endif
                                                 &nbsp;&nbsp;
 
-                                                @if(Auth::user()->role == 3)
+                                                @if(Auth::user()->role == 3 || Auth::user()->role == 4 || Auth::user()->role == 5 || Auth::user()->role == 6)
                                                 <a href='{{ url("/admin_new_hospital_noc/approved/$data->NH_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
                                                 <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NH_NOC_Reject"><b>Reject</b></button>
                                                 @elseif(Auth::user()->role == 2 && $data->status == 2)

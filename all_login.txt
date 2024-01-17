@@ -1,5 +1,17 @@
 https://fire.rtsumc.com/
 
+========= Commissioner
+Email id : commissioner@gmail.com
+Password : 1234567890
+
+========= Additional Commissioner
+Email id : addl_commissioner@gmail.com
+Password : 1234567890
+
+========= DMC
+Email id : dmc@gmail.com
+Password : 1234567890
+
 ========= Chief Fire Officer
 Email id : cf_officer@gmail.com
 Password : 1234567890

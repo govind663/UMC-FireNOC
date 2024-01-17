@@ -66,7 +66,7 @@ return new class extends Migration
             $table->string('gas_certificate_doc');
             $table->string('commissioning_certificate');
 
-            $table->integer('application_status')->default('0')->comment('0:Operator, 1:Field Inspector, 2:Chief Fire Officer, 3:DMC');
+            $table->integer('application_status')->default('0')->comment('0:Operator, 1:Field Inspector, 2:Checker Maker, 3:Chief Fire Officer, 4:DMC, 5:Additional Commissioner, 6:Commissioner');
             $table->date('approved_dt')->nullable();
             $table->integer('approved_by')->nullable();
             $table->date('rejected_dt')->nullable();
