@@ -51,6 +51,15 @@ class AdminNewBusinessNOCController extends Controller
             // $query->where('t3.citizen_payment_status', 2);
         } elseif (Auth::user()->role == 3) {
             $query->where('t1.status', $status);
+        } elseif (Auth::user()->role == 4) {
+            $query->where('t1.status', $status);
+        } elseif (Auth::user()->role == 5) {
+            $query->where('t1.status', $status);
+            $query->where('t1.dmc_status', 1);
+        } elseif (Auth::user()->role == 6) {
+            $query->where('t1.status', $status);
+            $query->where('t1.dmc_status', 1);
+            $query->where('t1.addl_commissioner_status', 1);
         }
 
         $data = $query->get();
@@ -139,10 +148,10 @@ class AdminNewBusinessNOCController extends Controller
         } elseif (Auth::user()->role == 2) {
             $update = [
                 'status' => 6, // === Reviewed (Level Up that means application go to DMC)
-                'officer_status' => 1, // ===== Approved by Chief Fire Officer
+                'officer_status' => 1, // ===== Approved by Checker Maker
                 'officer_by' => Auth::user()->id,
                 'officer_dt' => date("Y-m-d H:i:s"),
-                'application_status' => 2, // ===== Chief Fire Officer will pass
+                'application_status' => 2, // ===== Checker Maker will pass
                 'approved_dt' => date("Y-m-d H:i:s"),
                 'approved_by' => Auth::user()->id,
             ];
@@ -153,14 +162,60 @@ class AdminNewBusinessNOCController extends Controller
         // display only Reviewed form (status=6)
         } elseif (Auth::user()->role == 3) {
             $update = [
-                'status' => 3, // === Approved by DMC (This is the final step)
-                'application_status' => 3, // ===== DMC will pass
+                'status' => 3, // === Approved by Chief Fire Officer (This is the final step)
+                'application_status' => 3, // ===== Chief Fire Officer will pass
                 'approved_dt' => date("Y-m-d H:i:s"),
                 'approved_by' => Auth::user()->id,
             ];
 
             Business_NOC::where('id', $id)->where('status', $status)->update($update);
             return redirect()->route('all_new_business_noc_list', 3)->with('message', 'The application form which you had filled for your new business noc has been approved Successfully.');
+
+        // display only Reviewed form (status=6)
+        } elseif (Auth::user()->role == 4) {
+            $update = [
+                'status' => 6, // === New (Level Up that means application go to Additional Commissioner)
+                'dmc_status' => 1, // ===== Approved by DMC
+                'dmc_by' => Auth::user()->id,
+                'dmc_dt' => date("Y-m-d H:i:s"),
+                'application_status' => 1, // ===== Additional Commissioner will pass
+                'approved_dt' => date("Y-m-d H:i:s"),
+                'approved_by' => Auth::user()->id,
+            ];
+
+            Business_NOC::where('id', $id)->where('status', $status)->update($update);
+            return redirect()->route('all_new_business_noc_list', 1)->with('message', 'The application form which you had filled for your new business noc has been approved Successfully.');
+
+        // display only Reviewed form (status=6)
+        } elseif (Auth::user()->role == 5) {
+            $update = [
+                'status' => 6, // === New (Level Up that means application go to Commissioner)
+                'addl_commissioner_status' => 1, // ===== Approved by Additional Commissioner
+                'addl_commissioner_by' => Auth::user()->id,
+                'addl_commissioner_dt' => date("Y-m-d H:i:s"),
+                'application_status' => 1, // ===== Commissioner will pass
+                'approved_dt' => date("Y-m-d H:i:s"),
+                'approved_by' => Auth::user()->id,
+            ];
+
+            Business_NOC::where('id', $id)->where('status', $status)->update($update);
+            return redirect()->route('all_new_business_noc_list', 1)->with('message', 'The application form which you had filled for your new business noc has been approved Successfully.');
+
+        // display only Reviewed form (status=6)
+        } elseif (Auth::user()->role == 6) {
+            $update = [
+                'status' => 6, // === New (Level Up that means application go to Chief Fire Officer)
+                'commissioner_status' => 1, // ===== Approved by Commissioner
+                'commissioner_by' => Auth::user()->id,
+                'commissioner_dt' => date("Y-m-d H:i:s"),
+                'application_status' => 1, // ===== Chief Fire Officer will pass
+                'approved_dt' => date("Y-m-d H:i:s"),
+                'approved_by' => Auth::user()->id,
+            ];
+
+            Business_NOC::where('id', $id)->where('status', $status)->update($update);
+            return redirect()->route('all_new_business_noc_list', 1)->with('message', 'The application form which you had filled for your new business noc has been approved Successfully.');
+
         }
     }
 
@@ -189,7 +244,7 @@ class AdminNewBusinessNOCController extends Controller
         } elseif (Auth::user()->role == 1) {
             $update = [
                 'status' => 4, // === Rejected (this form go to direct display in user rejected list)
-                'inspector_status' => 2, // ===== Rejected by operator
+                'inspector_status' => 2, // ===== Rejected by Field Inspector
                 'remarks' => $request->get('remarks'),
                 'rejected_dt' => date("Y-m-d H:i:s"),
                 'rejected_by' => Auth::user()->id,
@@ -202,8 +257,8 @@ class AdminNewBusinessNOCController extends Controller
         } elseif (Auth::user()->role == 2) {
             $update = [
                 'status' => 4, // === Rejected (this form go to direct display in user rejected list)
-                'officer_status' => 2, // ===== Rejected by operator
-                'application_status' => 2, // ===== Chief Fire Officer will pass
+                'officer_status' => 2, // ===== Rejected by Checker Maker
+                'application_status' => 2, // ===== Checker Maker will pass
                 'remarks' => $request->get('remarks'),
                 'rejected_dt' => date("Y-m-d H:i:s"),
                 'rejected_by' => Auth::user()->id,
@@ -215,15 +270,57 @@ class AdminNewBusinessNOCController extends Controller
         // display only Reviewed form (status=6)
         } elseif (Auth::user()->role == 3) {
             $update = [
-                'status' => 4, // === Rejected (this form go to direct display in user rejected list)
+                'status' => 4, // === Rejected by Chief Fire Officer(this form go to direct display in user rejected list)
                 'remarks' => $request->get('remarks'),
-                'application_status' => 3, // ===== DMC will pass
+                'application_status' => 3, // ===== Chief Fire Officer will pass
                 'rejected_dt' => date("Y-m-d H:i:s"),
                 'rejected_by' => Auth::user()->id,
             ];
 
             Business_NOC::where('id', $id)->where('status', $status)->update($update);
             return redirect()->route('all_new_business_noc_list', 4)->with('message', 'The application form which you had filled for your new business noc has been rejected Successfully.');
+
+        // display only Reviewed form (status=6)
+        } elseif (Auth::user()->role == 4) {
+            $update = [
+                'status' => 4, // === Rejected (this form go to direct display in user rejected list)
+                'dmc_status' => 2, // ===== Rejected by DMC
+                'application_status' => 4, // ===== DMC will pass
+                'remarks' => $request->get('remarks'),
+                'rejected_dt' => date("Y-m-d H:i:s"),
+                'rejected_by' => Auth::user()->id,
+            ];
+
+            Business_NOC::where('id', $id)->where('status', $status)->update($update);
+            return redirect()->route('all_new_business_noc_list', 2)->with('message', 'The application form which you had filled for your new business noc has been rejected Successfully.');
+
+        // display only Reviewed form (status=6)
+        } elseif (Auth::user()->role == 5) {
+            $update = [
+                'status' => 4, // === Rejected (this form go to direct display in user rejected list)
+                'addl_commissioner_status' => 2, // ===== Rejected by Additional Commissioner
+                'application_status' => 5, // ===== Additional Commissioner will pass
+                'remarks' => $request->get('remarks'),
+                'rejected_dt' => date("Y-m-d H:i:s"),
+                'rejected_by' => Auth::user()->id,
+            ];
+
+            Business_NOC::where('id', $id)->where('status', $status)->update($update);
+            return redirect()->route('all_new_business_noc_list', 2)->with('message', 'The application form which you had filled for your new business noc has been rejected Successfully.');
+
+        // display only Reviewed form (status=6)
+        } elseif (Auth::user()->role == 6) {
+            $update = [
+                'status' => 4, // === Rejected (this form go to direct display in user rejected list)
+                'commissioner_status' => 2, // ===== Rejected by Commissioner
+                'application_status' => 6, // ===== Commissioner will pass
+                'remarks' => $request->get('remarks'),
+                'rejected_dt' => date("Y-m-d H:i:s"),
+                'rejected_by' => Auth::user()->id,
+            ];
+
+            Business_NOC::where('id', $id)->where('status', $status)->update($update);
+            return redirect()->route('all_new_business_noc_list', 2)->with('message', 'The application form which you had filled for your new business noc has been rejected Successfully.');
         }
     }
 
@@ -251,6 +348,12 @@ class AdminNewBusinessNOCController extends Controller
             $query->where('t1.officer_status', $all_status);
         } elseif (Auth::user()->role == 3) {
             $query->where('t1.status', $all_status);
+        } elseif (Auth::user()->role == 4) {
+            $query->where('t1.dmc_status', $all_status);
+        } elseif (Auth::user()->role == 5) {
+            $query->where('t1.addl_commissioner_status', $all_status);
+        } elseif (Auth::user()->role == 6) {
+            $query->where('t1.commissioner_status', $all_status);
         }
 
         $data = $query->get();
@@ -285,6 +388,12 @@ class AdminNewBusinessNOCController extends Controller
             $query->where('t1.officer_status', $all_status);
         } elseif (Auth::user()->role == 3) {
             $query->where('t1.status', $all_status);
+        } elseif (Auth::user()->role == 4) {
+            $query->where('t1.dmc_status', $all_status);
+        } elseif (Auth::user()->role == 5) {
+            $query->where('t1.addl_commissioner_status', $all_status);
+        } elseif (Auth::user()->role == 6) {
+            $query->where('t1.commissioner_status', $all_status);
         }
 
         $data = $query->first();

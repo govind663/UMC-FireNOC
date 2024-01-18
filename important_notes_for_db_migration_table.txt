@@ -122,3 +122,12 @@ composer remove haruncpi/laravel-user-activity --ignore-platform-req=php
 
 
 php artisan serve --host=192.168.0.150
+
+============================================================================================================
+For add_column_to_table_name
+============================================================================================================
+php artisan make:migration add_column_to_business_noc --table=business_noc
+
+php artisan make:migration add_column_to_building_noc --table=building_noc
+
+php artisan make:migration add_column_to_hospital_noc --table=hospital_noc
