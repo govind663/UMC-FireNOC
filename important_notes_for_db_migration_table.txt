@@ -30,7 +30,7 @@ php artisan make:migration add_fee_receipt_documents_table --table=fee_receipt_d
 php artisan db:seed --class=ProductTableSeeder
 
 Example :- php artisan db:seed --class=UsersTableSeeder
-
+           php artisan db:seed --class=CitizensTableSeeder
 
 ===================== Git basic command is given below :
 git config --global user.email "you@example.com"
