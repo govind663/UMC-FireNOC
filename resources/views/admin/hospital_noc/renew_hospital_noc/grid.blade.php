@@ -169,12 +169,22 @@
                                                             @endif
 
                                                             &nbsp;&nbsp;
+                                                            @if($value->commissioner_status == 1 && $value->cf_activities == 0)
+                                                            <a href='{{ url("/generate_renew_hospital_noc_certificate/{$value->RH_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
+                                                                <b><i class="mdi mdi-certificate"> Generate Certificate</b>
+                                                            </a>
+                                                            @elseif ($value->commissioner_status == 1 && $value->cf_activities == 1 && $value->status == 3)
+                                                            <a href='{{ url("/admin_certificate/{$value->RH_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-warning btn-sm text-dark">
+                                                                <b><i class="mdi mdi-file"> View Certificate</i></b>
+                                                            </a>
+                                                            @endif
+
+                                                            &nbsp;&nbsp;
                                                             @if ($value->status == 7 && $value->payment_status == 1 )
                                                             <a href='{{ url("/admin_invoice/{$value->RH_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-dark btn-sm ">
                                                                 <b><i class="mdi mdi-file">Download Invoice</i></b>
                                                             </a>
                                                             @endif
-
 
                                                             &nbsp;&nbsp;
                                                             @if (Auth::user()->role == 2 && $value->status == 6 || $value->status == 2 && $value->citizen_payment_status == 2)

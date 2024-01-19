@@ -421,4 +421,20 @@ class AdminRenewHospitalNOCController extends Controller
 
         return FacadePdf::loadView('citizen.hospital_noc.renew_hospital_noc.renew_hospital_noc_pdf', compact('data','status'))->stream("Renew Business NOC #".$data->RH_NOC_ID.".pdf");
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function generate_renew_hospital_noc_certificate($id, $status)
+    {
+        $update = [
+            'cf_activities' => 1,
+        ];
+
+        Hospital_NOC::where('id', $id)->where('status', $status)->update($update);
+        return redirect()->route('admin_renew_hospital_noc_list', $status)->with('message', 'The application form which you had filled for your renew hospital noc has been certificate generated successfully.');
+    }
 }

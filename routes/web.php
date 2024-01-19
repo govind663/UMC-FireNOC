@@ -77,6 +77,7 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     Route::post('/admin_new_business_noc/rejected/{id}/{status}/{auth_role}', [AdminNewBusinessNOCController::class, 'rejected'])->name('admin_new_business_noc.rejected');
     Route::get('/all_new_business_noc_list/{all_status}', [AdminNewBusinessNOCController::class, 'list'])->name('all_new_business_noc_list');
     Route::get('/all_new_business_noc/show/{id}/{all_status}', [AdminNewBusinessNOCController::class, 'view'])->name('all_new_business_noc.show');
+    Route::get('/generate_new_business_noc_certificate/{id}/{status}', [AdminNewBusinessNOCController::class, 'generate_new_business_noc_certificate'])->name('generate_new_business_noc_certificate');
 
     // ====== Renew Business NOC
     Route::get('/admin_renew_business_noc_list/{status}', [AdminRenewBusinessNOCController::class, 'index'])->name('admin_renew_business_noc_list');
@@ -87,6 +88,7 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     Route::post('/admin_renew_business_noc/rejected/{id}/{status}/{auth_role}', [AdminRenewBusinessNOCController::class, 'rejected'])->name('admin_renew_business_noc.rejected');
     Route::get('/all_renew_business_noc_list/{all_status}', [AdminRenewBusinessNOCController::class, 'list'])->name('all_renew_business_noc_list');
     Route::get('/all_renew_business_noc/show/{id}/{all_status}', [AdminRenewBusinessNOCController::class, 'view'])->name('all_renew_business_noc.show');
+    Route::get('/generate_renew_business_noc_certificate/{id}/{status}', [AdminRenewBusinessNOCController::class, 'generate_renew_business_noc_certificate'])->name('generate_renew_business_noc_certificate');
 
     // ====== New Hospital NOC
     Route::get('/admin_new_hospital_noc_list/{status}', [AdminNewHospitalNOCController::class, 'index'])->name('admin_new_hospital_noc_list');
@@ -97,6 +99,7 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     Route::post('/admin_new_hospital_noc/rejected/{id}/{status}/{auth_role}', [AdminNewHospitalNOCController::class, 'rejected'])->name('admin_new_hospital_noc.rejected');
     Route::get('/all_new_hospital_noc_list/{all_status}', [AdminNewHospitalNOCController::class, 'list'])->name('all_new_hospital_noc_list');
     Route::get('/all_new_hospital_noc/show/{id}/{all_status}', [AdminNewHospitalNOCController::class, 'view'])->name('all_new_hospital_noc.show');
+    Route::get('/generate_new_hospital_noc_certificate/{id}/{status}', [AdminNewHospitalNOCController::class, 'generate_new_hospital_noc_certificate'])->name('generate_new_hospital_noc_certificate');
 
     // ====== Renew Hospital NOC
     Route::get('/admin_renew_hospital_noc_list/{status}', [AdminRenewHospitalNOCController::class, 'index'])->name('admin_renew_hospital_noc_list');
@@ -107,6 +110,7 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     Route::post('/admin_renew_hospital_noc/rejected/{id}/{status}/{auth_role}', [AdminRenewHospitalNOCController::class, 'rejected'])->name('admin_renew_hospital_noc.rejected');
     Route::get('/all_renew_hospital_noc_list/{all_status}', [AdminRenewHospitalNOCController::class, 'list'])->name('all_renew_hospital_noc_list');
     Route::get('/all_renew_hospital_noc/show/{id}/{all_status}', [AdminRenewHospitalNOCController::class, 'view'])->name('all_renew_hospital_noc.show');
+    Route::get('/generate_renew_hospital_noc_certificate/{id}/{status}', [AdminRenewHospitalNOCController::class, 'generate_renew_hospital_noc_certificate'])->name('generate_renew_hospital_noc_certificate');
 
     // ====== Provisional Building NOC
     Route::get('/admin_provisional_building_noc_list/{status}', [AdminProvisionalBuildingNOCController::class, 'index'])->name('admin_provisional_building_noc_list');
@@ -117,6 +121,7 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     Route::post('/admin_provisional_building_noc/rejected/{id}/{status}/{auth_role}', [AdminProvisionalBuildingNOCController::class, 'rejected'])->name('admin_provisional_building_noc.rejected');
     Route::get('/all_provisional_building_noc_list/{all_status}', [AdminProvisionalBuildingNOCController::class, 'list'])->name('all_provisional_building_noc_list');
     Route::get('/all_provisional_building_noc/show/{id}/{all_status}', [AdminProvisionalBuildingNOCController::class, 'view'])->name('all_provisional_building_noc.show');
+    Route::get('/generate_provisional_building_noc_certificate/{id}/{status}', [AdminProvisionalBuildingNOCController::class, 'generate_provisional_building_noc_certificate'])->name('generate_provisional_building_noc_certificate');
 
     // ====== Final Building NOC
     Route::get('/admin_final_building_noc_list/{status}', [AdminFinalBuildingNOCController::class, 'index'])->name('admin_final_building_noc_list');
@@ -127,7 +132,7 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
     Route::post('/admin_final_building_noc/rejected/{id}/{status}/{auth_role}', [AdminFinalBuildingNOCController::class, 'rejected'])->name('admin_final_building_noc.rejected');
     Route::get('/all_final_building_noc_list/{all_status}', [AdminFinalBuildingNOCController::class, 'list'])->name('all_final_building_noc_list');
     Route::get('/all_final_building_noc/show/{id}/{all_status}', [AdminFinalBuildingNOCController::class, 'view'])->name('all_final_building_noc.show');
-
+    Route::get('/generate_final_building_noc_certificate/{id}/{status}', [AdminFinalBuildingNOCController::class, 'generate_final_building_noc_certificate'])->name('generate_final_building_noc_certificate');
 
     // ======= Business Master
     Route::resource('/business', BusinessController::class);
@@ -179,6 +184,9 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], fun
 
     // ======= Signature
     Route::resource('/signature', SignatureController::class);
+
+    // ======= All Citizen Fire NOC Certificate
+    Route::get('/admin_certificate/{id}/{status}/{noc_mode}', [CertificateController::class, 'admin_fire_noc_certificate'])->name('certificate');
 
 });
 

@@ -95,6 +95,9 @@ git checkout (branch-name)
 git add . (for all files)
 git add filename.txt, filename2.txt
 
+======= Revert back it revert 1234567890abcdef
+git reset --hard e16d77b431a56588083c2c5f3661abb2f50c8701
+
 ============ Remove Column Name By Migration Table
 php artisan make:migration remove_construction_plan_doc_from_building_noc --table=building_noc
 

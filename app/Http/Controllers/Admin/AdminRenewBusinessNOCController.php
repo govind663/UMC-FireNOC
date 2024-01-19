@@ -423,4 +423,20 @@ class AdminRenewBusinessNOCController extends Controller
 
         return FacadePdf::loadView('citizen.business_noc.renew_business_noc.renew_business_noc_pdf', compact('data', 'status'))->stream("Renew Business NOC #" . $data->RB_NOC_ID . ".pdf");
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function generate_renew_business_noc_certificate($id, $status)
+    {
+        $update = [
+            'cf_activities' => 1,
+        ];
+
+        Business_NOC::where('id', $id)->where('status', $status)->update($update);
+        return redirect()->route('admin_renew_business_noc_list', $status)->with('message', 'The application form which you had filled for your renew business noc has been certificate generated successfully.');
+    }
 }

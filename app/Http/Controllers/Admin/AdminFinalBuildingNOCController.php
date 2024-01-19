@@ -423,4 +423,20 @@ class AdminFinalBuildingNOCController extends Controller
 
         return FacadePdf::loadView('citizen.building_noc.final_building_noc.final_building_noc_pdf', compact('data','status'))->stream("Renew Business NOC #".$data->F_NOC_ID.".pdf");
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function generate_final_building_noc_certificate($id, $status)
+    {
+        $update = [
+            'cf_activities' => 1,
+        ];
+
+        Building_NOC::where('id', $id)->where('status', $status)->update($update);
+        return redirect()->route('admin_final_building_noc_list', $status)->with('message', 'The application form which you had filled for your final building noc has been certificate generated successfully.');
+    }
 }

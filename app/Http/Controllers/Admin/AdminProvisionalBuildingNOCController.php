@@ -424,4 +424,20 @@ class AdminProvisionalBuildingNOCController extends Controller
 
         return FacadePdf::loadView('citizen.building_noc.provisional_building_noc.provisional_building_noc_pdf', compact('data','status'))->stream("Renew Business NOC #".$data->RH_NOC_ID.".pdf");
     }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function generate_provisional_building_noc_certificate($id, $status)
+    {
+        $update = [
+            'cf_activities' => 1,
+        ];
+
+        Building_NOC::where('id', $id)->where('status', $status)->update($update);
+        return redirect()->route('admin_provisional_building_noc_list', $status)->with('message', 'The application form which you had filled for your provisional building noc has been certificate generated successfully.');
+    }
 }

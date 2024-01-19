@@ -425,4 +425,20 @@ class AdminNewBusinessNOCController extends Controller
         return FacadePdf::loadView('citizen.business_noc.new_business_noc.new_business_noc_pdf', compact('data','status'))->setPaper('a4')->stream("New Business NOC".$data->NB_NOC_ID.".pdf");
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function generate_new_business_noc_certificate($id, $status)
+    {
+        $update = [
+            'cf_activities' => 1,
+        ];
+
+        Business_NOC::where('id', $id)->where('status', $status)->update($update);
+        return redirect()->route('admin_new_business_noc_list', $status)->with('message', 'The application form which you had filled for your new business noc has been certificate generated successfully.');
+    }
+
 }
