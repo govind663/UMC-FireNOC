@@ -139,10 +139,10 @@ class CitizenPaypentController extends Controller
             $data->f_name = $request->get('f_name');
             $data->father_name = $request->get('father_name');
             $data->fee_construction_id = $request->get('fee_construction_id');
-            $data->fee_mode_operate_id = $request->get('fee_mode_operate_id');
+            $data->fee_mode_operate_id = ($request->fee_mode_operate_id) ? $request->get('fee_mode_operate_id') : 0;
 
-            $data->wing_option = $request->get('wing_option');
-            $data->fee_bldg_ht_id = $request->get('fee_bldg_ht_id');
+            $data->wing_option = ($request->wing_option) ? $request->get('wing_option') : 0;
+            $data->fee_bldg_ht_id = ($request->fee_bldg_ht_id) ? $request->get('fee_bldg_ht_id') : 0;
             $data->wing_rate = ($request->wing_rate) ? $request->get('wing_rate') : 0;
             $data->new_area_meter = ($request->new_area_meter) ? $request->get('new_area_meter') : 0;
             $data->meter_rate = ($request->meter_rate) ? $request->get('meter_rate') : 0;
@@ -187,10 +187,10 @@ class CitizenPaypentController extends Controller
             $data->f_name = $request->get('f_name');
             $data->father_name = $request->get('father_name');
             $data->fee_construction_id = $request->get('fee_construction_id');
-            $data->fee_mode_operate_id = $request->get('fee_mode_operate_id');
+            $data->fee_mode_operate_id = ($request->fee_mode_operate_id) ? $request->get('fee_mode_operate_id') : 0;
 
-            $data->wing_option = $request->get('wing_option');
-            $data->fee_bldg_ht_id = $request->get('fee_bldg_ht_id');
+            $data->wing_option = ($request->wing_option) ? $request->get('wing_option') : 0;
+            $data->fee_bldg_ht_id = ($request->fee_bldg_ht_id) ? $request->get('fee_bldg_ht_id') : 0;
             $data->wing_rate = ($request->wing_rate) ? $request->get('wing_rate') : 0;
             $data->new_area_meter = ($request->new_area_meter) ? $request->get('new_area_meter') : 0;
             $data->meter_rate = ($request->meter_rate) ? $request->get('meter_rate') : 0;
@@ -235,10 +235,10 @@ class CitizenPaypentController extends Controller
             $data->f_name = $request->get('f_name');
             $data->father_name = $request->get('father_name');
             $data->fee_construction_id = $request->get('fee_construction_id');
-            $data->fee_mode_operate_id = $request->get('fee_mode_operate_id');
+            $data->fee_mode_operate_id = ($request->fee_mode_operate_id) ? $request->get('fee_mode_operate_id') : 0;
 
-            $data->wing_option = $request->get('wing_option');
-            $data->fee_bldg_ht_id = $request->get('fee_bldg_ht_id');
+            $data->wing_option = ($request->wing_option) ? $request->get('wing_option') : 0;
+            $data->fee_bldg_ht_id = ($request->fee_bldg_ht_id) ? $request->get('fee_bldg_ht_id') : 0;
             $data->wing_rate = ($request->wing_rate) ? $request->get('wing_rate') : 0;
             $data->new_area_meter = ($request->new_area_meter) ? $request->get('new_area_meter') : 0;
             $data->meter_rate = ($request->meter_rate) ? $request->get('meter_rate') : 0;
@@ -283,10 +283,10 @@ class CitizenPaypentController extends Controller
             $data->f_name = $request->get('f_name');
             $data->father_name = $request->get('father_name');
             $data->fee_construction_id = $request->get('fee_construction_id');
-            $data->fee_mode_operate_id = $request->get('fee_mode_operate_id');
+            $data->fee_mode_operate_id = ($request->fee_mode_operate_id) ? $request->get('fee_mode_operate_id') : 0;
 
-            $data->wing_option = $request->get('wing_option');
-            $data->fee_bldg_ht_id = $request->get('fee_bldg_ht_id');
+            $data->wing_option = ($request->wing_option) ? $request->get('wing_option') : 0;
+            $data->fee_bldg_ht_id = ($request->fee_bldg_ht_id) ? $request->get('fee_bldg_ht_id') : 0;
             $data->wing_rate = ($request->wing_rate) ? $request->get('wing_rate') : 0;
             $data->new_area_meter = ($request->new_area_meter) ? $request->get('new_area_meter') : 0;
             $data->meter_rate = ($request->meter_rate) ? $request->get('meter_rate') : 0;
@@ -331,10 +331,10 @@ class CitizenPaypentController extends Controller
             $data->f_name = $request->get('f_name');
             $data->father_name = $request->get('father_name');
             $data->fee_construction_id = $request->get('fee_construction_id');
-            $data->fee_mode_operate_id = $request->get('fee_mode_operate_id');
+            $data->fee_mode_operate_id = ($request->fee_mode_operate_id) ? $request->get('fee_mode_operate_id') : 0;
 
-            $data->wing_option = $request->get('wing_option');
-            $data->fee_bldg_ht_id = $request->get('fee_bldg_ht_id');
+            $data->wing_option = ($request->wing_option) ? $request->get('wing_option') : 0;
+            $data->fee_bldg_ht_id = ($request->fee_bldg_ht_id) ? $request->get('fee_bldg_ht_id') : 0;
             $data->wing_rate = ($request->wing_rate) ? $request->get('wing_rate') : 0;
             $data->new_area_meter = ($request->new_area_meter) ? $request->get('new_area_meter') : 0;
             $data->meter_rate = ($request->meter_rate) ? $request->get('meter_rate') : 0;
@@ -379,10 +379,10 @@ class CitizenPaypentController extends Controller
             $data->f_name = $request->get('f_name');
             $data->father_name = $request->get('father_name');
             $data->fee_construction_id = $request->get('fee_construction_id');
-            $data->fee_mode_operate_id = $request->get('fee_mode_operate_id');
+            $data->fee_mode_operate_id = ($request->fee_mode_operate_id) ? $request->get('fee_mode_operate_id') : 0;
 
-            $data->wing_option = $request->get('wing_option');
-            $data->fee_bldg_ht_id = $request->get('fee_bldg_ht_id');
+            $data->wing_option = ($request->wing_option) ? $request->get('wing_option') : 0;
+            $data->fee_bldg_ht_id = ($request->fee_bldg_ht_id) ? $request->get('fee_bldg_ht_id') : 0;
             $data->wing_rate = ($request->wing_rate) ? $request->get('wing_rate') : 0;
             $data->new_area_meter = ($request->new_area_meter) ? $request->get('new_area_meter') : 0;
             $data->meter_rate = ($request->meter_rate) ? $request->get('meter_rate') : 0;

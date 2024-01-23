@@ -26,16 +26,16 @@ class CitizePaymentRequest extends FormRequest
         if ($this->id){
             $rule = [
                 'fee_construction_id' => 'required|string|max:250',
-                'fee_mode_operate_id' => 'required|string|max:250',
-                'wing_option' => 'required|string|max:250',
-                'fee_bldg_ht_id' => 'required|string|max:250',
+                'fee_mode_operate_id' => 'string|max:250',
+                'wing_option' => 'string|max:250',
+                'fee_bldg_ht_id' => 'string|max:250',
             ];
         }else{
             $rule = [
                 'fee_construction_id' => 'required|string|max:250',
-                'fee_mode_operate_id' => 'required|string|max:250',
-                'wing_option' => 'required|string|max:250',
-                'fee_bldg_ht_id' => 'required|string|max:250',
+                'fee_mode_operate_id' => 'string|max:250',
+                'wing_option' => 'string|max:250',
+                'fee_bldg_ht_id' => 'string|max:250',
             ];
         }
 
@@ -45,7 +45,7 @@ class CitizePaymentRequest extends FormRequest
     public function messages()
     {
         return [
-            'fee_construction_id.required' => 'Type Of Construction is required',
+            'fee_construction_id.required' => 'Type Of NOC is required',
             'fee_mode_operate_id.required' => 'Mode of Operation is required',
             'wing_option.required' => 'Is this wing or not ? is required',
             'fee_bldg_ht_id.required' => 'Building Height / Type is required',

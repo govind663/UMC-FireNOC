@@ -98,16 +98,16 @@ class InvoiceController extends Controller
         }
 
         $fetch_payments = DB::table('citizen_payments as t1')
-                            ->select('t1.*','t2.construction_type', 't3.operation_mode', 't4.building_ht')
+                            ->select('t1.*','t2.construction_type')
                             ->leftJoin('fee_constructions as t2', 't2.id', '=', 't1.fee_construction_id' )
-                            ->leftJoin('fee_mode_operates as t3', 't3.id', '=', 't1.fee_mode_operate_id' )
-                            ->leftJoin('fee_bldg_hts as t4', 't4.id', '=', 't1.fee_bldg_ht_id' )
+                            // ->leftJoin('fee_mode_operates as t3', 't3.id', '=', 't1.fee_mode_operate_id' )
+                            // ->leftJoin('fee_bldg_hts as t4', 't4.id', '=', 't1.fee_bldg_ht_id' )
                             ->where('t1.citizen_id',  Auth::user()->id)
                             ->where('t1.payment_noc_mode', $noc_mode)
                             ->whereNUll('t1.deleted_at')
                             ->whereNUll('t2.deleted_at')
-                            ->whereNUll('t3.deleted_at')
-                            ->whereNUll('t4.deleted_at')
+                            // ->whereNUll('t3.deleted_at')
+                            // ->whereNUll('t4.deleted_at')
                             ->get();
 
         // dd($fetch_payments);
@@ -207,17 +207,18 @@ class InvoiceController extends Controller
         }
 
         $fetch_payments = DB::table('citizen_payments as t1')
-                            ->select('t1.*','t2.construction_type', 't3.operation_mode', 't4.building_ht')
+                            ->select('t1.*','t2.construction_type')
                             ->leftJoin('fee_constructions as t2', 't2.id', '=', 't1.fee_construction_id' )
-                            ->leftJoin('fee_mode_operates as t3', 't3.id', '=', 't1.fee_mode_operate_id' )
-                            ->leftJoin('fee_bldg_hts as t4', 't4.id', '=', 't1.fee_bldg_ht_id' )
+                            // ->leftJoin('fee_mode_operates as t3', 't3.id', '=', 't1.fee_mode_operate_id' )
+                            // ->leftJoin('fee_bldg_hts as t4', 't4.id', '=', 't1.fee_bldg_ht_id' )
                             ->leftJoin('noc_master as t5', 't5.mst_token', '=', 't1.mst_token' )
                             ->whereIn('t5.mst_token',  $citizenMstToken)
                             ->where('t1.payment_noc_mode', $noc_mode)
                             ->whereNUll('t1.deleted_at')
                             ->whereNUll('t2.deleted_at')
-                            ->whereNUll('t3.deleted_at')
-                            ->whereNUll('t4.deleted_at')
+                            // ->whereNUll('t3.deleted_at')
+                            // ->whereNUll('t4.deleted_at')
+                            ->whereNUll('t5.deleted_at')
                             ->get();
 
         // dd($fetch_payments);

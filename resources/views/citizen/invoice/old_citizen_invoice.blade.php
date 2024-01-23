@@ -38,34 +38,26 @@
             border: 1px solid rgb(7, 147, 165);
             border-radius: 5px;
         }
-        .card-body{
-            border: 1px solid black;
-            border-radius: 5px;
-        }
 
+        .letter {
+            margin: 0 auto;
+            text-align: justify;
+            line-height: 1.6;
+        }
+        .header {
+            text-align: center;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .date {
+            text-align: right;
+        }
+        .signature {
+            text-align: right;
+            margin-top: 40px;
+        }
         @page {
             margin: 0;
-        }
-
-        @media print {
-            .card-body {
-                border: 1px solid black;
-                border-radius: 5px;
-                padding: 20px;
-            }
-        }
-
-        .text-muted {
-            color: #0a0a0a!important;
-        }
-
-        .avatar-image {
-            height: 110px;
-            width: 110px;
-            margin-bottom: 11px;
-            border-radius: 3px;
-            /*height: 4.6rem;*/
-            /*width: 8.6rem;*/
         }
     </style>
 
@@ -97,7 +89,7 @@
                                             </div>
 
                                             <div class="mb-4">
-                                                <img src="{{ url('/') }}/assets/logo/favicon.ico" alt="logo" class="avatar-image">
+                                                <img src="{{ url('/') }}/assets/logo/favicon.ico" alt="logo" height="80" width="80">
                                             </div>
                                         </div>
 
@@ -152,50 +144,107 @@
                                             <div class="table-responsive">
                                                 <table class="table align-middle table-nowrap table-centered mb-0">
                                                     <thead class="bg-light">
-                                                        <td>Sr. No.</td>
-                                                        <td>Type Of NOC</td>
-                                                        <td>Total NOC Charges</td>
-                                                    </thead>
-                                                    <!-- end thead -->
-                                                    <tbody>
-                                                        @foreach ( $fetch_payments as $key => $value )
-                                                            @if($value->mst_token == $data->mst_token )
-                                                                <tr>
-                                                                    <td>
-                                                                        {{ $key+1 }}
-                                                                    </td>
-                                                                    <td>
-                                                                        {{ $value->construction_type }}
-                                                                    </td>
-                                                                    <td>
-                                                                        {{ ($value->total_charges_cost) ? $value->total_charges_cost.' Rs' : '-' }}
-                                                                    </td>
-                                                                </tr>
-                                                            @endif
-                                                        <!-- end tr -->
-                                                        @endforeach
-                                                    </tbody>
-                                                    <!-- end tbody -->
-                                                </table>
-                                                <!-- end table -->
-                                            </div>
-                                            <!-- end table responsive -->
+                                                        <tr>
+                                                            <th style="width: 70px;">Sr. No.</th>
+                                                            <th>Type Of Construction</th>
+                                                            <th>Mode of Operation</th>
+                                                            <th>Building Height / Type </th>
 
+
+                                                            @if ($data->wing_option == 2)
+                                                            <th>Actual Area ( Sq.Mt. )</th>
+                                                            <th>Actual Charges ( Sq.Mt. )</th>
+                                                            <th>Total NOC Charges (all meter)</th>
+                                                            @endif
+
+                                                            @if ($data->wing_option == 1)
+                                                            <td>NOC Charges ( Wing wise)</td>
+                                                            @endif
+                                                        </tr>
+                                                    </thead><!-- end thead -->
+                                                    <tbody>
+                                                        @php $total_charge = 0; @endphp
+
+                                                        @foreach ( $fetch_payments as $key => $value )
+                                                        @if($value->mst_token == $data->mst_token )
+                                                        <tr>
+                                                            <th scope="row">{{ $key+1 }}</th>
+                                                            <td>
+                                                                {{ $value->construction_type }}
+                                                            </td>
+                                                            <td>
+                                                                {{ $value->operation_mode }}
+                                                            </td>
+                                                            <td>
+                                                                {{ $value->building_ht }}
+                                                            </td>
+
+                                                            @if ($value->wing_option == 2)
+                                                            <td>
+                                                                {{ $value->new_area_meter }}
+                                                            </td>
+                                                            <td class="text-start">{{ $value->meter_rate }} Rs </td>
+                                                            <td class="text-start">{{ $value->total_charges_cost }} Rs </td>
+                                                            @endif
+
+                                                            @if ($value->wing_option == 1)
+                                                            <td class="text-start">{{ ($value->wing_rate) ? $value->wing_rate.' Rs' : '-' }} </td>
+                                                            @endif
+                                                        </tr>
+                                                        <!-- end tr -->
+
+                                                        {{-- <tr>
+                                                            <th scope="row" colspan="4" class="text-end">Sub Total</th>
+                                                            <td class="text-end">$732.50</td>
+                                                        </tr> --}}
+                                                        <!-- end tr -->
+                                                        {{-- <tr>
+                                                            <th scope="row" colspan="4" class="border-0 text-end">
+                                                                Discount :</th>
+                                                            <td class="border-0 text-end">- $25.50</td>
+                                                        </tr> --}}
+                                                        <!-- end tr -->
+                                                        {{-- <tr>
+                                                            <th scope="row" colspan="4" class="border-0 text-end">
+                                                                Shipping Charge :</th>
+                                                            <td class="border-0 text-end">$20.00</td>
+                                                        </tr> --}}
+                                                        <!-- end tr -->
+                                                        {{-- <tr>
+                                                            <th scope="row" colspan="4" class="border-0 text-end">
+                                                                Tax</th>
+                                                            <td class="border-0 text-end">$12.00</td>
+                                                        </tr> --}}
+                                                        <!-- end tr -->
+                                                        @php
+                                                            $total_charge = $total_charge + $value->total_charges_cost;
+                                                        @endphp
+                                                        @endif
+                                                        @endforeach
+                                                        {{-- <tr>
+                                                            <th scope="row" colspan="4" class="border-0 text-end">Total</th>
+                                                            <td class="border-0 text-end"><h4 class="m-0 fw-semibold">{{ $total_charge }} Rs </h4></td>
+                                                        </tr> --}}
+
+                                                        <!-- end tr -->
+                                                    </tbody><!-- end tbody -->
+                                                </table><!-- end table -->
+                                            </div><!-- end table responsive -->
                                             <div class="d-print-none mt-4">
                                                 <div class="float-end">
                                                     <a href="javascript:window.print()" class="btn btn-primary me-1"><i class="fa fa-print"></i></a>
                                                     @if ($noc_mode == 1)
-                                                    <a href="{{ url('/new_business_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                    <a href="{{ url('/admin_new_business_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
                                                     @elseif ($noc_mode == 2)
-                                                    <a href="{{ url('/renew_business_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                    <a href="{{ url('/admin_renew_business_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
                                                     @elseif ($noc_mode == 3)
-                                                    <a href="{{ url('/new_hospital_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                    <a href="{{ url('/admin_new_hospital_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
                                                     @elseif ($noc_mode == 4)
-                                                    <a href="{{ url('/renew_hospital_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                    <a href="{{ url('/admin_renew_hospital_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
                                                     @elseif ($noc_mode == 5)
-                                                    <a href="{{ url('/provisional_building_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                    <a href="{{ url('/admin_provisional_building_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
                                                     @elseif ($noc_mode == 6)
-                                                    <a href="{{ url('/final_building_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                    <a href="{{ url('/admin_final_building_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
                                                     @endif
                                                 </div>
                                             </div>

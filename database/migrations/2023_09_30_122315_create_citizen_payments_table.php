@@ -23,10 +23,10 @@ return new class extends Migration
             $table->string('l_name');
             $table->string('f_name');
             $table->string('father_name');
-            $table->integer('fee_construction_id');
-            $table->integer('fee_mode_operate_id');
-            $table->integer('wing_option')->comment('1:Yes 2:No');
-            $table->integer('fee_bldg_ht_id');
+            $table->integer('fee_construction_id')->nullable();
+            $table->integer('fee_mode_operate_id')->nullable();
+            $table->integer('wing_option')->comment('1:Yes 2:No')->nullable();
+            $table->integer('fee_bldg_ht_id')->nullable();
             $table->integer('wing_rate')->nullable();
             $table->double('new_area_meter', 9, 2)->nullable();
             $table->double('meter_rate', 9, 2)->nullable();
