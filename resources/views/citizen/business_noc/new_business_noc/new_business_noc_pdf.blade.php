@@ -45,83 +45,38 @@
                     style="padding-top: 20px; padding-left:30px; padding-right:50px; padding-bottom:40px;">
 
                     <div class="form-group row mb-3">
-                        <label class="col-sm-2"><strong>Appication Date : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ date('d-m-Y') }}">
-                        </div>
+                        <label class="col-sm-2"><strong>Appication Date : </strong> {{ date('d-m-Y') }}</label>
                     </div>
 
                     <h4 class="mb-3">Appication Details :
                     </h4>
                     <div class="form-group row  mb-3">
-                        <label class="col-sm-2"><strong>Last Name / Surname : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->l_name }}" >
-                        </div>
+                        <label class="col-sm-2"><strong>First Name :- </strong> {{ $data->f_name }}</label>
 
-                        <label class="col-sm-2"><strong>First Name : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->f_name }}">
-                        </div>
+                        <label class="col-sm-2"><strong>Father / Husband's Name :- </strong>{{ $data->father_name }}</label>
 
-                        <label class="col-sm-2"><strong>Father / Husband's Name : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->father_name }}">
-                        </div>
-                    </div>
+                        <label class="col-sm-2"><strong>Last Name / Surname :- </strong> {{ $data->l_name }}</label>
 
-                    <div class="form-group row  mb-3">
-                        <label class="col-sm-2"><strong>Name of Business : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->society_name }}" >
-                        </div>
+                        <label class="col-sm-2"><strong>Name of Business :- </strong>{{ $data->society_name }}</label>
 
-                        <label class="col-sm-2"><strong>Designation : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->designation }}">
-                        </div>
+                        <label class="col-sm-2"><strong>Designation :- </strong>{{ $data->designation }}</label>
                     </div>
 
                     <h4 class="mb-3">Address Details :</h4>
                     <div class="form-group row  mb-3">
-                        <label class="col-sm-2"><strong>House / Building / Society Name : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->house_name }}">
-                        </div>
+                        <label class="col-sm-2"><strong>House / Building / Society Name : </strong>{{ $data->house_name }}</label>
 
-                        <label class="col-sm-2"><strong>Flat / Block / Barrack No. : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control " value="{{ $data->flat_no }}">
-                        </div>
+                        <label class="col-sm-2"><strong>Flat / Block / Barrack No. : </strong>{{ $data->flat_no }}</label>
 
-                        <label class="col-sm-2"><strong>Wing / Floor : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->wing_name }}">
-                        </div>
-                    </div>
+                        <label class="col-sm-2"><strong>Wing / Floor : </strong>{{ $data->wing_name }}</label>
 
-                    <div class="form-group row  mb-3">
-                        <label class="col-sm-2"><strong>Road / Street / Lane : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->road_name }}">
-                        </div>
+                        <label class="col-sm-2"><strong>Road / Street / Lane : </strong>{{ $data->road_name }}</label>
 
-                        <label class="col-sm-2"><strong>Area / Locality / Town / City : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->area_name }}">
-                        </div>
+                        <label class="col-sm-2"><strong>Area / Locality / Town / City : </strong>{{ $data->area_name }}</label>
 
-                        <label class="col-sm-2"><strong>Taluka : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->taluka_name }}">
-                        </div>
-                    </div>
+                        <label class="col-sm-2"><strong>Taluka : </strong>{{ $data->taluka_name }}</label>
 
-                    <div class="form-group row  mb-3">
-                        <label class="col-sm-2"><strong>Pin code : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->pincode }}">
-                        </div>
+                        <label class="col-sm-2"><strong>Pin code : </strong>{{ $data->pincode }}</label>
 
                         @php
                             $wards = ('');
@@ -137,33 +92,16 @@
                             }
 
                         @endphp
-                        <label class="col-sm-2"><strong>Ward Committee No : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input disabled type="text" class="form-control" value="{{ $wards }}">
-                        </div>
+                        <label class="col-sm-2"><strong>Ward Committee No : </strong>{{ $wards }}</label>
 
 
-                        <label class="col-sm-2"><strong>Electrol Panel No : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input disabled type="text" class="form-control" value="{{ $data->electrol_panel_no }}">
-                        </div>
-                    </div>
+                        <label class="col-sm-2"><strong>Electrol Panel No : </strong>{{ $data->electrol_panel_no }}</label>
 
-                    <div class="form-group row  mb-3">
-                        <label class="col-sm-2"><strong>Contact Person : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" readonly class="form-control" value="{{ $data->contact_persion }}">
-                        </div>
+                        <label class="col-sm-2"><strong>Contact Person : </strong>{{ $data->contact_persion }}</label>
 
-                        <label class="col-sm-2"><strong>Telephone No. (if any) : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" readonly class="form-control" value="{{ $data->tel_no }}" >
-                        </div>
+                        <label class="col-sm-2"><strong>Telephone No. (if any) : </strong>{{ $data->tel_no }}</label>
 
-                        <label class="col-sm-2"><strong>Email Id (if any) : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="email" readonly class="form-control" value="{{ $data->email }}">
-                        </div>
+                        <label class="col-sm-2"><strong>Email Id (if any) : </strong>{{ $data->email }}</label>
                     </div>
 
                     @php
@@ -178,159 +116,85 @@
                     @endphp
                     <h4 class="mb-2">Information of Property :</h4>
                     <div class="form-group row  mb-3">
-                        <label class="col-sm-2"><strong>Type of Property : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input disabled type="text" class="form-control" value="{{ $property_types }}">
-                        </div>
+                        <label class="col-sm-2"><strong>Type of Property : </strong>{{ $property_types }}</label>
 
-                        <label class="col-sm-2"><strong>Property Number : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input disabled type="text" class="form-control" value="{{ $data->property_no }}">
-                        </div>
+                        <label class="col-sm-2"><strong>Property Number : </strong>{{ $data->property_no }}</label>
                     </div>
 
                     <h4 class="mb-3">Information of Land :</h4>
                     <div class="form-group row  mb-3">
-                        <label class="col-sm-2"><strong>Town / City : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input disabled type="text" class="form-control" value="{{ $data->city_name }}">
-                        </div>
+                        <label class="col-sm-2"><strong>Town / City : </strong>{{ $data->city_name }}</label>
 
-                        <label class="col-sm-2"><strong>Survey / Block / Barrak No. : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input disabled type="text" class="form-control" value="{{ $data->survey_no }}">
-                        </div>
+                        <label class="col-sm-2"><strong>Survey / Block / Barrak No. : </strong>{{ $data->survey_no }}</label>
 
-                        <label class="col-sm-2"><strong>C.T.S. No. : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input disabled type="text" class="form-control" value="{{ $data->cts_no }}">
-                        </div>
+                        <label class="col-sm-2"><strong>C.T.S. No. : </strong>{{ $data->cts_no }}</label>
                     </div>
 
                     <div class="form-group row  mb-3">
-                        <label class="col-sm-2"><strong>Part No. / Sheet No. : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->part_no }}">
-                        </div>
+                        <label class="col-sm-2"><strong>Part No. / Sheet No. : </strong>{{ $data->part_no }}</label>
 
-                        <label class="col-sm-2"><strong>Plot No. / Unit No. : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->plot_no }}">
-                        </div>
+                        <label class="col-sm-2"><strong>Plot No. / Unit No. : </strong>{{ $data->plot_no }}</label>
 
-                        <label class="col-sm-2"><strong>Property Number : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->land_property_no }}">
-                        </div>
+                        <label class="col-sm-2"><strong>Property Number : </strong>{{ $data->land_property_no }}</label>
                     </div>
 
+                    <div class="page-break"></div>
                     <h4 class="mb-3">Necessary Particulars about above service</h4>
                     <div class="form-group row  mb-3">
-                        <label class="col-sm-2"><strong>Pincode : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->area_pincode }}">
-                        </div>
+                        <label class="col-sm-2"><strong>Pincode : </strong>{{ $data->area_pincode }}</label>
 
-                        <label class="col-sm-2"><strong>Shop No. : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->shop_no }}">
-                        </div>
+                        <label class="col-sm-2"><strong>Shop No. : </strong>{{ $data->shop_no }}</label>
 
-                        <label class="col-sm-2"><strong>Height of Building : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->building_height }}">
-                        </div>
+                        <label class="col-sm-2"><strong>Height of Building : </strong>{{ $data->building_height }}</label>
+
+                        <label class="col-sm-2"><strong>Rooms in Building : </strong>{{ $data->rooms_in_buld }}</label>
+
+                        <label class="col-sm-2"><strong>Property on Floor Building : </strong>{{ $data->property_on_floor_buld }}</label>
+
+                        <label class="col-sm-2"><strong>Accomodation for how many People : </strong>{{ $data->no_of_accomodation_people }}</label>
+
+                        @php
+                            $business_types = ('');
+
+                            if($data->types_of_business == 1){
+                                $business_types = 'Temporary';
+                            }elseif ($data->types_of_business == 2) {
+                                $business_types = 'Fixed';
+                            }
+                        @endphp
+
+                        <label class="col-sm-2"><strong>Area of Place (Sq. Mt.) : </strong>{{ $data->area }}</label>
+
+                        <label class="col-sm-2"><strong>Numbers of Workers / Servants : </strong>{{ $data->no_of_workers }}</label>
+
+                        <label class="col-sm-2"><strong>Type of Business : </strong>{{ $business_types }}</label>
+
+                        <label class="col-sm-2"><strong>From Date : </strong>{{ $data->from_date }}</label>
+
+                        <label class="col-sm-2"><strong>To Date : </strong>{{ $data->to_date }}</label>
+
+                        @php
+                            $fire_equips = ('');
+
+                            if($data->fire_equips == 1){
+                                $fire_equips = 'Yes';
+                            }elseif ($data->fire_equips == 2) {
+                                $fire_equips = 'No';
+                            }
+                        @endphp
+
+                        <label class="col-sm-2"><strong>Number of Workers / Servants sleep at night at working place : </strong>{{ $data->no_of_workers_sleep_night }}</label>
+
+                        <label class="col-sm-2"><strong>Fire extinguishers/ preventive equipments are installed at working place : </strong>{{ $fire_equips }}</label>
+
+                        <label class="col-sm-2"><strong>Address Of Business Place : </strong>{{ $data->business_address }}</label>
                     </div>
 
-                    <div class="form-group row  mb-3">
-                        <label class="col-sm-2"><strong>Rooms in Building : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->rooms_in_buld }}">
-                        </div>
-
-                        <label class="col-sm-2"><strong>Property on Floor Building : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->property_on_floor_buld }}">
-                        </div>
-
-                        <label class="col-sm-2"><strong>Accomodation for how many People : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->no_of_accomodation_people }}">
-                        </div>
-                    </div>
-
-                    @php
-                        $business_types = ('');
-
-                        if($data->types_of_business == 1){
-                            $business_types = 'Temporary';
-                        }elseif ($data->types_of_business == 2) {
-                            $business_types = 'Fixed';
-                        }
-                    @endphp
-                    <div class="form-group row  mb-3">
-                        <label class="col-sm-2"><strong>Area of Place (Sq. Mt.) : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->area }}">
-                        </div>
-
-                        <label class="col-sm-2"><strong>Numbers of Workers / Servants : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled class="form-control" value="{{ $data->no_of_workers }}">
-                        </div>
-
-                        <label class="col-sm-2"><strong>Type of Business : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input disabled type="text" class="form-control" value="{{ $business_types }}">
-                        </div>
-                    </div>
-
-                    <div class="form-group row  mb-3 box 1">
-                        <label class="col-sm-2"><strong>From Date : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="date" readonly class="form-control" value="{{ $data->from_date }}" >
-                        </div>
-
-                        <label class="col-sm-2"><strong>To Date : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="date" readonly class="form-control" value="{{ $data->to_date }}">
-                        </div>
-                    </div>
-
-                    @php
-                        $fire_equips = ('');
-
-                        if($data->fire_equips == 1){
-                            $fire_equips = 'Yes';
-                        }elseif ($data->fire_equips == 2) {
-                            $fire_equips = 'No';
-                        }
-                    @endphp
-                    <div class="form-group row  mb-3">
-                        <label class="col-sm-2"><strong>Number of Workers / Servants sleep at night at working place : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled  class="form-control" value="{{ $data->no_of_workers_sleep_night }}">
-                        </div>
-
-                        <label class="col-sm-2"><strong>Fire extinguishers/ preventive equipments are installed at working place : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <input type="text" disabled  class="form-control" value="{{ $fire_equips }}">
-                        </div>
-
-                        <label class="col-sm-2"><strong>Address Of Business Place : </strong></label>
-                        <div class="col-sm-2 col-md-2">
-                            <textarea disabled type="text" class="form-control" value="{{ $data->business_address }}">{{ $data->business_address }}</textarea>
-                        </div>
-                    </div>
-
-
+                    <div class="page-break"></div>
                     <h4 class="mb-3">Necessary Enclosures related to above application (Documents to attach)</h4>
                     <div class="row ">
                         <div class="form-group row  mb-3">
-                            <label class="col-sm-2"><strong>Location of Place (Google Map Link) : </strong></label>
-                            <div class="col-sm-4 col-md-4">
-                                <input type="text" readonly class="form-control" value="{{ $data->location_map_link }}">
-                            </div>
+                            <label class="col-sm-2"><strong>Location of Place (Google Map Link) : </strong>{{ $data->location_map_link }}</label>
 
                             <label class="col-sm-2"><strong>Letter from License Holder regarding proper electric connection : </strong></label>
                             <div class="col-sm-4 col-md-4">
@@ -343,7 +207,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row  mb-3">
+                        <div class="form-group row ">
                             <label class="col-sm-2"><strong>Letter from connection holder and license regarding proper cooking gas connection : </strong></label>
                             <div class="col-sm-4 col-md-4">
                                 @if (!empty($data->gas_license_doc))
@@ -365,7 +229,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row  mb-3">
+                        <div class="form-group row ">
                             <label class="col-sm-2"><strong>Food License : </strong></label>
                             <div class="col-sm-4 col-md-4">
                                 @if (!empty($data->food_license))
@@ -387,7 +251,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row  mb-3">
+                        <div class="form-group row ">
                             <label class="col-sm-2"><strong>Trade License (Kerosene/Other Petroleum Stock/Explosive goods) : </strong></label>
                             <div class="col-sm-4 col-md-4">
                                 @if (!empty($data->trade_license))
@@ -409,7 +273,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row  mb-3">
+                        <div class="form-group row ">
                             <label class="col-sm-2"><strong>Commissioning Certificate of Fire extinguishers/ preventive equipments of I.S.I. Mark : </strong></label>
                             <div class="col-sm-4 col-md-4">
                                 @if (!empty($data->commissioning_certificate))
@@ -431,7 +295,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row  mb-3">
+                        <div class="form-group row ">
                             <label class="col-sm-2"><strong>Construction Maps of Proposed Construction : </strong></label>
                             <div class="col-sm-4 col-md-4">
                                 @if (!empty($data->construction_plan_doc))
@@ -451,8 +315,7 @@
 
                                 <div class="col-md-12 col-xs-12">
                                     <p class="text-justify ">
-                                        <b> I / We..... <br><br>
-                                            <input type="text" disabled class="form-control" value="{{ $data->declare_by }}">
+                                        <b> I / We..... {{ $data->declare_by }}
                                             <br>
                                             ......
                                             State on solemn affirmation that the above information is true
@@ -460,7 +323,7 @@
                                             given is found wrong then 1/We shali be held iegally liable for
                                             its consequences. </b>
                                     </p>
-                                    <b>Date : </b> <input type="text" style="width:150px" class="form-control input-style" value="{{ $data->declare_date }}" disabled>
+                                    <b>Date : </b> {{ $data->declare_date }}
                                 </div>
 
                                 @php
@@ -490,85 +353,36 @@
                                     <h6 class="mt-3"><b>The document may please be delivered to : </b>
                                     </h6>
                                     <div class="form-group row">
-                                        <label class="col-sm-2"><strong>Self / Nominated Person : </strong></label>
-                                        <div class="col-sm-2 col-md-2">
-                                            <input type="text" disabled class="form-control" value="{{ $persion_name }}">
-                                        </div>
+                                        <label class="col-sm-2"><strong>Self / Nominated Person : </strong>{{ $persion_name }}</label>
 
-                                        <label class="col-sm-2"><strong>Name of Nominated Person : </strong></label>
-                                        <div class="col-sm-2 col-md-2">
-                                            <input type="text" disabled class="form-control" value="{{ $data->nominated_persion_name }}">
-                                        </div>
+                                        <label class="col-sm-2"><strong>Name of Nominated Person : </strong>{{ $data->nominated_persion_name }}</label>
 
-                                        <label class="col-sm-2"><strong>Deliver : </strong></label>
-                                        <div class="col-sm-2 col-md-2">
-                                            <input type="text" disabled class="form-control" value="{{ $post_by }}">
-                                        </div>
+                                        <label class="col-sm-2"><strong>Deliver : </strong>{{ $post_by }}</label>
                                     </div>
 
                                     <h6 class="mt-3 mb-3"><b>Correspondence Address : </b></h6>
                                     <div class="form-group row">
-                                        <label class="col-sm-2"><strong>Last Name / Surname : </strong></label>
-                                        <div class="col-sm-2 col-md-2">
-                                            <input type="text" disabled class="form-control" value="{{ $data->d_last_name }}">
-                                        </div>
+                                        <label class="col-sm-2"><strong>Last Name / Surname : </strong>{{ $data->d_last_name }}</label>
 
-                                        <label class="col-sm-2"><strong>First Name : </strong></label>
-                                        <div class="col-sm-2 col-md-2">
-                                            <input type="text" disabled class="form-control" value="{{ $data->d_first_name }}">
-                                        </div>
+                                        <label class="col-sm-2"><strong>First Name : </strong>{{ $data->d_first_name }}</label>
 
-                                        <label class="col-sm-2"><strong>Father / Husband's Name : </strong></label>
-                                        <div class="col-sm-2 col-md-2">
-                                            <input type="text" disabled class="form-control" value="{{ $data->d_father_name }}" >
-                                        </div>
-                                    </div>
+                                        <label class="col-sm-2"><strong>Father / Husband's Name : </strong>{{ $data->d_father_name }}</label>
 
-                                    <div class="form-group row">
-                                        <label class="col-sm-2"><strong>House / Building / Society Name : </strong></label>
-                                        <div class="col-sm-2 col-md-2">
-                                            <input type="text" disabled class="form-control" value="{{ $data->d_house_name }}">
-                                        </div>
+                                        <label class="col-sm-2"><strong>House / Building / Society Name : </strong>{{ $data->d_house_name }}</label>
 
-                                        <label class="col-sm-2"><strong>Flat / Block / Barrack No. : </strong></label>
-                                        <div class="col-sm-2 col-md-2">
-                                            <input type="text" disabled class="form-control" value="{{ $data->d_flat_no }}">
-                                        </div>
+                                        <label class="col-sm-2"><strong>Flat / Block / Barrack No. : </strong>{{ $data->d_flat_no }}</label>
 
-                                        <label class="col-sm-2"><strong>Wing / Floor : </strong></label>
-                                        <div class="col-sm-2 col-md-2">
-                                            <input type="text" disabled class="form-control" value="{{ $data->d_wing_no }}">
-                                        </div>
-                                    </div>
+                                        <label class="col-sm-2"><strong>Wing / Floor : </strong>{{ $data->d_wing_no }}</label>
 
-                                    <div class="form-group row">
-                                        <label class="col-sm-2"><strong>Road / Street / Lane : </strong></label>
-                                        <div class="col-sm-2 col-md-2">
-                                            <input type="text" disabled class="form-control" value="{{ $data->d_road_name }}">
-                                        </div>
+                                        <label class="col-sm-2"><strong>Road / Street / Lane : </strong>{{ $data->d_road_name }}</label>
 
-                                        <label class="col-sm-2"><strong>Area / Locality / Town / City : </strong></label>
-                                        <div class="col-sm-2 col-md-2">
-                                            <input type="text" disabled class="form-control" value="{{ $data->d_area_name }}">
-                                        </div>
+                                        <label class="col-sm-2"><strong>Area / Locality / Town / City : </strong>{{ $data->d_area_name }}</label>
 
-                                        <label class="col-sm-2"><strong>Taluka : </strong></label>
-                                        <div class="col-sm-2 col-md-2">
-                                            <input type="text" disabled class="form-control" value="{{ $data->d_taluka_name }}">
-                                        </div>
-                                    </div>
+                                        <label class="col-sm-2"><strong>Taluka : </strong>{{ $data->d_taluka_name }}</label>
 
-                                    <div class="form-group row">
-                                        <label class="col-sm-2"><strong>Pincode : </strong></label>
-                                        <div class="col-sm-2 col-md-2">
-                                            <input type="text" disabled class="form-control" value="{{ $data->d_pincode }}">
-                                        </div>
+                                        <label class="col-sm-2"><strong>Pincode : </strong>{{ $data->d_pincode }}</label>
 
-                                        <label class="col-sm-2"><strong>Email Id (if any) : </strong></label>
-                                        <div class="col-sm-2 col-md-2">
-                                            <input type="text" disabled class="form-control" value="{{ $data->d_email }}">
-                                        </div>
-
+                                        <label class="col-sm-2"><strong>Email Id (if any) : </strong>{{ $data->d_email }}</label>
                                     </div>
                                 </div>
 

@@ -31,10 +31,24 @@
         <link href="{{ url('/') }}/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
     </head>
+
     <style>
+        @font-face {
+            font-family: "DV-TTSurekhMR-Bold";
+            font-style: normal;
+            font-weight: normal;
+            /* src: url(http://example.com/fonts/dojosans.ttf) format('truetype'); */
+            src: url("https://cdn.example.com/path/to/DV-TTSurekhMR-Bold.woff") format('truetype');
+        }
         .body{
+            font-family: 'DV-TTSurekhMR-Bold', sans-serif;
             background: #fff;
             color: #161616;
+            font-size: 20px;
+        }
+        .card-body{
+            border: 1px solid black;
+            border-radius: 5px;
         }
        .select2 {
             border: 1px solid rgb(7, 147, 165);
@@ -55,11 +69,15 @@
             text-align: right;
         }
         .signature {
-            text-align: right;
-            /* margin-top: 40px; */
+            /*text-align: right;*/
+            display: flex;
+            justify-content: end;
+            margin-top: 17px;
+            font-weight: bold;
         }
         .lineheight{
             line-height: 3px;
+            /*text-align: left;*/
         }
 
         @page {
@@ -68,15 +86,18 @@
 
         @media print {
             .card-body {
-                border: 1px solid #252424;
-                border-radius: 3px;
-                padding: 50px;
+                border: 1px solid black;
+                border-radius: 5px;
+                padding: 20px;
             }
         }
 
         .avatar-image {
-            height: 4.6rem;
-            width: 8.6rem;
+            height: 2.6rem;
+            width: 7.6rem;
+            margin-bottom: 11px;
+            /*height: 4.6rem;*/
+            /*width: 8.6rem;*/
         }
     </style>
 
