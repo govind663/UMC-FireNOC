@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
 
-        <title>UMC-Fire NOC | Renew Hospital Business NOC</title>
+        <title>UMC-Fire NOC | Renew Hospital NOC</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
         <meta content="Themesdesign" name="author">
@@ -56,7 +56,7 @@
                             <div class="col-lg-12">
                                 <div class="card" style="border: 1px solid #000000;">
                                     <div class="card-body p-0">
-                                        <h4 class="card-header text-light bg-primary ">Renew Hospital Business NOCC</h4>
+                                        <h4 class="card-header text-light bg-primary ">Renew Hospital NOC</h4>
 
                                         <form class="auth-input p-4" >
 

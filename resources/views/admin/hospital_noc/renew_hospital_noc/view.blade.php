@@ -57,7 +57,7 @@
                         <div class="col-lg-12">
                             <div class="card" style="border: 1px solid #000000;">
                                 <div class="card-body p-0">
-                                    <h4 class="card-header text-light bg-primary ">Renew Hospital Business NOC</h4>
+                                    <h4 class="card-header text-light bg-primary ">Renew Hospital NOC</h4>
 
                                     <form class="auth-input p-4" >
 

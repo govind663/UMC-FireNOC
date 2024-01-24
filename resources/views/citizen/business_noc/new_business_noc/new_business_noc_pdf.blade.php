@@ -16,8 +16,8 @@
 
 <style>
     * {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 15px;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 15.5px;
     }
     h2 {
         text-align: center;
@@ -58,8 +58,7 @@
                 <p class="mb-1">
                     Ulhasnagar Municipal Corporation<br>
                     Near Chopda Court, Ulhasnagar - 3<br>
-                    Pincode - 421 003,
-                    Maharashtra.
+                    Pincode - 421 003, Maharashtra
                 </p>
                 <p class="mb-1"><i class="mdi mdi-email-outline me-1"></i> cfcumc@gmail.com</p>
                 <p><i class="mdi mdi-phone-outline me-1"></i> 0251 2720150</p>
@@ -69,12 +68,14 @@
             <form class="auth-input" style="padding-top: 150px;">
 
                 <h2 class="mb-3">New Business NOC</h2>
+                <div style="float: right;">
+                    <label ><b>Token Number :</b>  {{ $data->mst_token }}</label>
+                </div>
                 <div class="form-group row mb-3">
                     <label class="col-sm-2"><b>Appication Date :</b>  {{ date('d-m-Y') }}</label>
                 </div>
 
-                <h4 class="mb-3">Appication Details :
-                </h4>
+                <h4 class="mb-3"><b>Appication Details :</b></h4>
                 <div class="form-group row  mb-3">
                     <label class="col-sm-2"><b>First Name :</b>  {{ $data->f_name }}</label>
 
@@ -87,7 +88,7 @@
                     <label class="col-sm-2"><b>Designation :</b> {{ $data->designation }}</label>
                 </div>
 
-                <h4 class="mb-3">Address Details :</h4>
+                <h4 class="mb-3"><b>Address Details :</b></h4>
                 <div class="form-group row  mb-3">
                     <label class="col-sm-2"><b>House / Building / Society Name :</b> {{ $data->house_name }}</label>
 
@@ -138,14 +139,14 @@
                     }
 
                 @endphp
-                <h4 class="mb-2">Information of Property :</h4>
+                <h4 class="mb-2"><b>Information of Property :</b></h4>
                 <div class="form-group row  mb-3">
                     <label class="col-sm-2"><b>Type of Property :</b> {{ $property_types }}</label>
 
                     <label class="col-sm-2"><b>Property Number :</b> {{ $data->property_no }}</label>
                 </div>
 
-                <h4 class="mb-3">Information of Land :</h4>
+                <h4 class="mb-3"><b>Information of Land :</b></h4>
                 <div class="form-group row  mb-3">
                     <label class="col-sm-2"><b>Town / City :</b> {{ $data->city_name }}</label>
 
@@ -161,7 +162,7 @@
                 </div>
 
                 <div class="page-break"></div>
-                <h4 class="mb-3">Necessary Particulars about above service</h4>
+                <h4 class="mb-3"><b>Necessary Particulars about above service</b></h4>
                 <div class="form-group row  mb-3">
                     <label class="col-sm-2"><b>Pincode :</b> {{ $data->area_pincode }}</label>
 
@@ -214,7 +215,7 @@
                 </div>
 
                 {{-- <div class="page-break"></div> --}}
-                <h4 class="mb-3">Necessary Enclosures related to above application (Documents to attach)</h4>
+                <h4 class="mb-3"><b>Necessary Enclosures related to above application (Documents to attach)</b></h4>
                 <div class="table-responsive">
                     <table class="table table-bordered table-responsive-sm">
                         <thead>
@@ -401,7 +402,7 @@
 
                 <div class="page-break"></div>
                 <div class="row card-body border p-4">
-                    <h4>Declaration</h4>
+                    <h4><b>Declaration</b></h4>
 
                     <div class="col-md-12 col-xs-12">
                         <p class="text-justify ">
@@ -440,7 +441,7 @@
                         }
                     @endphp
                     <div class="col-md-12 col-xs-12">
-                        <h4 class="mt-3">The document may please be delivered to : </h4>
+                        <h4 class="mt-3"><b>The document may please be delivered to :</b></h4>
                         <div class="form-group row">
                             <label class="col-sm-2"><b>Self / Nominated Person :</b> {{ $persion_name }}</label>
 

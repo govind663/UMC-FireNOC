@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>UMC-Fire NOC | New Business NOC</title>
+    <title>UMC-Fire NOC | Renew Business NOC</title>
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ url('/') }}/assets/logo/favicon.ico">
@@ -16,8 +16,8 @@
 
 <style>
     * {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 15px;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 15.5px;
     }
     h2 {
         text-align: center;
@@ -35,14 +35,15 @@
         page-break-after: always;
     }
     .avatar-image {
-        height: 110px;;
-        width: 150px;
+        height: 150px;;
+        width: 180px;
         /*height: 4.6rem;*/
         /*width: 8.6rem;*/
     }
     .header {
         text-align: left;
         font-size: 16px !important;
+        font-style: bold;
     }
 </style>
 
@@ -66,13 +67,15 @@
         <div class="card-body p-0">
             <form class="auth-input" style="padding-top: 150px;">
 
-                <h2 class="mb-3">New Business NOC</h2>
+                <h2 class="mb-3">Renew Business NOC</h2>
+                <div style="float: right;">
+                    <label ><b>Token Number :</b>  {{ $data->mst_token }}</label>
+                </div>
                 <div class="form-group row mb-3">
                     <label class="col-sm-2"><b>Appication Date :</b>  {{ date('d-m-Y') }}</label>
                 </div>
 
-                <h4 class="mb-3">Appication Details :
-                </h4>
+                <h4 class="mb-3"><b>Appication Details :</b></h4>
                 <div class="form-group row  mb-3">
                     <label class="col-sm-2"><b>First Name :</b>  {{ $data->f_name }}</label>
 
@@ -85,7 +88,7 @@
                     <label class="col-sm-2"><b>Designation :</b> {{ $data->designation }}</label>
                 </div>
 
-                <h4 class="mb-3">Address Details :</h4>
+                <h4 class="mb-3"><b>Address Details :</b></h4>
                 <div class="form-group row  mb-3">
                     <label class="col-sm-2"><b>House / Building / Society Name :</b> {{ $data->house_name }}</label>
 
@@ -136,14 +139,14 @@
                     }
 
                 @endphp
-                <h4 class="mb-2">Information of Property :</h4>
+                <h4 class="mb-2"><b>Information of Property :</b></h4>
                 <div class="form-group row  mb-3">
                     <label class="col-sm-2"><b>Type of Property :</b> {{ $property_types }}</label>
 
                     <label class="col-sm-2"><b>Property Number :</b> {{ $data->property_no }}</label>
                 </div>
 
-                <h4 class="mb-3">Information of Land :</h4>
+                <h4 class="mb-3"><b>Information of Land :</b></h4>
                 <div class="form-group row  mb-3">
                     <label class="col-sm-2"><b>Town / City :</b> {{ $data->city_name }}</label>
 
@@ -159,7 +162,7 @@
                 </div>
 
                 <div class="page-break"></div>
-                <h4 class="mb-3">Necessary Particulars about above service</h4>
+                <h4 class="mb-3"><b>Necessary Particulars about above service</b></h4>
                 <div class="form-group row  mb-3">
                     <label class="col-sm-2"><b>Pincode :</b> {{ $data->area_pincode }}</label>
 
@@ -212,7 +215,7 @@
                 </div>
 
                 {{-- <div class="page-break"></div> --}}
-                <h4 class="mb-3">Necessary Enclosures related to above application (Documents to attach)</h4>
+                <h4 class="mb-3"><b>Necessary Enclosures related to above application (Documents to attach)</b></h4>
                 <div class="table-responsive">
                     <table class="table table-bordered table-responsive-sm">
                         <thead>
@@ -227,7 +230,13 @@
                                     Location of Place (Google Map Link)
                                 </td>
                                 <td>
-                                    {{ $data->location_map_link }}
+                                    <div class="col-sm-4 col-md-4">
+                                        @if(!empty($data->location_map_doc))
+                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                View
+                                            </a>
+                                        @endif
+                                    </div>
                                 </td>
                             </tr>
 
@@ -238,7 +247,7 @@
                                 <td class="pb-2">
                                     <div class="col-sm-4 col-md-4 ">
                                         @if (!empty($data->electric_license_doc))
-                                            <a href="{{ url('/') }}/UMC_FireNOC/Business_NOC/New_BusinessNOC/electric_license_doc/{{ $data->electric_license_doc }}"
+                                            <a href="{{ url('/') }}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/electric_license_doc/{{ $data->electric_license_doc }}"
                                                 target="_blank" class="btn btn-primary btn-sm">
                                                 View
                                             </a>
@@ -249,13 +258,12 @@
 
                             <tr class="">
                                 <td>
-                                    Letter from connection holder and license regarding proper cooking gas
-                                    connection
+                                    Letter from connection holder and license regarding proper cooking gas connection
                                 </td>
                                 <td class="pb-2">
                                     <div class="col-sm-4 col-md-4 ">
                                         @if (!empty($data->gas_license_doc))
-                                            <a href="{{ url('/') }}/UMC_FireNOC/Business_NOC/New_BusinessNOC/gas_license_doc/{{ $data->gas_license_doc }}"
+                                            <a href="{{ url('/') }}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/gas_license_doc/{{ $data->gas_license_doc }}"
                                                 target="_blank" class="btn btn-primary btn-sm">
                                                 View
                                             </a>
@@ -271,7 +279,7 @@
                                 <td class="pb-2">
                                     <div class="col-sm-4 col-md-4 ">
                                         @if (!empty($data->shop_license_doc))
-                                            <a href="{{ url('/') }}/UMC_FireNOC/Business_NOC/New_BusinessNOC/shop_license_doc/{{ $data->shop_license_doc }}"
+                                            <a href="{{ url('/') }}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/shop_license_doc/{{ $data->shop_license_doc }}"
                                                 target="_blank" class="btn btn-primary btn-sm">
                                                 View
                                             </a>
@@ -287,7 +295,7 @@
                                 <td class="pb-2">
                                     <div class="col-sm-4 col-md-4 ">
                                         @if (!empty($data->food_license))
-                                            <a href="{{ url('/') }}/UMC_FireNOC/Business_NOC/New_BusinessNOC/food_license/{{ $data->food_license }}"
+                                            <a href="{{ url('/') }}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/food_license/{{ $data->food_license }}"
                                                 target="_blank" class="btn btn-primary btn-sm">
                                                 View
                                             </a>
@@ -303,7 +311,7 @@
                                 <td class="pb-2">
                                     <div class="col-sm-4 col-md-4 ">
                                         @if (!empty($data->tax_bill_paid_doc))
-                                            <a href="{{ url('/') }}/UMC_FireNOC/Business_NOC/New_BusinessNOC/tax_bill_paid_doc/{{ $data->tax_bill_paid_doc }}"
+                                            <a href="{{ url('/') }}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/tax_bill_paid_doc/{{ $data->tax_bill_paid_doc }}"
                                                 target="_blank" class="btn btn-primary btn-sm">
                                                 View
                                             </a>
@@ -319,7 +327,7 @@
                                 <td class="pb-2">
                                     <div class="col-sm-4 col-md-4 ">
                                         @if (!empty($data->trade_license))
-                                            <a href="{{ url('/') }}/UMC_FireNOC/Business_NOC/New_BusinessNOC/trade_license/{{ $data->trade_license }}"
+                                            <a href="{{ url('/') }}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/trade_license/{{ $data->trade_license }}"
                                                 target="_blank" class="btn btn-primary btn-sm">
                                                 View
                                             </a>
@@ -335,7 +343,7 @@
                                 <td class="pb-2">
                                     <div class="col-sm-4 col-md-4 ">
                                         @if (!empty($data->gas_certificate_doc))
-                                            <a href="{{ url('/') }}/UMC_FireNOC/Business_NOC/New_BusinessNOC/gas_certificate_doc/{{ $data->gas_certificate_doc }}"
+                                            <a href="{{ url('/') }}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/gas_certificate_doc/{{ $data->gas_certificate_doc }}"
                                                 target="_blank" class="btn btn-primary btn-sm">
                                                 View
                                             </a>
@@ -346,13 +354,12 @@
 
                             <tr class="">
                                 <td>
-                                    Commissioning Certificate of Fire extinguishers/ preventive equipments of I.S.I.
-                                    Mark
+                                    Commissioning Certificate of Fire extinguishers/ preventive equipments of I.S.I. Mark
                                 </td>
                                 <td class="pb-2">
                                     <div class="col-sm-4 col-md-4 ">
                                         @if (!empty($data->commissioning_certificate))
-                                            <a href="{{ url('/') }}/UMC_FireNOC/Business_NOC/New_BusinessNOC/commissioning_certificate/{{ $data->commissioning_certificate }}"
+                                            <a href="{{ url('/') }}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/commissioning_certificate/{{ $data->commissioning_certificate }}"
                                                 target="_blank" class="btn btn-primary btn-sm">
                                                 View
                                             </a>
@@ -363,29 +370,12 @@
 
                             <tr class="">
                                 <td>
-                                    Copy of Affidavit
+                                    Maps of Proposed Construction
                                 </td>
                                 <td class="pb-2">
-                                    <div class="col-sm-4 col-md-4 ">
-                                        @if (!empty($data->affidavit_doc))
-                                            <a href="{{ url('/') }}/UMC_FireNOC/Business_NOC/New_BusinessNOC/affidavit_doc/{{ $data->affidavit_doc }}"
-                                                target="_blank" class="btn btn-primary btn-sm">
-                                                View
-                                            </a>
-                                        @endif
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr class="">
-                                <td>
-                                    Construction Maps of Proposed Construction
-                                </td>
-                                <td class="pb-2">
-                                    <div class="col-sm-4 col-md-4 ">
-                                        @if (!empty($data->construction_plan_doc))
-                                            <a href="{{ url('/') }}/UMC_FireNOC/Business_NOC/New_BusinessNOC/construction_plan_doc/{{ $data->construction_plan_doc }}"
-                                                target="_blank" class="btn btn-primary btn-sm">
+                                    <div class="col-sm-4 col-md-4">
+                                        @if(!empty($data->construction_plan_doc))
+                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/construction_plan_doc/{{ $data->construction_plan_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                 View
                                             </a>
                                         @endif
@@ -399,7 +389,7 @@
 
                 <div class="page-break"></div>
                 <div class="row card-body border p-4">
-                    <h4>Declaration</h4>
+                    <h4><b>Declaration</b></h4>
 
                     <div class="col-md-12 col-xs-12">
                         <p class="text-justify ">
@@ -438,7 +428,7 @@
                         }
                     @endphp
                     <div class="col-md-12 col-xs-12">
-                        <h4 class="mt-3">The document may please be delivered to : </h4>
+                        <h4 class="mt-3"><b>The document may please be delivered to :</b></h4>
                         <div class="form-group row">
                             <label class="col-sm-2"><b>Self / Nominated Person :</b> {{ $persion_name }}</label>
 
