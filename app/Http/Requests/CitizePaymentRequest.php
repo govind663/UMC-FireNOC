@@ -29,13 +29,14 @@ class CitizePaymentRequest extends FormRequest
                 'fee_mode_operate_id' => 'string|max:250',
                 'wing_option' => 'string|max:250',
                 'fee_bldg_ht_id' => 'string|max:250',
+                'total_charges_cost' => 'required|numeric|min:1|nullable',
             ];
         }else{
             $rule = [
                 'fee_construction_id' => 'required|string|max:250',
                 'fee_mode_operate_id' => 'string|max:250',
                 'wing_option' => 'string|max:250',
-                'fee_bldg_ht_id' => 'string|max:250',
+                'total_charges_cost' => 'required|numeric|min:1|nullable',
             ];
         }
 
@@ -49,6 +50,7 @@ class CitizePaymentRequest extends FormRequest
             'fee_mode_operate_id.required' => 'Mode of Operation is required',
             'wing_option.required' => 'Is this wing or not ? is required',
             'fee_bldg_ht_id.required' => 'Building Height / Type is required',
+            'total_charges_cost' => 'Total NOC Charges is required'
         ];
     }
 }
