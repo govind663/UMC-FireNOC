@@ -521,7 +521,7 @@
                                             <div class="row " >
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Location of Place (Google Map Link) : </strong></label>
+                                                    <label class="col-sm-2"><strong>Copy of previous NOC : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->location_map_doc))
                                                             <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank" class="btn btn-primary btn-sm">

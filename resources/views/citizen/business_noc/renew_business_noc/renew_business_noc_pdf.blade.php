@@ -227,7 +227,7 @@
                         <tbody>
                             <tr class="">
                                 <td>
-                                    Location of Place (Google Map Link)
+                                    Copy of previous NOC
                                 </td>
                                 <td>
                                     <div class="col-sm-4 col-md-4">

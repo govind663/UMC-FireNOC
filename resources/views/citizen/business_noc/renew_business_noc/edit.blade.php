@@ -520,7 +520,7 @@
                                             <div class="row "  >
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Location of Place (Google Map Link) : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Upload Copy of previous NOC : <span style="color:red;">*</span></strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <input type="file" accept=".jpg, .jpeg, .png, .pdf" name="location_map_doc" id="location_map_doc" class="form-control  @error('location_map_doc') is-invalid @enderror "   value="{{ $data->location_map_doc }}" placeholder="Upload Location of Place (Google Map Link)">
                                                         <small class="text-secondary"> Note : The file size  should be less than 2MB .</small>

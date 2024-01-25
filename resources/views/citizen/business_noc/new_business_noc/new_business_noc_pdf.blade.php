@@ -230,7 +230,11 @@
                                     Location of Place (Google Map Link)
                                 </td>
                                 <td>
-                                    {{ $data->location_map_link }}
+                                    <div class="col-sm-4 col-md-4 ">
+                                        @if (!empty($data->location_map_link))
+                                            <a href="{{ $data->location_map_link }}" target="_blank" class="btn btn-primary btn-sm">View</a>
+                                        @endif
+                                    </div>
                                 </td>
                             </tr>
 
