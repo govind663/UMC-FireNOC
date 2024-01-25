@@ -49,6 +49,7 @@
         .card-body{
             border: 1px solid black;
             border-radius: 5px;
+            font-size: 12px;
         }
        .select2 {
             border: 1px solid rgb(7, 147, 165);
