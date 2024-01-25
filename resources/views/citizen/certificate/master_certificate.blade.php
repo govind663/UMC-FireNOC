@@ -72,7 +72,7 @@
             /*text-align: right;*/
             display: flex;
             justify-content: end;
-            margin-top: 17px;
+            margin-top: -24px;
             font-weight: bold;
         }
         .lineheight{
@@ -89,6 +89,14 @@
                 border: 1px solid black;
                 border-radius: 5px;
                 padding: 20px;
+            }
+
+            .signature {
+                /*text-align: right;*/
+                display: flex;
+                justify-content: end;
+                margin-top: -24px;
+                font-weight: bold;
             }
         }
 
