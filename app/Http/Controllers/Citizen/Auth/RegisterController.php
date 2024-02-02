@@ -18,7 +18,7 @@ class RegisterController extends Controller
     {
         $request->validate([
             'f_name' => 'required|string',
-            'm_name' => 'required|string',
+            'm_name' => 'nullable',
             'l_name' => 'required|string',
             'mobile_no' => 'required|numeric|unique:citizens|digits:10',
             'email' => 'required|string|email|max:255|unique:citizens|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
@@ -26,7 +26,6 @@ class RegisterController extends Controller
             'password_confirmation' => 'required',
         ], [
             'f_name.required' => 'First Name is required',
-            'm_name.required' => 'Middle Name is required',
             'l_name.required' => 'Last Name is required',
             'mobile_no.required' => 'Mobile Number is required',
             'email.required' => 'Email Id is required',
