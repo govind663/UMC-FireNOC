@@ -139,7 +139,7 @@ class FinalBuildingNOCController extends Controller
         $data->property_no = $request->get('property_no');
 
         $data->peermission_no = $request->get('peermission_no');
-        $data->permission_date = $request->get('permission_date');
+        $data->permission_date = ($request->permission_date) ? $request->get('permission_date') : null;
 
         $data->inserted_dt = date("Y-m-d H:i:s");
         $data->inserted_by = Auth::user()->id;
@@ -276,7 +276,7 @@ class FinalBuildingNOCController extends Controller
             $data->property_no = $request->get('property_no');
 
             $data->peermission_no = $request->get('peermission_no');
-            $data->permission_date = $request->get('permission_date');
+            $data->permission_date = ($request->permission_date) ? $request->get('permission_date') : null;
 
             $data->modified_dt = date("Y-m-d H:i:s");
             $data->modified_by = Auth::user()->id;
@@ -346,7 +346,7 @@ class FinalBuildingNOCController extends Controller
             $data->property_no = $request->get('property_no');
 
             $data->peermission_no = $request->get('peermission_no');
-            $data->permission_date = $request->get('permission_date');
+            $data->permission_date = ($request->permission_date) ? $request->get('permission_date') : null;
 
             $data->status = 0;
             $data->modified_dt = date("Y-m-d H:i:s");
