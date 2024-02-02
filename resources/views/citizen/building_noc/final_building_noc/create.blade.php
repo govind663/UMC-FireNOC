@@ -63,7 +63,7 @@
                                         @csrf
 
                                         <div class="form-group row mb-3">
-                                            <label class="col-sm-2"><strong>Appication Date : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Appication Date : </strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" readonly name="nocs_a_date" id="nocs_a_date" class="form-control" value="{{  date('d-m-Y')  }}">
 
@@ -72,7 +72,7 @@
 
                                         <div class="form-group row mb-3 d-none">
                                             @if(auth()->guard('citizen'))
-                                            <label class="col-sm-2"><strong>Citizen ID : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Citizen ID : </strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ Auth::user()->id }}">
 
@@ -93,7 +93,7 @@
 
                                         <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Appication Details :</h4>
                                         <div class="form-group row  mb-3">
-                                            <label class="col-sm-2"><strong>Last Name / Surname : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Last Name / Surname : <span class="text-danger">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="l_name" id="l_name" class="form-control @error('l_name') is-invalid @enderror" value="{{ old('l_name') }}" placeholder="Enter Last Name / Surname.">
                                                 @error('l_name')
@@ -102,7 +102,7 @@
                                                 </span>
                                                 @enderror
                                             </div>
-                                            <label class="col-sm-2"><strong>First Name : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>First Name :<span class="text-danger">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="f_name" id="f_name" class="form-control @error('f_name') is-invalid @enderror" value="{{ old('f_name') }}" placeholder="Enter First Name.">
                                                 @error('f_name')
@@ -111,7 +111,7 @@
                                                 </span>
                                                 @enderror
                                             </div>
-                                            <label class="col-sm-2"><strong>Father / Husband's Name : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Father / Husband's Name : </strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="father_name" id="father_name" class="form-control @error('father_name') is-invalid @enderror" value="{{ old('father_name') }}" placeholder="Enter Father / Husband's Name.">
                                                 @error('father_name')
@@ -123,7 +123,7 @@
                                         </div>
 
                                         <div class="form-group row  mb-3">
-                                            <label class="col-sm-2"><strong>Name of Building : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Name of Building : <span class="text-danger">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="society_name" id="society_name" class="form-control @error('society_name') is-invalid @enderror" value="{{ old('society_name') }}" placeholder="Enter Name of Building.">
                                                 @error('society_name')
@@ -132,7 +132,7 @@
                                                     </span>
                                                 @enderror
                                             </div>
-                                            <label class="col-sm-2"><strong>Designation : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Designation : </strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="designation" id="designation" class="form-control @error('designation') is-invalid @enderror" value="{{ old('designation') }}" placeholder="Enter Designation.">
                                                 @error('designation')
@@ -146,7 +146,7 @@
 
                                         <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Address Details :</h4>
                                         <div class="form-group row  mb-3">
-                                            <label class="col-sm-2"><strong>House / Building / Society Name : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>House / Building / Society Name : </strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="house_name" id="house_name" class="form-control @error('house_name') is-invalid @enderror" value="{{ old('house_name') }}" placeholder="Enter House / Building / Society Name.">
                                                 @error('house_name')
@@ -155,7 +155,7 @@
                                                 </span>
                                                 @enderror
                                             </div>
-                                            <label class="col-sm-2"><strong>Flat / Block / Barrack No. : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Flat / Block / Barrack No. : </strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="flat_no" id="flat_no" class="form-control @error('flat_no') is-invalid @enderror" value="{{ old('flat_no') }}" placeholder="Enter Flat / Block / Barrack No.">
                                                 @error('flat_no')
@@ -164,7 +164,7 @@
                                                 </span>
                                                 @enderror
                                             </div>
-                                            <label class="col-sm-2"><strong>Wing / Floor : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Wing / Floor : </strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="wing_name" id="wing_name" class="form-control @error('wing_name') is-invalid @enderror" value="{{ old('wing_name') }}" placeholder="Enter Wing / Floor.">
                                                 @error('wing_name')
@@ -176,7 +176,7 @@
                                         </div>
 
                                         <div class="form-group row  mb-3">
-                                            <label class="col-sm-2"><strong>Road / Street / Lane : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Road / Street / Lane : </strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="road_name" id="road_name" class="form-control @error('road_name') is-invalid @enderror" value="{{ old('road_name') }}" placeholder="Enter Road / Street / Lane.">
                                                 @error('road_name')
@@ -185,7 +185,7 @@
                                                 </span>
                                                 @enderror
                                             </div>
-                                            <label class="col-sm-2"><strong>Area / Locality / Town / City : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Area / Locality / Town / City : </strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="area_name" id="area_name" class="form-control @error('area_name') is-invalid @enderror" value="{{ old('area_name') }}" placeholder="Enter Area / Locality / Town / City.">
                                                 @error('area_name')
@@ -194,7 +194,7 @@
                                                 </span>
                                                 @enderror
                                             </div>
-                                            <label class="col-sm-2"><strong>Taluka : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Taluka : </strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="taluka_name" id="taluka_name" class="form-control @error('taluka_name') is-invalid @enderror" value="{{ old('taluka_name') }}" placeholder="Enter Taluka.">
                                                 @error('taluka_name')
@@ -206,7 +206,7 @@
                                         </div>
 
                                         <div class="form-group row  mb-3">
-                                            <label class="col-sm-2"><strong>Pin code : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Pin code : </strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="pincode" id="pincode" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="6" class="form-control @error('pincode') is-invalid @enderror" value="{{ old('pincode') }}" placeholder="Enter Pin code.">
                                                 @error('pincode')
@@ -216,7 +216,7 @@
                                                 @enderror
                                             </div>
 
-                                            <label class="col-sm-2"><strong>Ward Committee No : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Ward Committee No : </strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <select class="form-control select2 @error('ward_no') is-invalid @enderror" name="ward_no" id="ward_no">
                                                     <option value="">Select Ward Committee No</option>
@@ -235,7 +235,7 @@
                                             </div>
 
 
-                                            <label class="col-sm-2"><strong>Electrol Panel No : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Electrol Panel No : </strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="electrol_panel_no" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" id="electrol_panel_no" class="form-control @error('electrol_panel_no') is-invalid @enderror" value="{{ old('electrol_panel_no') }}" placeholder="Enter Electrol Panel No.">
                                                 @error('electrol_panel_no')
@@ -247,7 +247,7 @@
                                         </div>
 
                                         <div class="form-group row  mb-3">
-                                            <label class="col-sm-2"><strong>Contact Person : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Contact Person : <span class="text-danger">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="contact_persion" id="contact_persion" class="form-control @error('contact_persion') is-invalid @enderror" value="{{ old('contact_persion') }}" placeholder="Enter Contact Person.">
                                                 @error('contact_persion')
@@ -278,7 +278,7 @@
 
                                         <h4 class="card-title text-primary mb-2" style="font-size: 18px;">Information of Property :</h4>
                                         <div class="form-group row  mb-3">
-                                            <label class="col-sm-2"><strong>Type of Property : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Type of Property : </strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <select class="form-control select2 @error('types_of_property') is-invalid @enderror" name="types_of_property" id="types_of_property">
                                                     <option value="">Select Type of Property</option>
@@ -293,7 +293,7 @@
                                                     </span>
                                                 @enderror
                                             </div>
-                                            <label class="col-sm-2"><strong>Property Number : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Property Number : </strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="property_no" id="property_no" class="form-control @error('property_no') is-invalid @enderror" value="{{ old('property_no') }}" placeholder="Enter Property Number.">
                                                 @error('property_no')
@@ -306,7 +306,7 @@
 
                                         <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Necessary Particulars about above service</h4>
                                         <div class="form-group row  mb-3">
-                                            <label class="col-sm-2"><strong>Construction Permission Number : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Construction Permission Number : </strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="peermission_no" id="peermission_no" maxlength="06" class="form-control @error('peermission_no') is-invalid @enderror" value="{{ old('peermission_no') }}" placeholder="Enter Construction Permission Number.">
                                                 @error('peermission_no')
@@ -316,7 +316,7 @@
                                                 @enderror
                                             </div>
 
-                                            <label class="col-sm-2"><strong>Date of Permission : <span style="color:red;">*</span></strong></label>
+                                            <label class="col-sm-2"><strong>Date of Permission : </strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="date" name="permission_date" id="permission_date" max="<?php echo date("Y-m-d"); ?>" class="form-control @error('permission_date') is-invalid @enderror" value="{{ old('permission_date') }}" placeholder="Enter Date of Permission.">
                                                 @error('permission_date')
@@ -333,7 +333,7 @@
                                             <div class="row ">
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Upload Map / Plan showing Cease Fire Equipments installed and Water Supply arrangements in the building : <span style="color:red;">*</span></strong></label>
+                                                    <label class="col-sm-2"><strong>Upload Map / Plan showing Cease Fire Equipments installed and Water Supply arrangements in the building : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         <input type="file" accept=".jpg, .jpeg, .png, .pdf" name="fire_equipments_install_doc" id="fire_equipments_install_doc" class="form-control  @error('fire_equipments_install_doc') is-invalid @enderror " value="{{ old('fire_equipments_install_doc') }}" placeholder="Upload Map / Plan showing Cease Fire Equipments installed and Water Supply arrangements in the building.">
                                                         <small class="text-secondary"> Note : The file size should be less than 2MB .</small>
@@ -375,7 +375,7 @@
                                                     <div class="col-md-12 col-xs-12">
                                                         <h6 class="mt-3"><b>The document may please be delivered to : </b></h6>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2"><strong>Self / Nominated Person : <span style="color:red;">*</span></strong></label>
+                                                            <label class="col-sm-2"><strong>Self / Nominated Person : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
                                                                 <select class="form-control select2 @error('nominated_persion') is-invalid @enderror" name="nominated_persion" id="nominated_persion">
                                                                     <option value="">Select Self / Nominated Person</option>
@@ -393,7 +393,7 @@
                                                                 @enderror
                                                             </div>
 
-                                                            <label class="col-sm-2"><strong>Name of Nominated Person : <span style="color:red;">*</span></strong></label>
+                                                            <label class="col-sm-2"><strong>Name of Nominated Person : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
                                                                 <input type="text" name="nominated_persion_name" id="nominated_persion_name" class="form-control @error('nominated_persion_name') is-invalid @enderror" value="{{ old('nominated_persion_name') }}" placeholder="Enter Name of Nominated Person.">
                                                                 @error('nominated_persion_name')
@@ -403,7 +403,7 @@
                                                                 @enderror
                                                             </div>
 
-                                                            <label class="col-sm-2"><strong>Deliver by : <span style="color:red;">*</span></strong></label>
+                                                            <label class="col-sm-2"><strong>Deliver by : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
                                                                 <select class="form-control select2 @error('deliver_by') is-invalid @enderror" name="deliver_by" id="deliver_by">
                                                                     <option value="">Select Deliver by</option>
@@ -423,7 +423,7 @@
 
                                                         <h6 class="mt-3 mb-3"><b>Correspondence Address : </b></h6>
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2"><strong>Last Name / Surname : <span style="color:red;">*</span></strong></label>
+                                                            <label class="col-sm-2"><strong>Last Name / Surname : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
                                                                 <input type="text" name="d_last_name" id="d_last_name" class="form-control @error('d_last_name') is-invalid @enderror" value="{{ old('d_last_name') }}" placeholder="Enter Last Name / Surname.">
                                                                 @error('d_last_name')
@@ -433,7 +433,7 @@
                                                                 @enderror
                                                             </div>
 
-                                                            <label class="col-sm-2"><strong>First Name : <span style="color:red;">*</span></strong></label>
+                                                            <label class="col-sm-2"><strong>First Name : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
                                                                 <input type="text" name="d_first_name" id="d_first_name" class="form-control @error('d_first_name') is-invalid @enderror" value="{{ old('d_first_name') }}" placeholder="Enter First Name.">
                                                                 @error('d_first_name')
@@ -443,7 +443,7 @@
                                                                 @enderror
                                                             </div>
 
-                                                            <label class="col-sm-2"><strong>Father / Husband's Name : <span style="color:red;">*</span></strong></label>
+                                                            <label class="col-sm-2"><strong>Father / Husband's Name : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
                                                                 <input type="text" name="d_father_name" id="d_father_name" class="form-control @error('d_father_name') is-invalid @enderror" value="{{ old('d_father_name') }}" placeholder="Enter Father / Husband's Name.">
                                                                 @error('d_father_name')
@@ -455,7 +455,7 @@
                                                         </div>
 
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2"><strong>House / Building / Society Name : <span style="color:red;">*</span></strong></label>
+                                                            <label class="col-sm-2"><strong>House / Building / Society Name : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
                                                                 <input type="text" name="d_house_name" id="d_house_name" class="form-control @error('d_house_name') is-invalid @enderror" value="{{ old('d_house_name') }}" placeholder="Enter House / Building / Society Name.">
                                                                 @error('d_house_name')
@@ -465,7 +465,7 @@
                                                                 @enderror
                                                             </div>
 
-                                                            <label class="col-sm-2"><strong>Flat / Block / Barrack No. : <span style="color:red;">*</span></strong></label>
+                                                            <label class="col-sm-2"><strong>Flat / Block / Barrack No. : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
                                                                 <input type="text" name="d_flat_no" id="d_flat_no" class="form-control @error('d_flat_no') is-invalid @enderror" value="{{ old('d_flat_no') }}" placeholder="Enter Flat / Block / Barrack No..">
                                                                 @error('d_flat_no')
@@ -475,7 +475,7 @@
                                                                 @enderror
                                                             </div>
 
-                                                            <label class="col-sm-2"><strong>Wing / Floor : <span style="color:red;">*</span></strong></label>
+                                                            <label class="col-sm-2"><strong>Wing / Floor : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
                                                                 <input type="text" name="d_wing_no" id="d_wing_no" class="form-control @error('d_wing_no') is-invalid @enderror" value="{{ old('d_wing_no') }}" placeholder="Enter Wing / Floor.">
                                                                 @error('d_wing_no')
@@ -487,7 +487,7 @@
                                                         </div>
 
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2"><strong>Road / Street / Lane : <span style="color:red;">*</span></strong></label>
+                                                            <label class="col-sm-2"><strong>Road / Street / Lane : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
                                                                 <input type="text" name="d_road_name" id="d_road_name" class="form-control @error('d_road_name') is-invalid @enderror" value="{{ old('d_road_name') }}" placeholder="Enter Road / Street / Lane.">
                                                                 @error('d_road_name')
@@ -497,7 +497,7 @@
                                                                 @enderror
                                                             </div>
 
-                                                            <label class="col-sm-2"><strong>Area / Locality / Town / City : <span style="color:red;">*</span></strong></label>
+                                                            <label class="col-sm-2"><strong>Area / Locality / Town / City : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
                                                                 <input type="text" name="d_area_name" id="d_area_name" class="form-control @error('d_area_name') is-invalid @enderror" value="{{ old('d_area_name') }}" placeholder="Enter Area / Locality / Town / City">
                                                                 @error('d_area_name')
@@ -507,7 +507,7 @@
                                                                 @enderror
                                                             </div>
 
-                                                            <label class="col-sm-2"><strong>Taluka : <span style="color:red;">*</span></strong></label>
+                                                            <label class="col-sm-2"><strong>Taluka : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
                                                                 <input type="text" name="d_taluka_name" id="d_taluka_name" class="form-control @error('d_taluka_name') is-invalid @enderror" value="{{ old('d_taluka_name') }}" placeholder="Enter Taluka.">
                                                                 @error('d_taluka_name')
@@ -519,7 +519,7 @@
                                                         </div>
 
                                                         <div class="form-group row">
-                                                            <label class="col-sm-2"><strong>Pincode : <span style="color:red;">*</span></strong></label>
+                                                            <label class="col-sm-2"><strong>Pincode : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
                                                                 <input type="text" name="d_pincode" id="d_pincode" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="06" class="form-control @error('d_pincode') is-invalid @enderror" value="{{ old('d_pincode') }}" placeholder="Enter Pincode.">
                                                                 @error('d_pincode')

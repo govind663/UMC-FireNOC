@@ -17,30 +17,30 @@ return new class extends Migration
             $table->id();
             $table->integer('noc_mst_id');
 
-            $table->string('l_name');
-            $table->string('f_name');
-            $table->string('father_name');
-            $table->string('society_name');
-            $table->string('designation');
+            $table->string('l_name')->nullable();
+            $table->string('f_name')->nullable();
+            $table->string('father_name')->nullable();
+            $table->string('society_name')->nullable();
+            $table->string('designation')->nullable();
 
-            $table->string('house_name');
-            $table->string('flat_no');
-            $table->string('wing_name');
-            $table->string('road_name');
-            $table->string('area_name');
-            $table->string('taluka_name');
-            $table->string('pincode');
-            $table->string('ward_no');
-            $table->string('electrol_panel_no');
-            $table->string('contact_persion');
-            $table->string('tel_no');
-            $table->string('email');
+            $table->string('house_name')->nullable();
+            $table->string('flat_no')->nullable();
+            $table->string('wing_name')->nullable();
+            $table->string('road_name')->nullable();
+            $table->string('area_name')->nullable();
+            $table->string('taluka_name')->nullable();
+            $table->string('pincode')->nullable();
+            $table->string('ward_no')->nullable();
+            $table->string('electrol_panel_no')->nullable();
+            $table->string('contact_persion')->nullable();
+            $table->string('tel_no')->nullable();
+            $table->string('email')->nullable();
 
-            $table->string('types_of_property');
-            $table->string('property_no');
+            $table->string('types_of_property')->nullable();
+            $table->string('property_no')->nullable();
 
-            $table->string('peermission_no');
-            $table->date('permission_date');
+            $table->string('peermission_no')->nullable();
+            $table->date('permission_date')->nullable();
 
             $table->string('maps_of_proposed_doc')->nullable();
             $table->string('city_survey_doc')->nullable();
