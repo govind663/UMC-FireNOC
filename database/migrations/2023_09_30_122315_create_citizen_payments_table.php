@@ -22,7 +22,7 @@ return new class extends Migration
 
             $table->string('l_name');
             $table->string('f_name');
-            $table->string('father_name');
+            $table->string('father_name')->nullable();
             $table->integer('fee_construction_id')->nullable();
             $table->integer('fee_mode_operate_id')->nullable();
             $table->integer('wing_option')->comment('1:Yes 2:No')->nullable();
