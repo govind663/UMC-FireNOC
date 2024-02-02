@@ -97,7 +97,7 @@
 
                                         <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Appication Details :</h4>
                                         <div class="form-group row  mb-3">
-                                            <label class="col-sm-2"><strong>Last Name / Surname : </strong></label>
+                                            <label class="col-sm-2"><strong>Last Name / Surname : <span class="text-danger">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="l_name" id="l_name" class="form-control @error('l_name') is-invalid @enderror" value="{{ old('l_name') }}" placeholder="Enter Last Name / Surname.">
                                                 @error('l_name')
@@ -106,7 +106,7 @@
                                                 </span>
                                                 @enderror
                                             </div>
-                                            <label class="col-sm-2"><strong>First Name : </strong></label>
+                                            <label class="col-sm-2"><strong>First Name : <span class="text-danger">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="f_name" id="f_name" class="form-control @error('f_name') is-invalid @enderror" value="{{ old('f_name') }}" placeholder="Enter First Name.">
                                                 @error('f_name')
@@ -127,7 +127,7 @@
                                         </div>
 
                                         <div class="form-group row  mb-3">
-                                            <label class="col-sm-2"><strong>Name of Business : </strong></label>
+                                            <label class="col-sm-2"><strong>Name of Business : <span class="text-danger">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="society_name" id="society_name" class="form-control @error('society_name') is-invalid @enderror" value="{{ old('society_name') }}" placeholder="Enter Name of Business.">
                                                 @error('society_name')
@@ -251,7 +251,7 @@
                                         </div>
 
                                         <div class="form-group row  mb-3">
-                                            <label class="col-sm-2"><strong>Contact Person : </strong></label>
+                                            <label class="col-sm-2"><strong>Contact Person : <span class="text-danger">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
                                                 <input type="text" name="contact_persion" id="contact_persion" class="form-control @error('contact_persion') is-invalid @enderror" value="{{ old('contact_persion') }}" placeholder="Enter Contact Person.">
                                                 @error('contact_persion')

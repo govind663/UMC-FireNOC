@@ -81,7 +81,6 @@
                                                     <th><b>Town / City</b></th>
                                                     <th><b>Pin code</b></th>
                                                     <th><b>Taluka</b></th>
-                                                    <th><b>Ward Committee No</b></th>
                                                     <th><b>Application Status</b></th>
                                                     @if ( $all_status == 2 || $all_status == 4 )
                                                     <th><b>Reason for rejection</b></th>
@@ -100,28 +99,14 @@
                                                         <td>Land</td>
                                                         @elseif ($value->types_of_property == 2)
                                                         <td>Building</td>
+                                                        @else
+                                                        <td></td>
                                                         @endif
 
                                                         <td>{{ $value->property_no }}</td>
                                                         <td>{{ $value->city_name }}</td>
                                                         <td>{{ $value->pincode }}</td>
                                                         <td>{{ $value->taluka_name }}</td>
-
-                                                        @php
-                                                            $ward_name = '';
-
-                                                            if($value->ward_no == 1){
-                                                            $ward_name = 'Ward 1';
-                                                            }elseif($value->ward_no == 2){
-                                                            $ward_name = 'Ward 2';
-                                                            }elseif($value->ward_no == 3){
-                                                            $ward_name = 'Ward 3';
-                                                            }elseif($value->ward_no == 4){
-                                                            $ward_name = 'Ward 4';
-                                                            }
-                                                        @endphp
-
-                                                        <td>{{ $ward_name }}</td>
 
                                                         @if ($value->status == 0)
                                                         <td><span class="bg-primary text-white p-1">Pending</span></td>
