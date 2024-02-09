@@ -55,7 +55,7 @@ class FinalBuildindgNOCRequest extends FormRequest
                 'permission_date' => 'nullable',
 
                 // ===== Other Document
-                'fire_equipments_install_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
+                'fire_equipments_install_doc' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
 
                 // ===== Declaration
                 'declare_by' => 'nullable',
@@ -106,7 +106,7 @@ class FinalBuildindgNOCRequest extends FormRequest
                 'permission_date' => 'nullable',
 
                 // ===== Other Document
-                'fire_equipments_install_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
+                'fire_equipments_install_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:8388608',
 
                 // ===== Declaration
                 'declare_by' => 'nullable',

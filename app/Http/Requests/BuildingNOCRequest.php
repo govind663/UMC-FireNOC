@@ -56,11 +56,11 @@ class BuildingNOCRequest extends FormRequest
                 'permission_date' => 'nullable',
 
                 // ===== Other Document
-                'maps_of_proposed_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'city_survey_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'sanad_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'competent_authority_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'dues_certificate_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
+                'maps_of_proposed_doc' => 'mimes:jpeg,png,jpg,pdf|8388608',
+                'city_survey_doc' => 'mimes:jpeg,png,jpg,pdf|8388608',
+                'sanad_doc' => 'mimes:jpeg,png,jpg,pdf|8388608',
+                'competent_authority_doc' => 'mimes:jpeg,png,jpg,pdf|8388608',
+                'dues_certificate_doc' => 'mimes:jpeg,png,jpg,pdf|8388608',
 
                 // ===== Declaration
                 'declare_by' => 'nullable',
@@ -112,11 +112,11 @@ class BuildingNOCRequest extends FormRequest
                 'permission_date' => 'nullable',
 
                 // ===== Other Document
-                'maps_of_proposed_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
-                'city_survey_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
-                'sanad_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
-                'competent_authority_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
-                'dues_certificate_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
+                'maps_of_proposed_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|8388608',
+                'city_survey_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|8388608',
+                'sanad_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|8388608',
+                'competent_authority_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|8388608',
+                'dues_certificate_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|8388608',
 
                 // ===== Declaration
                 'declare_by' => 'nullable',

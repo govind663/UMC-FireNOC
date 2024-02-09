@@ -71,15 +71,15 @@ class HospitalNOCRequest extends FormRequest
                 'hospital_address' => 'nullable',
 
                 // ===== Other Document
-                'property_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
+                'property_doc' => 'mimes:jpeg,png,jpg,pdf|8388608',
                 'location_of_place' => 'nullable',
-                'electric_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'shop_license_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'paid_tax_bill_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'commissioning_certificate' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'affidavit_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'corporation_certificate' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'construction_plan_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
+                'electric_doc' => 'mimes:jpeg,png,jpg,pdf|8388608',
+                'shop_license_doc' => 'mimes:jpeg,png,jpg,pdf|8388608',
+                'paid_tax_bill_doc' => 'mimes:jpeg,png,jpg,pdf|8388608',
+                'commissioning_certificate' => 'mimes:jpeg,png,jpg,pdf|8388608',
+                'affidavit_doc' => 'mimes:jpeg,png,jpg,pdf|8388608',
+                'corporation_certificate' => 'mimes:jpeg,png,jpg,pdf|8388608',
+                'construction_plan_doc' => 'mimes:jpeg,png,jpg,pdf|8388608',
 
                 // ===== Declaration
                 'declare_by' => 'nullable',
@@ -146,15 +146,15 @@ class HospitalNOCRequest extends FormRequest
                 'hospital_address' => 'nullable',
 
                 // ===== Other Document
-                'property_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
+                'property_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|8388608',
                 'location_of_place' => 'nullable',
-                'electric_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
-                'shop_license_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
-                'paid_tax_bill_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
-                'commissioning_certificate' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
-                'affidavit_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
-                'corporation_certificate' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
-                'construction_plan_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
+                'electric_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|8388608',
+                'shop_license_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|8388608',
+                'paid_tax_bill_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|8388608',
+                'commissioning_certificate' => 'nullable|mimes:jpeg,png,jpg,pdf|8388608',
+                'affidavit_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|8388608',
+                'corporation_certificate' => 'nullable|mimes:jpeg,png,jpg,pdf|8388608',
+                'construction_plan_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|8388608',
 
                 // ===== Declaration
                 'declare_by' => 'nullable',

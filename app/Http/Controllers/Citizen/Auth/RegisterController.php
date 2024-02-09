@@ -21,14 +21,14 @@ class RegisterController extends Controller
             'm_name' => 'nullable',
             'l_name' => 'required|string',
             'mobile_no' => 'required|numeric|unique:citizens|digits:10',
-            'email' => 'required|string|email|max:255|unique:citizens|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
+            'email' => 'nullable|string|email|max:255|unique:citizens|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
             'password' => 'required|string|min:8|confirmed',
             'password_confirmation' => 'required',
         ], [
             'f_name.required' => 'First Name is required',
             'l_name.required' => 'Last Name is required',
             'mobile_no.required' => 'Mobile Number is required',
-            'email.required' => 'Email Id is required',
+            // 'email.required' => 'Email Id is required',
             'password.required' => 'Password is required',
             'password_confirmation.required' => 'Confirm Password is required',
         ]);

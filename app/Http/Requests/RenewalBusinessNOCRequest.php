@@ -71,16 +71,16 @@ class RenewalBusinessNOCRequest extends FormRequest
                 'business_address' => 'nullable',
 
                 // ===== Other Document
-                'location_map_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'electric_license_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'gas_license_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'shop_license_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'food_license' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'tax_bill_paid_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'trade_license' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'gas_certificate_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'commissioning_certificate' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'construction_plan_doc' => 'mimes:jpeg,png,jpg,pdf|max:2048',
+                'location_map_doc' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
+                'electric_license_doc' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
+                'gas_license_doc' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
+                'shop_license_doc' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
+                'food_license' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
+                'tax_bill_paid_doc' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
+                'trade_license' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
+                'gas_certificate_doc' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
+                'commissioning_certificate' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
+                'construction_plan_doc' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
 
                 // ===== Declaration
                 'declare_by' => 'nullable',
@@ -147,16 +147,16 @@ class RenewalBusinessNOCRequest extends FormRequest
                 'business_address' => 'nullable',
 
                 // ===== Other Document
-                'location_map_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
-                'electric_license_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
-                'gas_license_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
-                'shop_license_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
-                'food_license' => 'mimes:jpeg,png,jpg,pdf|max:2048',
-                'tax_bill_paid_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
-                'trade_license' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
-                'gas_certificate_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
-                'commissioning_certificate' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
-                'construction_plan_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:2048',
+                'location_map_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:8388608',
+                'electric_license_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:8388608',
+                'gas_license_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:8388608',
+                'shop_license_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:8388608',
+                'food_license' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
+                'tax_bill_paid_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:8388608',
+                'trade_license' => 'nullable|mimes:jpeg,png,jpg,pdf|max:8388608',
+                'gas_certificate_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:8388608',
+                'commissioning_certificate' => 'nullable|mimes:jpeg,png,jpg,pdf|max:8388608',
+                'construction_plan_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:8388608',
 
                 // ===== Declaration
                 'declare_by' => 'nullable',
