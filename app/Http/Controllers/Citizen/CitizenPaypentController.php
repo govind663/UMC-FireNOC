@@ -114,7 +114,18 @@ class CitizenPaypentController extends Controller
         $mst_fee_building_hts = FeeBldgHt::select('id', 'building_ht')->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
         // dd($mst_fee_building_hts);
 
-        return view('citizen.payment.make_payment')->with(['data'=>$data, 'mst_fee_construction'=>$mst_fee_construction, 'mst_fee_building_hts'=>$mst_fee_building_hts, 'noc_mode'=>$noc_mode]);
+        $citizen_payments = DB::table('citizen_payments as t1')
+                            ->where('t1.payment_noc_mode', $noc_mode)
+                            ->whereNUll('t1.deleted_at')
+                            ->orderBy('t1.id', 'DESC')
+                            ->get();
+
+        return view('citizen.payment.make_payment')->with(['data'=>$data,
+                                                            'mst_fee_construction'=>$mst_fee_construction,
+                                                            'mst_fee_building_hts'=>$mst_fee_building_hts,
+                                                            'noc_mode'=>$noc_mode,
+                                                            'citizen_payments'=>$citizen_payments
+                                                        ]);
     }
 
     /**

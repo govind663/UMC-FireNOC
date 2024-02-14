@@ -16,23 +16,19 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ url('/') }}/assets/logo/favicon.ico">
 
-    <link href="{{ url('/') }}/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css">
-    <link href="{{ url('/') }}/assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
-    <link href="{{ url('/') }}/assets/libs/spectrum-colorpicker2/spectrum.min.css" rel="stylesheet"
-        type="text/css">
-    <link href="{{ url('/') }}/assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css"
-        rel="stylesheet">
-
     <!-- Layout Js -->
     <script src="{{ url('/') }}/assets/js/layout.js"></script>
     <!-- Bootstrap Css -->
-    <link href="{{ url('/') }}/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet"
-        type="text/css" />
+    <link href="{{ url('/') }}/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
     <link href="{{ url('/') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- App Css-->
     <link href="{{ url('/') }}/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
+    <!-- Toaster Message -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 </head>
 
 <style>
@@ -60,7 +56,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
-                                <div class="card-body">
+                                <div class="card-body" style="border: 1px solid rgb(3, 155, 155);">
 
                                     <div class="invoice-title d-flex justify-content-between">
                                         <div class="mb-4 float-md-start">
@@ -97,7 +93,6 @@
                                                 <label class="col-sm-3"><strong>Application Unique Id : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
                                                     <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->mst_token }}">
-
                                                 </div>
                                             </div>
 
@@ -126,7 +121,7 @@
                                                 </div>
                                             </div>
 
-                                            <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Basic Details :</h4>
+                                            <h4 class="card-title text-primary mb-3"><b>Basic Details :</b></h4>
                                             <div class="form-group row  mb-3">
                                                 <label class="col-sm-1"><strong>First Name : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
@@ -147,61 +142,47 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row  mb-3">
-                                                <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Payment Details :</h4>
+                                            <h4 class="card-title text-primary mb-3"><b>Payment Details :</b></h4>
+                                            <table id="dynamicTable" class="table table-bordered">
+                                                <thead>
+                                                    <tr style="color: white; background:#086070;">
+                                                        <th>Description</th>
+                                                        <th>Actual Area ( Sq.Mt. )</th>
+                                                        <th>Actual Charges ( Sq.Mt. )</th>
+                                                        <th>NOC Charges</th>
+                                                        <th class="col-2">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="border: 1px solid rgb(3, 155, 155);">
 
-                                                <div class="table-responsive">
-                                                    <table class="table align-middle table-nowrap table-centered mb-0">
-                                                        <thead class="bg-primary text-light">
-                                                            <tr>
-                                                                <th style="width: 70px;">Sr. No.</th>
-                                                                <th>Description</th>
-                                                                <th>Actual Area ( Sq.Mt. )</th>
-                                                                <th>Actual Charges ( Sq.Mt. )</th>
-                                                                <th class="text-end" style="width: 120px;">NOC Charges</th>
-                                                            </tr>
-                                                        </thead><!-- end thead -->
-                                                        <tbody>
-                                                            <tr>
-                                                                <th scope="row">01</th>
-                                                                <td>
-                                                                    <div>
-                                                                        <h5 class="text-truncate font-size-14 mb-1">Black Strap A012</h5>
-                                                                        <p class="text-muted mb-0">Watch, Black</p>
-                                                                    </div>
-                                                                </td>
-                                                                <td>$ 245.50</td>
-                                                                <td>1</td>
-                                                                <td class="text-end">$ 245.50</td>
-                                                            </tr>
-                                                            <!-- end tr -->
-                                                            <tr>
-                                                                <th scope="row">02</th>
-                                                                <td>
-                                                                    <div>
-                                                                        <h5 class="text-truncate font-size-14 mb-1">Stainless Steel S010</h5>
-                                                                        <p class="text-muted mb-0">Watch, Gold</p>
-                                                                    </div>
-                                                                </td>
-                                                                <td>$ 245.50</td>
-                                                                <td>2</td>
-                                                                <td class="text-end">$491.00</td>
-                                                            </tr>
-                                                            <!-- end tr -->
+                                                    <tr>
+                                                        <td>
+                                                            <input type="text" name="addmore[0][description]" id="description" placeholder="Enter Description" required  class="form-control" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="addmore[0][area]" id="area" placeholder="Enter Area" required class="form-control actualArea" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="addmore[0][actualcharges]" id="actualcharges" required placeholder="Enter Actual Charges" class="form-control actualCharges" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="addmore[0][noccharges]" id="noccharges" required placeholder="Enter NOC Charges" class="form-control nocCharges" />
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" name="add" id="add" class="btn btn-primary btn-sm ">
+                                                                + Add More
+                                                            </button>
+                                                        </td>
+                                                    </tr>
 
-                                                            <tr>
-                                                                <th scope="row" colspan="4" class="border-0 text-end"><b>Total NOC Charges : - </b></th>
-                                                                <td class="border-0 text-end"><h4 class="m-0 fw-semibold">$739.00</h4></td>
-                                                            </tr>
-                                                            <!-- end tr -->
-                                                        </tbody>
-                                                        <!-- end tbody -->
-                                                    </table>
-                                                    <!-- end table -->
-                                                </div>
-                                                <!-- end table responsive -->
-
-                                            </div>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th scope="row" colspan="3" class="border-0 text-end"><b>Total NOC Charges : - </b></th>
+                                                        <td class="border-0 text-end"><h4 class="m-0 fw-semibold">00 Rs</h4></td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
 
                                             <div class="form-group row mt-4">
                                                 <label class="col-md-3"></label>
@@ -734,6 +715,7 @@
                                         </form>
                                     @endif
 
+
                                 </div>
                             </div>
                         </div><!-- end col -->
@@ -767,6 +749,102 @@
         <script src="{{ url('/') }}/assets/js/pages/form-advanced.init.js"></script>
 
         <script src="{{ url('/') }}/assets/js/app.js"></script>
+
+        <script>
+            @if(Session::has('message'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+                    toastr.success("{{ session('message') }}");
+            @endif
+
+            @if(Session::has('error'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+                    toastr.error("{{ session('error') }}");
+            @endif
+
+            @if(Session::has('info'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+                    toastr.info("{{ session('info') }}");
+            @endif
+
+            @if(Session::has('warning'))
+            toastr.options =
+            {
+                "closeButton" : true,
+                "progressBar" : true
+            }
+                    toastr.warning("{{ session('warning') }}");
+            @endif
+        </script>
+
+        <script type="text/javascript">
+
+            var i = 0;
+
+            $("#add").click(function(){
+
+                ++i;
+
+                $("#dynamicTable").append('<tr><td><input type="text" name="addmore['+i+'][description]" id="description" placeholder="Enter Description" class="form-control required" /></td><td><input type="text" name="addmore['+i+'][area]" id="area" placeholder="Enter Actual Area ( Sq.Mt. )" class="form-control actualArea" required /></td><td><input type="text" name="addmore['+i+'][actualcharges]" id="actualcharges" placeholder="Enter Actual Charges ( Sq.Mt. )" class="form-control actualCharges" required /></td><td><input type="text" name="addmore['+i+'][noccharges]" id="noccharges" placeholder="Enter NOC Charges" class="form-control nocCharges" required /></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
+            });
+
+            $(document).on('click', '.remove-tr', function(){
+                $(this).parents('tr').remove();
+                let total = 0;
+                $("body .nocCharges").each(function(){
+                    let val = parseFloat($(this).val())
+                    total = total + val;
+                });
+                // === check condition for NaN
+                if (isNaN(total)) {
+                //    $('#totalAmount').val(0);
+                // alert('if')
+                }else{
+                    $('body').find('.fw-semibold').text(total+'Rs')
+                }
+            });
+
+            $('body').on('keyup', '.actualCharges', calculateCharges);
+            $('body').on('keyup', '.actualArea', calculateCharges);
+            // $('body').on('click', '.remove-tr', function(){
+            //     // alert('ok')
+
+            // });
+
+            function calculateCharges(){
+                let actualCharges = parseFloat($(this).closest('tr').find('.actualCharges').val());
+                let actualArea = parseFloat($(this).closest('tr').find('.actualArea').val());
+                let charges = actualCharges * actualArea;
+                // alert(charges)
+                if (isNaN(charges)) {
+                    charges = 0;
+                }
+                $(this).closest('tr').find('.nocCharges').val(charges)
+                let total = 0;
+                $("body .nocCharges").each(function(){
+                    val = parseFloat($(this).val())
+                    total = total + val;
+                });
+                // === check condition for NaN
+                if (isNaN(total)) {
+                //    $('#totalAmount').val(0);
+                }else{
+                    $('body').find('.fw-semibold').text(total+'Rs')
+                }
+            }
+
+        </script>
 
 </body>
 
