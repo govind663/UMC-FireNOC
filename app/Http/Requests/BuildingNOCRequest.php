@@ -56,11 +56,11 @@ class BuildingNOCRequest extends FormRequest
                 'permission_date' => 'nullable',
 
                 // ===== Other Document
-                'maps_of_proposed_doc' => 'mimes:jpeg,png,jpg,pdf|8388608',
-                'city_survey_doc' => 'mimes:jpeg,png,jpg,pdf|8388608',
-                'sanad_doc' => 'mimes:jpeg,png,jpg,pdf|8388608',
-                'competent_authority_doc' => 'mimes:jpeg,png,jpg,pdf|8388608',
-                'dues_certificate_doc' => 'mimes:jpeg,png,jpg,pdf|8388608',
+                'maps_of_proposed_doc' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
+                'city_survey_doc' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
+                'sanad_doc' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
+                'competent_authority_doc' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
+                'dues_certificate_doc' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
 
                 // ===== Declaration
                 'declare_by' => 'nullable',
@@ -112,11 +112,11 @@ class BuildingNOCRequest extends FormRequest
                 'permission_date' => 'nullable',
 
                 // ===== Other Document
-                'maps_of_proposed_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|8388608',
-                'city_survey_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|8388608',
-                'sanad_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|8388608',
-                'competent_authority_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|8388608',
-                'dues_certificate_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|8388608',
+                'maps_of_proposed_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:8388608',
+                'city_survey_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:8388608',
+                'sanad_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:8388608',
+                'competent_authority_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:8388608',
+                'dues_certificate_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:8388608',
 
                 // ===== Declaration
                 'declare_by' => 'nullable',
@@ -173,23 +173,23 @@ class BuildingNOCRequest extends FormRequest
 
              // ===== Other Document
             // 'maps_of_proposed_doc.required' => 'Document Of Property is required',
-            'maps_of_proposed_doc.max' => 'The file size should be less than 2MB.',
+            'maps_of_proposed_doc.max' => 'The file size should be less than 10MB.',
             'maps_of_proposed_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
             // 'city_survey_doc.required' => 'Location of Place is required',
-            'city_survey_doc.max' => 'The file size should be less than 2MB.',
+            'city_survey_doc.max' => 'The file size should be less than 10MB.',
             'city_survey_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
             // 'sanad_doc.required' => 'Letter from License Holder regarding proper electric connection is required',
-            'sanad_doc.max' => 'The file size should be less than 2MB.',
+            'sanad_doc.max' => 'The file size should be less than 10MB.',
             'sanad_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
             // 'competent_authority_doc.required' => 'Shop License is required',
-            'competent_authority_doc.max' => 'The file size should be less than 2MB.',
+            'competent_authority_doc.max' => 'The file size should be less than 10MB.',
             'competent_authority_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
             // 'dues_certificate_doc.required' => 'Up-to-date receipt of Tax bill paid is required',
-            'dues_certificate_doc.max' => 'The file size should be less than 2MB.',
+            'dues_certificate_doc.max' => 'The file size should be less than 10MB.',
             'dues_certificate_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
              // ===== Declaration

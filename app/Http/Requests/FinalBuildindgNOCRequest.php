@@ -28,102 +28,102 @@ class FinalBuildindgNOCRequest extends FormRequest
                 // === Basic Details
                 'l_name' => 'required',
                 'f_name' => 'required',
-                'father_name' => 'nullable',
+                'father_name' => 'sometimes|nullable|string',
                 'society_name' => 'required',
-                'designation' => 'nullable',
+                'designation' => 'sometimes|nullable|string',
 
                 // ===== Address Details
-                'house_name' => 'nullable',
-                'flat_no' => 'nullable',
-                'wing_name' => 'nullable',
-                'road_name' => 'nullable',
-                'area_name' => 'nullable',
-                'taluka_name' => 'nullable',
-                'pincode' => 'nullable',
-                'ward_no' => 'nullable',
-                'electrol_panel_no' => 'nullable',
+                'house_name' => 'sometimes|nullable|string',
+                'flat_no' => 'sometimes|nullable|string',
+                'wing_name' => 'sometimes|nullable|string',
+                'road_name' => 'sometimes|nullable|string',
+                'area_name' => 'sometimes|nullable|string',
+                'taluka_name' => 'sometimes|nullable|string',
+                'pincode' => 'sometimes|nullable|string',
+                'ward_no' => 'sometimes|nullable|string',
+                'electrol_panel_no' => 'sometimes|nullable|string',
                 'contact_persion' => 'required',
-                // 'tel_no' => 'nullable|numeric',
-                // 'email' => 'nullable|email',
+                // 'tel_no' => 'sometimes|nullable|string|numeric',
+                // 'email' => 'sometimes|nullable|string|email',
 
                 // ===== Information of Property
-                'types_of_property' => 'nullable',
-                'property_no' => 'nullable',
+                'types_of_property' => 'sometimes|nullable|string',
+                'property_no' => 'sometimes|nullable|string',
 
                 // ====== Information of Land
-                'peermission_no' => 'nullable',
-                'permission_date' => 'nullable',
+                'peermission_no' => 'sometimes|nullable|string',
+                'permission_date' => 'sometimes|nullable|string',
 
                 // ===== Other Document
                 'fire_equipments_install_doc' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
 
                 // ===== Declaration
-                'declare_by' => 'nullable',
-                'declare_date' => 'nullable',
-                'nominated_persion' => 'nullable',
-                'nominated_persion_name' => 'nullable',
-                'deliver_by' => 'nullable',
-                'd_last_name' => 'nullable',
-                'd_first_name' => 'nullable',
-                'd_father_name' => 'nullable',
-                'd_house_name' => 'nullable',
-                'd_flat_no' => 'nullable',
-                'd_wing_no' => 'nullable',
-                'd_road_name' => 'nullable',
-                'd_area_name' => 'nullable',
-                'd_taluka_name' => 'nullable',
-                'd_pincode' => 'nullable'
+                'declare_by' => 'sometimes|nullable|string',
+                'declare_date' => 'sometimes|nullable|string',
+                'nominated_persion' => 'sometimes|nullable|string',
+                'nominated_persion_name' => 'sometimes|nullable|string',
+                'deliver_by' => 'sometimes|nullable|string',
+                'd_last_name' => 'sometimes|nullable|string',
+                'd_first_name' => 'sometimes|nullable|string',
+                'd_father_name' => 'sometimes|nullable|string',
+                'd_house_name' => 'sometimes|nullable|string',
+                'd_flat_no' => 'sometimes|nullable|string',
+                'd_wing_no' => 'sometimes|nullable|string',
+                'd_road_name' => 'sometimes|nullable|string',
+                'd_area_name' => 'sometimes|nullable|string',
+                'd_taluka_name' => 'sometimes|nullable|string',
+                'd_pincode' => 'sometimes|nullable|string'
             ];
         }else{
             $rule = [
                 // === Basic Details
                 'l_name' => 'required',
                 'f_name' => 'required',
-                'father_name' => 'nullable',
+                'father_name' => 'sometimes|nullable|string',
                 'society_name' => 'required',
-                'designation' => 'nullable',
+                'designation' => 'sometimes|nullable|string',
 
                 // ===== Address Details
-                'house_name' => 'nullable',
-                'flat_no' => 'nullablel',
-                'wing_name' => 'nullablel',
-                'road_name' => 'nullablel',
-                'area_name' => 'nullablel',
-                'taluka_name' => 'nullablel',
-                'pincode' => 'nullablel',
-                'ward_no' => 'nullablel',
-                'electrol_panel_no' => 'nullablel',
+                'house_name' => 'sometimes|nullable|string',
+                'flat_no' => 'sometimes|nullable|string',
+                'wing_name' => 'sometimes|nullable|string',
+                'road_name' => 'sometimes|nullable|string',
+                'area_name' => 'sometimes|nullable|string',
+                'taluka_name' => 'sometimes|nullable|string',
+                'pincode' => 'sometimes|nullable|string',
+                'ward_no' => 'sometimes|nullable|string',
+                'electrol_panel_no' => 'sometimes|nullable|string',
                 'contact_persion' => 'required',
-                // 'tel_no' => 'nullable|numeric',
-                // 'email' => 'nullable|email',
+                // 'tel_no' => 'sometimes|nullable|string|numeric',
+                // 'email' => 'sometimes|nullable|string|email',
 
                 // ===== Information of Property
-                'types_of_property' => 'nullable',
-                'property_no' => 'nullable',
+                'types_of_property' => 'sometimes|nullable|string',
+                'property_no' => 'sometimes|nullable|string',
 
                 // ====== Information of Land
-                'peermission_no' => 'nullable',
-                'permission_date' => 'nullable',
+                'peermission_no' => 'sometimes|nullable|string',
+                'permission_date' => 'sometimes|nullable|string',
 
                 // ===== Other Document
-                'fire_equipments_install_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:8388608',
+                'fire_equipments_install_doc' => 'sometimes|nullable|mimes:jpeg,png,jpg,pdf|max:8388608',
 
                 // ===== Declaration
-                'declare_by' => 'nullable',
-                'declare_date' => 'nullable',
-                'nominated_persion' => 'nullable',
-                'nominated_persion_name' => 'nullable',
-                'deliver_by' => 'nullable',
-                'd_last_name' => 'nullable',
-                'd_first_name' => 'nullable',
-                'd_father_name' => 'nullable',
-                'd_house_name' => 'nullable',
-                'd_flat_no' => 'nullable',
-                'd_wing_no' => 'nullable',
-                'd_road_name' => 'nullable',
-                'd_area_name' => 'nullable',
-                'd_taluka_name' => 'nullable',
-                'd_pincode' => 'nullable'
+                'declare_by' => 'sometimes|nullable|string',
+                'declare_date' => 'sometimes|nullable|string',
+                'nominated_persion' => 'sometimes|nullable|string',
+                'nominated_persion_name' => 'sometimes|nullable|string',
+                'deliver_by' => 'sometimes|nullable|string',
+                'd_last_name' => 'sometimes|nullable|string',
+                'd_first_name' => 'sometimes|nullable|string',
+                'd_father_name' => 'sometimes|nullable|string',
+                'd_house_name' => 'sometimes|nullable|string',
+                'd_flat_no' => 'sometimes|nullable|string',
+                'd_wing_no' => 'sometimes|nullable|string',
+                'd_road_name' => 'sometimes|nullable|string',
+                'd_area_name' => 'sometimes|nullable|string',
+                'd_taluka_name' => 'sometimes|nullable|string',
+                'd_pincode' => 'sometimes|nullable|string'
             ];
         }
         return $rule;
@@ -162,8 +162,8 @@ class FinalBuildindgNOCRequest extends FormRequest
 
              // ===== Other Document
             // 'fire_equipments_install_doc.required' => 'Commissioning Certificate of Fire extinguishers / preventive equipments of I.S.I. Mark is required',
-            'fire_equipments_install_doc.max' => 'The file size should be less than 2MB.',
-            'fire_equipments_install_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
+            'fire_equipments_install_doc.max' => 'The file size should be less than 10MB.',
+            'fire_equipments_install_doc.mimes' => 'Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
              // ===== Declaration
             //  'declare_by.required' => 'Applicant Name is required',

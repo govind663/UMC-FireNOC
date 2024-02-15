@@ -295,7 +295,7 @@ class AdminFinalBuildingNOCController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function admin_final_building_noc($id, $status)
+    public function admin_download_final_building_noc_pdf($id, $status)
     {
         $data = DB::table('building_noc as t1')
                 ->select('t1.*', 't2.*', 't1.id as F_NOC_ID', 't2.id as d_ID')
@@ -308,6 +308,6 @@ class AdminFinalBuildingNOCController extends Controller
                 ->first();
         // dd($data);
 
-        return FacadePdf::loadView('citizen.building_noc.final_building_noc.final_building_noc_pdf', compact('data','status'))->stream("Renew Business NOC #".$data->F_NOC_ID.".pdf");
+        return FacadePdf::loadView('citizen.building_noc.final_building_noc.final_building_noc_pdf', compact('data','status'))->stream("Final Building NOC #".$data->F_NOC_ID.".pdf");
     }
 }

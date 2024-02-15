@@ -146,7 +146,7 @@
                                                             </a>
                                                             @if ($value->status == 0)
                                                             &nbsp;&nbsp;
-                                                            <a href='{{ url("/admin_download_final_building_noc_pdf/{$value->P_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
+                                                            <a href='{{ url("/admin_download_provisional_building_noc_pdf/{$value->P_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
                                                                 <b><i class="mdi mdi-file"> Download View </i></b>
                                                             </a>
                                                             @endif

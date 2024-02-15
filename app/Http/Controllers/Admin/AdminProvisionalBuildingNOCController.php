@@ -314,6 +314,7 @@ class AdminProvisionalBuildingNOCController extends Controller
                 ->whereNUll('t2.deleted_at')
                 ->first();
 
-        return FacadePdf::loadView('citizen.building_noc.provisional_building_noc.provisional_building_noc_pdf', compact('data','status'))->stream("Renew Business NOC #".$data->RH_NOC_ID.".pdf");
+        return FacadePdf::loadView('citizen.building_noc.provisional_building_noc.provisional_building_noc_pdf', compact('data','status'))
+        ->stream("Provisional Building NOC #".$data->P_NOC_ID.".pdf");
     }
 }

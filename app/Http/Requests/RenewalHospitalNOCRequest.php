@@ -226,39 +226,39 @@ class RenewalHospitalNOCRequest extends FormRequest
 
              // ===== Other Document
             // 'property_doc.required' => 'Document Of Property is required',
-            'property_doc.max' => 'The file size should be less than 2MB.',
+            'property_doc.max' => 'The file size should be less than 10MB.',
             'property_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
             // 'location_doc.required' => 'Copy of Previous NOC is required',
-            'location_doc.max' => 'The file size should be less than 2MB.',
+            'location_doc.max' => 'The file size should be less than 10MB.',
             'location_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
             // 'electric_doc.required' => 'Letter from License Holder regarding proper electric connection is required',
-            'electric_doc.max' => 'The file size should be less than 2MB.',
+            'electric_doc.max' => 'The file size should be less than 10MB.',
             'electric_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
             // 'shop_license_doc.required' => 'Shop License is required',
-            'shop_license_doc.max' => 'The file size should be less than 2MB.',
+            'shop_license_doc.max' => 'The file size should be less than 10MB.',
             'shop_license_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
             // 'paid_tax_bill_doc.required' => 'Up-to-date receipt of Tax bill paid is required',
-            'paid_tax_bill_doc.max' => 'The file size should be less than 2MB.',
+            'paid_tax_bill_doc.max' => 'The file size should be less than 10MB.',
             'paid_tax_bill_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
             // 'commissioning_certificate.required' => 'Commissioning Certificate of Fire extinguishers / preventive equipments of I.S.I. Mark is required',
-            'commissioning_certificate.max' => 'The file size should be less than 2MB.',
+            'commissioning_certificate.max' => 'The file size should be less than 10MB.',
             'commissioning_certificate.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
             // 'affidavit_doc.required' => 'Copy of Affidavit is required',
-            'affidavit_doc.max' => 'The file size should be less than 2MB.',
+            'affidavit_doc.max' => 'The file size should be less than 10MB.',
             'affidavit_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
             // 'corporation_certificate.required' => 'Corporation Registration certificate (FOR OLD HOSPITAL) is required',
-            'corporation_certificate.max' => 'The file size should be less than 2MB.',
+            'corporation_certificate.max' => 'The file size should be less than 10MB.',
             'corporation_certificate.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
             // 'construction_plan_doc.required' => 'Maps of Proposed Construction is required',
-            'construction_plan_doc.max' => 'The file size should be less than 2MB.',
+            'construction_plan_doc.max' => 'The file size should be less than 10MB.',
             'construction_plan_doc.mimes' => ' Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .',
 
              // ===== Declaration

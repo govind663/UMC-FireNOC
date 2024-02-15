@@ -25,6 +25,12 @@
     <!-- App Css-->
     <link href="{{ url('/') }}/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
 
+    {{-- Select 2 --}}
+    <link href="{{ url('/') }}/assets/libs/select2/css/select2.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ url('/') }}/assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <link href="{{ url('/') }}/assets/libs/spectrum-colorpicker2/spectrum.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ url('/') }}/assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet">
+
     <!-- Toaster Message -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -32,12 +38,11 @@
 </head>
 
 <style>
-    .select2 {
-        border: 1px solid rgb(7, 147, 165);
-        border-radius: 5px;
-    }
+    .card-header {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
 </style>
-
 <body data-topbar="colored" data-layout="horizontal">
 
     <!-- Begin page -->
@@ -90,9 +95,10 @@
 
                                                 </div>
 
-                                                <label class="col-sm-3"><strong>Application Unique Id : </strong></label>
+                                                <label class="col-sm-2"><strong>Application Unique Id : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
                                                     <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->mst_token }}">
+
                                                 </div>
                                             </div>
 
@@ -121,68 +127,55 @@
                                                 </div>
                                             </div>
 
-                                            <h4 class="card-title text-primary mb-3"><b>Basic Details :</b></h4>
+                                            <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Basic Details :</h4>
                                             <div class="form-group row  mb-3">
-                                                <label class="col-sm-1"><strong>First Name : </strong></label>
-                                                <div class="col-sm-2 col-md-2">
-                                                    <input readonly type="text" name="f_name" id="f_name" class="form-control " value="{{ $data->f_name }}" placeholder="Enter First Name.">
-
-                                                </div>
-
-                                                <label class="col-sm-1"><strong>Father / Husband's Name : </strong></label>
-                                                <div class="col-sm-2 col-md-2">
-                                                    <input readonly type="text" name="father_name" id="father_name" class="form-control " value="{{ $data->father_name }}" placeholder="Enter Father / Husband's Name.">
-
-                                                </div>
-
-                                                <label class="col-sm-1"><strong>Last Name : </strong></label>
+                                                <label class="col-sm-2"><strong>Last Name / Surname : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
                                                     <input readonly type="text" name="l_name" id="l_name" class="form-control " value="{{ $data->l_name }}" placeholder="Enter Last Name / Surname.">
 
                                                 </div>
+                                                <label class="col-sm-2"><strong>First Name : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="f_name" id="f_name" class="form-control " value="{{ $data->f_name }}" placeholder="Enter First Name.">
+
+                                                </div>
+                                                <label class="col-sm-2"><strong>Father / Husband's Name : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="father_name" id="father_name" class="form-control " value="{{ $data->father_name }}" placeholder="Enter Father / Husband's Name.">
+
+                                                </div>
                                             </div>
 
-                                            <h4 class="card-title text-primary mb-3"><b>Payment Details :</b></h4>
-                                            <table id="dynamicTable" class="table table-bordered">
-                                                <thead>
-                                                    <tr style="color: white; background:#086070;">
-                                                        <th>Description</th>
-                                                        <th>Actual Area ( Sq.Mt. )</th>
-                                                        <th>Actual Charges ( Sq.Mt. )</th>
-                                                        <th>NOC Charges</th>
-                                                        <th class="col-2">Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody style="border: 1px solid rgb(3, 155, 155);">
+                                            <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Payment Details :</h4>
 
-                                                    <tr>
-                                                        <td>
-                                                            <input type="text" name="addmore[0][description]" id="description" placeholder="Enter Description" required  class="form-control" />
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" name="addmore[0][area]" id="area" placeholder="Enter Area" required class="form-control actualArea" />
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" name="addmore[0][actualcharges]" id="actualcharges" required placeholder="Enter Actual Charges" class="form-control actualCharges" />
-                                                        </td>
-                                                        <td>
-                                                            <input type="text" name="addmore[0][noccharges]" id="noccharges" required placeholder="Enter NOC Charges" class="form-control nocCharges" />
-                                                        </td>
-                                                        <td>
-                                                            <button type="button" name="add" id="add" class="btn btn-primary btn-sm ">
-                                                                + Add More
-                                                            </button>
-                                                        </td>
-                                                    </tr>
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-3"><strong>Type Of NOC : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <select class="form-control select2 @error('fee_construction_id') is-invalid @enderror" name="fee_construction_id" id="fee_construction_id">
+                                                        <option value="">Select Type Of NOC</option>
+                                                        <optgroup label="">
+                                                            @foreach ($mst_fee_construction as $value)
+                                                            <option value="{{ $value->id }}" {{ old('fee_construction_id') == "1" ? 'selected' : '' }}>{{ $value->construction_type }}</option>
+                                                            @endforeach
+                                                        </optgroup>
+                                                    </select>
+                                                    @error('fee_construction_id')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
 
-                                                </tbody>
-                                                <tfoot>
-                                                    <tr>
-                                                        <th scope="row" colspan="3" class="border-0 text-end"><b>Total NOC Charges : - </b></th>
-                                                        <td class="border-0 text-end"><h4 class="m-0 fw-semibold">00 Rs</h4></td>
-                                                    </tr>
-                                                </tfoot>
-                                            </table>
+                                                <label class="col-sm-3"><strong>Total NOC Charges : <span style="color:red;">*</span></strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <input  type="text" name="total_charges_cost" id="total_charges_cost" class="form-control "  value="{{ old('total_charges_cost') }}" placeholder="Enter Total NOC Charges.">
+                                                    @error('total_charges_cost')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+                                            </div>
 
                                             <div class="form-group row mt-4">
                                                 <label class="col-md-3"></label>
@@ -569,36 +562,47 @@
                                                 </div>
                                             </div>
 
-                                            <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Payment Details :</h4>
+                                            <h4 class="card-title text-primary mb-3"><b>Payment Details :</b></h4>
+                                            <table id="dynamicTable" class="table table-bordered">
+                                                <thead>
+                                                    <tr style="color: white; background:#086070;">
+                                                        <th>Description</th>
+                                                        <th>Actual Area ( Sq.Mt. )</th>
+                                                        <th>Actual Charges ( Sq.Mt. )</th>
+                                                        <th>NOC Charges</th>
+                                                        <th class="col-2">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="border: 1px solid rgb(3, 155, 155);">
 
-                                            <div class="form-group row  mb-3">
-                                                <label class="col-sm-3"><strong>Type Of NOC : <span style="color:red;">*</span></strong></label>
-                                                <div class="col-sm-3 col-md-3">
-                                                    <select class="form-control select2 @error('fee_construction_id') is-invalid @enderror" name="fee_construction_id" id="fee_construction_id">
-                                                        <option value="">Select Type Of NOC</option>
-                                                        <optgroup label="">
-                                                            @foreach ($mst_fee_construction as $value)
-                                                            <option value="{{ $value->id }}" {{ old('fee_construction_id') == "1" ? 'selected' : '' }}>{{ $value->construction_type }}</option>
-                                                            @endforeach
-                                                        </optgroup>
-                                                    </select>
-                                                    @error('fee_construction_id')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
+                                                    <tr>
+                                                        <td>
+                                                            <input type="text" name="addmore[0][description]" id="description" placeholder="Enter Description" required  class="form-control" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="addmore[0][area]" id="area" placeholder="Enter Area" required class="form-control actualArea" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="addmore[0][actualcharges]" id="actualcharges" required placeholder="Enter Actual Charges" class="form-control actualCharges" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="addmore[0][noccharges]" id="noccharges" required readonly placeholder="Enter NOC Charges" class="form-control nocCharges" />
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" name="add" id="add" class="btn btn-primary btn-sm ">
+                                                                + Add More
+                                                            </button>
+                                                        </td>
+                                                    </tr>
 
-                                                <label class="col-sm-3"><strong>Total NOC Charges : <span style="color:red;">*</span></strong></label>
-                                                <div class="col-sm-3 col-md-3">
-                                                    <input  type="text" name="total_charges_cost" id="total_charges_cost" class="form-control "  value="{{ old('total_charges_cost') }}" placeholder="Enter Total NOC Charges.">
-                                                    @error('total_charges_cost')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th scope="row" colspan="3" class="border-0 text-end"><b>Total NOC Charges : - </b></th>
+                                                        <td class="border-0 text-end"><h4 class="m-0 fw-semibold">00 Rs</h4></td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
 
                                             <div class="form-group row mt-4">
                                                 <label class="col-md-3"></label>
