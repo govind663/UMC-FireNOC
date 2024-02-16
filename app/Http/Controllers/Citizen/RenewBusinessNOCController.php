@@ -100,8 +100,8 @@ class RenewBusinessNOCController extends Controller
         $noc_master->inserted_by = Auth::user()->id;
         $noc_master->save();
 
-        // ==== Generate New Business NOC Token Number
-        $unique_id = "UMC/FHN/".rand(1000,10000000);
+        // ==== Generate Renew Business NOC Token Number
+        $unique_id = "UMC/RBN/".rand(1000,10000000);
         $update = [
             'mst_token' => $unique_id.$noc_master->id ,
         ];

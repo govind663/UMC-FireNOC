@@ -97,7 +97,7 @@ class NewHospitalNOCController extends Controller
         $noc_master->save();
 
         // ==== Generate New Hospital NOC Token Number
-        $unique_id = "UMC/HN/".rand(1000,10000000);
+        $unique_id = "UMC/NHN/".rand(1000,10000000);
         $update = [
             'mst_token' => $unique_id.$noc_master->id ,
         ];

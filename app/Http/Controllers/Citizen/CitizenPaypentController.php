@@ -135,7 +135,7 @@ class CitizenPaypentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function make_payment_store(CitizePaymentRequest $request, $id,  $status, $noc_mode)
+    public function make_payment_store(Request $request, $id,  $status, $noc_mode)
     {
         if($noc_mode == 1){
             // dd($request);
@@ -150,13 +150,6 @@ class CitizenPaypentController extends Controller
             $data->f_name = $request->get('f_name');
             $data->father_name = $request->get('father_name');
             $data->fee_construction_id = $request->get('fee_construction_id');
-            $data->fee_mode_operate_id = ($request->fee_mode_operate_id) ? $request->get('fee_mode_operate_id') : 0;
-
-            $data->wing_option = ($request->wing_option) ? $request->get('wing_option') : 0;
-            $data->fee_bldg_ht_id = ($request->fee_bldg_ht_id) ? $request->get('fee_bldg_ht_id') : 0;
-            $data->wing_rate = ($request->wing_rate) ? $request->get('wing_rate') : 0;
-            $data->new_area_meter = ($request->new_area_meter) ? $request->get('new_area_meter') : 0;
-            $data->meter_rate = ($request->meter_rate) ? $request->get('meter_rate') : 0;
             $data->total_charges_cost = ($request->total_charges_cost) ? $request->get('total_charges_cost') : 0;
 
             $data->inserted_dt = date("Y-m-d H:i:s");
@@ -198,13 +191,6 @@ class CitizenPaypentController extends Controller
             $data->f_name = $request->get('f_name');
             $data->father_name = $request->get('father_name');
             $data->fee_construction_id = $request->get('fee_construction_id');
-            $data->fee_mode_operate_id = ($request->fee_mode_operate_id) ? $request->get('fee_mode_operate_id') : 0;
-
-            $data->wing_option = ($request->wing_option) ? $request->get('wing_option') : 0;
-            $data->fee_bldg_ht_id = ($request->fee_bldg_ht_id) ? $request->get('fee_bldg_ht_id') : 0;
-            $data->wing_rate = ($request->wing_rate) ? $request->get('wing_rate') : 0;
-            $data->new_area_meter = ($request->new_area_meter) ? $request->get('new_area_meter') : 0;
-            $data->meter_rate = ($request->meter_rate) ? $request->get('meter_rate') : 0;
             $data->total_charges_cost = ($request->total_charges_cost) ? $request->get('total_charges_cost') : 0;
 
             $data->inserted_dt = date("Y-m-d H:i:s");
@@ -235,6 +221,7 @@ class CitizenPaypentController extends Controller
 
         }elseif($noc_mode == 3){
 
+            // return $request;
             $data = new CitizenPayment();
 
             $data->mst_token = $request->get('mst_token');
@@ -242,17 +229,17 @@ class CitizenPaypentController extends Controller
             $data->citizen_id = $request->get('citizens_id');
             $data->payment_noc_mode = $request->get('payment_noc_mode');
 
-            $data->l_name = $request->get('l_name');
-            $data->f_name = $request->get('f_name');
-            $data->father_name = $request->get('father_name');
-            $data->fee_construction_id = $request->get('fee_construction_id');
-            $data->fee_mode_operate_id = ($request->fee_mode_operate_id) ? $request->get('fee_mode_operate_id') : 0;
+            $data->l_name = $request->get('l_name') ?$request->get('l_name'):NULL;
+            $data->f_name = $request->get('f_name') ?$request->get('f_name'):NULL;
+            $data->father_name = $request->get('father_name') ?$request->get('father_name'):NULL;
+            $data->fee_construction_id = $request->get('fee_construction_id') ?$request->get('fee_construction_id'):NULL;
 
-            $data->wing_option = ($request->wing_option) ? $request->get('wing_option') : 0;
-            $data->fee_bldg_ht_id = ($request->fee_bldg_ht_id) ? $request->get('fee_bldg_ht_id') : 0;
-            $data->wing_rate = ($request->wing_rate) ? $request->get('wing_rate') : 0;
-            $data->new_area_meter = ($request->new_area_meter) ? $request->get('new_area_meter') : 0;
-            $data->meter_rate = ($request->meter_rate) ? $request->get('meter_rate') : 0;
+            // ==== How to get add/remove  fields data?
+            $data->description = json_encode($request->get('description')) ? json_encode($request->get('description')) : null ;
+            $data->area = json_encode($request->get('area')) ? json_encode($request->get('area')) : null ;
+            $data->actualcharges = json_encode($request->get('actualcharges'))  ? json_encode($request->get('actualcharges')) : null ;
+            $data->noccharges = json_encode($request->get('noccharges'))  ? json_encode($request->get('noccharges')) : null ;
+
             $data->total_charges_cost = ($request->total_charges_cost) ? $request->get('total_charges_cost') : 0;
 
             $data->inserted_dt = date("Y-m-d H:i:s");
@@ -293,14 +280,14 @@ class CitizenPaypentController extends Controller
             $data->l_name = $request->get('l_name');
             $data->f_name = $request->get('f_name');
             $data->father_name = $request->get('father_name');
-            $data->fee_construction_id = $request->get('fee_construction_id');
-            $data->fee_mode_operate_id = ($request->fee_mode_operate_id) ? $request->get('fee_mode_operate_id') : 0;
+            $data->fee_construction_id = $request->get('fee_construction_id') ?$request->get('fee_construction_id'):NULL;
 
-            $data->wing_option = ($request->wing_option) ? $request->get('wing_option') : 0;
-            $data->fee_bldg_ht_id = ($request->fee_bldg_ht_id) ? $request->get('fee_bldg_ht_id') : 0;
-            $data->wing_rate = ($request->wing_rate) ? $request->get('wing_rate') : 0;
-            $data->new_area_meter = ($request->new_area_meter) ? $request->get('new_area_meter') : 0;
-            $data->meter_rate = ($request->meter_rate) ? $request->get('meter_rate') : 0;
+            // ==== How to get add/remove  fields data?
+            $data->description = json_encode($request->get('description')) ? json_encode($request->get('description')) : null ;
+            $data->area = json_encode($request->get('area')) ? json_encode($request->get('area')) : null ;
+            $data->actualcharges = json_encode($request->get('actualcharges'))  ? json_encode($request->get('actualcharges')) : null ;
+            $data->noccharges = json_encode($request->get('noccharges'))  ? json_encode($request->get('noccharges')) : null ;
+
             $data->total_charges_cost = ($request->total_charges_cost) ? $request->get('total_charges_cost') : 0;
 
             $data->inserted_dt = date("Y-m-d H:i:s");
@@ -340,15 +327,14 @@ class CitizenPaypentController extends Controller
 
             $data->l_name = $request->get('l_name');
             $data->f_name = $request->get('f_name');
-            $data->father_name = $request->get('father_name');
-            $data->fee_construction_id = $request->get('fee_construction_id');
-            $data->fee_mode_operate_id = ($request->fee_mode_operate_id) ? $request->get('fee_mode_operate_id') : 0;
+            $data->fee_construction_id = $request->get('fee_construction_id') ?$request->get('fee_construction_id'):NULL;
 
-            $data->wing_option = ($request->wing_option) ? $request->get('wing_option') : 0;
-            $data->fee_bldg_ht_id = ($request->fee_bldg_ht_id) ? $request->get('fee_bldg_ht_id') : 0;
-            $data->wing_rate = ($request->wing_rate) ? $request->get('wing_rate') : 0;
-            $data->new_area_meter = ($request->new_area_meter) ? $request->get('new_area_meter') : 0;
-            $data->meter_rate = ($request->meter_rate) ? $request->get('meter_rate') : 0;
+            // ==== How to get add/remove  fields data?
+            $data->description = json_encode($request->get('description')) ? json_encode($request->get('description')) : null ;
+            $data->area = json_encode($request->get('area')) ? json_encode($request->get('area')) : null ;
+            $data->actualcharges = json_encode($request->get('actualcharges'))  ? json_encode($request->get('actualcharges')) : null ;
+            $data->noccharges = json_encode($request->get('noccharges'))  ? json_encode($request->get('noccharges')) : null ;
+
             $data->total_charges_cost = ($request->total_charges_cost) ? $request->get('total_charges_cost') : 0;
 
             $data->inserted_dt = date("Y-m-d H:i:s");
@@ -389,14 +375,15 @@ class CitizenPaypentController extends Controller
             $data->l_name = $request->get('l_name');
             $data->f_name = $request->get('f_name');
             $data->father_name = $request->get('father_name');
-            $data->fee_construction_id = $request->get('fee_construction_id');
-            $data->fee_mode_operate_id = ($request->fee_mode_operate_id) ? $request->get('fee_mode_operate_id') : 0;
 
-            $data->wing_option = ($request->wing_option) ? $request->get('wing_option') : 0;
-            $data->fee_bldg_ht_id = ($request->fee_bldg_ht_id) ? $request->get('fee_bldg_ht_id') : 0;
-            $data->wing_rate = ($request->wing_rate) ? $request->get('wing_rate') : 0;
-            $data->new_area_meter = ($request->new_area_meter) ? $request->get('new_area_meter') : 0;
-            $data->meter_rate = ($request->meter_rate) ? $request->get('meter_rate') : 0;
+            $data->fee_construction_id = $request->get('fee_construction_id') ?$request->get('fee_construction_id'):NULL;
+
+            // ==== How to get add/remove  fields data?
+            $data->description = json_encode($request->get('description')) ? json_encode($request->get('description')) : null ;
+            $data->area = json_encode($request->get('area')) ? json_encode($request->get('area')) : null ;
+            $data->actualcharges = json_encode($request->get('actualcharges'))  ? json_encode($request->get('actualcharges')) : null ;
+            $data->noccharges = json_encode($request->get('noccharges'))  ? json_encode($request->get('noccharges')) : null ;
+
             $data->total_charges_cost = ($request->total_charges_cost) ? $request->get('total_charges_cost') : 0;
 
             $data->inserted_dt = date("Y-m-d H:i:s");
@@ -426,7 +413,6 @@ class CitizenPaypentController extends Controller
             return redirect()->route('admin_final_building_noc_list', $status)->with('message', 'Your payment done for your new business noc has been done Successfully.');
 
         }
-
     }
 }
 

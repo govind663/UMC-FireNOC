@@ -85,7 +85,7 @@
                                     @if ($noc_mode == 1)
                                         <h4 class="card-header text-light bg-primary ">Make Payment for New Business NOC</h4>
 
-                                        <form class="auth-input p-4" method="POST" action='{{ url("/make_payment/store/{$data->NB_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off">
+                                        <form class="auth-input p-4" method="POST" action='{{ url("/make_payment/store/{$data->NB_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off" style="border: 1px solid rgb(3, 155, 155);">
                                             @csrf
 
                                             <div class="form-group row mb-3">
@@ -189,7 +189,7 @@
                                     @elseif ($noc_mode == 2)
                                         <h4 class="card-header text-light bg-primary ">Make Payment for Renew Business NOC</h4>
 
-                                        <form class="auth-input p-4" method="POST" action='{{ url("/make_payment/store/{$data->RB_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off">
+                                        <form class="auth-input p-4" method="POST" action='{{ url("/make_payment/store/{$data->RB_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off" style="border: 1px solid rgb(3, 155, 155);">
                                             @csrf
 
                                             <div class="form-group row mb-3">
@@ -293,7 +293,7 @@
                                     @elseif ($noc_mode == 3)
                                         <h4 class="card-header text-light bg-primary ">Make Payment for New Hospital NOC</h4>
 
-                                        <form class="auth-input p-4" method="POST" action='{{ url("/make_payment/store/{$data->NH_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off">
+                                        <form class="auth-input p-4" method="POST" action='{{ url("/make_payment/store/{$data->NH_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off" style="border: 1px solid rgb(3, 155, 155);">
                                             @csrf
 
                                             <div class="form-group row mb-3">
@@ -354,36 +354,51 @@
                                                 </div>
                                             </div>
 
-                                            <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Payment Details :</h4>
+                                            <h4 class="card-title text-primary mb-3"><b>Payment Details :</b></h4>
+                                            <table id="dynamicTable" class="table table-bordered">
+                                                <thead>
+                                                    <tr style="color: white; background:#086070;">
+                                                        <th>Description</th>
+                                                        <th>Actual Area ( Sq.Mt. )</th>
+                                                        <th>Actual Charges ( Sq.Mt. )</th>
+                                                        <th>NOC Charges</th>
+                                                        <th class="col-2">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="border: 1px solid rgb(3, 155, 155);">
 
-                                            <div class="form-group row  mb-3">
-                                                <label class="col-sm-3"><strong>Type Of NOC : <span style="color:red;">*</span></strong></label>
-                                                <div class="col-sm-3 col-md-3">
-                                                    <select class="form-control select2 @error('fee_construction_id') is-invalid @enderror" name="fee_construction_id" id="fee_construction_id">
-                                                        <option value="">Select Type Of NOC</option>
-                                                        <optgroup label="">
-                                                            @foreach ($mst_fee_construction as $value)
-                                                            <option value="{{ $value->id }}" {{ old('fee_construction_id') == "1" ? 'selected' : '' }}>{{ $value->construction_type }}</option>
-                                                            @endforeach
-                                                        </optgroup>
-                                                    </select>
-                                                    @error('fee_construction_id')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
+                                                    <tr>
+                                                        <td>
+                                                            <input type="text" name="description[]" id="description" placeholder="Enter Description" required  class="form-control" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="area[]" id="area" placeholder="Enter Area" required class="form-control actualArea" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="actualcharges[]" id="actualcharges" required placeholder="Enter Actual Charges" class="form-control actualCharges" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="noccharges[]" id="noccharges" required readonly placeholder="Enter NOC Charges" class="form-control nocCharges" />
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" name="add" id="add" class="btn btn-primary btn-sm ">
+                                                                + Add More
+                                                            </button>
+                                                        </td>
+                                                    </tr>
 
-                                                <label class="col-sm-3"><strong>Total NOC Charges : <span style="color:red;">*</span></strong></label>
-                                                <div class="col-sm-3 col-md-3">
-                                                    <input  type="text" name="total_charges_cost" id="total_charges_cost" class="form-control "  value="{{ old('total_charges_cost') }}" placeholder="Enter Total NOC Charges.">
-                                                    @error('total_charges_cost')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th scope="row" colspan="3" class="border-0 text-end"><b>Total NOC Charges : - </b></th>
+                                                        <td class="border-0 text-end">
+                                                            <h4 class="m-0 fw-semibold">
+                                                                <input type="text" name="total_charges_cost" id="total_charges_cost" value="0"  readonly class="form-control" />
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
 
                                             <div class="form-group row mt-4">
                                                 <label class="col-md-3"></label>
@@ -397,7 +412,7 @@
                                     @elseif ($noc_mode == 4)
                                         <h4 class="card-header text-light bg-primary ">Make Payment for Renew Hospital NOC</h4>
 
-                                        <form class="auth-input p-4" method="POST" action='{{ url("/make_payment/store/{$data->RH_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off">
+                                        <form class="auth-input p-4" method="POST" action='{{ url("/make_payment/store/{$data->RH_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off" style="border: 1px solid rgb(3, 155, 155);">
                                             @csrf
 
                                             <div class="form-group row mb-3">
@@ -458,36 +473,51 @@
                                                 </div>
                                             </div>
 
-                                            <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Payment Details :</h4>
+                                            <h4 class="card-title text-primary mb-3"><b>Payment Details :</b></h4>
+                                            <table id="dynamicTable" class="table table-bordered">
+                                                <thead>
+                                                    <tr style="color: white; background:#086070;">
+                                                        <th>Description</th>
+                                                        <th>Actual Area ( Sq.Mt. )</th>
+                                                        <th>Actual Charges ( Sq.Mt. )</th>
+                                                        <th>NOC Charges</th>
+                                                        <th class="col-2">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="border: 1px solid rgb(3, 155, 155);">
 
-                                            <div class="form-group row  mb-3">
-                                                <label class="col-sm-3"><strong>Type Of NOC : <span style="color:red;">*</span></strong></label>
-                                                <div class="col-sm-3 col-md-3">
-                                                    <select class="form-control select2 @error('fee_construction_id') is-invalid @enderror" name="fee_construction_id" id="fee_construction_id">
-                                                        <option value="">Select Type Of NOC</option>
-                                                        <optgroup label="">
-                                                            @foreach ($mst_fee_construction as $value)
-                                                            <option value="{{ $value->id }}" {{ old('fee_construction_id') == "1" ? 'selected' : '' }}>{{ $value->construction_type }}</option>
-                                                            @endforeach
-                                                        </optgroup>
-                                                    </select>
-                                                    @error('fee_construction_id')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
+                                                    <tr>
+                                                        <td>
+                                                            <input type="text" name="description[]" id="description" placeholder="Enter Description" required  class="form-control" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="area[]" id="area" placeholder="Enter Area" required class="form-control actualArea" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="actualcharges[]" id="actualcharges" required placeholder="Enter Actual Charges" class="form-control actualCharges" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="noccharges[]" id="noccharges" required readonly placeholder="Enter NOC Charges" class="form-control nocCharges" />
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" name="add" id="add" class="btn btn-primary btn-sm ">
+                                                                + Add More
+                                                            </button>
+                                                        </td>
+                                                    </tr>
 
-                                                <label class="col-sm-3"><strong>Total NOC Charges : <span style="color:red;">*</span></strong></label>
-                                                <div class="col-sm-3 col-md-3">
-                                                    <input  type="text" name="total_charges_cost" id="total_charges_cost" class="form-control "  value="{{ old('total_charges_cost') }}" placeholder="Enter Total NOC Charges.">
-                                                    @error('total_charges_cost')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th scope="row" colspan="3" class="border-0 text-end"><b>Total NOC Charges : - </b></th>
+                                                        <td class="border-0 text-end">
+                                                            <h4 class="m-0 fw-semibold">
+                                                                <input type="text" name="total_charges_cost" id="total_charges_cost" value="0"  readonly class="form-control" />
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
 
                                             <div class="form-group row mt-4">
                                                 <label class="col-md-3"></label>
@@ -501,7 +531,7 @@
                                     @elseif ($noc_mode == 5)
                                         <h4 class="card-header text-light bg-primary ">Make Payment for Provisional Building NOC</h4>
 
-                                        <form class="auth-input p-4" method="POST" action='{{ url("/make_payment/store/{$data->P_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off">
+                                        <form class="auth-input p-4" method="POST" action='{{ url("/make_payment/store/{$data->P_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off" style="border: 1px solid rgb(3, 155, 155);">
                                             @csrf
 
                                             <div class="form-group row mb-3">
@@ -577,16 +607,16 @@
 
                                                     <tr>
                                                         <td>
-                                                            <input type="text" name="addmore[0][description]" id="description" placeholder="Enter Description" required  class="form-control" />
+                                                            <input type="text" name="description[]" id="description" placeholder="Enter Description" required  class="form-control" />
                                                         </td>
                                                         <td>
-                                                            <input type="text" name="addmore[0][area]" id="area" placeholder="Enter Area" required class="form-control actualArea" />
+                                                            <input type="text" name="area[]" id="area" placeholder="Enter Area" required class="form-control actualArea" />
                                                         </td>
                                                         <td>
-                                                            <input type="text" name="addmore[0][actualcharges]" id="actualcharges" required placeholder="Enter Actual Charges" class="form-control actualCharges" />
+                                                            <input type="text" name="actualcharges[]" id="actualcharges" required placeholder="Enter Actual Charges" class="form-control actualCharges" />
                                                         </td>
                                                         <td>
-                                                            <input type="text" name="addmore[0][noccharges]" id="noccharges" required readonly placeholder="Enter NOC Charges" class="form-control nocCharges" />
+                                                            <input type="text" name="noccharges[]" id="noccharges" required readonly placeholder="Enter NOC Charges" class="form-control nocCharges" />
                                                         </td>
                                                         <td>
                                                             <button type="button" name="add" id="add" class="btn btn-primary btn-sm ">
@@ -599,7 +629,11 @@
                                                 <tfoot>
                                                     <tr>
                                                         <th scope="row" colspan="3" class="border-0 text-end"><b>Total NOC Charges : - </b></th>
-                                                        <td class="border-0 text-end"><h4 class="m-0 fw-semibold">00 Rs</h4></td>
+                                                        <td class="border-0 text-end">
+                                                            <h4 class="m-0 fw-semibold">
+                                                                <input type="text" name="total_charges_cost" id="total_charges_cost" value="0"  readonly class="form-control" />
+                                                            </h4>
+                                                        </td>
                                                     </tr>
                                                 </tfoot>
                                             </table>
@@ -616,7 +650,7 @@
                                     @elseif ($noc_mode == 6)
                                         <h4 class="card-header text-light bg-primary ">Make Payment for Final Building NOC</h4>
 
-                                        <form class="auth-input p-4" method="POST" action='{{ url("/make_payment/store/{$data->F_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off">
+                                        <form class="auth-input p-4" method="POST" action='{{ url("/make_payment/store/{$data->F_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off" style="border: 1px solid rgb(3, 155, 155);">
                                             @csrf
 
                                             <div class="form-group row mb-3">
@@ -677,36 +711,51 @@
                                                 </div>
                                             </div>
 
-                                            <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Payment Details :</h4>
+                                            <h4 class="card-title text-primary mb-3"><b>Payment Details :</b></h4>
+                                            <table id="dynamicTable" class="table table-bordered">
+                                                <thead>
+                                                    <tr style="color: white; background:#086070;">
+                                                        <th>Description</th>
+                                                        <th>Actual Area ( Sq.Mt. )</th>
+                                                        <th>Actual Charges ( Sq.Mt. )</th>
+                                                        <th>NOC Charges</th>
+                                                        <th class="col-2">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="border: 1px solid rgb(3, 155, 155);">
 
-                                            <div class="form-group row  mb-3">
-                                                <label class="col-sm-3"><strong>Type Of NOC : <span style="color:red;">*</span></strong></label>
-                                                <div class="col-sm-3 col-md-3">
-                                                    <select class="form-control select2 @error('fee_construction_id') is-invalid @enderror" name="fee_construction_id" id="fee_construction_id">
-                                                        <option value="">Select Type Of NOC</option>
-                                                        <optgroup label="">
-                                                            @foreach ($mst_fee_construction as $value)
-                                                            <option value="{{ $value->id }}" {{ old('fee_construction_id') == "1" ? 'selected' : '' }}>{{ $value->construction_type }}</option>
-                                                            @endforeach
-                                                        </optgroup>
-                                                    </select>
-                                                    @error('fee_construction_id')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
+                                                    <tr>
+                                                        <td>
+                                                            <input type="text" name="description[]" id="description" placeholder="Enter Description" required  class="form-control" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="area[]" id="area" placeholder="Enter Area" required class="form-control actualArea" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="actualcharges[]" id="actualcharges" required placeholder="Enter Actual Charges" class="form-control actualCharges" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="noccharges[]" id="noccharges" required readonly placeholder="Enter NOC Charges" class="form-control nocCharges" />
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" name="add" id="add" class="btn btn-primary btn-sm ">
+                                                                + Add More
+                                                            </button>
+                                                        </td>
+                                                    </tr>
 
-                                                <label class="col-sm-3"><strong>Total NOC Charges : <span style="color:red;">*</span></strong></label>
-                                                <div class="col-sm-3 col-md-3">
-                                                    <input  type="text" name="total_charges_cost" id="total_charges_cost" class="form-control "  value="{{ old('total_charges_cost') }}" placeholder="Enter Total NOC Charges.">
-                                                    @error('total_charges_cost')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </div>
-                                            </div>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th scope="row" colspan="3" class="border-0 text-end"><b>Total NOC Charges : - </b></th>
+                                                        <td class="border-0 text-end">
+                                                            <h4 class="m-0 fw-semibold">
+                                                                <input type="text" name="total_charges_cost" id="total_charges_cost" value="0"  readonly class="form-control" />
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
 
                                             <div class="form-group row mt-4">
                                                 <label class="col-md-3"></label>
@@ -800,7 +849,7 @@
 
                 ++i;
 
-                $("#dynamicTable").append('<tr><td><input type="text" name="addmore['+i+'][description]" id="description" placeholder="Enter Description" class="form-control required" /></td><td><input type="text" name="addmore['+i+'][area]" id="area" placeholder="Enter Actual Area ( Sq.Mt. )" class="form-control actualArea" required /></td><td><input type="text" name="addmore['+i+'][actualcharges]" id="actualcharges" placeholder="Enter Actual Charges ( Sq.Mt. )" class="form-control actualCharges" required /></td><td><input type="text" name="addmore['+i+'][noccharges]" id="noccharges" placeholder="Enter NOC Charges" class="form-control nocCharges" required /></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
+                $("#dynamicTable").append('<tr><td><input type="text" name="description[]" id="description" placeholder="Enter Description" class="form-control required" /></td><td><input type="text" name="area[]" id="area" placeholder="Enter Actual Area ( Sq.Mt. )" class="form-control actualArea" required /></td><td><input type="text" name="actualcharges[]" id="actualcharges" placeholder="Enter Actual Charges ( Sq.Mt. )" class="form-control actualCharges" required /></td><td><input type="text" name="noccharges[]" id="noccharges" placeholder="Enter NOC Charges" class="form-control nocCharges" required /></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
             });
 
             $(document).on('click', '.remove-tr', function(){
@@ -815,7 +864,8 @@
                 //    $('#totalAmount').val(0);
                 // alert('if')
                 }else{
-                    $('body').find('.fw-semibold').text(total+'Rs')
+                    $('#total_charges_cost').val(total)
+                    // $('body').find('.fw-semibold').text(total+'Rs')
                 }
             });
 
@@ -844,7 +894,9 @@
                 if (isNaN(total)) {
                 //    $('#totalAmount').val(0);
                 }else{
-                    $('body').find('.fw-semibold').text(total+'Rs')
+                    // === total_charges_cost value  set in hidden field.
+                    $('#total_charges_cost').val(total)
+                    // $('body').find('.fw-semibold').text(total+'Rs')
                 }
             }
 

@@ -96,7 +96,7 @@ class RenewHospitalNOCController extends Controller
         $noc_master->inserted_by = Auth::user()->id;
         $noc_master->save();
 
-        // ==== Generate New Hospital NOC Token Number
+        // ==== Generate Renew Hospital NOC Token Number
         $unique_id = "UMC/RHN/".rand(1000,10000000);
         $update = [
             'mst_token' => $unique_id.$noc_master->id ,

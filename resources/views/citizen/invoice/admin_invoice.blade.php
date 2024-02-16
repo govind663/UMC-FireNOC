@@ -83,121 +83,165 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="card">
-                                    <div class="card-body p-5">
-                                        <div class="invoice-title d-flex justify-content-between ">
-                                            <div class="text-muted">
-                                                <p class="mb-1">
-                                                    Ulhasnagar Municipal Corporation<br>
-                                                    Near Chopda Court, Ulhasnagar - 3<br>
-                                                    Pincode - 421 003, Maharashtra
-                                                </p>
-                                                <p class="mb-1"><i class="mdi mdi-email-outline me-1"></i> cfcumc@gmail.com</p>
-                                                <p><i class="mdi mdi-phone-outline me-1"></i> 0251 2720150</p>
-                                            </div>
+                                <div  class="card">
+                                    <div class="card-body p-4" style="border: 1px solid rgb(3, 155, 155);">
 
-                                            <div class="mb-4">
-                                                <img src="{{ url('/') }}/assets/logo/favicon.ico" alt="logo" class="avatar-image">
+                                        <div class="invoice-title d-flex justify-content-between">
+                                            <div class="col-3 float-md-start">
+                                                <img src="{{ url('/') }}/assets/logo/logo_dark.png" alt="logo" height="120px" width="260px" />
+                                            </div>
+                                            <div class="col-3 text-muted float-md-end text-justify">
+                                                <p class="mb-1">
+                                                    <b>
+                                                        Ulhasnagar Municipal Corporation
+                                                        Near Chopda Court,
+                                                        Ulhasnagar - 3,<br>
+                                                        Pincode - 421 003,
+                                                        Maharashtra.
+                                                    </b>
+                                                </p>
+                                                <p class="mb-1"><b><i class="mdi mdi-email-outline me-1"></i> cfcumc@gmail.com</b></p>
+                                                <p><b><i class="mdi mdi-phone-outline me-1"></i> 0251 2720150</b></p>
                                             </div>
                                         </div>
 
-                                        <hr class="my-4">
-
-                                        <div class="row">
-                                            <div class="col-sm-6">
+                                        <div class="row d-flex justify-content-center align-items-center">
+                                            <div class="col-sm-4">
                                                 <div class="text-muted">
-                                                    <h5 class="font-size-16 mb-3">Billed To:</h5>
-                                                    <h5 class="font-size-15 mb-1">{{ $data->l_name }} {{ $data->father_name }} {{ $data->f_name }} </h5>
+                                                    <h5 class="font-size-16 mb-3 text-primary">
+                                                        <b>Billed To : </b>
+                                                    </h5>
+                                                    <h5 class="font-size-15 mb-1">
+                                                        {{ $data->l_name }} {{ $data->father_name }} {{ $data->f_name }}
+                                                    </h5>
                                                     @if ($noc_mode == 1)
-                                                    <p class="mb-0">{{ $data->society_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} , Pincode : {{ $data->taluka_name }}</p>
+                                                    <p class="mb-0">{{ $data->society_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} ,<br> <b>Pincode : </b> {{ $data->taluka_name }}</p>
                                                     @elseif ($noc_mode == 2)
-                                                    <p class="mb-0">{{ $data->society_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} , Pincode : {{ $data->taluka_name }}</p>
+                                                    <p class="mb-0">{{ $data->society_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} ,<br> <b>Pincode : </b> {{ $data->taluka_name }}</p>
                                                     @elseif ($noc_mode == 3)
-                                                    <p class="mb-0">{{ $data->hospital_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} , Pincode : {{ $data->taluka_name }}</p>
+                                                    <p class="mb-0">{{ $data->hospital_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} ,<br> <b>Pincode : </b> {{ $data->taluka_name }}</p>
                                                     @elseif ($noc_mode == 4)
-                                                    <p class="mb-0">{{ $data->hospital_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} , Pincode : {{ $data->taluka_name }}</p>
+                                                    <p class="mb-0">{{ $data->hospital_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} ,<br> <b>Pincode : </b> {{ $data->taluka_name }}</p>
                                                     @elseif ($noc_mode == 5)
-                                                    <p class="mb-0">{{ $data->society_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} , Pincode : {{ $data->taluka_name }}</p>
+                                                    <p class="mb-0">{{ $data->society_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} ,<br> <b>Pincode : </b> {{ $data->taluka_name }}</p>
                                                     @elseif ($noc_mode == 6)
-                                                    <p class="mb-0">{{ $data->society_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} , Pincode : {{ $data->taluka_name }}</p>
+                                                    <p class="mb-0">{{ $data->society_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} ,<br> <b>Pincode : </b> {{ $data->taluka_name }}</p>
                                                     @endif
 
-                                                    <p class="mb-0">{{ $data->tel_no }}</p>
+                                                    <p class="mb-0"><b>Mobile No. :</b>{{ $data->tel_no }}</p>
                                                 </div>
                                             </div>
+
                                             <!-- end col -->
-                                            <div class="col-sm-6">
-                                                <div class="text-muted text-sm-end">
-                                                    <div>
-                                                        <h5 class="font-size-15 mb-1">Invoice No:</h5>
-                                                        <p class="mb-0">{{ $data->invoice_number }}</p>
-                                                    </div>
-                                                    <div class="mt-3">
-                                                        <h5 class="font-size-15 mb-1">Invoice Date:</h5>
-                                                        <p class="mb-0">{{ $data->payment_dt }}</p>
-                                                    </div>
-                                                    <div class="mt-3">
-                                                        <h5 class="font-size-15 mb-1">Token Number :</h5>
-                                                        <p class="mb-0">{{ $data->mst_token }}</p>
-                                                    </div>
+                                            <div class="col-sm-8">
+                                                <div class="text-muted justify-content-end float-md-end">
+                                                    <h5 class="font-size-15 mb-1"><b>Invoice No :</b> {{ $data->invoice_number }}</h5>
+
+                                                    <h5 class="font-size-15 mb-1"><b>Invoice Date :</b>   {{ date('d-m-Y', strtotime($data->payment_dt)) }} </h5>
+
+                                                    <h5 class="font-size-15 mb-1"><b>Token Number :</b> {{ $data->mst_token }}</h5>
                                                 </div>
                                             </div>
                                             <!-- end col -->
                                         </div>
                                         <!-- end row -->
 
-                                        <div>
-                                            <h5 class="font-size-15 mb-3">Order Summary</h5>
-
-                                            <div class="table-responsive">
-                                                <table class="table align-middle table-nowrap table-centered mb-0">
-                                                    <thead class="bg-light">
-                                                        <td>Sr. No.</td>
-                                                        <td>Type Of NOC</td>
-                                                        <td>Total NOC Charges</td>
-                                                    </thead>
-                                                    <!-- end thead -->
-                                                    <tbody>
-                                                        @foreach ( $fetch_payments as $key => $value )
-                                                            @if($value->mst_token == $data->mst_token )
-                                                                <tr>
-                                                                    <td>
-                                                                        {{ $key+1 }}
-                                                                    </td>
-                                                                    <td>
-                                                                        {{ $value->construction_type }}
-                                                                    </td>
-                                                                    <td>
-                                                                        {{ ($value->total_charges_cost) ? $value->total_charges_cost.' Rs' : '-' }}
-                                                                    </td>
-                                                                </tr>
-                                                            @endif
+                                        <!--  Invoice Item Details -->
+                                        <h4 class="card-title text-primary mb-3 mt-3"><b>Payment Details :</b></h4>
+                                        @if ($noc_mode == 1 || $noc_mode == 2)
+                                        <table class="table table-bordered table-responsive" style="width:90%; margin:auto;">
+                                            <thead style="border: 1px solid rgb(3, 155, 155);">
+                                                <tr>
+                                                    <th><b>Sr. No.</b></th>
+                                                    <td><b>Type Of NOC</b></td>
+                                                    <th><b>Total NOC Charges</b></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="border: 1px solid rgb(3, 155, 155);">
+                                                @foreach ( $fetch_payments as $key => $value )
+                                                    @if($value->mst_token == $data->mst_token )
+                                                        <tr>
+                                                            <td>
+                                                                {{ $key+1 }}
+                                                            </td>
+                                                            <td>
+                                                                {{ $value->construction_type }}
+                                                            </td>
+                                                            <td>
+                                                                {{ ($value->total_charges_cost) ? $value->total_charges_cost.' Rs' : '-' }}
+                                                            </td>
+                                                        </tr>
                                                         <!-- end tr -->
-                                                        @endforeach
-                                                    </tbody>
-                                                    <!-- end tbody -->
-                                                </table>
-                                                <!-- end table -->
-                                            </div>
-                                            <!-- end table responsive -->
-
-                                            <div class="d-print-none mt-4">
-                                                <div class="float-end">
-                                                    <a href="javascript:window.print()" class="btn btn-primary me-1"><i class="fa fa-print"></i></a>
-                                                    @if ($noc_mode == 1)
-                                                    <a href="{{ url('/admin_new_business_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
-                                                    @elseif ($noc_mode == 2)
-                                                    <a href="{{ url('/admin_renew_business_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
-                                                    @elseif ($noc_mode == 3)
-                                                    <a href="{{ url('/admin_new_hospital_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
-                                                    @elseif ($noc_mode == 4)
-                                                    <a href="{{ url('/admin_renew_hospital_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
-                                                    @elseif ($noc_mode == 5)
-                                                    <a href="{{ url('/admin_provisional_building_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
-                                                    @elseif ($noc_mode == 6)
-                                                    <a href="{{ url('/admin_final_building_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
                                                     @endif
-                                                </div>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                        @endif
+
+                                        @if ($noc_mode == 3 || $noc_mode == 4 || $noc_mode == 5 || $noc_mode == 6)
+
+                                        {{-- This Condition apply only when  Noc Mode is (3, 4, 5, 6) selected --}}
+                                        <table class="table table-bordered table-responsive" style="width:90%; margin:auto;">
+                                            <thead style="border: 1px solid rgb(3, 155, 155);">
+                                                <tr>
+                                                    <th><b>Sr. No.</b></th>
+                                                    <th><b>Description</b></th>
+                                                    <th><b>Actual Area ( Sq.Mt. )</b></th>
+                                                    <th><b>Actual Charges ( Sq.Mt. )</b></th>
+                                                    <th class="col-2"><b>NOC Charges</b></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="border: 1px solid rgb(3, 155, 155);">
+                                                @foreach($fetch_payments as $key => $value)
+                                                    @if($value->mst_token == $data->mst_token )
+                                                        @php
+                                                            $descriptionData = json_decode($value->description, true);
+                                                            $areaData = json_decode($value->area, true);
+                                                            $actualChargesData = json_decode($value->actualcharges, true);
+                                                            $nocChargesData = json_decode($value->noccharges, true);
+                                                        @endphp
+                                                        @foreach ($descriptionData as $iteration)
+                                                            <tr>
+                                                                <td>{{ $loop->iteration }}</td>
+                                                                <td>{{ $descriptionData[$loop->index] }}</td>
+                                                                <td>{{ $areaData[$loop->index] }}</td>
+                                                                <td>{{ $actualChargesData[$loop->index] }}</td>
+                                                                <td>{{ $nocChargesData[$loop->index] }}</td>
+                                                            </tr>
+                                                        @endforeach
+                                                    @endif
+                                                @endforeach
+                                            </tbody>
+                                            <tfoot style="border: 1px solid rgb(3, 155, 155);">
+                                                <tr>
+                                                    <th scope="row" colspan="4" class="border-0 text-end"><b>Total NOC Charges : - </b></th>
+                                                    <td class="border-text-end">
+                                                        <h4 class="m-0 fw-semibold">
+                                                            {{ $data->total_charges_cost }} Rs
+                                                        </h4>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        {{--  End of Table --}}
+                                        @endif
+
+                                        <div class="d-print-none mt-4">
+                                            <div class="float-end">
+                                                <a href="javascript:window.print()" class="btn btn-primary me-1"><i class="fa fa-print"></i></a>
+                                                @if ($noc_mode == 1)
+                                                <a href="{{ url('/admin_new_business_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                @elseif ($noc_mode == 2)
+                                                <a href="{{ url('/admin_renew_business_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                @elseif ($noc_mode == 3)
+                                                <a href="{{ url('/admin_new_hospital_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                @elseif ($noc_mode == 4)
+                                                <a href="{{ url('/admin_renew_hospital_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                @elseif ($noc_mode == 5)
+                                                <a href="{{ url('/admin_provisional_building_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                @elseif ($noc_mode == 6)
+                                                <a href="{{ url('/admin_final_building_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

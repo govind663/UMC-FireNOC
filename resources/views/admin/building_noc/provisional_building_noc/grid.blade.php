@@ -79,7 +79,7 @@
                                         @elseif($status == 6)
                                         <h4 class="card-header text-primary">All Reviewed Provisional Building NOC List</h4>
                                         @elseif($status == 7)
-                                        <h4 class="card-header text-primary">All Invoice Generated New Business NOC List</h4>
+                                        <h4 class="card-header text-primary">All Invoice Generated Provisional Building NOC List</h4>
                                         @endif
 
                                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">

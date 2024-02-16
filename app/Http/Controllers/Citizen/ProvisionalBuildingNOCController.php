@@ -97,7 +97,7 @@ class ProvisionalBuildingNOCController extends Controller
         $noc_master->save();
 
         // ==== Generate Provisional Building NOC Token Number
-        $unique_id = "UMC/BN/".rand(1000,10000000);
+        $unique_id = "UMC/PBN/".rand(1000,10000000);
         $update = [
             'mst_token' => $unique_id.$noc_master->id ,
         ];

@@ -161,7 +161,7 @@ class InvoiceController extends Controller
                     ->whereNUll('t2.deleted_at')
                     ->whereNUll('t3.deleted_at')
                     ->first();
-            // dd($data);
+            // return($data);
         }elseif($noc_mode == 4 ){
             $data = DB::table('hospital_noc as t1')
                     ->select('t1.*', 't2.*', 't3.*', 't1.id as NB_NOC_ID', 't2.id as d_ID', 't3.id as payment_id')
@@ -222,6 +222,7 @@ class InvoiceController extends Controller
                             ->get();
 
         // dd($fetch_payments);
+
         return view('citizen.invoice.admin_invoice')->with(['data'=>$data, 'fetch_payments'=>$fetch_payments, 'noc_mode'=>$noc_mode]);
     }
 }
