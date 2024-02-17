@@ -116,16 +116,18 @@
                                             <div class="box widget-box-one widget-two-custom">
                                                 <h3 class="mb-2">
                                                     <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_5">Provisional</button>
+                                                    <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_6">Final</button>
+                                                    <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_7">Renew</button>
                                                 </h3>
                                             </div>
                                         </div>
-                                        <div class="row" style="float:right;">
+                                        {{-- <div class="row" style="float:left;">
                                             <div class="box widget-box-one widget-two-custom">
                                                 <h3 class="mb-2">
                                                     <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_6">Final</button>
                                                 </h3>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
 
@@ -591,12 +593,9 @@
 
                     </div>
 
-
                 </div>
 
             </div>
-
-
 
             @include('common.citizen.footer.footer')
 
@@ -775,6 +774,36 @@
                 </div>
                 <div class="modal-footer">
                     <a href="{{ url('/provisional_building_noc/create') }}">
+                        <button type="button" class="btn btn-primary waves-effect waves-light">Apply For NOC</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- Start Apply for Renew Building Application Model --}}
+    <div class="modal fade bs-example-modal-lg_7" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary" id="myLargeModalLabel">Required Documents :</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ol>
+                                <li>Maps of Proposed Construction</li>
+                                <li>7/12 Extract/ City Survey Extract</li>
+                                <li>Sanad/ Letter from S.D.O. Ulhasnagar</li>
+                                <li>Title & Search Report from competent Authority</li>
+                                <li>No dues certificate of Property& Water Tax</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ url('/renew_building_noc/create') }}">
                         <button type="button" class="btn btn-primary waves-effect waves-light">Apply For NOC</button>
                     </a>
                 </div>

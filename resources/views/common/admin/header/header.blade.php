@@ -108,6 +108,7 @@
                                         <a href="{{ url('#',) }}" class="dropdown-item">New Hospital NOC List</a>
                                         <a href="{{ url('#',) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                         <a href="{{ url('#',) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('#',) }}" class="dropdown-item">Renew Building NOC List</a>
                                         <a href="{{ url('#',) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
@@ -131,6 +132,7 @@
                                         <a href="{{ url('/all_new_hospital_noc_list',1) }}" class="dropdown-item">New Hospital NOC List</a>
                                         <a href="{{ url('/all_renew_hospital_noc_list',1) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                         <a href="{{ url('/all_provisional_building_noc_list',1) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/all_renew_building_noc_list',1) }}" class="dropdown-item">Renew Building NOC List</a>
                                         <a href="{{ url('/all_final_building_noc_list',1) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
@@ -154,6 +156,7 @@
                                         <a href="{{ url('/all_new_hospital_noc_list',2) }}" class="dropdown-item">New Hospital NOC List</a>
                                         <a href="{{ url('/all_renew_hospital_noc_list',2) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                         <a href="{{ url('/all_provisional_building_noc_list',2) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/all_renew_building_noc_list',2) }}" class="dropdown-item">Renew Building NOC List</a>
                                         <a href="{{ url('/all_final_building_noc_list',2) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
@@ -179,6 +182,7 @@
                                         <a href="{{ url('',) }}" class="dropdown-item">New Hospital NOC List</a>
                                         <a href="{{ url('',) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                         <a href="{{ url('',) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('',) }}" class="dropdown-item">Renew Building NOC List</a>
                                         <a href="{{ url('',) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
@@ -202,6 +206,7 @@
                                         <a href="{{ url('/all_new_hospital_noc_list',1) }}" class="dropdown-item">New Hospital NOC List</a>
                                         <a href="{{ url('/all_renew_hospital_noc_list',1) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                         <a href="{{ url('/all_provisional_building_noc_list',1) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/all_renew_building_noc_list',1) }}" class="dropdown-item">Renew Building NOC List</a>
                                         <a href="{{ url('/all_final_building_noc_list',1) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
@@ -225,6 +230,7 @@
                                         <a href="{{ url('/all_new_hospital_noc_list',2) }}" class="dropdown-item">New Hospital NOC List</a>
                                         <a href="{{ url('/all_renew_hospital_noc_list',2) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                         <a href="{{ url('/all_provisional_building_noc_list',2) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/all_renew_building_noc_list',2) }}" class="dropdown-item">Renew Building NOC List</a>
                                         <a href="{{ url('/all_final_building_noc_list',2) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
@@ -250,6 +256,7 @@
                                         <a href="{{ url('',) }}" class="dropdown-item">New Hospital NOC List</a>
                                         <a href="{{ url('',) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                         <a href="{{ url('',) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('',) }}" class="dropdown-item">Renew Building NOC List</a>
                                         <a href="{{ url('',) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
@@ -273,6 +280,7 @@
                                         <a href="{{ url('/all_new_hospital_noc_list',1) }}" class="dropdown-item">New Hospital NOC List</a>
                                         <a href="{{ url('/all_renew_hospital_noc_list',1) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                         <a href="{{ url('/all_provisional_building_noc_list',1) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/all_renew_building_noc_list',1) }}" class="dropdown-item">Renew Building NOC List</a>
                                         <a href="{{ url('/all_final_building_noc_list',1) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
@@ -296,6 +304,7 @@
                                         <a href="{{ url('/all_new_hospital_noc_list',2) }}" class="dropdown-item">New Hospital NOC List</a>
                                         <a href="{{ url('/all_renew_hospital_noc_list',2) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                         <a href="{{ url('/all_provisional_building_noc_list',2) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/all_renew_building_noc_list',2) }}" class="dropdown-item">Renew Building NOC List</a>
                                         <a href="{{ url('/all_final_building_noc_list',2) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
@@ -355,6 +364,7 @@
                                         <a href="{{ url('/admin_new_hospital_noc_list',6) }}" class="dropdown-item">New Hospital NOC List</a>
                                         <a href="{{ url('/admin_renew_hospital_noc_list',6) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                         <a href="{{ url('/admin_provisional_building_noc_list',6) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/admin_renew_building_noc_list',6) }}" class="dropdown-item">Renew Building NOC List</a>
                                         <a href="{{ url('/admin_final_building_noc_list',6) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
@@ -378,6 +388,7 @@
                                         <a href="{{ url('/all_new_hospital_noc_list',3) }}" class="dropdown-item">New Hospital NOC List</a>
                                         <a href="{{ url('/all_renew_hospital_noc_list',3) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                         <a href="{{ url('/all_provisional_building_noc_list',3) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/all_renew_building_noc_list',3) }}" class="dropdown-item">Renew Building NOC List</a>
                                         <a href="{{ url('/all_final_building_noc_list',3) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
@@ -401,6 +412,7 @@
                                         <a href="{{ url('/all_new_hospital_noc_list',4) }}" class="dropdown-item">New Hospital NOC List</a>
                                         <a href="{{ url('/all_renew_hospital_noc_list',4) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                         <a href="{{ url('/all_provisional_building_noc_list',4) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/all_renew_building_noc_list',4) }}" class="dropdown-item">Renew Building NOC List</a>
                                         <a href="{{ url('/all_final_building_noc_list',4) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
@@ -413,7 +425,6 @@
 
                     {{-- Checker Maker --}}
                     @elseif(Auth::user()->role == 2)
-
                     {{-- Unpaid Application List --}}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
@@ -429,6 +440,7 @@
                                         <a href="{{ url('/admin_new_hospital_noc_list',1) }}" class="dropdown-item">New Hospital NOC List</a>
                                         <a href="{{ url('/admin_renew_hospital_noc_list',1) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                         <a href="{{ url('/admin_provisional_building_noc_list',1) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/admin_renew_building_noc_list',1) }}" class="dropdown-item">Renew Building NOC List</a>
                                         <a href="{{ url('/admin_final_building_noc_list',1) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
@@ -452,6 +464,7 @@
                                         <a href="{{ url('/admin_new_hospital_noc_list',7) }}" class="dropdown-item">New Hospital NOC List</a>
                                         <a href="{{ url('/admin_renew_hospital_noc_list',7) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                         <a href="{{ url('/admin_provisional_building_noc_list',7) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/admin_renew_building_noc_list',7) }}" class="dropdown-item">Renew Building NOC List</a>
                                         <a href="{{ url('/admin_final_building_noc_list',7) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
@@ -475,6 +488,7 @@
                                     <a href="{{ url('/admin_new_hospital_noc_list',2) }}" class="dropdown-item">New Hospital NOC List</a>
                                     <a href="{{ url('/admin_renew_hospital_noc_list',2) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                     <a href="{{ url('/admin_provisional_building_noc_list',2) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                    <a href="{{ url('/admin_renew_building_noc_list',2) }}" class="dropdown-item">Renew Building NOC List</a>
                                     <a href="{{ url('/admin_final_building_noc_list',2) }}" class="dropdown-item">Final Building NOC List</a>
                                 </div>
                             </div>
@@ -489,6 +503,7 @@
                                     <a href="{{ url('/all_new_hospital_noc_list',1) }}" class="dropdown-item">New Hospital NOC List</a>
                                     <a href="{{ url('/all_renew_hospital_noc_list',1) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                     <a href="{{ url('/all_provisional_building_noc_list',1) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                    <a href="{{ url('/all_renew_building_noc_list',1) }}" class="dropdown-item">Renew Building NOC List</a>
                                     <a href="{{ url('/all_final_building_noc_list',1) }}" class="dropdown-item">Final Building NOC List</a>
                                 </div>
                             </div>
@@ -503,6 +518,7 @@
                                     <a href="{{ url('/all_new_hospital_noc_list',2) }}" class="dropdown-item">New Hospital NOC List</a>
                                     <a href="{{ url('/all_renew_hospital_noc_list',2) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                     <a href="{{ url('/all_provisional_building_noc_list',2) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                    <a href="{{ url('/all_renew_building_noc_list',2) }}" class="dropdown-item">Renew Building NOC List</a>
                                     <a href="{{ url('/all_final_building_noc_list',2) }}" class="dropdown-item">Final Building NOC List</a>
                                 </div>
                             </div>
@@ -526,6 +542,7 @@
                                         <a href="{{ url('/admin_new_hospital_noc_list',5) }}" class="dropdown-item">New Hospital NOC List</a>
                                         <a href="{{ url('/admin_renew_hospital_noc_list',5) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                         <a href="{{ url('/admin_provisional_building_noc_list',5) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/admin_renew_building_noc_list',5) }}" class="dropdown-item">Renew Building NOC List</a>
                                         <a href="{{ url('/admin_final_building_noc_list',5) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
@@ -549,6 +566,7 @@
                                         <a href="{{ url('/all_new_hospital_noc_list',1) }}" class="dropdown-item">New Hospital NOC List</a>
                                         <a href="{{ url('/all_renew_hospital_noc_list',1) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                         <a href="{{ url('/all_provisional_building_noc_list',1) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/all_renew_building_noc_list',1) }}" class="dropdown-item">Renew Building NOC List</a>
                                         <a href="{{ url('/all_final_building_noc_list',1) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
@@ -572,6 +590,7 @@
                                         <a href="{{ url('/all_new_hospital_noc_list',2) }}" class="dropdown-item">New Hospital NOC List</a>
                                         <a href="{{ url('/all_renew_hospital_noc_list',2) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                         <a href="{{ url('/all_provisional_building_noc_list',2) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/all_renew_building_noc_list',2) }}" class="dropdown-item">Renew Building NOC List</a>
                                         <a href="{{ url('/all_final_building_noc_list',2) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
@@ -598,6 +617,7 @@
                                         <a href="{{ url('/admin_new_hospital_noc_list',0) }}" class="dropdown-item">New Hospital NOC List</a>
                                         <a href="{{ url('/admin_renew_hospital_noc_list',0) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                         <a href="{{ url('/admin_provisional_building_noc_list',0) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/admin_renew_building_noc_list',0) }}" class="dropdown-item">Renew Building NOC List</a>
                                         <a href="{{ url('/admin_final_building_noc_list',0) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
@@ -621,6 +641,7 @@
                                         <a href="{{ url('/all_new_hospital_noc_list',1) }}" class="dropdown-item">New Hospital NOC List</a>
                                         <a href="{{ url('/all_renew_hospital_noc_list',1) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                         <a href="{{ url('/all_provisional_building_noc_list',1) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/all_renew_building_noc_list',1) }}" class="dropdown-item">Renew Building NOC List</a>
                                         <a href="{{ url('/all_final_building_noc_list',1) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 
@@ -644,6 +665,7 @@
                                         <a href="{{ url('/all_new_hospital_noc_list',2) }}" class="dropdown-item">New Hospital NOC List</a>
                                         <a href="{{ url('/all_renew_hospital_noc_list',2) }}" class="dropdown-item">Renew Hospital NOC List</a>
                                         <a href="{{ url('/all_provisional_building_noc_list',2) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/all_renew_building_noc_list',2) }}" class="dropdown-item">Renew Building NOC List</a>
                                         <a href="{{ url('/all_final_building_noc_list',2) }}" class="dropdown-item">Final Building NOC List</a>
                                     </div>
 

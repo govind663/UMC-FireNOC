@@ -43,7 +43,7 @@
         .body{
             font-family: 'DV-TTSurekhMR-Bold', sans-serif;
             background: #fff;
-            color: #161616;
+            color: #000000;
             font-size: 20px;
         }
         .card-body{
@@ -124,6 +124,8 @@
         @include('citizen.certificate.all_certificate.new_building_noc_certificate')
         @elseif ($noc_mode == 6)
         @include('citizen.certificate.all_certificate.renew_building_noc_certificate')
+        @elseif ($noc_mode == 7)
+        @include('citizen.certificate.all_certificate.renewal_building_noc_certificate')
         @endif
 
         <!-- JAVASCRIPT -->

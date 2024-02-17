@@ -177,7 +177,7 @@
                                         </table>
                                         @endif
 
-                                        @if ($noc_mode == 3 || $noc_mode == 4 || $noc_mode == 5 || $noc_mode == 6)
+                                        @if ($noc_mode == 3 || $noc_mode == 4 || $noc_mode == 5 || $noc_mode == 6 || $noc_mode == 7)
 
                                         {{-- This Condition apply only when  Noc Mode is (3, 4, 5, 6) selected --}}
                                         <table class="table table-bordered table-responsive" style="width:90%; margin:auto;">
@@ -240,6 +240,8 @@
                                                 <a href="{{ url('/provisional_building_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
                                                 @elseif ($noc_mode == 6)
                                                 <a href="{{ url('/final_building_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                @elseif ($noc_mode == 7)
+                                                <a href="{{ url('/renew_building_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
                                                 @endif
                                             </div>
                                         </div>

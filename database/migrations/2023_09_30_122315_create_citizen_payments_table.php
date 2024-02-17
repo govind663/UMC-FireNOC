@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('mst_token')->nullable();
             $table->date('payment_dt');
             $table->integer('citizen_id');
-            $table->integer('payment_noc_mode')->comment('1:New Bussiness NOC, 2:Renewal Bussiness NOC, 3:New Hospital NOC, 4:Renewal Hospital NOC, 5:Provisional Building NOC, 6:Final Building NOC');
+            $table->integer('payment_noc_mode')->comment('1:New Bussiness NOC, 2:Renewal Bussiness NOC, 3:New Hospital NOC, 4:Renewal Hospital NOC, 5:Provisional Building NOC, 6:Final Building NOC, 7:Renew Building NOC');
 
             $table->string('l_name');
             $table->string('f_name');

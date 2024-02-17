@@ -39,15 +39,6 @@
                                         <!--<p class="lineheight">{{ $data->l_name }}</p>-->
                                         <p class="lineheight">उल्हासनगर -</p>
 
-                                        @php
-                                            $total_payment = '';
-
-                                            if ($data->wing_option == 1) {
-                                                $total_payment = $data->wing_rate;
-                                            } elseif ($data->wing_option == 2) {
-                                                $total_payment = $data->total_charges_cost;
-                                            }
-                                        @endphp
 
                                         <b>
                                             <p style="text-align: center;"> <u>"इमारत/सीएनजी/पेट्रोल/डिझेल पंप नुतनीकरण
@@ -63,7 +54,7 @@
                                             नुतनीकरण करण्यात येत असून त्यानंतर त्याचे पुन्हा नुतनीकरण करून
                                             घ्यावे.उपरोक्त दाखल्याचे नियम व अटीचा भंग केल्यास सदर दाखला रदद करण्यात
                                             येईल.</p>
-                                        <p><strong>मागील नुतनीकरण ना हरकत दाखला भरलेली फी :- रक्कम {{ $total_payment }}
+                                        <p><strong>मागील नुतनीकरण ना हरकत दाखला भरलेली फी :- रक्कम {{ $data->total_charges_cost }}
                                                 रू </strong></p>
                                         <p><strong>(टिप:- शासकीय ठराव क्र. ५० दिनांक २८/०२/२०२३ अन्वये एक महिन्यानंतर
                                                 मुळ नुतनीकरण शुल्कावर विलंब आकार १०% प्रति महीना आकारण्यात
