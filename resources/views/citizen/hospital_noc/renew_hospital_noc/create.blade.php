@@ -632,7 +632,7 @@
                                                         </span>
                                                     @enderror
                                                 </div>
-                                            |</div>
+                                            </div>
 
                                             {{-- Start Declaration --}}
                                             <div class="card" style="border: 1px solid #1d1f1f;">

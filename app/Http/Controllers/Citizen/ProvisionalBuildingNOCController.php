@@ -190,7 +190,7 @@ class ProvisionalBuildingNOCController extends Controller
         $data->property_no = $request->get('property_no');
 
         $data->peermission_no = $request->get('peermission_no');
-        $data->permission_date = ($request->permission_date) ? $request->get('permission_date') : null;
+        $data->permission_date = $request->get('permission_date');
 
         $data->inserted_dt = date("Y-m-d H:i:s");
         $data->inserted_by = Auth::user()->id;
@@ -379,7 +379,7 @@ class ProvisionalBuildingNOCController extends Controller
             $data->property_no = $request->get('property_no');
 
             $data->peermission_no = $request->get('peermission_no');
-            $data->permission_date = ($request->permission_date) ? $request->get('permission_date') : null;
+            $data->permission_date = $request->get('permission_date');
 
             $data->modified_dt = date("Y-m-d H:i:s");
             $data->modified_by = Auth::user()->id;
@@ -497,7 +497,7 @@ class ProvisionalBuildingNOCController extends Controller
             $data->property_no = $request->get('property_no');
 
             $data->peermission_no = $request->get('peermission_no');
-            $data->permission_date = ($request->permission_date) ? $request->get('permission_date') : null;
+            $data->permission_date = $request->get('permission_date');
 
             $data->status = 0;
             $data->modified_dt = date("Y-m-d H:i:s");

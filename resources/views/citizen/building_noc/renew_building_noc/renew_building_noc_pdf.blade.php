@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Required meta tags -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>UMC-Fire NOC | Renew Building NOC</title>
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ url('/') }}/assets/logo/favicon.ico">
+    <link rel="shortcut icon" href="{{ public_path('/assets/logo/favicon.ico') }}">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -23,10 +25,10 @@
         text-align: center;
         background: #09627e;
         color: #e7eef0;
-        border-top-right-radius: 3px;
-        border-top-left-radius: 3px;
+        border-top-right-radius: 15px;
+        border-top-left-radius: 15px;
         padding: 10px;
-        font-size: 18px;
+        font-size: 20px;
     }
     h4 {
         color: #09627e;
@@ -35,8 +37,8 @@
         page-break-after: always;
     }
     .avatar-image {
-        height: 150px;;
-        width: 180px;
+        height: 120px;;
+        width: 250px;
         /*height: 4.6rem;*/
         /*width: 8.6rem;*/
     }
@@ -45,16 +47,28 @@
         font-size: 16px !important;
         font-style: bold;
     }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 7px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
 </style>
 
 <body>
     <div class="col-lg-12">
         <div class="header">
-            <div style="float: right;">
-                <img src="{{ public_path('assets/logo/umc_logo.png') }}" alt="logo" class="avatar-image">
+            <div style="float: left;">
+                <img src="{{ public_path('assets/logo/logo_dark.png') }}" alt="logo" class="avatar-image">
             </div>
 
-            <div style="float: left;">
+            <div style="float: right;">
                 <p class="mb-1">
                     Ulhasnagar Municipal Corporation<br>
                     Near Chopda Court, Ulhasnagar - 3<br>
@@ -68,66 +82,109 @@
             <form class="auth-input" style="padding-top: 150px;">
 
                 <h2 class="mb-3">Renew Building NOC</h2>
-                <div style="float: right;">
-                    <label ><b>Token Number :</b>  {{ $data->mst_token }}</label>
-                </div>
-                <div class="form-group row mb-3">
-                    <label class="col-sm-2"><b>Appication Date :</b>  {{ date('d-m-Y') }}</label>
-                </div>
+                <table class="table table-bordered table-responsive" style="width: 100%;">
+                    <tbody>
+                        <tr>
+                            <td colspan="2"><b>Appication Date :</b> {{ date("d-M-Y") }}</td>
+                            <td class="col-sm-5"><b>Token Number :</b> {{ $data->mst_token }}</td>
+                        </tr>
+                    </tbody>
+                </table>
 
                 <h4 class="mb-3"><b>Appication Details :</b></h4>
-                <div class="form-group row  mb-3">
-                    <label class="col-sm-2"><b>First Name :</b>  {{ $data->f_name }}</label>
+                <table class="table table-bordered table-responsive" style="width: 100%;">
+                    <tbody>
+                        <tr>
+                            <th scope="row">First Name : </th>
+                            <td colspan="3">{{ ucwords($data->f_name) }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Father / Husband's Name : </th>
+                            <td colspan="3">{{ ucwords($data->father_name) }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Last Name : </th>
+                            <td colspan="3">{{ ucwords($data->l_name) }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Name of Building : </th>
+                            <td colspan="3">{{ ucwords($data->society_name) }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Designation </th>
+                            <td colspan="3">{{ ucwords($data->designation) }}</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                    <label class="col-sm-2"><b>Father / Husband's Name :</b> {{ $data->father_name }}</label>
+                @php
+                    $wards = '';
 
-                    <label class="col-sm-2"><b>Last Name / Surname :</b>  {{ $data->l_name }}</label>
+                    if ($data->ward_no == 1) {
+                        $wards = 'Ward 1';
+                    } elseif ($data->ward_no == 2) {
+                        $wards = 'Ward 2';
+                    } elseif ($data->ward_no == 3) {
+                        $wards = 'Ward 3';
+                    } elseif ($data->ward_no == 4) {
+                        $wards = 'Ward 4';
+                    }
 
-                    <label class="col-sm-2"><b>Name of Building :</b> {{ $data->society_name }}</label>
-
-                    <label class="col-sm-2"><b>Designation :</b> {{ $data->designation }}</label>
-                </div>
-
+                @endphp
                 <h4 class="mb-3"><b>Address Details :</b></h4>
-                <div class="form-group row  mb-3">
-                    <label class="col-sm-2"><b>House / Building / Society Name :</b> {{ $data->house_name }}</label>
+                <table class="table table-bordered table-responsive" style="width: 100%;">
+                    <tbody>
+                        <tr>
+                            <th scope="row">House / Building / Society Name : </th>
+                            <td colspan="3">{{ ($data->house_name) }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Flat / Block / Barrack No. : </th>
+                            <td colspan="3">{{ ($data->flat_no) }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Wing / Floor : </th>
+                            <td colspan="3">{{ ($data->wing_name) }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Road / Street / Lane : </th>
+                            <td colspan="3">{{ ($data->road_name) }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Area / Locality / Town / City : </th>
+                            <td colspan="3">{{ ($data->area_name) }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Taluka : </th>
+                            <td colspan="3">{{ ($data->taluka_name) }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Pin code : </th>
+                            <td colspan="3">{{ ($data->pincode) }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Ward Committee No : </th>
+                            <td colspan="3">{{ ($wards) }}</td>
+                        </tr>
 
-                    <label class="col-sm-2"><b>Flat / Block / Barrack No. :</b> {{ $data->flat_no }}</label>
-
-                    <label class="col-sm-2"><b>Wing / Floor :</b> {{ $data->wing_name }}</label>
-
-                    <label class="col-sm-2"><b>Road / Street / Lane :</b> {{ $data->road_name }}</label>
-
-                    <label class="col-sm-2"><b>Area / Locality / Town / City :</b> {{ $data->area_name }}</label>
-
-                    <label class="col-sm-2"><b>Taluka :</b> {{ $data->taluka_name }}</label>
-
-                    <label class="col-sm-2"><b>Pin code :</b> {{ $data->pincode }}</label>
-
-                    @php
-                        $wards = '';
-
-                        if ($data->ward_no == 1) {
-                            $wards = 'Ward 1';
-                        } elseif ($data->ward_no == 2) {
-                            $wards = 'Ward 2';
-                        } elseif ($data->ward_no == 3) {
-                            $wards = 'Ward 3';
-                        } elseif ($data->ward_no == 4) {
-                            $wards = 'Ward 4';
-                        }
-
-                    @endphp
-                    <label class="col-sm-2"><b>Ward Committee No :</b> {{ $wards }}</label>
-
-                    <label class="col-sm-2"><b>Electrol Panel No :</b> {{ $data->electrol_panel_no }}</label>
-
-                    <label class="col-sm-2"><b>Contact Person :</b> {{ $data->contact_persion }}</label>
-
-                    <label class="col-sm-2"><b>Telephone No. (if any) :</b> {{ $data->tel_no }}</label>
-
-                    <label class="col-sm-2"><b>Email Id (if any) :</b> {{ $data->email }}</label>
-                </div>
+                        <tr>
+                            <th scope="row">Electrol Panel No : </th>
+                            <td colspan="3">{{ ($data->electrol_panel_no) }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Contact Person : </th>
+                            <td colspan="3">{{ ($data->contact_persion) }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Telephone No. (if any) : </th>
+                            <td colspan="3">{{ ($data->tel_no) }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Email Id (if any) : </th>
+                            <td colspan="3">{{ ($data->email) }}</td>
+                        </tr>
+                    </tbody>
+                </table>
 
                 @php
                     $property_types = '';
@@ -140,112 +197,173 @@
 
                 @endphp
                 <h4 class="mb-2"><b>Information of Property :</b></h4>
-                <div class="form-group row  mb-3">
-                    <label class="col-sm-2"><b>Type of Property :</b> {{ $property_types }}</label>
+                <table class="table table-bordered table-responsive" style="width: 100%;">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Type of Property : </th>
+                            <td colspan="3">{{ ucwords($property_types) }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Property Number : </th>
+                            <td colspan="3">{{ ucwords($data->property_no) }}</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                    <label class="col-sm-2"><b>Property Number :</b> {{ $data->property_no }}</label>
-                </div>
 
-                {{-- <div class="page-break"></div> --}}
                 <h4 class="mb-3"><b>Necessary Particulars about above service</b></h4>
-                <div class="form-group row  mb-3">
-                    <label class="col-sm-2"><b>Construction Permission Number :</b> {{ $data->peermission_no }}</label>
+                <table class="table table-bordered table-responsive" style="width: 100%;">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Construction Permission Number : </th>
+                            <td colspan="3">{{ ucwords($data->peermission_no) }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Date of Permission : </th>
+                            <td colspan="3"> {{ date('d-m-Y', strtotime($data->permission_date)) }}</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                    <label class="col-sm-2"><b>Date of Permission :</b> {{ $data->permission_date }}</label>
-                </div>
+
+                <h4 class="mb-3"><b>Necessary Enclosures related to above application (Documents to attach)</b></h4>
+                <table class="table table-bordered table-responsive" style="width: 100%;">
+                    <thead>
+                        <th class="col-12">Maps of Proposed Construction : </th>
+                    </thead>
+                    <tbody>
+                        <td class="col-8">
+                            <div class="form-group">
+                                @php
+                                     $document_path = $data->maps_of_proposed_doc;
+                                     $filter_path =  explode(".",$document_path);
+                                     $size_of_array = count($filter_path);
+                                     $filter_ext = $filter_path[$size_of_array - 1];
+                                @endphp
+
+                                @if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
+                                    $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
+                                <img src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/maps_of_proposed_doc') }}/{{ $data->maps_of_proposed_doc }}" alt="image" width="100%" height="28%">
+                                @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
+                                <iframe src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/maps_of_proposed_doc') }}/{{ $data->maps_of_proposed_doc }} " height='100%' width='28%'></iframe>
+                                @else
+                                {{"No Map Found"}}
+                                @endif
+                            </div>
+                        </td>
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered table-responsive" style="width: 100%;">
+                    <thead>
+                        <th class="col-12">7/12 Extract / City Survey Extract : </th>
+                    </thead>
+                    <tbody>
+                        <td class="col-8">
+                            <div class="form-group">
+                                @php
+                                     $document_path = $data->city_survey_doc;
+                                     $filter_path =  explode(".",$document_path);
+                                     $size_of_array = count($filter_path);
+                                     $filter_ext = $filter_path[$size_of_array - 1];
+                                @endphp
+
+                                @if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
+                                    $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
+                                <img src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/city_survey_doc') }}/{{ $data->city_survey_doc }}" alt="image" width="100%" height="30%">
+                                @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
+                                <iframe src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/city_survey_doc') }}/{{ $data->city_survey_doc }} " height='100%' width='30%'></iframe>
+                                @else
+                                {{"No Document Found"}}
+                                @endif
+                            </div>
+                        </td>
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered table-responsive" style="width: 100%;">
+                    <thead>
+                        <th class="col-12">Sanad / Letter from S.D.O. Ulhasnagar : </th>
+                    </thead>
+                    <tbody>
+                        <td class="col-8">
+                            <div class="form-group">
+                                @php
+                                     $document_path = $data->sanad_doc;
+                                     $filter_path =  explode(".",$document_path);
+                                     $size_of_array = count($filter_path);
+                                     $filter_ext = $filter_path[$size_of_array - 1];
+                                @endphp
+
+                                @if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
+                                    $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
+                                <img src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/sanad_doc') }}/{{ $data->sanad_doc }}" alt="image" width="100%" height="25%">
+                                @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
+                                <iframe src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/sanad_doc') }}/{{ $data->sanad_doc }} " height='100%' width='25%'></iframe>
+                                @else
+                                {{"No Map Found"}}
+                                @endif
+                            </div>
+                        </td>
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered table-responsive" style="width: 100%;">
+                    <thead>
+                        <th class="col-12">Title & Search Report from competent Authority : </th>
+                    </thead>
+                    <tbody>
+                        <td class="col-8">
+                            <div class="form-group">
+                                @php
+                                     $document_path = $data->competent_authority_doc;
+                                     $filter_path =  explode(".",$document_path);
+                                     $size_of_array = count($filter_path);
+                                     $filter_ext = $filter_path[$size_of_array - 1];
+                                @endphp
+
+                                @if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
+                                    $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
+                                <img src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/competent_authority_doc') }}/{{ $data->competent_authority_doc }}" alt="image" width="100%" height="25%">
+                                @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
+                                <iframe src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/competent_authority_doc') }}/{{ $data->competent_authority_doc }} " height='100%' width='25%'></iframe>
+                                @else
+                                {{"No Map Found"}}
+                                @endif
+                            </div>
+                        </td>
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered table-responsive" style="width: 100%;">
+                    <thead>
+                        <th class="col-12">No dues certificate of Property & Water Tax : </th>
+                    </thead>
+                    <tbody>
+                        <td class="col-8">
+                            <div class="form-group">
+                                @php
+                                     $document_path = $data->dues_certificate_doc;
+                                     $filter_path =  explode(".",$document_path);
+                                     $size_of_array = count($filter_path);
+                                     $filter_ext = $filter_path[$size_of_array - 1];
+                                @endphp
+
+                                @if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
+                                    $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
+                                <img src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/dues_certificate_doc') }}/{{ $data->dues_certificate_doc }}" alt="image" width="100%" height="25%">
+                                @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
+                                <iframe src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/dues_certificate_doc') }}/{{ $data->dues_certificate_doc }} " height='100%' width='25%'></iframe>
+                                @else
+                                {{"No Map Found"}}
+                                @endif
+                            </div>
+                        </td>
+                    </tbody>
+                </table>
 
                 <div class="page-break"></div>
-                <h4 class="mb-3"><b>Necessary Enclosures related to above application (Documents to attach)</b></h4>
-                <div class="table-responsive">
-                    <table class="table table-bordered table-responsive-sm">
-                        <thead>
-                            <tr>
-                                <th width="80%" scope="col">Documents Name</th>
-                                <th width="20%" scope="col">Download</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="">
-                                <td>
-                                    Maps of Proposed Construction
-                                </td>
-                                <td>
-                                    <div class="col-sm-4 col-md-4">
-                                        @if(!empty($data->maps_of_proposed_doc))
-                                            <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/maps_of_proposed_doc/{{ $data->maps_of_proposed_doc }}" target="_blank" class="btn btn-primary btn-sm">
-                                                View
-                                            </a>
-                                        @endif
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr class="">
-                                <td>
-                                    7/12 Extract / City Survey Extract
-                                </td>
-                                <td class="pb-2">
-                                    <div class="col-sm-4 col-md-4">
-                                        @if(!empty($data->city_survey_doc))
-                                            <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/city_survey_doc/{{ $data->city_survey_doc }}" target="_blank" class="btn btn-primary btn-sm">
-                                                View
-                                            </a>
-                                        @endif
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr class="">
-                                <td>
-                                    Sanad / Letter from S.D.O. Ulhasnagar
-                                </td>
-                                <td class="pb-2">
-                                    <div class="col-sm-4 col-md-4">
-                                        @if(!empty($data->sanad_doc))
-                                            <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/sanad_doc/{{ $data->sanad_doc }}" target="_blank" class="btn btn-primary btn-sm">
-                                                View
-                                            </a>
-                                        @endif
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr class="">
-                                <td>
-                                    Title & Search Report from competent Authority
-                                </td>
-                                <td class="pb-2">
-                                    <div class="col-sm-4 col-md-4">
-                                        @if(!empty($data->competent_authority_doc))
-                                            <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/competent_authority_doc/{{ $data->competent_authority_doc }}" target="_blank" class="btn btn-primary btn-sm">
-                                                View
-                                            </a>
-                                        @endif
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr class="">
-                                <td>
-                                    No dues certificate of Property & Water Tax
-                                </td>
-                                <td class="pb-2">
-                                    <div class="col-sm-4 col-md-4">
-                                        @if(!empty($data->dues_certificate_doc))
-                                            <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/dues_certificate_doc/{{ $data->dues_certificate_doc }}" target="_blank" class="btn btn-primary btn-sm">
-                                                View
-                                            </a>
-                                        @endif
-                                    </div>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-
-                {{-- <div class="page-break"></div> --}}
-                <div class="row card-body border p-4">
+                <div class="row  p-4" style="border:1px  solid #0c0c0c !important;">
                     <h4><b>Declaration</b></h4>
 
                     <div class="col-md-12 col-xs-12">
@@ -258,7 +376,10 @@
                             given is found wrong then 1/We shali be held iegally liable for
                             its consequences.
                         </p>
-                        Date : <b>{{ $data->declare_date }}</b>
+                        Date :
+                        <b>
+                            {{ date('d-m-Y', strtotime($data->declare_date)) }}
+                        </b>
                     </div>
 
                     @php
@@ -286,38 +407,72 @@
                     @endphp
                     <div class="col-md-12 col-xs-12">
                         <h4 class="mt-3"><b>The document may please be delivered to :</b></h4>
-                        <div class="form-group row">
-                            <label class="col-sm-2"><b>Self / Nominated Person :</b> {{ $persion_name }}</label>
-
-                            <label class="col-sm-2"><b>Name of Nominated Person :</b> {{ $data->nominated_persion_name }}</label>
-
-                            <label class="col-sm-2"><b>Deliver :</b> {{ $post_by }}</label>
-                        </div>
+                        <table class="table table-bordered table-responsive" style="width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Self / Nominated Person : </th>
+                                    <td colspan="3">{{ ucwords($persion_name) }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Name of Nominated Person : </th>
+                                    <td colspan="3">{{ ucwords($data->nominated_persion_name) }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Deliver : </th>
+                                    <td colspan="3">{{ ucwords($post_by) }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
                         <h4 class="mt-3 mb-3"><b>Correspondence Address : </b></h4>
-                        <div class="form-group row">
-                            <label class="col-sm-2"><b>First Name :</b> {{ $data->d_first_name }}</label>
-
-                            <label class="col-sm-2"><b>Father / Husband's Name :</b> {{ $data->d_father_name }}</label>
-
-                            <label class="col-sm-2"><b>Last Name / Surname :</b> {{ $data->d_last_name }}</label>
-
-                            <label class="col-sm-2"><b>House / Building / Society Name :</b> {{ $data->d_house_name }}</label>
-
-                            <label class="col-sm-2"><b>Flat / Block / Barrack No. :</b> {{ $data->d_flat_no }}</label>
-
-                            <label class="col-sm-2"><b>Wing / Floor :</b> {{ $data->d_wing_no }}</label>
-
-                            <label class="col-sm-2"><b>Road / Street / Lane :</b> {{ $data->d_road_name }}</label>
-
-                            <label class="col-sm-2"><b>Area / Locality / Town / City :</b> {{ $data->d_area_name }}</label>
-
-                            <label class="col-sm-2"><b>Taluka :</b> {{ $data->d_taluka_name }}</label>
-
-                            <label class="col-sm-2"><b>Pincode :</b> {{ $data->d_pincode }}</label>
-
-                            <label class="col-sm-2"><b>Email Id (if any) :</b> {{ $data->d_email }}</label>
-                        </div>
+                        <table class="table table-bordered table-responsive" style="width: 100%;">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">First Name : </th>
+                                    <td colspan="3">{{ ucwords($data->d_first_name) }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Father / Husband's Name : </th>
+                                    <td colspan="3">{{ ucwords($data->d_father_name) }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Last Name / Surname : </th>
+                                    <td colspan="3">{{ ucwords($data->d_last_name) }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">House / Building / Society Name : </th>
+                                    <td colspan="3">{{ ucwords($data->d_house_name) }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Flat / Block / Barrack No. : </th>
+                                    <td colspan="3">{{ ucwords($data->d_flat_no) }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Wing / Floor : </th>
+                                    <td colspan="3">{{ ucwords($data->d_wing_no) }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Road / Street / Lane : </th>
+                                    <td colspan="3">{{ ucwords($data->d_road_name) }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Area / Locality / Town / City : </th>
+                                    <td colspan="3">{{ ucwords($data->d_area_name) }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Taluka : </th>
+                                    <td colspan="3">{{ ucwords($data->d_taluka_name) }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Pincode : </th>
+                                    <td colspan="3">{{ ucwords($data->d_pincode) }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Email Id (if any) : </th>
+                                    <td colspan="3">{{ ucwords($data->d_email) }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
                 </div>
