@@ -244,7 +244,11 @@
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
                                 <img src="{{ public_path('/UMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc') }}/{{ $data->fire_equipments_install_doc }}" alt="image" width="100%" height="40%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
-                                <iframe src="{{ public_path('/UMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc') }}/{{ $data->fire_equipments_install_doc }} " height='100%' width='40%'></iframe>
+                                @if(!empty($data->fire_equipments_install_doc))
+                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc/{{ $data->fire_equipments_install_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                        <b>View Document</b>
+                                    </a>
+                                @endif
                                 @else
                                 {{"No Map Found"}}
                                 @endif

@@ -16,14 +16,24 @@ class CitizenSeeder extends Seeder
      */
     public function run()
     {
+        // DB::table('citizens')->insert([
+        //     'f_name' => 'Suraj',
+        //     'm_name' => 'M',
+        //     'l_name' => 'L',
+        //     'mobile_no' => '7758913585',
+        //     'email' => 'suraj@gmail.com',
+        //     'password' => bcrypt('1234567890'),
+        //     'inserted_by' => 1,
+        //     'inserted_dt' => Carbon::now(),
+        // ]);
         DB::table('citizens')->insert([
-            'f_name' => 'Suraj',
-            'm_name' => 'M',
-            'l_name' => 'L',
-            'mobile_no' => '7758913585',
-            'email' => 'suraj@gmail.com',
+            'f_name' => 'Abhishek',
+            'm_name' => 'Govind',
+            'l_name' => 'Jha',
+            'mobile_no' => '9004763926',
+            'email' => 'gjha2733@gmail.com',
             'password' => bcrypt('1234567890'),
-            'inserted_by' => 1,
+            'inserted_by' => 2,
             'inserted_dt' => Carbon::now(),
         ]);
     }

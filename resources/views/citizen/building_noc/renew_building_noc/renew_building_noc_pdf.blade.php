@@ -245,7 +245,11 @@
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
                                 <img src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/maps_of_proposed_doc') }}/{{ $data->maps_of_proposed_doc }}" alt="image" width="100%" height="28%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
-                                <iframe src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/maps_of_proposed_doc') }}/{{ $data->maps_of_proposed_doc }} " height='100%' width='28%'></iframe>
+                                @if(!empty($data->maps_of_proposed_doc))
+                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/maps_of_proposed_doc/{{ $data->maps_of_proposed_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                        <b>View Document</b>
+                                    </a>
+                                @endif
                                 @else
                                 {{"No Map Found"}}
                                 @endif
@@ -272,7 +276,11 @@
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
                                 <img src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/city_survey_doc') }}/{{ $data->city_survey_doc }}" alt="image" width="100%" height="30%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
-                                <iframe src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/city_survey_doc') }}/{{ $data->city_survey_doc }} " height='100%' width='30%'></iframe>
+                                @if(!empty($data->city_survey_doc))
+                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/city_survey_doc/{{ $data->city_survey_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                        <b>View Document</b>
+                                    </a>
+                                @endif
                                 @else
                                 {{"No Document Found"}}
                                 @endif
@@ -299,7 +307,11 @@
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
                                 <img src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/sanad_doc') }}/{{ $data->sanad_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
-                                <iframe src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/sanad_doc') }}/{{ $data->sanad_doc }} " height='100%' width='25%'></iframe>
+                                @if(!empty($data->sanad_doc))
+                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/sanad_doc/{{ $data->sanad_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                        <b>View Document</b>
+                                    </a>
+                                @endif
                                 @else
                                 {{"No Map Found"}}
                                 @endif
@@ -326,7 +338,11 @@
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
                                 <img src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/competent_authority_doc') }}/{{ $data->competent_authority_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
-                                <iframe src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/competent_authority_doc') }}/{{ $data->competent_authority_doc }} " height='100%' width='25%'></iframe>
+                                @if(!empty($data->competent_authority_doc))
+                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/competent_authority_doc/{{ $data->competent_authority_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                        <b>View Document</b>
+                                    </a>
+                                @endif
                                 @else
                                 {{"No Map Found"}}
                                 @endif
@@ -353,7 +369,11 @@
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
                                 <img src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/dues_certificate_doc') }}/{{ $data->dues_certificate_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
-                                <iframe src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/dues_certificate_doc') }}/{{ $data->dues_certificate_doc }} " height='100%' width='25%'></iframe>
+                                @if(!empty($data->dues_certificate_doc))
+                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/dues_certificate_doc/{{ $data->dues_certificate_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                        <b>View Document</b>
+                                    </a>
+                                @endif
                                 @else
                                 {{"No Map Found"}}
                                 @endif

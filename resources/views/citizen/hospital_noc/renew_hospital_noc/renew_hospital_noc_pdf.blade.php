@@ -326,7 +326,11 @@
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
                                 <img src="{{ public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/location_doc') }}/{{ $data->location_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
-                                <iframe src="{{ public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/location_doc') }}/{{ $data->location_doc }} " height='100%' width='25%'></iframe>
+                                @if(!empty($data->location_doc))
+                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/location_doc/{{ $data->location_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                        <b>View Document</b>
+                                    </a>
+                                @endif
                                 @else
                                 {{"No Map Found"}}
                                 @endif
@@ -353,7 +357,11 @@
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
                                 <img src="{{ public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/property_doc') }}/{{ $data->property_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
-                                <iframe src="{{ public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/property_doc') }}/{{ $data->property_doc }} " height='100%' width='25%'></iframe>
+                                @if(!empty($data->property_doc))
+                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/property_doc/{{ $data->property_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                        <b>View Document</b>
+                                    </a>
+                                @endif
                                 @else
                                 {{"No Map Found"}}
                                 @endif
@@ -380,7 +388,11 @@
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
                                 <img src="{{ public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/electric_doc') }}/{{ $data->electric_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
-                                <iframe src="{{ public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/electric_doc') }}/{{ $data->electric_doc }} " height='100%' width='25%'></iframe>
+                                @if(!empty($data->electric_doc))
+                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/electric_doc/{{ $data->electric_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                        <b>View Document</b>
+                                    </a>
+                                @endif
                                 @else
                                 {{"No Map Found"}}
                                 @endif
@@ -407,7 +419,11 @@
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
                                 <img src="{{ public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/shop_license_doc') }}/{{ $data->shop_license_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
-                                <iframe src="{{ public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/shop_license_doc') }}/{{ $data->shop_license_doc }} " height='100%' width='25%'></iframe>
+                                @if(!empty($data->shop_license_doc))
+                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/shop_license_doc/{{ $data->shop_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                        <b>View Document</b>
+                                    </a>
+                                @endif
                                 @else
                                 {{"No Map Found"}}
                                 @endif
@@ -434,7 +450,11 @@
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
                                 <img src="{{ public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/paid_tax_bill_doc') }}/{{ $data->paid_tax_bill_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
-                                <iframe src="{{ public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/paid_tax_bill_doc') }}/{{ $data->paid_tax_bill_doc }} " height='100%' width='25%'></iframe>
+                                @if(!empty($data->paid_tax_bill_doc))
+                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/paid_tax_bill_doc/{{ $data->paid_tax_bill_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                        <b>View Document</b>
+                                    </a>
+                                @endif
                                 @else
                                 {{"No Map Found"}}
                                 @endif
@@ -461,7 +481,11 @@
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
                                 <img src="{{ public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/commissioning_certificate') }}/{{ $data->commissioning_certificate }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
-                                <iframe src="{{ public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/commissioning_certificate') }}/{{ $data->commissioning_certificate }} " height='100%' width='25%'></iframe>
+                                @if(!empty($data->commissioning_certificate))
+                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank" class="btn btn-primary btn-sm">
+                                        <b>View Document</b>
+                                    </a>
+                                @endif
                                 @else
                                 {{"No Map Found"}}
                                 @endif
@@ -488,7 +512,11 @@
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
                                 <img src="{{ public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/affidavit_doc') }}/{{ $data->affidavit_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
-                                <iframe src="{{ public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/affidavit_doc') }}/{{ $data->affidavit_doc }} " height='100%' width='25%'></iframe>
+                                @if(!empty($data->affidavit_doc))
+                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/affidavit_doc/{{ $data->affidavit_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                        <b>View Document</b>
+                                    </a>
+                                @endif
                                 @else
                                 {{"No Map Found"}}
                                 @endif
@@ -515,7 +543,11 @@
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
                                 <img src="{{ public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/corporation_certificate') }}/{{ $data->corporation_certificate }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
-                                <iframe src="{{ public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/corporation_certificate') }}/{{ $data->corporation_certificate }} " height='100%' width='25%'></iframe>
+                                @if(!empty($data->corporation_certificate))
+                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/corporation_certificate/{{ $data->corporation_certificate }}" target="_blank" class="btn btn-primary btn-sm">
+                                        <b>View Document</b>
+                                    </a>
+                                @endif
                                 @else
                                 {{"No Map Found"}}
                                 @endif
@@ -542,7 +574,11 @@
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
                                 <img src="{{ public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/construction_plan_doc') }}/{{ $data->construction_plan_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
-                                <iframe src="{{ public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/construction_plan_doc') }}/{{ $data->construction_plan_doc }} " height='100%' width='25%'></iframe>
+                                @if(!empty($data->construction_plan_doc))
+                                    <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/construction_plan_doc/{{ $data->construction_plan_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                        <b>View Document</b>
+                                    </a>
+                                @endif
                                 @else
                                 {{"No Map Found"}}
                                 @endif

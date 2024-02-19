@@ -326,7 +326,11 @@
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
                                 <img src="{{ public_path('/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc') }}/{{ $data->competent_authority_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
-                                <iframe src="{{ public_path('/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc') }}/{{ $data->competent_authority_doc }} " height='100%' width='25%'></iframe>
+                                @if(!empty($data->competent_authority_doc))
+                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc/{{ $data->competent_authority_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                        <b>View Document</b>
+                                    </a>
+                                @endif
                                 @else
                                 {{"No Map Found"}}
                                 @endif
@@ -353,7 +357,11 @@
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
                                 <img src="{{ public_path('/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc') }}/{{ $data->dues_certificate_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
-                                <iframe src="{{ public_path('/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc') }}/{{ $data->dues_certificate_doc }} " height='100%' width='25%'></iframe>
+                                @if(!empty($data->dues_certificate_doc))
+                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc/{{ $data->dues_certificate_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                        <b>View Document</b>
+                                    </a>
+                                @endif
                                 @else
                                 {{"No Map Found"}}
                                 @endif
