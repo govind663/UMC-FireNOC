@@ -66,6 +66,8 @@ class Kernel extends HttpKernel
 
         //=== Prevent History
         'preventBackHistoryMiddleware'  => \App\Http\Middleware\PreventBackHistoryMiddleware::class ,
+        // Custom Middlewares
+        'SecureHeadersMiddleware'        => \App\Http\Middleware\SecureHeadersMiddleware::class,
 
         // ===== Middleware For XSS Protection
         'XSS' => \App\Http\Middleware\XSS::class,
