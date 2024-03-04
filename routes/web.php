@@ -66,7 +66,7 @@ Route::post('/admin/logout', [App\Http\Controllers\Admin\Auth\LoginController::c
 
 
 // ======================= Admin Dashboard
-Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware']], function () {
+Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware', 'SecureHeadersMiddleware']], function () {
 
     Route::get('/admin/dashboard', [App\Http\Controllers\Admin\HomeController::class, 'Admin_Home'])->name('admin.dashboard');
 
@@ -213,7 +213,7 @@ Route::get('/citizen/reset-password/{token}', [ResetPasswordController::class, '
 Route::post('/citizen/reset-password', [ResetPasswordController::class, 'updatePassword'])->name('/citizen/reset-password');
 
 // ======================= Citizens Dashboard
-Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware', 'XSS']], function () {
+Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware', 'XSS', 'SecureHeadersMiddleware']], function () {
 
     Route::get('/citizen/dashboard', [CitizenHomeController::class, 'Citizen_Home'])->name('citizen.dashboard');
 
