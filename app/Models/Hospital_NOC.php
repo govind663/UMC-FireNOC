@@ -65,6 +65,7 @@ class Hospital_NOC extends Model
         'total_sleeping_staff',
         'hospital_fireequip',
         'hospital_address',
+        'renewal_date',
 
         // ===== Other Document
         'property_doc',

@@ -22,7 +22,7 @@ class SecureHeadersMiddleware
         $response->headers->set('X-Frame-Options', 'SAMEORIGIN');
         $response->headers->set('Access-Control-Allow-Origin', 'SAMEORIGIN');
         $response->headers->set('Cross-Origin-Resource-Policy', 'SAMEORIGIN');
-        $response->headers->set('Content-Security-Policy', "default-src 'self'");
+        // $response->headers->set('Content-Security-Policy', "default-src 'self'");
         $response->headers->set('X-XSS-Protection', '1; mode=block');
         $response->headers->set('X-Permitted-Cross-Domain-Policies', 'master-only');
         $response->headers->set('X-Content-Type-Options', 'nosniff');

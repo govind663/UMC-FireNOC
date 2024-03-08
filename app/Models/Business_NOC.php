@@ -69,6 +69,7 @@ class Business_NOC extends Model
         'no_of_workers_sleep_night',
         'fire_equips',
         'business_address',
+        'renewal_date',
 
         // ===== Other Document
         'location_map_doc',

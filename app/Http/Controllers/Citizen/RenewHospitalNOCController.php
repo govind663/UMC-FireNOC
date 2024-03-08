@@ -255,6 +255,8 @@ class RenewHospitalNOCController extends Controller
         $data->hospital_fireequip = $request->get('hospital_fireequip');
         $data->hospital_address = $request->get('hospital_address');
 
+        $data->renewal_date = $request->get('renewal_date');
+
         $data->inserted_dt = date("Y-m-d H:i:s");
         $data->inserted_by = Auth::user()->id;
         $data->save();
@@ -507,6 +509,8 @@ class RenewHospitalNOCController extends Controller
             $data->hospital_fireequip = $request->get('hospital_fireequip');
             $data->hospital_address = $request->get('hospital_address');
 
+            $data->renewal_date = $request->get('renewal_date');
+
             $data->modified_dt = date("Y-m-d H:i:s");
             $data->modified_by = Auth::user()->id;
             $data->save();
@@ -687,6 +691,8 @@ class RenewHospitalNOCController extends Controller
             $data->total_sleeping_staff = $request->get('total_sleeping_staff');
             $data->hospital_fireequip = $request->get('hospital_fireequip');
             $data->hospital_address = $request->get('hospital_address');
+
+            $data->renewal_date = $request->get('renewal_date');
 
             $data->status = 0;
             $data->modified_dt = date("Y-m-d H:i:s");

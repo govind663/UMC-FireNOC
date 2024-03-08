@@ -477,8 +477,18 @@
                                             </div>
 
                                             <div class="form-group row  mb-3">
+                                                <label class="col-sm-2"><strong>Existing documents as per the previous NOC Date : </strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <input type="date" name="renewal_date" id="renewal_date" class="form-control @error('renewal_date') is-invalid @enderror" value="{{ $data->renewal_date }}" placeholder="Enter Number of Workers / Servants sleep at night at working place">
+                                                    @error('renewal_date')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
+
                                                 <label class="col-sm-2"><strong>Address Of Hospital Place : </strong></label>
-                                                <div class="col-sm-6 col-md-6">
+                                                <div class="col-sm-5 col-md-5">
                                                     <textarea type="text" name="hospital_address" id="hospital_address" class="form-control @error('hospital_address') is-invalid @enderror" value="{{ $data->hospital_address }}" placeholder="Enter Address Of Hospital Place." style="height: 80px; width:100%;" >{{ $data->hospital_address }}</textarea>
                                                     @error('hospital_address')
                                                     <span class="invalid-feedback" role="alert">

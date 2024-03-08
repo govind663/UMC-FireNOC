@@ -318,6 +318,10 @@
                             <td colspan="4">{{ ($fire_equips) }}</td>
                         </tr>
                         <tr>
+                            <th class="col-9">Existing documents as per the previous NOC Date : </th>
+                            <td colspan="4">{{ ($data->renewal_date) }}</td>
+                        </tr>
+                        <tr>
                             <th class="col-9">Address Of Business Place : </th>
                             <td colspan="4">{{ ($data->business_address) }}</td>
                         </tr>

@@ -54,6 +54,7 @@ class RenewalBuildingNOCRequest extends FormRequest
                 // ====== Information of Land
                 'peermission_no' => 'nullable',
                 'permission_date' => 'nullable',
+                'renewal_date' => 'nullable',
 
                 // ===== Other Document
                 'maps_of_proposed_doc' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
@@ -110,6 +111,7 @@ class RenewalBuildingNOCRequest extends FormRequest
                 // ====== Information of Land
                 'peermission_no' => 'nullable',
                 'permission_date' => 'nullable',
+                'renewal_date' => 'nullable',
 
                 // ===== Other Document
                 'maps_of_proposed_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:8388608',

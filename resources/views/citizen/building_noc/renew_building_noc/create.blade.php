@@ -325,6 +325,16 @@
                                                 </span>
                                                 @enderror
                                             </div>
+
+                                            <label class="col-sm-2"><strong>Existing documents as per the previous NOC Date : </strong></label>
+                                            <div class="col-sm-2 col-md-2">
+                                                <input type="date" name="renewal_date" id="renewal_date" class="form-control @error('renewal_date') is-invalid @enderror" value="{{ old('renewal_date') }}" placeholder="Enter Number of Workers / Servants sleep at night at working place">
+                                                @error('renewal_date')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </div>
                                         </div>
 
                                         <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Necessary Enclosures related to above application (Documents to attach)</h4>

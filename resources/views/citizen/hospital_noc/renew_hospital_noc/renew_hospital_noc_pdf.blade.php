@@ -300,6 +300,10 @@
                             <td colspan="3">{{ ($hospital_fireequip) }}</td>
                         </tr>
                         <tr>
+                            <th class="col-9">Existing documents as per the previous NOC Date : </th>
+                            <td colspan="4">{{ ($data->renewal_date) }}</td>
+                        </tr>
+                        <tr>
                             <th scope="row">Address Of Hospital Place : </th>
                             <td colspan="3">{{ ($data->hospital_address) }}</td>
                         </tr>

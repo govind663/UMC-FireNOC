@@ -69,6 +69,7 @@ class RenewalHospitalNOCRequest extends FormRequest
                 'total_sleeping_staff' => 'nullable',
                 'hospital_fireequip' => 'nullable',
                 'hospital_address' => 'nullable',
+                'renewal_date' => 'nullable',
 
                 // ===== Other Document
                 'property_doc' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
@@ -144,6 +145,7 @@ class RenewalHospitalNOCRequest extends FormRequest
                 'total_sleeping_staff' => 'nullable',
                 'hospital_fireequip' => 'nullable',
                 'hospital_address' => 'nullable',
+                'renewal_date' => 'nullable',
 
                 // ===== Other Document
                 'property_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:8388608',

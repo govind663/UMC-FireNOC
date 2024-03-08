@@ -500,10 +500,22 @@
                                                         </span>
                                                     @enderror
                                                 </div>
+                                            </div>
+
+                                            <div class="form-group row  mb-3">
+                                                <label disabled class="col-sm-2"><strong>Existing documents as per the previous NOC Date : </strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <input type="date" name="renewal_date" id="renewal_date" class="form-control @error('renewal_date') is-invalid @enderror" value="{{ $data->renewal_date }}" placeholder="Enter Number of Workers / Servants sleep at night at working place">
+                                                    @error('renewal_date')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                    @enderror
+                                                </div>
 
                                                 <label class="col-sm-2"><strong>Address Of Business Place : </strong></label>
-                                                <div class="col-sm-2 col-md-2">
-                                                    <textarea type="text" disabled name="business_address" id="business_address" class="form-control @error('business_address') is-invalid @enderror" value="{{ $data->business_address }}" placeholder="Enter Address Of Business Place">{{ $data->business_address }}</textarea>
+                                                <div class="col-sm-5 col-md-5">
+                                                    <textarea disabled type="text" name="business_address" id="business_address" class="form-control @error('business_address') is-invalid @enderror" value="{{ $data->business_address }}" placeholder="Enter Address Of Business Place">{{ $data->business_address }}</textarea>
                                                     @error('business_address')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>

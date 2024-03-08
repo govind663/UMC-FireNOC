@@ -53,6 +53,7 @@ class FinalBuildindgNOCRequest extends FormRequest
                 // ====== Information of Land
                 'peermission_no' => 'sometimes|nullable|string',
                 'permission_date' => 'sometimes|nullable|string',
+                'renewal_date' => 'nullable',
 
                 // ===== Other Document
                 'fire_equipments_install_doc' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
@@ -104,6 +105,7 @@ class FinalBuildindgNOCRequest extends FormRequest
                 // ====== Information of Land
                 'peermission_no' => 'sometimes|nullable|string',
                 'permission_date' => 'sometimes|nullable|string',
+                'renewal_date' => 'nullable',
 
                 // ===== Other Document
                 'fire_equipments_install_doc' => 'sometimes|nullable|mimes:jpeg,png,jpg,pdf|max:8388608',

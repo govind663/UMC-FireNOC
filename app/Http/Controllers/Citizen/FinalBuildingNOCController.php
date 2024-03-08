@@ -141,6 +141,8 @@ class FinalBuildingNOCController extends Controller
         $data->peermission_no = $request->get('peermission_no');
         $data->permission_date = $request->get('permission_date');
 
+        $data->renewal_date = $request->get('renewal_date');
+
         $data->inserted_dt = date("Y-m-d H:i:s");
         $data->inserted_by = Auth::user()->id;
         $data->save();
@@ -347,6 +349,8 @@ class FinalBuildingNOCController extends Controller
 
             $data->peermission_no = $request->get('peermission_no');
             $data->permission_date = $request->get('permission_date');
+
+            $data->renewal_date = $request->get('renewal_date');
 
             $data->status = 0;
             $data->modified_dt = date("Y-m-d H:i:s");

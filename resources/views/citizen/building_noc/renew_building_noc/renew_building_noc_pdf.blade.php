@@ -222,6 +222,10 @@
                             <th scope="row">Date of Permission : </th>
                             <td colspan="3"> {{ date('d-m-Y', strtotime($data->permission_date)) }}</td>
                         </tr>
+                        <tr>
+                            <th class="col-9">Existing documents as per the previous NOC Date : </th>
+                            <td colspan="4">{{ ($data->renewal_date) }}</td>
+                        </tr>
                     </tbody>
                 </table>
 

@@ -49,6 +49,7 @@ class Building_NOC extends Model
         // ====== Information of Land
         'peermission_no',
         'permission_date',
+        'renewal_date',
 
         // ===== Other Document
         'maps_of_proposed_doc',
