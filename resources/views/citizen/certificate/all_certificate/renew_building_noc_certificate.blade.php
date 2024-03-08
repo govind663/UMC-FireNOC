@@ -50,11 +50,14 @@
                                             व्यवसायाकरीता या पूर्वीचे जावक क्रं. उमपा /अग्नि / ---/२०-- दिनांक :-
                                             {{ \Carbon\Carbon::parse($data->inserted_dt)->format('j/m/Y') }} चे अन्वये
                                             देण्यात आलेला "ना हरकत दाखला" त्यांचे नियम अटीसह दिनांक :-
-                                            {{ \Carbon\Carbon::parse($data->f_inspector_dt)->format('j/m/Y') }} पर्यंत
-                                            नुतनीकरण करण्यात येत असून त्यानंतर त्याचे पुन्हा नुतनीकरण करून
+                                            {{ date('d-m-Y', strtotime('+1 year', strtotime($data->renewal_date))) }}
+                                            {{-- {{ \Carbon\Carbon::parse($data->f_inspector_dt)->format('j/m/Y') }} --}}
+                                            पर्यंत नुतनीकरण करण्यात येत असून त्यानंतर त्याचे पुन्हा नुतनीकरण करून
                                             घ्यावे.उपरोक्त दाखल्याचे नियम व अटीचा भंग केल्यास सदर दाखला रदद करण्यात
-                                            येईल.</p>
-                                        <p><strong>मागील नुतनीकरण ना हरकत दाखला भरलेली फी :- रक्कम {{ $data->total_charges_cost }}
+                                            येईल.
+                                        </p>
+                                        <p><strong>मागील नुतनीकरण ना हरकत दाखला भरलेली फी :- रक्कम
+                                                {{ $data->total_charges_cost }}
                                                 रू </strong></p>
                                         <p><strong>(टिप:- शासकीय ठराव क्र. ५० दिनांक २८/०२/२०२३ अन्वये एक महिन्यानंतर
                                                 मुळ नुतनीकरण शुल्कावर विलंब आकार १०% प्रति महीना आकारण्यात
@@ -70,7 +73,9 @@
                                     @endphp
                                     <div class="signature">
                                         <div>
-                                            <img class="avatar-image" src="{{ url('/') }}/UMC_FireNOC/signature_doc/{{ $cf_signature->upload_signature_doc ?? null }}" alt="Chief Fire Officer">
+                                            <img class="avatar-image"
+                                                src="{{ url('/') }}/UMC_FireNOC/signature_doc/{{ $cf_signature->upload_signature_doc ?? null }}"
+                                                alt="Chief Fire Officer">
 
                                             <p class="lineheight">(बाळासाहेब नेटके)</p>
                                             <p class="lineheight">मुख्य अग्निशमन अधिकारी (प्र.)</p>

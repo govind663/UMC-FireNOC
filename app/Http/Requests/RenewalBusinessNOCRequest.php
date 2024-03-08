@@ -69,7 +69,7 @@ class RenewalBusinessNOCRequest extends FormRequest
                 'no_of_workers_sleep_night' => 'nullable',
                 'fire_equips' => 'nullable',
                 'business_address' => 'nullable',
-                'renewal_date' => 'nullable',
+                'renewal_date' => 'required',
 
                 // ===== Other Document
                 'location_map_doc' => 'mimes:jpeg,png,jpg,pdf|max:8388608',
@@ -146,7 +146,7 @@ class RenewalBusinessNOCRequest extends FormRequest
                 'no_of_workers_sleep_night' => 'nullable',
                 'fire_equips' => 'nullable',
                 'business_address' => 'nullable',
-                'renewal_date' => 'nullable',
+                'renewal_date' => 'required',
 
                 // ===== Other Document
                 'location_map_doc' => 'nullable|mimes:jpeg,png,jpg,pdf|max:8388608',
