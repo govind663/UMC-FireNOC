@@ -478,7 +478,7 @@
                                         </div>
 
                                         <div class="form-group row  mb-3">
-                                            <label class="col-sm-2"><strong>Existing documents as per the previous NOC Date : </strong></label>
+                                            <label class="col-sm-2"><strong>Existing NOC Renewal Date as per the documents : </strong></label>
                                             <div class="col-sm-3 col-md-3">
                                                 <input type="date" name="renewal_date" id="renewal_date" class="form-control @error('renewal_date') is-invalid @enderror" value="{{ $data->renewal_date }}" placeholder="Enter Number of Workers / Servants sleep at night at working place">
                                                 @error('renewal_date')

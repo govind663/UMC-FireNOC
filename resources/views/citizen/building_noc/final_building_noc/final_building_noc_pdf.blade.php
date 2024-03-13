@@ -222,7 +222,7 @@
                             <td colspan="3"> {{ date('d/m/Y', strtotime($data->permission_date)) }}</td>
                         </tr>
                         <tr>
-                            <th scope="row">Existing documents as per the previous NOC Date : </th>
+                            <th scope="row">Existing NOC Renewal Date as per the documents : </th>
                             <td colspan="3"> {{ date('d-m-Y', strtotime($data->renewal_date)) }}</td>
                         </tr>
                     </tbody>
