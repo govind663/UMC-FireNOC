@@ -764,9 +764,7 @@ class NewBusinessNOCController extends Controller
             $data->modified_by = Auth::user()->id;
             $data->save();
 
-
             if($request->get('application_status') == 2 || $request->get('application_status') == 3){
-
                 $update = [
                     'deleted_by' => Auth::user()->id,
                     'deleted_at' => date("Y-m-d H:i:s"),
@@ -778,7 +776,7 @@ class NewBusinessNOCController extends Controller
         }
 
 
-        return redirect( )->route('new_business_noc_list', $status)->with('message', 'The application form which you had updated for your new business noc has been done Successfully.');
+        return redirect()->route('new_business_noc_list', $status)->with('message', 'The application form which you had updated for your new business noc has been done Successfully.');
 
     }
 
