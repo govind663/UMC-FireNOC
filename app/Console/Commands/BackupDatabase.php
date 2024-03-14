@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Storage;
 
@@ -28,22 +29,14 @@ class BackupDatabase extends Command
      */
     public function handle()
     {
-        // Example with mysqldump
-        $backupFilename = 'backup-' . date('Y-m-d_H-i-s') . '.sql';
-        $command = sprintf(
-            'mysqldump -u%s -p%s %s > %s',
-            config('database.connections.mysql.rtsumc_fire_noc'),
-            config('database.connections.mysql.mTtJx%x-8d]}'),
-            config('database.connections.mysql.rtsumc_fire_noc_db'),
-            storage_path('app/backups/' . $backupFilename)
-        );
 
-        // Execute the command
-        exec($command);
+        $filename = "backup-" . Carbon::now()->format('Y-m-d') . ".gz";
 
-        // Optionally, you can upload this backup file to cloud storage like S3
-        // Storage::disk('s3')->put('backups/' . $backupFilename, file_get_contents(storage_path('app/backups/' . $backupFilename)));
+        $command = "mysqldump --user=" . env('DB_USERNAME') ." --password=" . env('DB_PASSWORD') . " --host=" . env('DB_HOST') . " " . env('DB_DATABASE') . "  | gzip > " . storage_path() . "/app/backup/" . $filename;
 
-        $this->info("The backup has been successfully created as " . $backupFilename);
+        $returnVar = NULL;
+        $output  = NULL;
+
+        exec($command, $output, $returnVar);
     }
 }
