@@ -556,6 +556,8 @@ class RenewBusinessNOCController extends Controller
             $data->modified_by = Auth::user()->id;
             $data->save();
 
+            return redirect()->route('renew_business_noc_list',$status)->with('message', 'The application form which you had updated for your renew business noc has been done Successfully.');
+
         } elseif($status == 4){
 
             $noc_master = NOC_Master::findOrFail($n_id);
@@ -585,6 +587,9 @@ class RenewBusinessNOCController extends Controller
 
 
             $data = Business_NOC::findOrFail($id);
+
+            // ==== current rejected status data save in noc_reject table ===
+            $currentRejStatus = $data->current_rejected_status;
 
             // ==== Upload (location_map_doc)
             if (!empty($request->hasFile('location_map_doc'))) {
@@ -751,13 +756,51 @@ class RenewBusinessNOCController extends Controller
             $data->no_of_workers_sleep_night = $request->get('no_of_workers_sleep_night');
             $data->fire_equips = $request->get('fire_equips');
             $data->business_address = $request->get('business_address');
-
             $data->renewal_date = $request->get('renewal_date');
-
-            $data->status = 0;
             $data->modified_dt = date("Y-m-d H:i:s");
             $data->modified_by = Auth::user()->id;
             $data->save();
+
+            if($data->current_rejected_role  == '0'){
+                $updatecurrentstatus = [
+                    'status' => $currentRejStatus,
+                    'operator_status' => 0,
+                    'remarks' => null,
+                    'rejected_dt' => null,
+                    'rejected_by' => null,
+                ];
+
+                Business_NOC::whereId($id)->update($updatecurrentstatus);
+            }elseif($data->current_rejected_role  == '1'){
+                $updatecurrentstatus = [
+                    'status' => $currentRejStatus,
+                    'inspector_status' => 0,
+                    'remarks' => null,
+                    'rejected_dt' => null,
+                    'rejected_by' => null,
+                ];
+
+                Business_NOC::whereId($id)->update($updatecurrentstatus);
+            }elseif ($data->current_rejected_role  == '2'){
+                $updatecurrentstatus = [
+                    'status' => $currentRejStatus,
+                    'officer_status' => 0,
+                    'remarks' => null,
+                    'rejected_dt' => null,
+                    'rejected_by' => null,
+                ];
+
+                Business_NOC::whereId($id)->update($updatecurrentstatus);
+            }elseif ($data->current_rejected_role  == '3'){
+                $updatecurrentstatus = [
+                    'status' => $currentRejStatus,
+                    'remarks' => null,
+                    'rejected_dt' => null,
+                    'rejected_by' => null,
+                ];
+
+                Business_NOC::whereId($id)->update($updatecurrentstatus);
+            }
 
             if($request->get('application_status') == 2 || $request->get('application_status') == 3){
 
@@ -768,10 +811,9 @@ class RenewBusinessNOCController extends Controller
                 CitizenPayment::where('mst_token', $request->get('mst_token'))->update($update);
                 FeeReceiptDocument::where('mst_token', $request->get('mst_token'))->update($update);
             }
+
+            return redirect()->route('renew_business_noc_list',$currentRejStatus)->with('message', 'The application form which you had updated for your renew business noc has been done Successfully.');
         }
-
-        return redirect( )->route('renew_business_noc_list',$status)->with('message', 'The application form which you had updated for your renew business noc has been done Successfully.');
-
     }
 
     /**

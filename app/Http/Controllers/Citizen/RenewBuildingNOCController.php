@@ -270,6 +270,7 @@ class RenewBuildingNOCController extends Controller
     public function update(Request $request, $id, $n_id, $status)
     {
         if($status == 0){
+
             $noc_master = NOC_Master::findOrFail($n_id);
 
             $noc_master->noc_a_date = date('Y-m-d', strtotime($request->get('nocs_a_date')));
@@ -388,6 +389,9 @@ class RenewBuildingNOCController extends Controller
             $data->modified_dt = date("Y-m-d H:i:s");
             $data->modified_by = Auth::user()->id;
             $data->save();
+
+            return redirect()->route('renew_building_noc_list',$status)->with('message', 'The application form which you had updated for your renew building noc has been done Successfully.');
+
         }elseif($status == 4){
             $noc_master = NOC_Master::findOrFail($n_id);
 
@@ -416,6 +420,9 @@ class RenewBuildingNOCController extends Controller
 
             $data = Building_NOC::findOrFail($id);
 
+            // ==== current rejected status data save in noc_reject table ===
+            $currentRejStatus = $data->current_rejected_status;
+
             // ==== Upload (maps_of_proposed_doc)
             if (!empty($request->hasFile('maps_of_proposed_doc'))) {
                 $image = $request->file('maps_of_proposed_doc');
@@ -505,9 +512,50 @@ class RenewBuildingNOCController extends Controller
 
             $data->renewal_date = $request->get('renewal_date');
 
-            $data->status = 0;
             $data->modified_dt = date("Y-m-d H:i:s");
             $data->modified_by = Auth::user()->id;
+            $data->save();
+
+            if($data->current_rejected_role  == '0'){
+                $updatecurrentstatus = [
+                    'status' => $currentRejStatus,
+                    'operator_status' => 0,
+                    'remarks' => null,
+                    'rejected_dt' => null,
+                    'rejected_by' => null,
+                ];
+
+                Building_NOC::whereId($id)->update($updatecurrentstatus);
+            }elseif($data->current_rejected_role  == '1'){
+                $updatecurrentstatus = [
+                    'status' => $currentRejStatus,
+                    'inspector_status' => 0,
+                    'remarks' => null,
+                    'rejected_dt' => null,
+                    'rejected_by' => null,
+                ];
+
+                Building_NOC::whereId($id)->update($updatecurrentstatus);
+            }elseif ($data->current_rejected_role  == '2'){
+                $updatecurrentstatus = [
+                    'status' => $currentRejStatus,
+                    'officer_status' => 0,
+                    'remarks' => null,
+                    'rejected_dt' => null,
+                    'rejected_by' => null,
+                ];
+
+                Building_NOC::whereId($id)->update($updatecurrentstatus);
+            }elseif ($data->current_rejected_role  == '3'){
+                $updatecurrentstatus = [
+                    'status' => $currentRejStatus,
+                    'remarks' => null,
+                    'rejected_dt' => null,
+                    'rejected_by' => null,
+                ];
+
+                Building_NOC::whereId($id)->update($updatecurrentstatus);
+            }
 
             if($request->get('application_status') == 2 || $request->get('application_status') == 3){
 
@@ -519,10 +567,8 @@ class RenewBuildingNOCController extends Controller
                 FeeReceiptDocument::where('mst_token', $request->get('mst_token'))->update($update);
             }
 
-            $data->save();
+            return redirect()->route('renew_building_noc_list',$currentRejStatus)->with('message', 'The application form which you had updated for your renew building noc has been done Successfully.');
         }
-
-        return redirect()->route('renew_building_noc_list',$status)->with('message', 'The application form which you had updated for your renew building noc has been done Successfully.');
     }
 
     /**

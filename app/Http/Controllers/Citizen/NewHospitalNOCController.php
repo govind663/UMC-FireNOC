@@ -362,7 +362,6 @@ class NewHospitalNOCController extends Controller
                 $data->property_doc = $new_name;
             }
 
-
             // ==== Upload (electric_doc)
             if (!empty($request->hasFile('electric_doc'))) {
                 $image = $request->file('electric_doc');
@@ -494,6 +493,8 @@ class NewHospitalNOCController extends Controller
             $data->modified_by = Auth::user()->id;
             $data->save();
 
+            return redirect()->route('new_hospital_noc_list',$status)->with('message', 'The application form which you had updated for your new hospital noc has been done Successfully.');
+
         }elseif($status == 4){
             $noc_master = NOC_Master::findOrFail($n_id);
 
@@ -521,6 +522,9 @@ class NewHospitalNOCController extends Controller
             $noc_master->save();
 
             $data = Hospital_NOC::findOrFail($id);
+
+            // ==== current rejected status data save in noc_reject table ===
+            $currentRejStatus = $data->current_rejected_status;
 
             // ==== Upload (property_doc)
             if (!empty($request->hasFile('property_doc'))) {
@@ -659,12 +663,51 @@ class NewHospitalNOCController extends Controller
             $data->hospital_fireequip = $request->get('hospital_fireequip');
             $data->hospital_address = $request->get('hospital_address');
             $data->location_of_place = $request->get('location_of_place');
-
-            $data->status = 0;
             $data->modified_dt = date("Y-m-d H:i:s");
             $data->modified_by = Auth::user()->id;
 
             $data->save();
+
+            if($data->current_rejected_role  == '0'){
+                $updatecurrentstatus = [
+                    'status' => $currentRejStatus,
+                    'operator_status' => 0,
+                    'remarks' => null,
+                    'rejected_dt' => null,
+                    'rejected_by' => null,
+                ];
+
+                Hospital_NOC::whereId($id)->update($updatecurrentstatus);
+            }elseif($data->current_rejected_role  == '1'){
+                $updatecurrentstatus = [
+                    'status' => $currentRejStatus,
+                    'inspector_status' => 0,
+                    'remarks' => null,
+                    'rejected_dt' => null,
+                    'rejected_by' => null,
+                ];
+
+                Hospital_NOC::whereId($id)->update($updatecurrentstatus);
+            }elseif ($data->current_rejected_role  == '2'){
+                $updatecurrentstatus = [
+                    'status' => $currentRejStatus,
+                    'officer_status' => 0,
+                    'remarks' => null,
+                    'rejected_dt' => null,
+                    'rejected_by' => null,
+                ];
+
+                Hospital_NOC::whereId($id)->update($updatecurrentstatus);
+            }elseif ($data->current_rejected_role  == '3'){
+                $updatecurrentstatus = [
+                    'status' => $currentRejStatus,
+                    'remarks' => null,
+                    'rejected_dt' => null,
+                    'rejected_by' => null,
+                ];
+
+                Hospital_NOC::whereId($id)->update($updatecurrentstatus);
+            }
 
             if($request->get('application_status') == 2 || $request->get('application_status') == 3){
 
@@ -675,9 +718,9 @@ class NewHospitalNOCController extends Controller
                 CitizenPayment::where('mst_token', $request->get('mst_token'))->update($update);
                 FeeReceiptDocument::where('mst_token', $request->get('mst_token'))->update($update);
             }
-        }
 
-        return redirect( )->route('new_hospital_noc_list',$status)->with('message', 'The application form which you had updated for your new hospital noc has been done Successfully.');
+            return redirect()->route('new_hospital_noc_list',$currentRejStatus)->with('message', 'The application form which you had updated for your new hospital noc has been done Successfully.');
+        }
     }
 
     /**

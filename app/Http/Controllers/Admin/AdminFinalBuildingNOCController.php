@@ -179,6 +179,8 @@ class AdminFinalBuildingNOCController extends Controller
                 'remarks' => $request->get('remarks'),
                 'rejected_dt' => date("Y-m-d H:i:s"),
                 'rejected_by' => Auth::user()->id,
+                'current_rejected_status' => $status,
+                'current_rejected_role' => $auth_role
             ];
 
             Building_NOC::where('id', $id)->where('status', $status)->update($update);
@@ -191,6 +193,8 @@ class AdminFinalBuildingNOCController extends Controller
                 'remarks' => $request->get('remarks'),
                 'rejected_dt' => date("Y-m-d H:i:s"),
                 'rejected_by' => Auth::user()->id,
+                'current_rejected_status' => $status,
+                'current_rejected_role' => $auth_role
             ];
 
             Building_NOC::where('id', $id)->where('status', $status)->update($update);
@@ -204,6 +208,8 @@ class AdminFinalBuildingNOCController extends Controller
                 'application_status' => 2, // ===== Chief Fire Officer will pass
                 'rejected_dt' => date("Y-m-d H:i:s"),
                 'rejected_by' => Auth::user()->id,
+                'current_rejected_status' => $status,
+                'current_rejected_role' => $auth_role
             ];
 
             Building_NOC::where('id', $id)->where('status', $status)->update($update);
@@ -215,6 +221,8 @@ class AdminFinalBuildingNOCController extends Controller
                 'application_status' => 3, // ===== DMC will pass
                 'rejected_dt' => date("Y-m-d H:i:s"),
                 'rejected_by' => Auth::user()->id,
+                'current_rejected_status' => $status,
+                'current_rejected_role' => $auth_role
             ];
 
             Building_NOC::where('id', $id)->where('status', $status)->update($update);
