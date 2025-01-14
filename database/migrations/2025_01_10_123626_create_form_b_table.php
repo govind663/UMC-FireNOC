@@ -72,7 +72,7 @@ return new class extends Migration
                 $table->integer('status')->default('0')->comment('0:Pending, 1:Unpaid, 2:Paid, 3:Approved, 4:Rejected, 5:Underprocess, 6:Reviewed, 7:ChekerMaker');
                 $table->string('current_rejected_status') ->comment('0:Pending, 1:Unpaid, 2:Paid, 3:Approved, 4:Rejected, 5:Underprocess, 6:Reviewed, 7:ChekerMaker');
                 $table->string('current_rejected_role') ->comment('0:Pending, 1:Unpaid, 2:Paid, 3:Approved, 4:Rejected, 5:Underprocess, 6:Reviewed, 7:ChekerMaker');
-                $table->integer('application_status')->default('0')->comment('0:Operator, 1:Field Inspector, 2:Checker Maker, 3:Chief Fire Officer, 4:DMC, 5:Additional Commissioner, 6:Commissioner');
+                $table->integer('application_status')->default('0')->comment('0:Operator, 1:Field Inspector, 2:Checker Maker, 3:Chief Fire Officer, 4:DMC, 5:Additional Commissioner, 6:Commissioner, 7:Clerk,8:Station Officer');
                 $table->integer('operator_status')->default('0')->comment('1:Approved, 2:Rejected');
                 $table->integer('operator_by')->nullable();
                 $table->date('operator_dt')->nullable();
