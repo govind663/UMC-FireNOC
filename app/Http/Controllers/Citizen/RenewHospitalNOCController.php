@@ -97,7 +97,7 @@ class RenewHospitalNOCController extends Controller
         $noc_master->save();
 
         // ==== Generate Renew Hospital NOC Token Number
-        $unique_id = "UMC/RHN/".rand(1000,10000000);
+        $unique_id = "PMC/RHN/".rand(1000,10000000);
         $update = [
             'mst_token' => $unique_id.$noc_master->id ,
         ];
@@ -112,9 +112,9 @@ class RenewHospitalNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/property_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/property_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/property_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/property_doc" . $image_name;
             $data->property_doc = $new_name;
         }
 
@@ -124,9 +124,9 @@ class RenewHospitalNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/location_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/location_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/location_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/location_doc" . $image_name;
             $data->location_doc = $new_name;
         }
 
@@ -136,9 +136,9 @@ class RenewHospitalNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/electric_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/electric_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/electric_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/electric_doc" . $image_name;
             $data->electric_doc = $new_name;
         }
 
@@ -148,9 +148,9 @@ class RenewHospitalNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/shop_license_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/shop_license_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/shop_license_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/shop_license_doc" . $image_name;
             $data->shop_license_doc = $new_name;
         }
 
@@ -160,9 +160,9 @@ class RenewHospitalNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/paid_tax_bill_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/paid_tax_bill_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/paid_tax_bill_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/paid_tax_bill_doc" . $image_name;
             $data->paid_tax_bill_doc = $new_name;
         }
 
@@ -172,9 +172,9 @@ class RenewHospitalNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/commissioning_certificate'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/commissioning_certificate'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/commissioning_certificate" . $image_name;
+            $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/commissioning_certificate" . $image_name;
             $data->commissioning_certificate = $new_name;
         }
 
@@ -184,9 +184,9 @@ class RenewHospitalNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/affidavit_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/affidavit_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/affidavit_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/affidavit_doc" . $image_name;
             $data->affidavit_doc = $new_name;
         }
 
@@ -196,9 +196,9 @@ class RenewHospitalNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/corporation_certificate'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/corporation_certificate'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/corporation_certificate" . $image_name;
+            $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/corporation_certificate" . $image_name;
             $data->corporation_certificate = $new_name;
         }
 
@@ -208,9 +208,9 @@ class RenewHospitalNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/construction_plan_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/construction_plan_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/construction_plan_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/construction_plan_doc" . $image_name;
             $data->construction_plan_doc = $new_name;
         }
 
@@ -366,9 +366,9 @@ class RenewHospitalNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/property_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/property_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/property_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/property_doc" . $image_name;
                 $data->property_doc = $new_name;
             }
 
@@ -378,9 +378,9 @@ class RenewHospitalNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/location_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/location_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/location_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/location_doc" . $image_name;
                 $data->location_doc = $new_name;
             }
 
@@ -390,9 +390,9 @@ class RenewHospitalNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/electric_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/electric_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/electric_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/electric_doc" . $image_name;
                 $data->electric_doc = $new_name;
             }
 
@@ -402,9 +402,9 @@ class RenewHospitalNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/shop_license_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/shop_license_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/shop_license_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/shop_license_doc" . $image_name;
                 $data->shop_license_doc = $new_name;
             }
 
@@ -414,9 +414,9 @@ class RenewHospitalNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/paid_tax_bill_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/paid_tax_bill_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/paid_tax_bill_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/paid_tax_bill_doc" . $image_name;
                 $data->paid_tax_bill_doc = $new_name;
             }
 
@@ -426,9 +426,9 @@ class RenewHospitalNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/commissioning_certificate'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/commissioning_certificate'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/commissioning_certificate" . $image_name;
+                $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/commissioning_certificate" . $image_name;
                 $data->commissioning_certificate = $new_name;
             }
 
@@ -438,9 +438,9 @@ class RenewHospitalNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/affidavit_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/affidavit_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/affidavit_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/affidavit_doc" . $image_name;
                 $data->affidavit_doc = $new_name;
             }
 
@@ -450,9 +450,9 @@ class RenewHospitalNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/corporation_certificate'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/corporation_certificate'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/corporation_certificate" . $image_name;
+                $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/corporation_certificate" . $image_name;
                 $data->corporation_certificate = $new_name;
             }
 
@@ -462,9 +462,9 @@ class RenewHospitalNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/construction_plan_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/construction_plan_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/construction_plan_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/construction_plan_doc" . $image_name;
                 $data->construction_plan_doc = $new_name;
             }
 
@@ -554,9 +554,9 @@ class RenewHospitalNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/property_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/property_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/property_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/property_doc" . $image_name;
                 $data->property_doc = $new_name;
             }
 
@@ -566,9 +566,9 @@ class RenewHospitalNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/location_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/location_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/location_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/location_doc" . $image_name;
                 $data->location_doc = $new_name;
             }
 
@@ -578,9 +578,9 @@ class RenewHospitalNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/electric_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/electric_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/electric_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/electric_doc" . $image_name;
                 $data->electric_doc = $new_name;
             }
 
@@ -590,9 +590,9 @@ class RenewHospitalNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/shop_license_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/shop_license_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/shop_license_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/shop_license_doc" . $image_name;
                 $data->shop_license_doc = $new_name;
             }
 
@@ -602,9 +602,9 @@ class RenewHospitalNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/paid_tax_bill_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/paid_tax_bill_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/paid_tax_bill_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/paid_tax_bill_doc" . $image_name;
                 $data->paid_tax_bill_doc = $new_name;
             }
 
@@ -614,9 +614,9 @@ class RenewHospitalNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/commissioning_certificate'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/commissioning_certificate'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/commissioning_certificate" . $image_name;
+                $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/commissioning_certificate" . $image_name;
                 $data->commissioning_certificate = $new_name;
             }
 
@@ -626,9 +626,9 @@ class RenewHospitalNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/affidavit_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/affidavit_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/affidavit_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/affidavit_doc" . $image_name;
                 $data->affidavit_doc = $new_name;
             }
 
@@ -638,9 +638,9 @@ class RenewHospitalNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/corporation_certificate'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/corporation_certificate'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/corporation_certificate" . $image_name;
+                $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/corporation_certificate" . $image_name;
                 $data->corporation_certificate = $new_name;
             }
 
@@ -650,9 +650,9 @@ class RenewHospitalNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/construction_plan_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/construction_plan_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/construction_plan_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/construction_plan_doc" . $image_name;
                 $data->construction_plan_doc = $new_name;
             }
 

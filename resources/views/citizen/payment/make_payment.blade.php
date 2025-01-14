@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
 
-    <title>UMC-Fire NOC | Make Payment For Fire NOC</title>
+    <title>PMC-Fire NOC | Make Payment For Fire NOC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
     <meta content="Themesdesign" name="author">
@@ -70,14 +70,14 @@
                                         <div class="col-3 text-muted float-md-end text-justify">
                                             <p class="mb-1">
                                                 <b>
-                                                    Ulhasnagar Municipal Corporation
+                                                    Panvel Municipal Corporation
                                                     Near Chopda Court,
-                                                    Ulhasnagar - 3,<br>
+                                                    Panvel - 3,<br>
                                                     Pincode - 421 003,
                                                     Maharashtra.
                                                 </b>
                                             </p>
-                                            <p class="mb-1"><b><i class="mdi mdi-email-outline me-1"></i> cfcumc@gmail.com</b></p>
+                                            <p class="mb-1"><b><i class="mdi mdi-email-outline me-1"></i> cfcpmc@gmail.com</b></p>
                                             <p><b><i class="mdi mdi-phone-outline me-1"></i> 0251 2720150</b></p>
                                         </div>
                                     </div>
@@ -885,7 +885,365 @@
                                             </div>
 
                                         </form>
-                                    @endif
+                                        @elseif ($noc_mode == 8)
+                                        <h4 class="card-header text-light bg-primary ">Make Payment for Renew Building NOC</h4>
+
+                                        <form class="auth-input p-4" method="POST" action='{{ url("/make_payment/store/{$data->NC_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off" style="border: 1px solid rgb(3, 155, 155);">
+                                            @csrf
+
+                                            <div class="form-group row mb-3">
+                                                <label class="col-sm-2"><strong>Payment Date : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="payment_dt" id="payment_dt" class="form-control" value="{{  date('d-m-Y', strtotime($data->noc_a_date))  }}">
+
+                                                </div>
+
+                                                <label class="col-sm-2"><strong>Application Unique Id : </strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->mst_token }}">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row mb-3 d-none">
+                                                <label class="col-sm-2"><strong>Citizen ID : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ $data->citizen_id }}">
+
+                                                </div>
+
+                                                <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <select class="form-control select2 " name="payment_noc_mode" id="payment_noc_mode" type="hidden">
+                                                        <option>Select Mode of NOC</option>
+                                                        <optgroup label=" ">
+                                                            <option value="8" {{ $data->noc_mode == "8" ? 'selected' : '' }}>New Other NOC</option>
+                                                            <option value="9" {{ $data->noc_mode == "9" ? 'selected' : '' }} @selected(true)>Renew Building NOC</option>
+                                                        </optgroup>
+                                                    </select>
+                                                </div>
+
+                                                <label class="col-sm-2"><strong>NOC Master Id : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="noc_mst_id" id="noc_mst_id" class="form-control" value="{{ $data->mst_token }}">
+
+                                                </div>
+                                            </div>
+
+                                            <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Basic Details :</h4>
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-2"><strong>Last Name / Surname : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="l_name" id="l_name" class="form-control " value="{{ $data->l_name }}" placeholder="Enter Last Name / Surname.">
+
+                                                </div>
+                                                <label class="col-sm-2"><strong>First Name : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="f_name" id="f_name" class="form-control " value="{{ $data->f_name }}" placeholder="Enter First Name.">
+
+                                                </div>
+                                                <label class="col-sm-2"><strong>Father / Husband's Name : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="father_name" id="father_name" class="form-control " value="{{ $data->father_name }}" placeholder="Enter Father / Husband's Name.">
+
+                                                </div>
+                                            </div>
+
+                                            <h4 class="card-title text-primary mb-3"><b>Payment Details :</b></h4>
+                                            <table id="dynamicTable" class="table table-bordered">
+                                                <thead>
+                                                    <tr style="color: white; background:#086070;">
+                                                        <th>Description</th>
+                                                        <th>Actual Area ( Sq.Mt. )</th>
+                                                        <th>Actual Charges ( Sq.Mt. )</th>
+                                                        <th>NOC Charges</th>
+                                                        <th class="col-2">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="border: 1px solid rgb(3, 155, 155);">
+
+                                                    <tr>
+                                                        <td>
+                                                            <input type="text" name="description[]" id="description" placeholder="Enter Description" required  class="form-control" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="area[]" id="area" placeholder="Enter Area" required class="form-control actualArea" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="actualcharges[]" id="actualcharges" required placeholder="Enter Actual Charges" class="form-control actualCharges" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="noccharges[]" id="noccharges" required readonly placeholder="Enter NOC Charges" class="form-control nocCharges" />
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" name="add" id="add" class="btn btn-primary btn-sm ">
+                                                                + Add More
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th scope="row" colspan="3" class="border-0 text-end"><b>Total NOC Charges : - </b></th>
+                                                        <td class="border-0 text-end">
+                                                            <h4 class="m-0 fw-semibold">
+                                                                <input type="text" name="total_charges_cost" id="total_charges_cost" value="0"  readonly class="form-control" />
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+
+                                            <div class="form-group row mt-4">
+                                                <label class="col-md-3"></label>
+                                                <div class="col-md-9" style="display: flex; justify-content: flex-end;">
+                                                    <a href="{{ url('/admin_new_other_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+
+                                            @elseif ($noc_mode == 9)
+                                            <h4 class="card-header text-light bg-primary ">Make Payment for Renew Other NOC</h4>
+
+                                            <form class="auth-input p-4" method="POST" action='{{ url("/make_payment/store/{$data->ON_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off" style="border: 1px solid rgb(3, 155, 155);">
+                                                @csrf
+
+                                                <div class="form-group row mb-3">
+                                                    <label class="col-sm-2"><strong>Payment Date : </strong></label>
+                                                    <div class="col-sm-2 col-md-2">
+                                                        <input type="text" readonly name="payment_dt" id="payment_dt" class="form-control" value="{{  date('d-m-Y', strtotime($data->noc_a_date))  }}">
+
+                                                    </div>
+
+                                                    <label class="col-sm-2"><strong>Application Unique Id : </strong></label>
+                                                    <div class="col-sm-3 col-md-3">
+                                                        <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->mst_token }}">
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row mb-3 d-none">
+                                                    <label class="col-sm-2"><strong>Citizen ID : </strong></label>
+                                                    <div class="col-sm-2 col-md-2">
+                                                        <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ $data->citizen_id }}">
+
+                                                    </div>
+
+                                                    <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
+                                                    <div class="col-sm-2 col-md-2">
+                                                        <select class="form-control select2 " name="payment_noc_mode" id="payment_noc_mode" type="hidden">
+                                                            <option>Select Mode of NOC</option>
+                                                            <optgroup label=" ">
+                                                                <option value="8" {{ $data->noc_mode == "8" ? 'selected' : '' }}>New Other NOC</option>
+                                                                <option value="9" {{ $data->noc_mode == "9" ? 'selected' : '' }}    >ReNew Other NOC</option>
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
+
+                                                    <label class="col-sm-2"><strong>NOC Master Id : </strong></label>
+                                                    <div class="col-sm-2 col-md-2">
+                                                        <input type="text" readonly name="noc_mst_id" id="noc_mst_id" class="form-control" value="{{ $data->mst_token }}">
+
+                                                    </div>
+                                                </div>
+
+                                                <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Basic Details :</h4>
+                                                <div class="form-group row  mb-3">
+                                                    <label class="col-sm-2"><strong>Last Name / Surname : </strong></label>
+                                                    <div class="col-sm-2 col-md-2">
+                                                        <input readonly type="text" name="l_name" id="l_name" class="form-control " value="{{ $data->l_name }}" placeholder="Enter Last Name / Surname.">
+
+                                                    </div>
+                                                    <label class="col-sm-2"><strong>First Name : </strong></label>
+                                                    <div class="col-sm-2 col-md-2">
+                                                        <input readonly type="text" name="f_name" id="f_name" class="form-control " value="{{ $data->f_name }}" placeholder="Enter First Name.">
+
+                                                    </div>
+                                                    <label class="col-sm-2"><strong>Father / Husband's Name : </strong></label>
+                                                    <div class="col-sm-2 col-md-2">
+                                                        <input readonly type="text" name="father_name" id="father_name" class="form-control " value="{{ $data->father_name }}" placeholder="Enter Father / Husband's Name.">
+
+                                                    </div>
+                                                </div>
+
+                                                <h4 class="card-title text-primary mb-3"><b>Payment Details :</b></h4>
+                                                <table id="dynamicTable" class="table table-bordered">
+                                                    <thead>
+                                                        <tr style="color: white; background:#086070;">
+                                                            <th>Description</th>
+                                                            <th>Actual Area ( Sq.Mt. )</th>
+                                                            <th>Actual Charges ( Sq.Mt. )</th>
+                                                            <th>NOC Charges</th>
+                                                            <th class="col-2">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody style="border: 1px solid rgb(3, 155, 155);">
+
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" name="description[]" id="description" placeholder="Enter Description" required  class="form-control" />
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" name="area[]" id="area" placeholder="Enter Area" required class="form-control actualArea" />
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" name="actualcharges[]" id="actualcharges" required placeholder="Enter Actual Charges" class="form-control actualCharges" />
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" name="noccharges[]" id="noccharges" required readonly placeholder="Enter NOC Charges" class="form-control nocCharges" />
+                                                            </td>
+                                                            <td>
+                                                                <button type="button" name="add" id="add" class="btn btn-primary btn-sm ">
+                                                                    + Add More
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+
+                                                    </tbody>
+                                                    <tfoot>
+                                                        <tr>
+                                                            <th scope="row" colspan="3" class="border-0 text-end"><b>Total NOC Charges : - </b></th>
+                                                            <td class="border-0 text-end">
+                                                                <h4 class="m-0 fw-semibold">
+                                                                    <input type="text" name="total_charges_cost" id="total_charges_cost" value="0"  readonly class="form-control" />
+                                                                </h4>
+                                                            </td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+
+                                                <div class="form-group row mt-4">
+                                                    <label class="col-md-3"></label>
+                                                    <div class="col-md-9" style="display: flex; justify-content: flex-end;">
+                                                        <a href="{{ url('/admin_new_other_noc_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        @elseif ($noc_mode == 10)
+                                        <h4 class="card-header text-light bg-primary ">Make Payment for Form B  NOC</h4>
+
+                                        <form class="auth-input p-4" method="POST" action='{{ url("/make_payment/store/{$data->FB_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' enctype="multipart/form-data" autocomplete="off" style="border: 1px solid rgb(3, 155, 155);">
+                                            @csrf
+
+                                            <div class="form-group row mb-3">
+                                                <label class="col-sm-2"><strong>Payment Date : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="payment_dt" id="payment_dt" class="form-control" value="{{  date('d-m-Y', strtotime($data->noc_a_date))  }}">
+
+                                                </div>
+
+                                                <label class="col-sm-2"><strong>Application Unique Id : </strong></label>
+                                                <div class="col-sm-3 col-md-3">
+                                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{  $data->mst_token }}">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row mb-3 d-none">
+                                                <label class="col-sm-2"><strong>Citizen ID : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ $data->citizen_id }}">
+
+                                                </div>
+
+                                                <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <select class="form-control select2 " name="payment_noc_mode" id="payment_noc_mode" type="hidden">
+                                                        <option>Select Mode of NOC</option>
+                                                        <optgroup label=" ">
+                                                            <option value="10" {{ $data->noc_mode == "10" ? 'selected' : '' }}>New Form B</option>
+                                                            {{-- <option value="9" {{ $data->noc_mode == "9" ? 'selected' : '' }} @selected(true)>Renew Building NOC</option> --}}
+                                                        </optgroup>
+                                                    </select>
+                                                </div>
+
+                                                <label class="col-sm-2"><strong>NOC Master Id : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input type="text" readonly name="noc_mst_id" id="noc_mst_id" class="form-control" value="{{ $data->mst_token }}">
+
+                                                </div>
+                                            </div>
+
+                                            <h4 class="card-title text-primary mb-3" style="font-size: 18px;">Basic Details :</h4>
+                                            <div class="form-group row  mb-3">
+                                                <label class="col-sm-2"><strong>Last Name / Surname : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="l_name" id="l_name" class="form-control " value="{{ $data->l_name }}" placeholder="Enter Last Name / Surname.">
+
+                                                </div>
+                                                <label class="col-sm-2"><strong>First Name : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="f_name" id="f_name" class="form-control " value="{{ $data->f_name }}" placeholder="Enter First Name.">
+
+                                                </div>
+                                                <label class="col-sm-2"><strong>Father / Husband's Name : </strong></label>
+                                                <div class="col-sm-2 col-md-2">
+                                                    <input readonly type="text" name="father_name" id="father_name" class="form-control " value="{{ $data->father_name }}" placeholder="Enter Father / Husband's Name.">
+
+                                                </div>
+                                            </div>
+
+                                            <h4 class="card-title text-primary mb-3"><b>Payment Details :</b></h4>
+                                            <table id="dynamicTable" class="table table-bordered">
+                                                <thead>
+                                                    <tr style="color: white; background:#086070;">
+                                                        <th>Description</th>
+                                                        <th>Actual Area ( Sq.Mt. )</th>
+                                                        <th>Actual Charges ( Sq.Mt. )</th>
+                                                        <th>NOC Charges</th>
+                                                        <th class="col-2">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="border: 1px solid rgb(3, 155, 155);">
+
+                                                    <tr>
+                                                        <td>
+                                                            <input type="text" name="description[]" id="description" placeholder="Enter Description" required  class="form-control" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="area[]" id="area" placeholder="Enter Area" required class="form-control actualArea" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="actualcharges[]" id="actualcharges" required placeholder="Enter Actual Charges" class="form-control actualCharges" />
+                                                        </td>
+                                                        <td>
+                                                            <input type="text" name="noccharges[]" id="noccharges" required readonly placeholder="Enter NOC Charges" class="form-control nocCharges" />
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" name="add" id="add" class="btn btn-primary btn-sm ">
+                                                                + Add More
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th scope="row" colspan="3" class="border-0 text-end"><b>Total NOC Charges : - </b></th>
+                                                        <td class="border-0 text-end">
+                                                            <h4 class="m-0 fw-semibold">
+                                                                <input type="text" name="total_charges_cost" id="total_charges_cost" value="0"  readonly class="form-control" />
+                                                            </h4>
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+
+                                            <div class="form-group row mt-4">
+                                                <label class="col-md-3"></label>
+                                                <div class="col-md-9" style="display: flex; justify-content: flex-end;">
+                                                    <a href="{{ url('/admin_new_form_b_list', $data->status) }}" class="btn btn-danger">Cancel</a>&nbsp;&nbsp;
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                        @endif
 
 
                                 </div>

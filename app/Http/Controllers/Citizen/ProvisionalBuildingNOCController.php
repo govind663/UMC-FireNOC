@@ -97,7 +97,7 @@ class ProvisionalBuildingNOCController extends Controller
         $noc_master->save();
 
         // ==== Generate Provisional Building NOC Token Number
-        $unique_id = "UMC/PBN/".rand(1000,10000000);
+        $unique_id = "PMC/PBN/".rand(1000,10000000);
         $update = [
             'mst_token' => $unique_id.$noc_master->id ,
         ];
@@ -111,9 +111,9 @@ class ProvisionalBuildingNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/maps_of_proposed_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/maps_of_proposed_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/maps_of_proposed_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/maps_of_proposed_doc" . $image_name;
             $data->maps_of_proposed_doc = $new_name;
         }
 
@@ -123,9 +123,9 @@ class ProvisionalBuildingNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/city_survey_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/city_survey_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/city_survey_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/city_survey_doc" . $image_name;
             $data->city_survey_doc = $new_name;
         }
 
@@ -135,9 +135,9 @@ class ProvisionalBuildingNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/sanad_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/sanad_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/sanad_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/sanad_doc" . $image_name;
             $data->sanad_doc = $new_name;
         }
 
@@ -147,9 +147,9 @@ class ProvisionalBuildingNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc" . $image_name;
             $data->competent_authority_doc = $new_name;
         }
 
@@ -159,9 +159,9 @@ class ProvisionalBuildingNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc" . $image_name;
             $data->dues_certificate_doc = $new_name;
         }
 
@@ -302,9 +302,9 @@ class ProvisionalBuildingNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/maps_of_proposed_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/maps_of_proposed_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/maps_of_proposed_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/maps_of_proposed_doc" . $image_name;
                 $data->maps_of_proposed_doc = $new_name;
             }
 
@@ -314,9 +314,9 @@ class ProvisionalBuildingNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/city_survey_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/city_survey_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/city_survey_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/city_survey_doc" . $image_name;
                 $data->city_survey_doc = $new_name;
             }
 
@@ -326,9 +326,9 @@ class ProvisionalBuildingNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/sanad_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/sanad_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/sanad_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/sanad_doc" . $image_name;
                 $data->sanad_doc = $new_name;
             }
 
@@ -338,9 +338,9 @@ class ProvisionalBuildingNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc" . $image_name;
                 $data->competent_authority_doc = $new_name;
             }
 
@@ -350,9 +350,9 @@ class ProvisionalBuildingNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc" . $image_name;
                 $data->dues_certificate_doc = $new_name;
             }
 
@@ -426,9 +426,9 @@ class ProvisionalBuildingNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/maps_of_proposed_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/maps_of_proposed_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/maps_of_proposed_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/maps_of_proposed_doc" . $image_name;
                 $data->maps_of_proposed_doc = $new_name;
             }
 
@@ -438,9 +438,9 @@ class ProvisionalBuildingNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/city_survey_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/city_survey_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/city_survey_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/city_survey_doc" . $image_name;
                 $data->city_survey_doc = $new_name;
             }
 
@@ -450,9 +450,9 @@ class ProvisionalBuildingNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/sanad_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/sanad_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/sanad_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/sanad_doc" . $image_name;
                 $data->sanad_doc = $new_name;
             }
 
@@ -462,9 +462,9 @@ class ProvisionalBuildingNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc" . $image_name;
                 $data->competent_authority_doc = $new_name;
             }
 
@@ -474,9 +474,9 @@ class ProvisionalBuildingNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc" . $image_name;
                 $data->dues_certificate_doc = $new_name;
             }
 

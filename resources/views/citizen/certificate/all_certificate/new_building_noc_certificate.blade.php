@@ -22,7 +22,7 @@
                                                     width="60" height="60">
                                             </div> --}}
                                             <div class="header">
-                                                उल्हासनगर महानगरपालिका <br>
+                                                पनवेल महानगरपालिका <br>
                                                 अग्निशमन विभाग <br>
                                                 दूरध्वनी क्र. २७२०१३१/२७२०१३२/२७२०१३३.
                                                 <hr>
@@ -39,7 +39,7 @@
                                                     {{ $data->l_name }} </p>
                                                 <!--<p class="lineheight"></p>-->
                                                 <!--<p class="lineheight"></p>-->
-                                                <p class="lineheight">उल्हासनगर -</p>
+                                                <p class="lineheight">पनवेल -</p>
 
                                                 <b>
                                                     <p style="text-align: center;">विषय:- इमारत/सीएनजी/पेट्रोल/डिझेल
@@ -52,7 +52,7 @@
                                                         च्या अर्जान्वये.</p>
                                                 </b><br>
                                                 <p>मेसर्स................................श्री. {{ $data->f_name }}
-                                                    {{ $data->father_name }} {{ $data->l_name }} उल्हासनगर
+                                                    {{ $data->father_name }} {{ $data->l_name }} पनवेल
                                                     {{ $data->society_name }} या इमारत/सी. एन. जी./पेट्रोल डिझेल पंपाला
                                                     तात्पुरता अग्निशमन ना हरकत दाखला जा.क्र/उमपा/अग्नि/---/--- दिनांक
                                                     {{ \Carbon\Carbon::parse($data->inserted_dt)->format('j/m/Y') }}
@@ -63,7 +63,7 @@
                                                     असल्याचे मे. ........... .......... ........... ............ यांनी
                                                     या कार्यालयात कळविले आहे.</p>
                                                 <p>मेसर्स ......... ........... ........... ...................,
-                                                    उल्हासनगर {{ $data->society_name }} या इमारत/सी.एन.जी.
+                                                    पनवेल {{ $data->society_name }} या इमारत/सी.एन.जी.
                                                     पंप/पेट्रोल/डिझेल पंप मध्ये बसविणेत आलेली आग प्रतिबंधक उपाययोजनेची
                                                     तपासणी
                                                     दिनांक:{{ \Carbon\Carbon::parse($data->f_inspector_dt)->format('j/m/Y') }}
@@ -120,12 +120,12 @@
                                             @endphp
                                             <div class="signature">
                                                 <div>
-                                                    <img class="avatar-image" src="{{ url('/') }}/UMC_FireNOC/signature_doc/{{ $cf_signature->upload_signature_doc ?? null }}" alt="Chief Fire Officer">
+                                                    <img class="avatar-image" src="{{ url('/') }}/PMC_FireNOC/signature_doc/{{ $cf_signature->upload_signature_doc ?? null }}" alt="Chief Fire Officer">
 
-                                                    <p class="lineheight">(बाळासाहेब नेटके)</p>
+                                                    <p class="lineheight">(प्रविण बाळू बोडखे)</p>
                                                     <p class="lineheight">मुख्य अग्निशमन अधिकारी (प्र.)</p>
                                                     <p class="lineheight">अग्निशमन विभाग</p>
-                                                    <p class="lineheight">उल्हासनगर महानगरपालिका</p>
+                                                    <p class="lineheight">पनवेल महानगरपालिका</p>
                                                 </div>
                                             </div>
                                         </div>

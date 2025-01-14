@@ -49,9 +49,9 @@ class SignatureController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/signature_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/signature_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/signature_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/signature_doc" . $image_name;
             $data->upload_signature_doc = $new_name;
         }
 
@@ -107,9 +107,9 @@ class SignatureController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/signature_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/signature_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/signature_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/signature_doc" . $image_name;
             $data->upload_signature_doc = $new_name;
         }
 

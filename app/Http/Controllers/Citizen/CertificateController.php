@@ -110,6 +110,8 @@ class CertificateController extends Controller
             // dd($data);
         }
 
+
+
         return view('citizen.certificate.master_certificate')->with(['data'=>$data,'noc_mode'=>$noc_mode]);
     }
 
@@ -129,9 +131,9 @@ class CertificateController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/payment/payment_recepit_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/payment/payment_recepit_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/payment/payment_recepit_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/payment/payment_recepit_doc" . $image_name;
             $data->payment_recepit_doc = $new_name;
         }
 

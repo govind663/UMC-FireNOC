@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
 
-        <title>UMC-Fire NOC | Edit Signature </title>
+        <title>PMC-Fire NOC | Edit Signature </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
         <meta content="Themesdesign" name="author">
@@ -88,7 +88,7 @@
                                                         </span>
                                                     @enderror
                                                     @if(!empty($data->upload_signature_doc))
-                                                        <a href="{{ url('/') }}/UMC_FireNOC/signature_doc/{{ $data->upload_signature_doc }}" target="_blank" class="btn btn-info btn-sm">
+                                                        <a href="{{ url('/') }}/PMC_FireNOC/signature_doc/{{ $data->upload_signature_doc }}" target="_blank" class="btn btn-info btn-sm">
                                                             <b><i class="mdi mdi-eye-circle-outline"> View Signature </i></b>
                                                         </a>
                                                     @endif

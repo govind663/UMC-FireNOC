@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
 
-    <title>UMC-Fire NOC | Renew Hospital NOC</title>
+    <title>PMC-Fire NOC | Renew Hospital NOC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
     <meta content="Themesdesign" name="author">
@@ -511,7 +511,7 @@
                                                     <label class="col-sm-2"><strong>Document Of Property : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->property_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/property_doc/{{ $data->property_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/property_doc/{{ $data->property_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -520,7 +520,7 @@
                                                     <label class="col-sm-2"><strong>Copy of Previous NOC : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->location_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/location_doc/{{ $data->location_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/location_doc/{{ $data->location_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -531,7 +531,7 @@
                                                     <label class="col-sm-2"><strong>Letter from License Holder regarding proper electric connection : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->electric_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/electric_doc/{{ $data->electric_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/electric_doc/{{ $data->electric_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -540,7 +540,7 @@
                                                     <label class="col-sm-2"><strong>Shop License : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->shop_license_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/shop_license_doc/{{ $data->shop_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/shop_license_doc/{{ $data->shop_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -551,7 +551,7 @@
                                                     <label class="col-sm-2"><strong>Up-to-date receipt of Tax bill paid : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->paid_tax_bill_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/paid_tax_bill_doc/{{ $data->paid_tax_bill_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/paid_tax_bill_doc/{{ $data->paid_tax_bill_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -560,7 +560,7 @@
                                                     <label class="col-sm-2"><strong>Commissioning Certificate of Fire extinguishers / preventive equipments of I.S.I. Mark : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->commissioning_certificate))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -571,7 +571,7 @@
                                                     <label class="col-sm-2"><strong>Copy of Affidavit : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->affidavit_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/affidavit_doc/{{ $data->affidavit_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/affidavit_doc/{{ $data->affidavit_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -580,7 +580,7 @@
                                                     <label class="col-sm-2"><strong>Corporation Registration certificate (FOR OLD HOSPITAL) : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->corporation_certificate))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/corporation_certificate/{{ $data->corporation_certificate }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/corporation_certificate/{{ $data->corporation_certificate }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -591,7 +591,7 @@
                                                     <label class="col-sm-2"><strong>Maps of Proposed Construction : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->construction_plan_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/construction_plan_doc/{{ $data->construction_plan_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Hospital_NOC/Renew_HospitalNOC/construction_plan_doc/{{ $data->construction_plan_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif

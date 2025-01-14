@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('operator_status')->default('0')->comment('1:Approved, 2:Rejected')->after('application_status');
             $table->integer('inspector_status')->default('0')->comment('1:Approved, 2:Rejected')->after('operator_status');
             $table->integer('officer_status')->default('0')->comment('1:Approved, 2:Rejected')->after('inspector_status');
+           
         });
     }
 

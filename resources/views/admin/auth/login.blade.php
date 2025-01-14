@@ -4,28 +4,28 @@
 <head>
 
     <meta charset="utf-8">
-    <title>UMC-Fire NOC | Login</title>
+    <title>PMC-Fire NOC | Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="UMC-Fire NOC" name="description">
+    <meta content="PMC-Fire NOC" name="description">
     <meta content="Themesdesign" name="author">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ url('/') }}/assets/logo/favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('assets/logo/favicon.ico') }}">
 
     <!-- Layout Js -->
-    <script src="{{ url('/') }}/assets/js/layout.js"></script>
+    <script src="{{ asset('assets/js/layout.js') }}"></script>
 
     <!-- Bootstrap Css -->
-    <link href="{{ url('/') }}/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css">
 
     <!-- Icons Css -->
-    <link href="{{ url('/') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css">
 
     <!-- App Css-->
-    <link href="{{ url('/') }}/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css">
 
     <!-- Toaster Message -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -35,7 +35,7 @@
 
 <style>
     .auth-maintenance {
-        background-image: url("{{ url('/') }}/assets/logo/noc_bg.jpg") !important;
+        background-image: url("{{ asset('assets/logo/noc_bg.jpg') }}") !important;
         background-size: cover;
         background-position: center;
     }
@@ -59,8 +59,8 @@
 
                                                     <div class="text-center mt-1">
                                                         <a href="{{ url('/') }}" class="">
-                                                            <img src="{{ url('/') }}/assets/logo/umc_logo.png" alt="UMC-firenoc" height="160" width="250" class="auth-logo logo-dark mx-auto">
-                                                            <img src="{{ url('/') }}/assets/logo/umc_logo.png" alt="UMC-firenoc" height="160" width="250" class="auth-logo logo-light mx-auto">
+                                                            <img src="{{ asset('assets/logo/pmc-logo.png') }}" alt="PMC-firenoc" height="160" width="250" class="auth-logo logo-dark mx-auto">
+                                                            <img src="{{ asset('assets/logo/pmc-logo.png') }}" alt="PMC-firenoc" height="160" width="250" class="auth-logo logo-light mx-auto">
                                                         </a>
 
                                                         <h4 class="font-size-18">{{ __('Login') }}</h4>
@@ -120,16 +120,16 @@
     </div>
 
     <!-- JAVASCRIPT -->
-    <script src="{{ url('/') }}/assets/libs/jquery/jquery.min.js"></script>
-    <script src="{{ url('/') }}/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ url('/') }}/assets/libs/metismenu/metisMenu.min.js"></script>
-    <script src="{{ url('/') }}/assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="{{ url('/') }}/assets/libs/node-waves/waves.min.js"></script>
+    <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/metismenu/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
 
     <!-- Icon -->
-    <script src="{{ url('/') }}/assets/release/v2.0.1/script/monochrome/bundle.js"></script>
+    <script src="{{ asset('assets/release/v2.0.1/script/monochrome/bundle.js') }}"></script>
 
-    <script src="{{ url('/') }}/assets/js/app.js"></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
 
     <script>
         @if(Session::has('message'))

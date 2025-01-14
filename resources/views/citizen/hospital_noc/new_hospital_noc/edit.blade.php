@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
 
-    <title>UMC-Fire NOC | New Hospital NOC</title>
+    <title>PMC-Fire NOC | New Hospital NOC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
     <meta content="Themesdesign" name="author">
@@ -98,7 +98,7 @@
                                         <div class="form-group row  mb-3">
                                             <label class="col-sm-2"><strong>Last Name / Surname : <span class="text-danger">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="l_name" id="l_name" class="form-control @error('l_name') is-invalid @enderror" value="{{ $data->l_name }}" placeholder="Enter Last Name / Surname.">
+                                                <input type="text" name="l_name" id="l_name" class="form-control @error('l_name') is-invalid @enderror" value="{{ $data->l_name }}" placeholder="Enter Last Name / Surname." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                 @error('l_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -107,7 +107,7 @@
                                             </div>
                                             <label class="col-sm-2"><strong>First Name : <span class="text-danger">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="f_name" id="f_name" class="form-control @error('f_name') is-invalid @enderror" value="{{ $data->f_name }}" placeholder="Enter First Name.">
+                                                <input type="text" name="f_name" id="f_name" class="form-control @error('f_name') is-invalid @enderror" value="{{ $data->f_name }}" placeholder="Enter First Name." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                 @error('f_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -116,7 +116,7 @@
                                             </div>
                                             <label class="col-sm-2"><strong>Father / Husband's Name : </strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="father_name" id="father_name" class="form-control @error('father_name') is-invalid @enderror" value="{{ $data->father_name }}" placeholder="Enter Father / Husband's Name.">
+                                                <input type="text" name="father_name" id="father_name" class="form-control @error('father_name') is-invalid @enderror" value="{{ $data->father_name }}" placeholder="Enter Father / Husband's Name." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                 @error('father_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -128,7 +128,7 @@
                                         <div class="form-group row  mb-3">
                                             <label class="col-sm-2"><strong>Name of Hospital : <span class="text-danger">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="hospital_name" id="hospital_name" class="form-control @error('hospital_name') is-invalid @enderror" value="{{ $data->hospital_name }}" placeholder="Enter Name of Hospital.">
+                                                <input type="text" name="hospital_name" id="hospital_name" class="form-control @error('hospital_name') is-invalid @enderror" value="{{ $data->hospital_name }}" placeholder="Enter Name of Hospital." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                 @error('hospital_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -137,7 +137,7 @@
                                             </div>
                                             <label class="col-sm-2"><strong>Designation : </strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="designation" id="designation" class="form-control @error('designation') is-invalid @enderror" value="{{ $data->designation }}" placeholder="Enter Designation.">
+                                                <input type="text" name="designation" id="designation" class="form-control @error('designation') is-invalid @enderror" value="{{ $data->designation }}" placeholder="Enter Designation." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                 @error('designation')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -151,7 +151,7 @@
                                         <div class="form-group row  mb-3">
                                             <label class="col-sm-2"><strong>House / Building / Society Name : </strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="house_name" id="house_name" class="form-control @error('house_name') is-invalid @enderror" value="{{ $data->house_name }}" placeholder="Enter House / Building / Society Name.">
+                                                <input type="text" name="house_name" id="house_name" class="form-control @error('house_name') is-invalid @enderror" value="{{ $data->house_name }}" placeholder="Enter House / Building / Society Name." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                 @error('house_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -199,7 +199,7 @@
                                             </div>
                                             <label class="col-sm-2"><strong>Taluka : </strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="taluka_name" id="taluka_name" class="form-control @error('taluka_name') is-invalid @enderror" value="{{ $data->taluka_name }}" placeholder="Enter Taluka.">
+                                                <input type="text" name="taluka_name" id="taluka_name" class="form-control @error('taluka_name') is-invalid @enderror" value="{{ $data->taluka_name }}" placeholder="Enter Taluka." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                 @error('taluka_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -505,7 +505,7 @@
                                                         @enderror
                                                         <br>
                                                         @if(!empty($data->property_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/property_doc/{{ $data->property_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Hospital_NOC/New_HospitalNOC/property_doc/{{ $data->property_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -539,7 +539,7 @@
                                                         @enderror
                                                         <br>
                                                         @if(!empty($data->electric_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/electric_doc/{{ $data->electric_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Hospital_NOC/New_HospitalNOC/electric_doc/{{ $data->electric_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -559,7 +559,7 @@
                                                         @enderror
                                                         <br>
                                                         @if(!empty($data->shop_license_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/shop_license_doc/{{ $data->shop_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Hospital_NOC/New_HospitalNOC/shop_license_doc/{{ $data->shop_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -581,7 +581,7 @@
                                                         @enderror
                                                         <br>
                                                         @if(!empty($data->paid_tax_bill_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/paid_tax_bill_doc/{{ $data->paid_tax_bill_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Hospital_NOC/New_HospitalNOC/paid_tax_bill_doc/{{ $data->paid_tax_bill_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -601,7 +601,7 @@
                                                         @enderror
                                                         <br>
                                                         @if(!empty($data->commissioning_certificate))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Hospital_NOC/New_HospitalNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -623,7 +623,7 @@
                                                         @enderror
                                                         <br>
                                                         @if(!empty($data->affidavit_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/affidavit_doc/{{ $data->affidavit_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Hospital_NOC/New_HospitalNOC/affidavit_doc/{{ $data->affidavit_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -643,7 +643,7 @@
                                                         @enderror
                                                         <br>
                                                         @if(!empty($data->corporation_certificate))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/corporation_certificate/{{ $data->corporation_certificate }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Hospital_NOC/New_HospitalNOC/corporation_certificate/{{ $data->corporation_certificate }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -665,7 +665,7 @@
                                                         @enderror
                                                         <br>
                                                         @if(!empty($data->construction_plan_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Hospital_NOC/New_HospitalNOC/construction_plan_doc/{{ $data->construction_plan_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Hospital_NOC/New_HospitalNOC/construction_plan_doc/{{ $data->construction_plan_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -683,7 +683,7 @@
                                                     <div class="col-md-12 col-xs-12">
                                                         <p class="text-justify ">
                                                             <b> I / We..... <br><br>
-                                                            <input type="text"  class="form-control @error('declare_by') is-invalid @enderror" id="declare_by" name="declare_by" value="{{ $data->declare_by }}" placeholder="Enter Applicant Name" >
+                                                            <input type="text"  class="form-control @error('declare_by') is-invalid @enderror" id="declare_by" name="declare_by" value="{{ $data->declare_by }}" placeholder="Enter Applicant Name" oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                             <br>
                                                             @error('declare_by')
                                                                 <span class="invalid-feedback" role="alert">
@@ -719,7 +719,7 @@
 
                                                             <label class="col-sm-2"><strong>Name of Nominated Person : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
-                                                                <input type="text" name="nominated_persion_name" id="nominated_persion_name" class="form-control @error('nominated_persion_name') is-invalid @enderror" value="{{ $data->nominated_persion_name }}" placeholder="Enter Name of Nominated Person.">
+                                                                <input type="text" name="nominated_persion_name" id="nominated_persion_name" class="form-control @error('nominated_persion_name') is-invalid @enderror" value="{{ $data->nominated_persion_name }}" placeholder="Enter Name of Nominated Person." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                                 @error('nominated_persion_name')
                                                                     <span class="invalid-feedback" role="alert">
                                                                         <strong>{{ $message }}</strong>
@@ -749,7 +749,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-2"><strong>Last Name / Surname : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
-                                                                <input type="text" name="d_last_name" id="d_last_name" class="form-control @error('d_last_name') is-invalid @enderror" value="{{ $data->d_last_name }}" placeholder="Enter Last Name / Surname.">
+                                                                <input type="text" name="d_last_name" id="d_last_name" class="form-control @error('d_last_name') is-invalid @enderror" value="{{ $data->d_last_name }}" placeholder="Enter Last Name / Surname." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                                 @error('d_last_name')
                                                                     <span class="invalid-feedback" role="alert">
                                                                         <strong>{{ $message }}</strong>
@@ -759,7 +759,7 @@
 
                                                             <label class="col-sm-2"><strong>First Name : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
-                                                                <input type="text" name="d_first_name" id="d_first_name" class="form-control @error('d_first_name') is-invalid @enderror" value="{{ $data->d_first_name }}" placeholder="Enter First Name.">
+                                                                <input type="text" name="d_first_name" id="d_first_name" class="form-control @error('d_first_name') is-invalid @enderror" value="{{ $data->d_first_name }}" placeholder="Enter First Name." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                                 @error('d_first_name')
                                                                     <span class="invalid-feedback" role="alert">
                                                                         <strong>{{ $message }}</strong>
@@ -769,7 +769,7 @@
 
                                                             <label class="col-sm-2"><strong>Father / Husband's Name : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
-                                                                <input type="text" name="d_father_name" id="d_father_name" class="form-control @error('d_father_name') is-invalid @enderror" value="{{ $data->d_father_name }}" placeholder="Enter Father / Husband's Name.">
+                                                                <input type="text" name="d_father_name" id="d_father_name" class="form-control @error('d_father_name') is-invalid @enderror" value="{{ $data->d_father_name }}" placeholder="Enter Father / Husband's Name." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                                 @error('d_father_name')
                                                                     <span class="invalid-feedback" role="alert">
                                                                         <strong>{{ $message }}</strong>
@@ -781,7 +781,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-2"><strong>House / Building / Society Name : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
-                                                                <input type="text" name="d_house_name" id="d_house_name" class="form-control @error('d_house_name') is-invalid @enderror" value="{{ $data->d_house_name }}" placeholder="Enter House / Building / Society Name.">
+                                                                <input type="text" name="d_house_name" id="d_house_name" class="form-control @error('d_house_name') is-invalid @enderror" value="{{ $data->d_house_name }}" placeholder="Enter House / Building / Society Name." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                                 @error('d_house_name')
                                                                     <span class="invalid-feedback" role="alert">
                                                                         <strong>{{ $message }}</strong>
@@ -833,7 +833,7 @@
 
                                                             <label class="col-sm-2"><strong>Taluka : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
-                                                                <input type="text" name="d_taluka_name" id="d_taluka_name" class="form-control @error('d_taluka_name') is-invalid @enderror" value="{{ $data->d_taluka_name }}" placeholder="Enter Taluka.">
+                                                                <input type="text" name="d_taluka_name" id="d_taluka_name" class="form-control @error('d_taluka_name') is-invalid @enderror" value="{{ $data->d_taluka_name }}" placeholder="Enter Taluka." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                                 @error('d_taluka_name')
                                                                     <span class="invalid-feedback" role="alert">
                                                                         <strong>{{ $message }}</strong>
@@ -855,7 +855,7 @@
 
                                                             <label class="col-sm-2"><strong>Email Id (if any) : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
-                                                                <input type="text" name="d_email" id="d_email" class="form-control r" value="{{ $data->d_email }}" placeholder="Enter Email Id">
+                                                                <input type="email" name="d_email" id="d_email" class="form-control r" value="{{ $data->d_email }}" placeholder="Enter Email Id">
 
                                                             </div>
 

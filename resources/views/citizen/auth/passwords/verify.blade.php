@@ -54,7 +54,7 @@
                                     <td style="height:40px;">&nbsp;</td>
                                 </tr>
                                 <td style="text-align:center;">
-                                    <img width="80" height="80" src="https://amrut.smartumc.com/assets/images/ulhas_nagar.png" title="ulhas_nagar" alt="UMC_Logo">
+                                    <img width="80" height="80" src="{{ asset('assets/logo/pmc-logo.png') }}" title="ulhas_nagar" alt="PMC_Logo">
                                 </td>
                                 <tr>
                                     <td style="padding:0 35px;">
@@ -86,7 +86,7 @@
                         <td style="text-align:center;">
                             <p
                                 style="font-size:14px; color:rgba(69, 80, 86, 0.7411764705882353); line-height:18px; margin:0 0 0;">
-                                &copy; <strong><a href="https://web.smartumc.com/" title="logo" target="_blank" class="text-Primary">  || उल्हासनगर महानगरपालिका || </a></strong>
+                                &copy; <strong><a href="{{ url('/') }}" title="logo" target="_blank" class="text-Primary">  || पनवेल महानगरपालिका || </a></strong>
                             </p>
                         </td>
                     </tr>

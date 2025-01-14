@@ -7,7 +7,7 @@
     <!-- Required meta tags -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>UMC-Fire NOC | Renew Building NOC</title>
+    <title>PMC-Fire NOC | Renew Building NOC</title>
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ public_path('/assets/logo/favicon.ico') }}">
@@ -70,11 +70,11 @@
 
             <div style="float: right;">
                 <p class="mb-1">
-                    Ulhasnagar Municipal Corporation<br>
-                    Near Chopda Court, Ulhasnagar - 3<br>
+                    Panvel Municipal Corporation<br>
+                    Near Chopda Court, Panvel - 3<br>
                     Pincode - 421 003, Maharashtra
                 </p>
-                <p class="mb-1"><i class="mdi mdi-email-outline me-1"></i> cfcumc@gmail.com</p>
+                <p class="mb-1"><i class="mdi mdi-email-outline me-1"></i> cfcpmc@gmail.com</p>
                 <p><i class="mdi mdi-phone-outline me-1"></i> 0251 2720150</p>
             </div>
         </div>
@@ -247,10 +247,10 @@
 
                                 @if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                <img src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/maps_of_proposed_doc') }}/{{ $data->maps_of_proposed_doc }}" alt="image" width="100%" height="28%">
+                                <img src="{{ public_path('/PMC_FireNOC/Building_NOC/Renewal_BuildingNOC/maps_of_proposed_doc') }}/{{ $data->maps_of_proposed_doc }}" alt="image" width="100%" height="28%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
                                 @if(!empty($data->maps_of_proposed_doc))
-                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/maps_of_proposed_doc/{{ $data->maps_of_proposed_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                    <a href="{{url('/')}}/PMC_FireNOC/Building_NOC/Renewal_BuildingNOC/maps_of_proposed_doc/{{ $data->maps_of_proposed_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                         <b>View Document</b>
                                     </a>
                                 @endif
@@ -278,10 +278,10 @@
 
                                 @if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                <img src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/city_survey_doc') }}/{{ $data->city_survey_doc }}" alt="image" width="100%" height="30%">
+                                <img src="{{ public_path('/PMC_FireNOC/Building_NOC/Renewal_BuildingNOC/city_survey_doc') }}/{{ $data->city_survey_doc }}" alt="image" width="100%" height="30%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
                                 @if(!empty($data->city_survey_doc))
-                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/city_survey_doc/{{ $data->city_survey_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                    <a href="{{url('/')}}/PMC_FireNOC/Building_NOC/Renewal_BuildingNOC/city_survey_doc/{{ $data->city_survey_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                         <b>View Document</b>
                                     </a>
                                 @endif
@@ -295,7 +295,7 @@
 
                 <table class="table table-bordered table-responsive" style="width: 100%;">
                     <thead>
-                        <th class="col-12">Sanad / Letter from S.D.O. Ulhasnagar : </th>
+                        <th class="col-12">Sanad / Letter from S.D.O. Panvel : </th>
                     </thead>
                     <tbody>
                         <td class="col-8">
@@ -309,10 +309,10 @@
 
                                 @if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                <img src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/sanad_doc') }}/{{ $data->sanad_doc }}" alt="image" width="100%" height="25%">
+                                <img src="{{ public_path('/PMC_FireNOC/Building_NOC/Renewal_BuildingNOC/sanad_doc') }}/{{ $data->sanad_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
                                 @if(!empty($data->sanad_doc))
-                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/sanad_doc/{{ $data->sanad_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                    <a href="{{url('/')}}/PMC_FireNOC/Building_NOC/Renewal_BuildingNOC/sanad_doc/{{ $data->sanad_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                         <b>View Document</b>
                                     </a>
                                 @endif
@@ -340,10 +340,10 @@
 
                                 @if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                <img src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/competent_authority_doc') }}/{{ $data->competent_authority_doc }}" alt="image" width="100%" height="25%">
+                                <img src="{{ public_path('/PMC_FireNOC/Building_NOC/Renewal_BuildingNOC/competent_authority_doc') }}/{{ $data->competent_authority_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
                                 @if(!empty($data->competent_authority_doc))
-                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/competent_authority_doc/{{ $data->competent_authority_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                    <a href="{{url('/')}}/PMC_FireNOC/Building_NOC/Renewal_BuildingNOC/competent_authority_doc/{{ $data->competent_authority_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                         <b>View Document</b>
                                     </a>
                                 @endif
@@ -371,10 +371,10 @@
 
                                 @if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                <img src="{{ public_path('/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/dues_certificate_doc') }}/{{ $data->dues_certificate_doc }}" alt="image" width="100%" height="25%">
+                                <img src="{{ public_path('/PMC_FireNOC/Building_NOC/Renewal_BuildingNOC/dues_certificate_doc') }}/{{ $data->dues_certificate_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
                                 @if(!empty($data->dues_certificate_doc))
-                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Renewal_BuildingNOC/dues_certificate_doc/{{ $data->dues_certificate_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                    <a href="{{url('/')}}/PMC_FireNOC/Building_NOC/Renewal_BuildingNOC/dues_certificate_doc/{{ $data->dues_certificate_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                         <b>View Document</b>
                                     </a>
                                 @endif

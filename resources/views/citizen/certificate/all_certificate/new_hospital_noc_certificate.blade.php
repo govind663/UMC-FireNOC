@@ -22,7 +22,7 @@
                                             width="60" height="60">
                                     </div> --}}
                                     <div class="header">
-                                        उल्हासनगर महानगरपालिका <br>
+                                        पनवेल महानगरपालिका <br>
                                         अग्निशमन विभाग <br>
                                         दूरध्वनी क्र. २७२०१३१/२७२०१३२/२७२०१३३.
                                         <hr>
@@ -38,7 +38,7 @@
                                             {{ $data->l_name }} </p>
                                         <!--<p class="lineheight">{{ $data->father_name }}</p>-->
                                         <!--<p class="lineheight">{{ $data->l_name }}</p>-->
-                                        <p class="lineheight">उल्हासनगर -</p>
+                                        <p class="lineheight">पनवेल -</p>
 
                                         <b>
                                             <p style="text-align: center;">विषय:- हॉस्पिटल करिता अग्निशमक ना हरकत दाखला
@@ -50,12 +50,12 @@
                                                 च्या अर्जान्वये.</p>
                                         </b><br>
                                         <p>श्री. {{ $data->f_name }} {{ $data->father_name }} {{ $data->l_name }}
-                                            उल्हासनगर - येथे {{ $data->hospital_name }} हॉस्पिटल सुरू आहे.त्या
+                                            पनवेल - येथे {{ $data->hospital_name }} हॉस्पिटल सुरू आहे.त्या
                                             अनुषंगाने अर्जदार यांनी दिनांक
                                             {{ \Carbon\Carbon::parse($data->inserted_dt)->format('j/m/Y') }} रोजीच्या
                                             अर्जान्वये हॉस्पिटल करीता अग्निशमन ना हरकत दाखल्याची मागणी केली आहे.</p>
                                         <p>त्यानुसार हॉस्पिटल इमारतीमध्ये आग प्रतिबंधक उपाययोजना बसविणेत आलेली असल्याचे
-                                            मेर्सस ..................... उल्हासनगर- यांनी या कार्यालयात नमुना "अ" मध्ये
+                                            मेर्सस ..................... पनवेल- यांनी या कार्यालयात नमुना "अ" मध्ये
                                             प्रमाणपत्र दिले आहे. या इमारतीत बसविणेत आलेली आग प्रतिबंधक उपाययोजनेची
                                             तपासणी/चाचणी दिनांक
                                             {{ \Carbon\Carbon::parse($data->f_inspector_dt)->format('j/m/Y') }} रोजी
@@ -103,12 +103,12 @@
                                     @endphp
                                     <div class="signature">
                                         <div>
-                                            <img class="avatar-image" src="{{ url('/') }}/UMC_FireNOC/signature_doc/{{ $cf_signature->upload_signature_doc ?? null }}" alt="Chief Fire Officer">
+                                            <img class="avatar-image" src="{{ url('/') }}/PMC_FireNOC/signature_doc/{{ $cf_signature->upload_signature_doc ?? null }}" alt="Chief Fire Officer">
 
-                                            <p class="lineheight">(बाळासाहेब नेटके)</p>
+                                            <p class="lineheight">(प्रविण बाळू बोडखे)</p>
                                             <p class="lineheight">मुख्य अग्निशमन अधिकारी (प्र.)</p>
                                             <p class="lineheight">अग्निशमन विभाग</p>
-                                            <p class="lineheight">उल्हासनगर महानगरपालिका</p>
+                                            <p class="lineheight">पनवेल महानगरपालिका</p>
                                         </div>
                                     </div>
                                 </div>

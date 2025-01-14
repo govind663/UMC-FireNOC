@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('fee_receipt_documents', function (Blueprint $table) {
             $table->id();
             $table->integer('citizen_id');
-            $table->integer('payment_noc_mode')->comment('1:New Bussiness NOC, 2:Renewal Bussiness NOC, 3:New Hospital NOC, 4:Renewal Hospital NOC, 5:Provisional Building NOC, 6:Final Building NOC, 7:Renew Building NOC');
+            $table->integer('payment_noc_mode')->comment('1:New Bussiness NOC, 2:Renewal Bussiness NOC, 3:New Hospital NOC, 4:Renewal Hospital NOC, 5:Provisional Building NOC, 6:Final Building NOC, 7:Renew Building NOC, 8: New Other NOC, 9:Renewal Other NOC, 10:Form B');
             $table->string('payment_recepit_doc');
             $table->integer('inserted_by')->nullable();
             $table->timestamp('inserted_dt')->nullable();

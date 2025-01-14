@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
 
-        <title>UMC-Fire NOC | Final Building NOC</title>
+        <title>PMC-Fire NOC | Final Building NOC</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
         <meta content="Themesdesign" name="author">
@@ -342,7 +342,7 @@
                                                         <label class="col-sm-2"><strong>Map / Plan showing Cease Fire Equipments installed and Water Supply arrangements in the building : </strong></label>
                                                         <div class="col-sm-4 col-md-4">
                                                             @if(!empty($data->fire_equipments_install_doc))
-                                                                <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc/{{ $data->fire_equipments_install_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                                <a href="{{url('/')}}/PMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc/{{ $data->fire_equipments_install_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                     <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                                 </a>
                                                             @endif

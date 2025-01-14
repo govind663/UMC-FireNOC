@@ -114,9 +114,9 @@ class AdminProvisionalBuildingNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/f_inspector_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/f_inspector_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/f_inspector_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/f_inspector_doc" . $image_name;
                 $fileName = $new_name;
             }
 

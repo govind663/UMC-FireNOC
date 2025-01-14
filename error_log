@@ -1,0 +1,10 @@
+[13-Jun-2024 11:55:35 Asia/Kolkata] PHP Parse error:  syntax error, unexpected identifier "AnsiColorMode" in /home/smartpmcco/fire.smartpmc.co.in/vendor/symfony/console/Output/AnsiColorMode.php on line 20
+[13-Jun-2024 11:55:35 Asia/Kolkata] PHP Fatal error:  Uncaught ReflectionException: Cannot access non-public property Error::$file in /home/smartpmcco/fire.smartpmc.co.in/vendor/symfony/error-handler/Error/FatalError.php:74
+Stack trace:
+#0 /home/smartpmcco/fire.smartpmc.co.in/vendor/symfony/error-handler/Error/FatalError.php(74): ReflectionProperty->setValue(Object(Symfony\Component\ErrorHandler\Error\FatalError), '/home/smartpmcc...')
+#1 /home/smartpmcco/fire.smartpmc.co.in/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(259): Symfony\Component\ErrorHandler\Error\FatalError->__construct('syntax error, u...', 0, Array, 0)
+#2 /home/smartpmcco/fire.smartpmc.co.in/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(246): Illuminate\Foundation\Bootstrap\HandleExceptions->fatalErrorFromPhpError(Array, 0)
+#3 /home/smartpmcco/fire.smartpmc.co.in/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(270): Illuminate\Foundation\Bootstrap\HandleExceptions->handleShutdown()
+#4 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}()
+#5 {main}
+  thrown in /home/smartpmcco/fire.smartpmc.co.in/vendor/symfony/error-handler/Error/FatalError.php on line 74

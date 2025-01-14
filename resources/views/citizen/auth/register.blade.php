@@ -4,28 +4,28 @@
 <head>
 
     <meta charset="utf-8">
-    <title>UMC-Fire NOC | Register</title>
+    <title>PMC-Fire NOC | Register</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="UMC-Fire NOC" name="description">
+    <meta content="PMC-Fire NOC" name="description">
     <meta content="Themesdesign" name="author">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ url('/') }}/assets/logo/favicon.ico">
+    <link rel="shortcut icon" href="{{ asset('assets/logo/favicon.ico') }}">
 
     <!-- Layout Js -->
-    <script src="{{ url('/') }}/assets/js/layout.js"></script>
+    <script src="{{ asset('assets/js/layout.js') }}"></script>
 
     <!-- Bootstrap Css -->
-    <link href="{{ url('/') }}/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css">
 
     <!-- Icons Css -->
-    <link href="{{ url('/') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css">
 
     <!-- App Css-->
-    <link href="{{ url('/') }}/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css">
 
     <!-- Toaster Message -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -59,8 +59,8 @@
                                                 <div>
                                                     <div class="text-center mt-1">
                                                         <a href="{{ url('/') }}" class="">
-                                                            <img src="{{ url('/') }}/assets/logo/umc_logo.png" alt="UMC-firenoc" height="160" width="250" class="auth-logo logo-dark mx-auto">
-                                                            <img src="{{ url('/') }}/assets/logo/umc_logo.png" alt="UMC-firenoc" height="160" width="250" class="auth-logo logo-light mx-auto">
+                                                            <img src="{{ asset('assets/logo/pmc-logo.png') }}" alt="PMC-firenoc" height="160" width="250" class="auth-logo logo-dark mx-auto">
+                                                            <img src="{{ asset('assets/logo/pmc-logo.png') }}" alt="PMC-firenoc" height="160" width="250" class="auth-logo logo-light mx-auto">
                                                         </a>
                                                         <h4 class="font-size-18">{{ __('Citizen Register') }}</h4>
                                                     </div>
@@ -71,7 +71,7 @@
                                                         <div class="row">
                                                             <div class="col-4 mb-2">
                                                                 <label for="f_name" class="form-label">{{ __('First Name') }}</label>
-                                                                <input id="f_name" type="text" class="form-control @error('f_name') is-invalid @enderror" name="f_name" value="{{ old('f_name') }}" autocomplete="f_name" autofocus placeholder="Enter First Name.">
+                                                                <input id="f_name" type="text" class="form-control @error('f_name') is-invalid @enderror" name="f_name" value="{{ old('f_name') }}" autocomplete="f_name" autofocus placeholder="Enter First Name." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
 
                                                                 @error('f_name')
                                                                 <span class="invalid-feedback" role="alert">
@@ -82,7 +82,7 @@
 
                                                             <div class="col-4 mb-2">
                                                                 <label for="m_name" class="form-label">{{ __('Middle Name') }}</label>
-                                                                <input id="m_name" type="text" class="form-control @error('m_name') is-invalid @enderror" name="m_name" value="{{ old('m_name') }}" autocomplete="m_name" autofocus placeholder="Enter Middle Name.">
+                                                                <input id="m_name" type="text" class="form-control @error('m_name') is-invalid @enderror" name="m_name" value="{{ old('m_name') }}" autocomplete="m_name" autofocus placeholder="Enter Middle Name." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
 
                                                                 @error('m_name')
                                                                 <span class="invalid-feedback" role="alert">
@@ -93,7 +93,7 @@
 
                                                             <div class="col-4 mb-2">
                                                                 <label for="l_name" class="form-label">{{ __('Last Name') }}</label>
-                                                                <input id="l_name" type="text" class="form-control @error('l_name') is-invalid @enderror" name="l_name" value="{{ old('l_name') }}" autocomplete="l_name" autofocus placeholder="Enter Last Name.">
+                                                                <input id="l_name" type="text" class="form-control @error('l_name') is-invalid @enderror" name="l_name" value="{{ old('l_name') }}" autocomplete="l_name" autofocus placeholder="Enter Last Name." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
 
                                                                 @error('l_name')
                                                                 <span class="invalid-feedback" role="alert">
@@ -106,7 +106,7 @@
                                                         <div class="row">
                                                             <div class="col-6 mb-2">
                                                                 <label for="mobile_no" class="form-label">{{ __('Mobile Number') }}</label>
-                                                                <input id="mobile_no" type="text" class="form-control @error('mobile_no') is-invalid @enderror" name="mobile_no" value="{{ old('mobile_no') }}" autocomplete="mobile_no" autofocus placeholder="Enter Mobile Number.">
+                                                                <input id="mobile_no" type="number" class="form-control @error('mobile_no') is-invalid @enderror" name="mobile_no" value="{{ old('mobile_no') }}" autocomplete="mobile_no" autofocus placeholder="Enter Mobile Number." oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);">
 
                                                                 @error('mobile_no')
                                                                 <span class="invalid-feedback" role="alert">
@@ -181,16 +181,16 @@
     </div>
 
     <!-- JAVASCRIPT -->
-    <script src="{{ url('/') }}/assets/libs/jquery/jquery.min.js"></script>
-    <script src="{{ url('/') }}/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ url('/') }}/assets/libs/metismenu/metisMenu.min.js"></script>
-    <script src="{{ url('/') }}/assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="{{ url('/') }}/assets/libs/node-waves/waves.min.js"></script>
+    <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/metismenu/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
 
     <!-- Icon -->
-    <script src="{{ url('/') }}/assets/release/v2.0.1/script/monochrome/bundle.js"></script>
+    <script src="{{ asset('assets/release/v2.0.1/script/monochrome/bundle.js') }}"></script>
 
-    <script src="{{ url('/') }}/assets/js/app.js"></script>
+    <script src="{{ asset('assets/js/app.js') }}"></script>
 
     <script>
         @if(Session::has('message'))

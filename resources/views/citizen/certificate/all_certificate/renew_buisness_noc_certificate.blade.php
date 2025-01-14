@@ -21,7 +21,7 @@
                                     width="60" height="60">
                                 </div> --}}
                                 <div class="header">
-                                    उल्हासनगर महानगरपालिका <br>
+                                    पनवेल महानगरपालिका <br>
                                     अग्निशमन विभाग <br>
                                     दूरध्वनी क्र. २७२०१३१/२७२०१३२/२७२०१३३.
                                     <hr>
@@ -36,14 +36,14 @@
                                         {{ $data->l_name }} </p>
                                     <!--<p class="lineheight">{{ $data->father_name }}</p>-->
                                     <!--<p class="lineheight">{{ $data->l_name }}</p>-->
-                                    <p class="lineheight">उल्हासनगर -</p>
+                                    <p class="lineheight">पनवेल -</p>
 
                                     @php
                                     $total_payment = '';
 
-                                    if ($data->wing_option == 1) {
+                                    if ($data->d_wing_no == 1) {
                                     $total_payment = $data->wing_rate;
-                                    } elseif ($data->wing_option == 2) {
+                                    } elseif ($data->d_wing_no == 2) {
                                     $total_payment = $data->total_charges_cost;
                                     }
                                     @endphp
@@ -80,12 +80,12 @@
                                 @endphp
                                 <div class="signature">
                                     <div>
-                                        <img class="avatar-image" src="{{ url('/') }}/UMC_FireNOC/signature_doc/{{ $cf_signature->upload_signature_doc ?? null }}" alt="Chief Fire Officer">
+                                        <img class="avatar-image" src="{{ url('/') }}/PMC_FireNOC/signature_doc/{{ $cf_signature->upload_signature_doc ?? null }}" alt="Chief Fire Officer">
 
-                                        <p class="lineheight">(बाळासाहेब नेटके)</p>
+                                        <p class="lineheight">(प्रविण बाळू बोडखे)</p>
                                         <p class="lineheight">मुख्य अग्निशमन अधिकारी (प्र.)</p>
                                         <p class="lineheight">अग्निशमन विभाग</p>
-                                        <p class="lineheight">उल्हासनगर महानगरपालिका</p>
+                                        <p class="lineheight">पनवेल महानगरपालिका</p>
                                     </div>
                                 </div>
                             </div>

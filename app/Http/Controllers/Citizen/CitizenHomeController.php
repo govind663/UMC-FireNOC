@@ -3,21 +3,28 @@
 namespace App\Http\Controllers\Citizen;
 
 use App\Http\Controllers\Controller;
+
 use App\Repository\CitizenBuildingRepository;
 use App\Repository\CitizenBusinessRepository;
+use App\Repository\CitizenOtherRepository;
 use App\Repository\CitizenHospitalRepository;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class CitizenHomeController extends Controller
 {
-    protected $citizenbusinessRepository, $citizenhospitalRepository, $citizenbuildingRepository;
+    protected $citizenbusinessRepository, $citizenhospitalRepository, $citizenbuildingRepository , $citizenotherRepository;
 
-    public function __construct(CitizenBusinessRepository $citizenbusinessRepository, CitizenHospitalRepository $citizenhospitalRepository, CitizenBuildingRepository $citizenbuildingRepository)
+    public function __construct(CitizenBusinessRepository $citizenbusinessRepository, CitizenHospitalRepository $citizenhospitalRepository, CitizenBuildingRepository $citizenbuildingRepository, CitizenOtherRepository $citizenotherRepository )
     {
         $this->citizenbusinessRepository = $citizenbusinessRepository;
         $this->citizenhospitalRepository = $citizenhospitalRepository;
         $this->citizenbuildingRepository = $citizenbuildingRepository;
+        $this->citizenotherRepository = $citizenotherRepository;
+
     }
 
     public function Citizen_Home()
@@ -121,9 +128,71 @@ class CitizenHomeController extends Controller
         $building_total_rejected = $this->citizenbuildingRepository->getRejectedCitizenBuildingNOC();
         // dd($building_total_rejected);
 
+        $other_total_pending = $this->citizenotherRepository->getPendingCitizenOtherNOC();
+        // dd($Other_total_pending);
+
+        // ==== new_Other_noc(Underprocess)
+        $other_total_underprocess = $this->citizenotherRepository->getUnderprocessCitizenOtherNOC();
+        // dd($Other_total_underprocess);
+
+        // ==== new_Other_noc(Unpaid)
+        $other_total_unpaid = $this->citizenotherRepository->getUnpaidCitizenOtherNOC();
+        // dd($Other_total_unpaid);
+
+        // ==== new_Other_noc(Generated Invoice)
+        $other_total_generated_invoice = $this->citizenotherRepository->getGeneratedInvoiceCitizenOtherNOC();
+        // dd($Other_total_generated_invoice);
+
+        // ==== new_Other_noc(Paid)
+        $other_total_paid = $this->citizenotherRepository->getPaidCitizenOtherNOC();
+        // dd($Other_total_paid);
+
+        // ==== new_Other_noc(Reviewed)
+        $other_total_reviewed = $this->citizenotherRepository->getReviewedCitizenOtherNOC();
+        // dd($Other_total_reviewed);
+
+        // ==== new_Other_noc(Approved)
+        $other_total_approved = $this->citizenotherRepository->getApprovedCitizenOtherNOC();
+        // dd($Other_total_approved);
+
+        // ==== new_Other_noc(Rejected)
+        $other_total_rejected = $this->citizenotherRepository->getRejectedCitizenOtherNOC();
+
         return view('citizen.citizen_dashboard')
         ->with(['business_total_pending' => $business_total_pending, 'business_total_underprocess' => $business_total_underprocess, 'business_total_unpaid' => $business_total_unpaid, 'business_total_generated_invoice' => $business_total_generated_invoice , 'business_total_paid' => $business_total_paid, 'business_total_reviewed' => $business_total_reviewed, 'business_total_rejected' => $business_total_rejected, 'business_total_approved' => $business_total_approved])
         ->with(['hospital_total_pending' => $hospital_total_pending, 'hospital_total_underprocess' => $hospital_total_underprocess, 'hospital_total_unpaid' => $hospital_total_unpaid, 'hospital_total_generated_invoice' => $hospital_total_generated_invoice , 'hospital_total_paid' => $hospital_total_paid, 'hospital_total_reviewed' => $hospital_total_reviewed, 'hospital_total_rejected' => $hospital_total_rejected, 'hospital_total_approved' => $hospital_total_approved])
-        ->with(['building_total_pending' => $building_total_pending, 'building_total_underprocess' => $building_total_underprocess, 'building_total_unpaid' => $building_total_unpaid, 'building_total_generated_invoice' => $building_total_generated_invoice , 'building_total_paid' => $building_total_paid, 'building_total_reviewed' => $building_total_reviewed, 'building_total_rejected' => $building_total_rejected, 'building_total_approved' => $building_total_approved]);
+        ->with(['building_total_pending' => $building_total_pending, 'building_total_underprocess' => $building_total_underprocess, 'building_total_unpaid' => $building_total_unpaid, 'building_total_generated_invoice' => $building_total_generated_invoice , 'building_total_paid' => $building_total_paid, 'building_total_reviewed' => $building_total_reviewed, 'building_total_rejected' => $building_total_rejected, 'building_total_approved' => $building_total_approved])
+        ->with(['other_total_pending'=>$other_total_pending,'other_total_underprocess' => $other_total_underprocess, 'other_total_unpaid' => $other_total_unpaid, 'other_total_generated_invoice' => $other_total_generated_invoice , 'other_total_paid' => $other_total_paid, 'other_total_reviewed' => $other_total_reviewed, 'other_total_rejected' => $other_total_rejected, 'other_total_approved' => $other_total_approved]);
+
+    }
+
+    public function changePasswordStore(Request $request)
+    {
+        // Validate the form input
+        $request->validate([
+            'password' => 'required|string|min:8|confirmed',
+            'password_confirmation' => 'required'
+        ],[
+            'password.required' => 'Password is required',
+            'password.min' => 'The password must be at least 8 characters long',
+            'password.confirmed' => 'Confirm Password and Password do not match.',
+            'password_confirmation.required' => 'Confirm Password is required',
+        ]);
+
+        // Get the currently authenticated user
+        $user = Auth::user();
+
+        DB::table('citizens')->where('email', $user->email)->update([
+                "password" => Hash::make($request->password),
+                "og_password" => $request->password
+            ]);
+
+        // Update the password
+        // $user->password = Hash::make($request->password);
+        // $user->og_password = $request->password;  // Optional, only store raw password if needed
+        // $user->save();
+
+        // Return a success message
+        return back()->with('message', 'Your password has been changed!');
     }
 }

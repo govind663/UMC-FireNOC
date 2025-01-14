@@ -11,6 +11,8 @@ use App\Models\Business_NOC;
 use App\Models\Hospital_NOC;
 use App\Models\Building_NOC;
 use App\Models\FeeBldgHt;
+use App\Models\Other_noc;
+use App\Models\FormB;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,8 +26,7 @@ class CitizenPaypentController extends Controller
      */
     public function make_payment_create($id, $status, $noc_mode)
     {
-        if($noc_mode == 1){
-
+        if($noc_mode == 1 ){
             $data = DB::table('business_noc as t1')
                 ->select('t1.*', 't2.*', 't1.id as NB_NOC_ID', 't2.id as d_ID')
                 ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
@@ -38,7 +39,8 @@ class CitizenPaypentController extends Controller
                 ->first();
                 // dd($data);
 
-        }elseif($noc_mode == 2){
+        }
+        elseif($noc_mode == 2){
 
             $data = DB::table('business_noc as t1')
                 ->select('t1.*', 't2.*', 't1.id as RB_NOC_ID', 't2.id as d_ID')
@@ -120,6 +122,48 @@ class CitizenPaypentController extends Controller
                 ->first();
                 // dd($data);
         }
+        elseif($noc_mode == 8){
+
+            $data = DB::table('other_noc as t1')
+                ->select('t1.*', 't2.*', 't1.id as NC_NOC_ID', 't2.id as d_ID')
+                ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
+                ->where('t2.noc_mode', 8)  // ==== Renew Building NOC
+                // ->where('t2.citizen_id',  Auth::user()->id)
+                ->where('t1.status', $status)
+                ->where('t1.id', $id)
+                ->whereNUll('t1.deleted_at')
+                ->whereNUll('t2.deleted_at')
+                ->first();
+                // dd($data);
+        }
+        elseif($noc_mode == 9){
+
+            $data = DB::table('other_noc as t1')
+                ->select('t1.*', 't2.*', 't1.id as ON_NOC_ID', 't2.id as d_ID')
+                ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
+                ->where('t2.noc_mode', 9)  // ==== Renew Building NOC
+                // ->where('t2.citizen_id',  Auth::user()->id)
+                ->where('t1.status', $status)
+                ->where('t1.id', $id)
+                ->whereNUll('t1.deleted_at')
+                ->whereNUll('t2.deleted_at')
+                ->first();
+                // dd($data);
+        }
+         elseif($noc_mode == 10){
+
+            $data = DB::table('form_b as t1')
+                ->select('t1.*', 't2.*', 't1.id as FB_NOC_ID', 't2.id as d_ID')
+                ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
+                ->where('t2.noc_mode', 10)  // ==== Renew Building NOC
+                // ->where('t2.citizen_id',  Auth::user()->id)
+                ->where('t1.status', $status)
+                ->where('t1.id', $id)
+                ->whereNUll('t1.deleted_at')
+                ->whereNUll('t2.deleted_at')
+                ->first();
+                //dd($data);
+        }
 
         $mst_fee_construction = FeeConstruction::select('id', 'construction_type')->whereNUll('deleted_at')->orderBy('id', 'desc')->get();
         // dd($mst_fee_construction);
@@ -170,7 +214,7 @@ class CitizenPaypentController extends Controller
             $data->save();
 
             // ==== Generate New Business NOC Invoice Number
-            $invoice_unique_id = "UMC_".rand(1000,10000000).time();
+            $invoice_unique_id = "PMC_".rand(1000,10000000).time();
             $update_invoice_id = [
                 'invoice_number' => $invoice_unique_id.$data->id ,
                 'citizen_payment_status' => 1,
@@ -211,7 +255,7 @@ class CitizenPaypentController extends Controller
             $data->save();
 
             // ==== Generate New Business NOC Invoice Number
-            $invoice_unique_id = "UMC_".rand(1000,10000000).time();
+            $invoice_unique_id = "PMC_".rand(1000,10000000).time();
             $update_invoice_id = [
                 'invoice_number' => $invoice_unique_id.$data->id ,
                 'citizen_payment_status' => 1,
@@ -260,7 +304,7 @@ class CitizenPaypentController extends Controller
             $data->save();
 
             // ==== Generate New Business NOC Invoice Number
-            $invoice_unique_id = "UMC_".rand(1000,10000000).time();
+            $invoice_unique_id = "PMC_".rand(1000,10000000).time();
             $update_invoice_id = [
                 'invoice_number' => $invoice_unique_id.$data->id ,
                 'citizen_payment_status' => 1,
@@ -308,7 +352,7 @@ class CitizenPaypentController extends Controller
             $data->save();
 
             // ==== Generate New Business NOC Invoice Number
-            $invoice_unique_id = "UMC_".rand(1000,10000000).time();
+            $invoice_unique_id = "PMC_".rand(1000,10000000).time();
             $update_invoice_id = [
                 'invoice_number' => $invoice_unique_id.$data->id ,
                 'citizen_payment_status' => 1,
@@ -355,7 +399,7 @@ class CitizenPaypentController extends Controller
             $data->save();
 
             // ==== Generate New Business NOC Invoice Number
-            $invoice_unique_id = "UMC_".rand(1000,10000000).time();
+            $invoice_unique_id = "PMC_".rand(1000,10000000).time();
             $update_invoice_id = [
                 'invoice_number' => $invoice_unique_id.$data->id ,
                 'citizen_payment_status' => 1,
@@ -404,7 +448,7 @@ class CitizenPaypentController extends Controller
             $data->save();
 
             // ==== Generate New Business NOC Invoice Number
-            $invoice_unique_id = "UMC_".rand(1000,10000000).time();
+            $invoice_unique_id = "PMC_".rand(1000,10000000).time();
             $update_invoice_id = [
                 'invoice_number' => $invoice_unique_id.$data->id ,
                 'citizen_payment_status' => 1,
@@ -454,7 +498,7 @@ class CitizenPaypentController extends Controller
 
             // ==== Generate Renew Building NOC Invoice Number
 
-            $invoice_unique_id = "UMC_".rand(1000,10000000).time();
+            $invoice_unique_id = "PMC_".rand(1000,10000000).time();
             $update_invoice_id = [
                 'invoice_number' => $invoice_unique_id.$data->id ,
                 'citizen_payment_status' => 1,
@@ -474,6 +518,159 @@ class CitizenPaypentController extends Controller
             Building_NOC::where('id', $id)->update($update);
 
             return redirect()->route('admin_renew_building_noc_list', $status)->with('message', 'Your payment done for your renew building noc has been done Successfully.');
+
+        }
+        elseif($noc_mode == 8){
+
+            $data = new CitizenPayment();
+
+            $data->mst_token = $request->get('mst_token');
+            $data->payment_dt = date('Y-m-d', strtotime($request->get('payment_dt')));
+            $data->citizen_id = $request->get('citizens_id');
+            $data->payment_noc_mode = $request->get('payment_noc_mode');
+
+            $data->l_name = $request->get('l_name');
+            $data->f_name = $request->get('f_name');
+            $data->father_name = $request->get('father_name');
+
+            $data->fee_construction_id = $request->get('fee_construction_id') ?$request->get('fee_construction_id'):NULL;
+
+            // ==== How to get add/remove  fields data?
+            $data->description = json_encode($request->get('description')) ? json_encode($request->get('description')) : null ;
+            $data->area = json_encode($request->get('area')) ? json_encode($request->get('area')) : null ;
+            $data->actualcharges = json_encode($request->get('actualcharges'))  ? json_encode($request->get('actualcharges')) : null ;
+            $data->noccharges = json_encode($request->get('noccharges'))  ? json_encode($request->get('noccharges')) : null ;
+
+            $data->total_charges_cost = ($request->total_charges_cost) ? $request->get('total_charges_cost') : 0;
+
+            $data->inserted_dt = date("Y-m-d H:i:s");
+            $data->inserted_by = Auth::user()->id;
+            $data->save();
+
+            // ==== Generate Renew Building NOC Invoice Number
+
+            $invoice_unique_id = "PMC_".rand(1000,10000000).time();
+            $update_invoice_id = [
+                'invoice_number' => $invoice_unique_id.$data->id ,
+                'citizen_payment_status' => 1,
+            ];
+
+            CitizenPayment::where('id', $data->id)->update($update_invoice_id);
+
+
+            // ==== Update Payment Status
+            $update = [
+                'status' => 7,
+                'payment_status' =>  1, // ==== Payment Done Successfully.
+                'payment_dt' =>  date("Y-m-d H:i:s"),
+                'payment_by' =>  Auth::user()->id,
+            ];
+
+            Other_noc::where('id', $id)->update($update);
+
+            return redirect()->route('admin_new_other_noc_list', $status)->with('message', 'Your payment done for your renew building noc has been done Successfully.');
+
+        }
+        elseif($noc_mode == 9){
+
+            $data = new CitizenPayment();
+
+            $data->mst_token = $request->get('mst_token');
+            $data->payment_dt = date('Y-m-d', strtotime($request->get('payment_dt')));
+            $data->citizen_id = $request->get('citizens_id');
+            $data->payment_noc_mode = $request->get('payment_noc_mode');
+
+            $data->l_name = $request->get('l_name');
+            $data->f_name = $request->get('f_name');
+            $data->father_name = $request->get('father_name');
+
+            $data->fee_construction_id = $request->get('fee_construction_id') ?$request->get('fee_construction_id'):NULL;
+
+            // ==== How to get add/remove  fields data?
+            $data->description = json_encode($request->get('description')) ? json_encode($request->get('description')) : null ;
+            $data->area = json_encode($request->get('area')) ? json_encode($request->get('area')) : null ;
+            $data->actualcharges = json_encode($request->get('actualcharges'))  ? json_encode($request->get('actualcharges')) : null ;
+            $data->noccharges = json_encode($request->get('noccharges'))  ? json_encode($request->get('noccharges')) : null ;
+
+            $data->total_charges_cost = ($request->total_charges_cost) ? $request->get('total_charges_cost') : 0;
+
+            $data->inserted_dt = date("Y-m-d H:i:s");
+            $data->inserted_by = Auth::user()->id;
+            $data->save();
+
+            // ==== Generate Renew Building NOC Invoice Number
+
+            $invoice_unique_id = "PMC_".rand(1000,10000000).time();
+            $update_invoice_id = [
+                'invoice_number' => $invoice_unique_id.$data->id ,
+                'citizen_payment_status' => 1,
+            ];
+
+            CitizenPayment::where('id', $data->id)->update($update_invoice_id);
+
+
+            // ==== Update Payment Status
+            $update = [
+                'status' => 7,
+                'payment_status' =>  1, // ==== Payment Done Successfully.
+                'payment_dt' =>  date("Y-m-d H:i:s"),
+                'payment_by' =>  Auth::user()->id,
+            ];
+
+            Other_NOC::where('id', $id)->update($update);
+
+            return redirect()->route('admin_renew_other_noc_list', $status)->with('message', 'Your payment done for your renew building noc has been done Successfully.');
+
+        }
+        elseif($noc_mode == 10){
+
+            $data = new CitizenPayment();
+
+            $data->mst_token = $request->get('mst_token');
+            $data->payment_dt = date('Y-m-d', strtotime($request->get('payment_dt')));
+            $data->citizen_id = $request->get('citizens_id');
+            $data->payment_noc_mode = $request->get('payment_noc_mode');
+
+            $data->l_name = $request->get('l_name');
+            $data->f_name = $request->get('f_name');
+            $data->father_name = $request->get('father_name');
+
+            $data->fee_construction_id = $request->get('fee_construction_id') ?$request->get('fee_construction_id'):NULL;
+
+            // ==== How to get add/remove  fields data?
+            $data->description = json_encode($request->get('description')) ? json_encode($request->get('description')) : null ;
+            $data->area = json_encode($request->get('area')) ? json_encode($request->get('area')) : null ;
+            $data->actualcharges = json_encode($request->get('actualcharges'))  ? json_encode($request->get('actualcharges')) : null ;
+            $data->noccharges = json_encode($request->get('noccharges'))  ? json_encode($request->get('noccharges')) : null ;
+
+            $data->total_charges_cost = ($request->total_charges_cost) ? $request->get('total_charges_cost') : 0;
+
+            $data->inserted_dt = date("Y-m-d H:i:s");
+            $data->inserted_by = Auth::user()->id;
+            $data->save();
+
+            // ==== Generate Renew Building NOC Invoice Number
+// dd($data);
+            $invoice_unique_id = "PMC_".rand(1000,10000000).time();
+            $update_invoice_id = [
+                'invoice_number' => $invoice_unique_id.$data->id ,
+                'citizen_payment_status' => 1,
+            ];
+
+            CitizenPayment::where('id', $data->id)->update($update_invoice_id);
+
+
+            // ==== Update Payment Status
+            $update = [
+                'status' => 7,
+                'payment_status' =>  1, // ==== Payment Done Successfully.
+                'payment_dt' =>  date("Y-m-d H:i:s"),
+                'payment_by' =>  Auth::user()->id,
+            ];
+
+            FormB::where('id', $id)->update($update);
+
+            return redirect()->route('admin_new_form_b_list', $status)->with('message', 'Your payment done for your form b has been done Successfully.');
 
         }
     }

@@ -14,17 +14,15 @@
                             <div class="card-body">
                                 <div class="letter">
                                     <div style="float: left;">
-                                        <img src="{{ url('/') }}/assets/logo/favicon.ico" alt="logo"
-                                            width="60" height="60">
+                                        <img src="{{ url('/') }}/assets/logo/favicon.ico" alt="logo" width="60" height="60">
                                     </div>
                                     {{-- <div style="float: right;">
                                         <img src="{{ url('/') }}/assets/logo/favicon.ico" alt="Logo" width="60" height="60">
                                     <div> --}}
-                                    <div class="header">
-                                        उल्हासनगर महानगरपालिका <br>
+                                    <div class="header pb-2">
+                                        पनवेल महानगरपालिका <br>
                                         अग्निशमन विभाग <br>
                                         दूरध्वनी क्र. २७२०१३१/२७२०१३२/२७२०१३३.
-                                        <hr>
                                     </div>
                                     <div>
                                         <div style="float: left;"><b>टोकन क्र :- </b> {{ $data->mst_token }}</div>
@@ -36,17 +34,17 @@
                                             {{ $data->l_name }} </p>
                                         <!--<p class="lineheight">{{ $data->father_name }}</p>-->
                                         <!--<p class="lineheight">{{ $data->l_name }}</p>-->
-                                        <p class="lineheight">उल्हासनगर -</p>
+                                        <p class="lineheight">पनवेल -</p>
 
                                         <b>
                                             <p style="text-align: center;"> <u>"विविध व्यवसायाकरीता अग्निशमन ना हरकत
                                                     दाखला"</u></p>
                                         </b><br>
-                                        <p>उल्हासनगर महानगरपालिकेचे क्षेत्रातील उल्हासनगर विभागातील दिनांक
+                                        <p>पनवेल महानगरपालिकेचे क्षेत्रातील पनवेल विभागातील दिनांक
                                             {{ \Carbon\Carbon::parse($data->inserted_dt)->format('j/m/Y') }} च्या
                                             अर्जावरून
                                             श्री. {{ $data->f_name }} {{ $data->father_name }} {{ $data->l_name }}
-                                            उल्हासनगर- -- यांना {{ $data->society_name }} व्यवसायाकरीता अग्निशमन विषयक
+                                            पनवेल- -- यांना {{ $data->society_name }} व्यवसायाकरीता अग्निशमन विषयक
                                             "ना हरकत दाखला" खालील अटीस अधीन राहून देण्यात येत आहे.</p>
                                         <p>१) सदर जागा पक्की विटा सिमेंटची असावी व त्यात खेळती हवा असणे आवश्यक आहे. <br>
                                             २) आपदप्रसंगी चटकन सुलभतेने हाताळता येतील अशाप्रकारे आवश्यकतेनुसार ए. बी.
@@ -55,13 +53,13 @@
                                             ३) आपादप्रसंगी पाण्याचा चटकन वापर करता यावा म्हणून जवळपास पाण्याचा पुरेसा
                                             साठा करणारी टाकी ठेवावी. <br>
                                             ४) जर परवाना जागा पध्दत यामध्ये बदल झाल्यास हा दाखला रद्द करणेत येईल. <br>
-                                            ५) ............ चालविणेकरीता उल्हासनगर महानगरपालिकेचा आवश्यक तो योग्य वेगळा
+                                            ५) ............ चालविणेकरीता पनवेल महानगरपालिकेचा आवश्यक तो योग्य वेगळा
                                             परवाना घ्यावयास हवा व इतर काही कारणासाठी कायदयाच्या नियमाप्रमाणे आपल्याकडे
                                             परवाना पत्र किंवा परवाना असणे आवश्यक आहे. <br>
                                             ६) ............ मुळे आजुबाजुच्या लोकांना त्रास होणार नाही याची काळजी घेणे
                                             बंधनकारक आहे काही तक्रार आल्यास आपला दाखला रद्द करणेत येईल. <br>
                                             ७)मुख्य् अग्निशमन अधिकारी किंवा त्यांनी नामनिर्देशित केलेला कोणताही अग्निशमन
-                                            अधिकारी उल्हासनगर महानगरपालिका यांचेकडून वार्षिक तपासणी करून त्याबद्दल
+                                            अधिकारी पनवेल महानगरपालिका यांचेकडून वार्षिक तपासणी करून त्याबद्दल
                                             प्रमाणपत्र घेणे बंधनकारक राहील. <br>
                                             ८) वरील अग्निशमन ना हरकत दाखला फक्त आगीच्‍या सुरक्षिततेच्या दृष्टीने
                                             करावयाच्या उपाययोजना करीता देण्यात येत आहे. <br>
@@ -92,12 +90,12 @@
 
                                     <div class="signature">
                                         <div>
-                                            <img class="avatar-image" src="{{ url('/') }}/UMC_FireNOC/signature_doc/{{ $cf_signature->upload_signature_doc ?? null }}" alt="Chief Fire Officer">
+                                            <img class="avatar-image" src="{{ url('/') }}/PMC_FireNOC/signature_doc/{{ $cf_signature->upload_signature_doc ?? null }}" alt="Chief Fire Officer">
 
-                                            <p class="lineheight">(बाळासाहेब नेटके)</p>
+                                            <p class="lineheight">(प्रविण बाळू बोडखे)</p>
                                             <p class="lineheight">मुख्य अग्निशमन अधिकारी (प्र.)</p>
                                             <p class="lineheight">अग्निशमन विभाग</p>
-                                            <p class="lineheight">उल्हासनगर महानगरपालिका</p>
+                                            <p class="lineheight">पनवेल महानगरपालिका</p>
                                         </div>
                                     </div>
                                 </div>

@@ -95,7 +95,7 @@ class FinalBuildingNOCController extends Controller
         $noc_master->save();
 
         // ==== Generate Final Building NOC Token Number
-        $unique_id = "UMC/FBN/".rand(1000,10000000);
+        $unique_id = "PMC/FBN/".rand(1000,10000000);
         $update = [
             'mst_token' => $unique_id.$noc_master->id ,
         ];
@@ -109,9 +109,9 @@ class FinalBuildingNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc" . $image_name;
             $data->fire_equipments_install_doc = $new_name;
         }
 
@@ -250,9 +250,9 @@ class FinalBuildingNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc" . $image_name;
                 $data->fire_equipments_install_doc = $new_name;
             }
 
@@ -326,9 +326,9 @@ class FinalBuildingNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc" . $image_name;
                 $data->fire_equipments_install_doc = $new_name;
             }
 

@@ -10,7 +10,7 @@ use App\Repository\HospitalRepository;
 
 class HomeController extends Controller
 {
-    protected $homeRepository, $businessRepository, $hospitalRepository, $buildingRepository;
+    protected $homeRepository, $businessRepository, $hospitalRepository, $buildingRepository ;
 
     public function __construct(HomeRepository $homeRepository, BusinessRepository $businessRepository, HospitalRepository $hospitalRepository, BuildingRepository $buildingRepository)
     {

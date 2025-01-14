@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
 
-        <title>UMC-Fire NOC | Generate Invoice For Fire NOC</title>
+        <title>PMC-Fire NOC | Generate Invoice For Fire NOC</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
         <meta content="Themesdesign" name="author">
@@ -88,11 +88,11 @@
                                         <div class="invoice-title d-flex justify-content-between ">
                                             <div class="text-muted">
                                                 <p class="mb-1">
-                                                    Ulhasnagar Municipal Corporation<br>
-                                                    Near Chopda Court, Ulhasnagar - 3<br>
+                                                    Panvel Municipal Corporation<br>
+                                                    Near Chopda Court, Panvel - 3<br>
                                                     Pincode - 421 003, Maharashtra
                                                 </p>
-                                                <p class="mb-1"><i class="mdi mdi-email-outline me-1"></i> cfcumc@gmail.com</p>
+                                                <p class="mb-1"><i class="mdi mdi-email-outline me-1"></i> cfcpmc@gmail.com</p>
                                                 <p><i class="mdi mdi-phone-outline me-1"></i> 0251 2720150</p>
                                             </div>
 

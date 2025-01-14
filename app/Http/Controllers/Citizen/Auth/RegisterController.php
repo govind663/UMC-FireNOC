@@ -17,9 +17,9 @@ class RegisterController extends Controller
     public function Store_Citizen_Register_Form(Request $request)
     {
         $request->validate([
-            'f_name' => 'required|string',
-            'm_name' => 'nullable',
-            'l_name' => 'required|string',
+            'f_name' => 'required|alpha',
+            'm_name' => 'nullable|alpha',
+            'l_name' => 'required|alpha',
             'mobile_no' => 'required|numeric|unique:citizens|digits:10',
             'email' => 'nullable|string|email|max:255|unique:citizens|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix',
             'password' => 'required|string|min:8|confirmed',
@@ -33,22 +33,25 @@ class RegisterController extends Controller
             'password_confirmation.required' => 'Confirm Password is required',
         ]);
 
+ //dd($request);
         $data = new Citizen();
 
         $data->f_name = $request->get('f_name');
         $data->m_name = $request->get('m_name');
         $data->l_name = $request->get('l_name');
+        // dd($data);
         $data->mobile_no = $request->get('mobile_no');
         $data->email = $request->get('email');
+        // $data->og_password = $request->get('password');
         $data->password = Hash::make($request->get('password'));
         $data->inserted_dt = date("Y-m-d H:i:s");
         $data->save();
 
-        $update = [
-            'inserted_by' => $data->id,
-        ];
+        // $update = [
+        //     'inserted_by' => $data->id,
+        // ];
 
-        Citizen::where('id', $data->id)->update($update);
+        // Citizen::where('id', $data->id)->update($update);
 
         return redirect('/citizen/login')->with('message', 'You are Register Sucessfully.');
     }

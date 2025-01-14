@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
 
-        <title>UMC-Fire NOC | Renew Business NOC</title>
+        <title>PMC-Fire NOC | Renew Business NOC</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
         <meta content="Themesdesign" name="author">
@@ -536,7 +536,7 @@
                                                     <label class="col-sm-2"><strong>Copy of previous NOC : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->location_map_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -545,7 +545,7 @@
                                                     <label class="col-sm-2"><strong>Letter from License Holder regarding proper electric connection : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->electric_license_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/electric_license_doc/{{ $data->electric_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/electric_license_doc/{{ $data->electric_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -556,7 +556,7 @@
                                                     <label class="col-sm-2"><strong>Letter from connection holder and license regarding proper cooking gas connection : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->gas_license_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/gas_license_doc/{{ $data->gas_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/gas_license_doc/{{ $data->gas_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -565,7 +565,7 @@
                                                     <label class="col-sm-2"><strong>Shop License : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->shop_license_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/shop_license_doc/{{ $data->shop_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/shop_license_doc/{{ $data->shop_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -576,7 +576,7 @@
                                                     <label class="col-sm-2"><strong>Food License : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->food_license))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/food_license/{{ $data->food_license }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/food_license/{{ $data->food_license }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -585,7 +585,7 @@
                                                     <label class="col-sm-2"><strong>Up-to-date receipt of Tax bill paid : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->tax_bill_paid_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/tax_bill_paid_doc/{{ $data->tax_bill_paid_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/tax_bill_paid_doc/{{ $data->tax_bill_paid_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -596,7 +596,7 @@
                                                     <label class="col-sm-2"><strong>Trade License (Kerosene/Other Petroleum Stock/ Explosive goods) : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->trade_license))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/trade_license/{{ $data->trade_license }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/trade_license/{{ $data->trade_license }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -605,7 +605,7 @@
                                                     <label class="col-sm-2"><strong>Commissioning Certificate of Gas Fitting : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->gas_certificate_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/gas_certificate_doc/{{ $data->gas_certificate_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/gas_certificate_doc/{{ $data->gas_certificate_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -616,7 +616,7 @@
                                                     <label class="col-sm-2"><strong>Commissioning Certificate of Fire extinguishers/ preventive equipments of I.S.I. Mark : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->commissioning_certificate))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -625,7 +625,7 @@
                                                     <label class="col-sm-2"><strong>Maps of Proposed Construction : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->construction_plan_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/construction_plan_doc/{{ $data->construction_plan_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/construction_plan_doc/{{ $data->construction_plan_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif

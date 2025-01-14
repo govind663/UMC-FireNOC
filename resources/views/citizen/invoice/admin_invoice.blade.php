@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
 
-        <title>UMC-Fire NOC | Generate Invoice For Fire NOC</title>
+        <title>PMC-Fire NOC | Generate Invoice For Fire NOC</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
         <meta content="Themesdesign" name="author">
@@ -93,14 +93,14 @@
                                             <div class="col-3 text-muted float-md-end text-justify">
                                                 <p class="mb-1">
                                                     <b>
-                                                        Ulhasnagar Municipal Corporation
+                                                        Panvel Municipal Corporation
                                                         Near Chopda Court,
-                                                        Ulhasnagar - 3,<br>
+                                                        Panvel - 3,<br>
                                                         Pincode - 421 003,
                                                         Maharashtra.
                                                     </b>
                                                 </p>
-                                                <p class="mb-1"><b><i class="mdi mdi-email-outline me-1"></i> cfcumc@gmail.com</b></p>
+                                                <p class="mb-1"><b><i class="mdi mdi-email-outline me-1"></i> cfcpmc@gmail.com</b></p>
                                                 <p><b><i class="mdi mdi-phone-outline me-1"></i> 0251 2720150</b></p>
                                             </div>
                                         </div>
@@ -112,7 +112,7 @@
                                                         <b>Billed To : </b>
                                                     </h5>
                                                     <h5 class="font-size-15 mb-1">
-                                                        {{ $data->l_name }} {{ $data->father_name }} {{ $data->f_name }}
+                                                        {{ $data->l_name}} {{ $data->father_name}} {{ $data->f_name}}
                                                     </h5>
                                                     @if ($noc_mode == 1)
                                                     <p class="mb-0">{{ $data->society_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} ,<br> <b>Pincode : </b> {{ $data->taluka_name }}</p>
@@ -126,9 +126,15 @@
                                                     <p class="mb-0">{{ $data->society_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} ,<br> <b>Pincode : </b> {{ $data->taluka_name }}</p>
                                                     @elseif ($noc_mode == 6)
                                                     <p class="mb-0">{{ $data->society_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} ,<br> <b>Pincode : </b> {{ $data->taluka_name }}</p>
+                                                    @elseif ($noc_mode == 7)
+                                                    <p class="mb-0">{{ $data->society_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} ,<br> <b>Pincode : </b> {{ $data->taluka_name }}</p>
+                                                    @elseif ($noc_mode == 8)
+                                                    <p class="mb-0">{{ $data->society_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} ,<br> <b>Pincode : </b> {{ $data->taluka_name }}</p>
+                                                    <p class="mb-0"><b>Mobile No. :</b>{{ $data->tel_no }}</p>
+                                                    @elseif ($noc_mode == 9)
+                                                    <p class="mb-0">{{ $data->society_name }}, {{ $data->house_name }}, {{ $data->flat_no }}, {{ $data->wing_name }}, {{ $data->road_name }}, {{ $data->area_name }} {{ $data->taluka_name }} ,<br> <b>Pincode : </b> {{ $data->taluka_name }}</p>
                                                     @endif
 
-                                                    <p class="mb-0"><b>Mobile No. :</b>{{ $data->tel_no }}</p>
                                                 </div>
                                             </div>
 
@@ -178,7 +184,7 @@
                                         </table>
                                         @endif
 
-                                        @if ($noc_mode == 3 || $noc_mode == 4 || $noc_mode == 5 || $noc_mode == 6 || $noc_mode == 7)
+                                        @if ($noc_mode == 3 || $noc_mode == 4 || $noc_mode == 5 || $noc_mode == 6 || $noc_mode == 7 || $noc_mode == 8 || $noc_mode == 9 || $noc_mode == 10)
                                         {{-- This Condition apply only when  Noc Mode is (3, 4, 5, 6) selected --}}
                                         <table class="table table-bordered table-responsive" style="width:90%; margin:auto;">
                                             <thead style="border: 1px solid rgb(3, 155, 155);">
@@ -240,8 +246,10 @@
                                                 <a href="{{ url('/admin_provisional_building_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
                                                 @elseif ($noc_mode == 6)
                                                 <a href="{{ url('/admin_final_building_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
-                                                @elseif ($noc_mode == 6)
+                                                @elseif ($noc_mode == 7)
                                                 <a href="{{ url('/admin_renew_building_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
+                                                @elseif ($noc_mode == 8)
+                                                <a href="{{ url('/admin_new_other_noc_list', $data->status) }}" class="btn btn-danger">Back</a>
                                                 @endif
                                             </div>
                                         </div>

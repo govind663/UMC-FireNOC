@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
 
-    <title>UMC-Fire NOC | New Hospital NOC</title>
+    <title>PMC-Fire NOC | New Hospital NOC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
     <meta content="Themesdesign" name="author">
@@ -95,7 +95,7 @@
                                         <div class="form-group row  mb-3">
                                             <label class="col-sm-2"><strong>Last Name / Surname : <span class="text-danger">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="l_name" id="l_name" class="form-control @error('l_name') is-invalid @enderror" value="{{ old('l_name') }}" placeholder="Enter Last Name / Surname.">
+                                                <input type="text" name="l_name" id="l_name" class="form-control @error('l_name') is-invalid @enderror" value="{{ old('l_name') }}" placeholder="Enter Last Name / Surname." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                 @error('l_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -104,7 +104,7 @@
                                             </div>
                                             <label class="col-sm-2"><strong>First Name : <span class="text-danger">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="f_name" id="f_name" class="form-control @error('f_name') is-invalid @enderror" value="{{ old('f_name') }}" placeholder="Enter First Name.">
+                                                <input type="text" name="f_name" id="f_name" class="form-control @error('f_name') is-invalid @enderror" value="{{ old('f_name') }}" placeholder="Enter First Name." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                 @error('f_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -113,7 +113,7 @@
                                             </div>
                                             <label class="col-sm-2"><strong>Father / Husband's Name : </strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="father_name" id="father_name" class="form-control @error('father_name') is-invalid @enderror" value="{{ old('father_name') }}" placeholder="Enter Father / Husband's Name.">
+                                                <input type="text" name="father_name" id="father_name" class="form-control @error('father_name') is-invalid @enderror" value="{{ old('father_name') }}" placeholder="Enter Father / Husband's Name." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                 @error('father_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -125,7 +125,7 @@
                                         <div class="form-group row  mb-3">
                                             <label class="col-sm-2"><strong>Name of Hospital : <span class="text-danger">*</span></strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="hospital_name" id="hospital_name" class="form-control @error('hospital_name') is-invalid @enderror" value="{{ old('hospital_name') }}" placeholder="Enter Name of Hospital.">
+                                                <input type="text" name="hospital_name" id="hospital_name" class="form-control @error('hospital_name') is-invalid @enderror" value="{{ old('hospital_name') }}" placeholder="Enter Name of Hospital." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                 @error('hospital_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -134,7 +134,7 @@
                                             </div>
                                             <label class="col-sm-2"><strong>Designation : </strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="designation" id="designation" class="form-control @error('designation') is-invalid @enderror" value="{{ old('designation') }}" placeholder="Enter Designation.">
+                                                <input type="text" name="designation" id="designation" class="form-control @error('designation') is-invalid @enderror" value="{{ old('designation') }}" placeholder="Enter Designation." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                 @error('designation')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -148,7 +148,7 @@
                                         <div class="form-group row  mb-3">
                                             <label class="col-sm-2"><strong>House / Building / Society Name : </strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="house_name" id="house_name" class="form-control @error('house_name') is-invalid @enderror" value="{{ old('house_name') }}" placeholder="Enter House / Building / Society Name.">
+                                                <input type="text" name="house_name" id="house_name" class="form-control @error('house_name') is-invalid @enderror" value="{{ old('house_name') }}" placeholder="Enter House / Building / Society Name." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                 @error('house_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -196,7 +196,7 @@
                                             </div>
                                             <label class="col-sm-2"><strong>Taluka : </strong></label>
                                             <div class="col-sm-2 col-md-2">
-                                                <input type="text" name="taluka_name" id="taluka_name" class="form-control @error('taluka_name') is-invalid @enderror" value="{{ old('taluka_name') }}" placeholder="Enter Taluka.">
+                                                <input type="text" name="taluka_name" id="taluka_name" class="form-control @error('taluka_name') is-invalid @enderror" value="{{ old('taluka_name') }}" placeholder="Enter Taluka." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                 @error('taluka_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -630,7 +630,7 @@
                                                     <div class="col-md-12 col-xs-12">
                                                         <p class="text-justify ">
                                                             <b> I / We..... <br><br>
-                                                                <input type="text"  class="form-control @error('declare_by') is-invalid @enderror" id="declare_by" name="declare_by" value="{{ old('declare_by') }}" placeholder="Enter Applicant Name">
+                                                                <input type="text"  class="form-control @error('declare_by') is-invalid @enderror" id="declare_by" name="declare_by" value="{{ old('declare_by') }}" placeholder="Enter Applicant Name" oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                                 <br>
                                                                 @error('declare_by')
                                                                 <span class="invalid-feedback" role="alert">
@@ -666,7 +666,7 @@
 
                                                             <label class="col-sm-2"><strong>Name of Nominated Person : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
-                                                                <input type="text" name="nominated_persion_name" id="nominated_persion_name" class="form-control @error('nominated_persion_name') is-invalid @enderror" value="{{ old('nominated_persion_name') }}" placeholder="Enter Name of Nominated Person.">
+                                                                <input type="text" name="nominated_persion_name" id="nominated_persion_name" class="form-control @error('nominated_persion_name') is-invalid @enderror" value="{{ old('nominated_persion_name') }}" placeholder="Enter Name of Nominated Person." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                                 @error('nominated_persion_name')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -696,7 +696,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-2"><strong>Last Name / Surname : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
-                                                                <input type="text" name="d_last_name" id="d_last_name" class="form-control @error('d_last_name') is-invalid @enderror" value="{{ old('d_last_name') }}" placeholder="Enter Last Name / Surname.">
+                                                                <input type="text" name="d_last_name" id="d_last_name" class="form-control @error('d_last_name') is-invalid @enderror" value="{{ old('d_last_name') }}" placeholder="Enter Last Name / Surname." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                                 @error('d_last_name')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -706,7 +706,7 @@
 
                                                             <label class="col-sm-2"><strong>First Name : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
-                                                                <input type="text" name="d_first_name" id="d_first_name" class="form-control @error('d_first_name') is-invalid @enderror" value="{{ old('d_first_name') }}" placeholder="Enter First Name.">
+                                                                <input type="text" name="d_first_name" id="d_first_name" class="form-control @error('d_first_name') is-invalid @enderror" value="{{ old('d_first_name') }}" placeholder="Enter First Name." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                                 @error('d_first_name')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -716,7 +716,7 @@
 
                                                             <label class="col-sm-2"><strong>Father / Husband's Name : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
-                                                                <input type="text" name="d_father_name" id="d_father_name" class="form-control @error('d_father_name') is-invalid @enderror" value="{{ old('d_father_name') }}" placeholder="Enter Father / Husband's Name.">
+                                                                <input type="text" name="d_father_name" id="d_father_name" class="form-control @error('d_father_name') is-invalid @enderror" value="{{ old('d_father_name') }}" placeholder="Enter Father / Husband's Name." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                                 @error('d_father_name')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -728,7 +728,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-2"><strong>House / Building / Society Name : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
-                                                                <input type="text" name="d_house_name" id="d_house_name" class="form-control @error('d_house_name') is-invalid @enderror" value="{{ old('d_house_name') }}" placeholder="Enter House / Building / Society Name.">
+                                                                <input type="text" name="d_house_name" id="d_house_name" class="form-control @error('d_house_name') is-invalid @enderror" value="{{ old('d_house_name') }}" placeholder="Enter House / Building / Society Name." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                                 @error('d_house_name')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -780,7 +780,7 @@
 
                                                             <label class="col-sm-2"><strong>Taluka : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
-                                                                <input type="text" name="d_taluka_name" id="d_taluka_name" class="form-control @error('d_taluka_name') is-invalid @enderror" value="{{ old('d_taluka_name') }}" placeholder="Enter Taluka.">
+                                                                <input type="text" name="d_taluka_name" id="d_taluka_name" class="form-control @error('d_taluka_name') is-invalid @enderror" value="{{ old('d_taluka_name') }}" placeholder="Enter Taluka." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                                 @error('d_taluka_name')
                                                                 <span class="invalid-feedback" role="alert">
                                                                     <strong>{{ $message }}</strong>
@@ -802,7 +802,7 @@
 
                                                             <label class="col-sm-2"><strong>Email Id (if any) : </strong></label>
                                                             <div class="col-sm-2 col-md-2">
-                                                                <input type="text" name="d_email" id="d_email" class="form-control r" value="{{ old('d_email') }}" placeholder="Enter Email Id">
+                                                                <input type="email" name="d_email" id="d_email" class="form-control r" value="{{ old('d_email') }}" placeholder="Enter Email Id">
 
                                                             </div>
 
@@ -869,6 +869,26 @@
     <script src="{{ url('/') }}/assets/js/pages/form-advanced.init.js"></script>
 
     <script src="{{ url('/') }}/assets/js/app.js"></script>
+    
+    <script>
+    document.getElementById('from_date').addEventListener('change', function() {
+        var fromDate = document.getElementById('from_date').value;
+        
+        // Check if a valid date is selected
+        if (fromDate) {
+            var fromDateObj = new Date(fromDate);
+            
+            // Add one year to the "From Date"
+            fromDateObj.setFullYear(fromDateObj.getFullYear() + 1);
+            
+            // Format the new date to match the input format (YYYY-MM-DD)
+            var yearLaterDate = fromDateObj.toISOString().split('T')[0];
+            
+            // Set the "To Date" field to the new date
+            document.getElementById('to_date').value = yearLaterDate;
+        }
+    });
+</script>
 
 </body>
 </html>

@@ -7,7 +7,7 @@
     <!-- Required meta tags -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>UMC-Fire NOC | Final Building NOC</title>
+    <title>PMC-Fire NOC | Final Building NOC</title>
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ url('/') }}/assets/logo/favicon.ico">
@@ -70,11 +70,11 @@
 
             <div style="float: right;">
                 <p class="mb-1">
-                    Ulhasnagar Municipal Corporation<br>
-                    Near Chopda Court, Ulhasnagar - 3<br>
+                    Panvel Municipal Corporation<br>
+                    Near Chopda Court, Panvel - 3<br>
                     Pincode - 421 003, Maharashtra
                 </p>
-                <p class="mb-1"><i class="mdi mdi-email-outline me-1"></i> cfcumc@gmail.com</p>
+                <p class="mb-1"><i class="mdi mdi-email-outline me-1"></i> cfcpmc@gmail.com</p>
                 <p><i class="mdi mdi-phone-outline me-1"></i> 0251 2720150</p>
             </div>
         </div>
@@ -246,10 +246,10 @@
 
                                 @if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                <img src="{{ public_path('/UMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc') }}/{{ $data->fire_equipments_install_doc }}" alt="image" width="100%" height="40%">
+                                <img src="{{ public_path('/PMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc') }}/{{ $data->fire_equipments_install_doc }}" alt="image" width="100%" height="40%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
                                 @if(!empty($data->fire_equipments_install_doc))
-                                    <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc/{{ $data->fire_equipments_install_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                    <a href="{{url('/')}}/PMC_FireNOC/Building_NOC/Final_BuildingNOC/fire_equipments_install_doc/{{ $data->fire_equipments_install_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                         <b>View Document</b>
                                     </a>
                                 @endif

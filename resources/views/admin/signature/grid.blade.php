@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
 
-        <title>UMC-Fire NOC | Signature List</title>
+        <title>PMC-Fire NOC | Signature List</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
         <meta content="Themesdesign" name="author">
@@ -77,7 +77,7 @@
                                                     <tr>
                                                         <td>{{ $key + 1 }}</td>
                                                         <td>
-                                                            <a href="{{ url('/') }}/UMC_FireNOC/signature_doc/{{ $value->upload_signature_doc }}" target="_blank" class="btn btn-info btn-sm">
+                                                            <a href="{{ url('/') }}/PMC_FireNOC/signature_doc/{{ $value->upload_signature_doc }}" target="_blank" class="btn btn-info btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Signature </i></b>
                                                             </a>
                                                         </td>

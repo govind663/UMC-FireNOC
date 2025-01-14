@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
 
-    <title>UMC-Fire NOC | Provisional Building NOC</title>
+    <title>PMC-Fire NOC | Provisional Building NOC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
     <meta content="Themesdesign" name="author">
@@ -340,7 +340,7 @@
                                                     <label class="col-sm-2"><strong>Maps of Proposed Construction : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->maps_of_proposed_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/maps_of_proposed_doc/{{ $data->maps_of_proposed_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/maps_of_proposed_doc/{{ $data->maps_of_proposed_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -349,7 +349,7 @@
                                                     <label class="col-sm-2"><strong>7/12 Extract / City Survey Extract : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->city_survey_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/city_survey_doc/{{ $data->city_survey_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/city_survey_doc/{{ $data->city_survey_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -357,10 +357,10 @@
                                                 </div>
 
                                                 <div class="form-group row  mb-3">
-                                                    <label class="col-sm-2"><strong>Sanad / Letter from S.D.O. Ulhasnagar : </strong></label>
+                                                    <label class="col-sm-2"><strong>Sanad / Letter from S.D.O. Panvel : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->sanad_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/sanad_doc/{{ $data->sanad_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/sanad_doc/{{ $data->sanad_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -369,7 +369,7 @@
                                                     <label class="col-sm-2"><strong>Title & Search Report from competent Authority : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->competent_authority_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc/{{ $data->competent_authority_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/competent_authority_doc/{{ $data->competent_authority_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -380,7 +380,7 @@
                                                     <label class="col-sm-2"><strong>No dues certificate of Property & Water Tax : </strong></label>
                                                     <div class="col-sm-4 col-md-4">
                                                         @if(!empty($data->dues_certificate_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc/{{ $data->dues_certificate_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Building_NOC/Provisional_BuildingNOC/dues_certificate_doc/{{ $data->dues_certificate_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif

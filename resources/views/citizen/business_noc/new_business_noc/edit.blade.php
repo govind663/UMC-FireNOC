@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
 
-        <title>UMC-Fire NOC | New Business NOC</title>
+        <title>PMC-Fire NOC | New Business NOC</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
         <meta content="Themesdesign" name="author">
@@ -97,7 +97,7 @@
                                             <div class="form-group row  mb-3">
                                                 <label class="col-sm-2"><strong>Last Name / Surname : <span class="text-danger">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" name="l_name" id="l_name" class="form-control @error('l_name') is-invalid @enderror" value="{{ $data->l_name }}" placeholder="Enter Last Name / Surname.">
+                                                    <input type="text" name="l_name" id="l_name" class="form-control @error('l_name') is-invalid @enderror" value="{{ $data->l_name }}" placeholder="Enter Last Name / Surname." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                     @error('l_name')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -106,7 +106,7 @@
                                                 </div>
                                                 <label class="col-sm-2"><strong>First Name : <span class="text-danger">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" name="f_name" id="f_name" class="form-control @error('f_name') is-invalid @enderror" value="{{ $data->f_name }}" placeholder="Enter First Name.">
+                                                    <input type="text" name="f_name" id="f_name" class="form-control @error('f_name') is-invalid @enderror" value="{{ $data->f_name }}" placeholder="Enter First Name." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                     @error('f_name')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -115,7 +115,7 @@
                                                 </div>
                                                 <label class="col-sm-2"><strong>Father / Husband's Name : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" name="father_name" id="father_name" class="form-control @error('father_name') is-invalid @enderror" value="{{ $data->father_name }}" placeholder="Enter Father / Husband's Name.">
+                                                    <input type="text" name="father_name" id="father_name" class="form-control @error('father_name') is-invalid @enderror" value="{{ $data->father_name }}" placeholder="Enter Father / Husband's Name." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                     @error('father_name')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -127,7 +127,7 @@
                                             <div class="form-group row  mb-3">
                                                 <label class="col-sm-2"><strong>Name of Business : <span class="text-danger">*</span></strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" name="society_name" id="society_name" class="form-control @error('society_name') is-invalid @enderror" value="{{ $data->society_name }}" placeholder="Enter Name of Society.">
+                                                    <input type="text" name="society_name" id="society_name" class="form-control @error('society_name') is-invalid @enderror" value="{{ $data->society_name }}" placeholder="Enter Name of Society." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                     @error('society_name')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -136,7 +136,7 @@
                                                 </div>
                                                 <label class="col-sm-2"><strong>Designation : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" name="designation" id="designation" class="form-control @error('designation') is-invalid @enderror" value="{{ $data->designation }}" placeholder="Enter Designation.">
+                                                    <input type="text" name="designation" id="designation" class="form-control @error('designation') is-invalid @enderror" value="{{ $data->designation }}" placeholder="Enter Designation." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                     @error('designation')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -198,7 +198,7 @@
                                                 </div>
                                                 <label class="col-sm-2"><strong>Taluka : </strong></label>
                                                 <div class="col-sm-2 col-md-2">
-                                                    <input type="text" name="taluka_name" id="taluka_name" class="form-control @error('taluka_name') is-invalid @enderror" value="{{ $data->taluka_name }}" placeholder="Enter Taluka.">
+                                                    <input type="text" name="taluka_name" id="taluka_name" class="form-control @error('taluka_name') is-invalid @enderror" value="{{ $data->taluka_name }}" placeholder="Enter Taluka." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                     @error('taluka_name')
                                                         <span class="invalid-feedback" role="alert">
                                                             <strong>{{ $message }}</strong>
@@ -544,7 +544,7 @@
                                                         @enderror
                                                         <br>
                                                         @if(!empty($data->electric_license_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/electric_license_doc/{{ $data->electric_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/New_BusinessNOC/electric_license_doc/{{ $data->electric_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -566,7 +566,7 @@
                                                         @enderror
                                                         <br>
                                                         @if(!empty($data->gas_license_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/gas_license_doc/{{ $data->gas_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/New_BusinessNOC/gas_license_doc/{{ $data->gas_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -586,7 +586,7 @@
                                                         @enderror
                                                         <br>
                                                         @if(!empty($data->shop_license_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/shop_license_doc/{{ $data->shop_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/New_BusinessNOC/shop_license_doc/{{ $data->shop_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -608,7 +608,7 @@
                                                         @enderror
                                                         <br>
                                                         @if(!empty($data->food_license))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/food_license/{{ $data->food_license }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/New_BusinessNOC/food_license/{{ $data->food_license }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -628,7 +628,7 @@
                                                         @enderror
                                                         <br>
                                                         @if(!empty($data->tax_bill_paid_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/tax_bill_paid_doc/{{ $data->tax_bill_paid_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/New_BusinessNOC/tax_bill_paid_doc/{{ $data->tax_bill_paid_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -650,7 +650,7 @@
                                                         @enderror
                                                         <br>
                                                         @if(!empty($data->trade_license))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/trade_license/{{ $data->trade_license }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/New_BusinessNOC/trade_license/{{ $data->trade_license }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -670,7 +670,7 @@
                                                         @enderror
                                                         <br>
                                                         @if(!empty($data->gas_certificate_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/gas_certificate_doc/{{ $data->gas_certificate_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/New_BusinessNOC/gas_certificate_doc/{{ $data->gas_certificate_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -692,7 +692,7 @@
                                                         @enderror
                                                         <br>
                                                         @if(!empty($data->commissioning_certificate))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/New_BusinessNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -712,7 +712,7 @@
                                                         @enderror
                                                         <br>
                                                         @if(!empty($data->affidavit_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/affidavit_doc/{{ $data->affidavit_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/New_BusinessNOC/affidavit_doc/{{ $data->affidavit_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -734,7 +734,7 @@
                                                         @enderror
                                                         <br>
                                                         @if(!empty($data->construction_plan_doc))
-                                                            <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/New_BusinessNOC/construction_plan_doc/{{ $data->construction_plan_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                                            <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/New_BusinessNOC/construction_plan_doc/{{ $data->construction_plan_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View Document </i></b>
                                                             </a>
                                                         @endif
@@ -749,7 +749,7 @@
                                                         <div class="col-md-12 col-xs-12">
                                                             <p class="text-justify ">
                                                                 <b> I / We..... <br><br>
-                                                                <input type="text" class="form-control @error('declare_by') is-invalid @enderror" id="declare_by" name="declare_by" value="{{ $data->declare_by }}" placeholder="Enter Applicant Name" >
+                                                                <input type="text" class="form-control @error('declare_by') is-invalid @enderror" id="declare_by" name="declare_by" value="{{ $data->declare_by }}" placeholder="Enter Applicant Name" oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                                 <br>
                                                                 @error('declare_by')
                                                                     <span class="invalid-feedback" role="alert">
@@ -785,7 +785,7 @@
 
                                                                 <label class="col-sm-2"><strong>Name of Nominated Person : </strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <input type="text" name="nominated_persion_name" id="nominated_persion_name" class="form-control @error('nominated_persion_name') is-invalid @enderror" value="{{ $data->nominated_persion_name }}" placeholder="Enter Name of Nominated Person.">
+                                                                    <input type="text" name="nominated_persion_name" id="nominated_persion_name" class="form-control @error('nominated_persion_name') is-invalid @enderror" value="{{ $data->nominated_persion_name }}" placeholder="Enter Name of Nominated Person." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                                     @error('nominated_persion_name')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
@@ -815,7 +815,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-sm-2"><strong>Last Name / Surname : </strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <input type="text" name="d_last_name" id="d_last_name" class="form-control @error('d_last_name') is-invalid @enderror" value="{{ $data->d_last_name }}" placeholder="Enter Last Name / Surname.">
+                                                                    <input type="text" name="d_last_name" id="d_last_name" class="form-control @error('d_last_name') is-invalid @enderror" value="{{ $data->d_last_name }}" placeholder="Enter Last Name / Surname." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                                     @error('d_last_name')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
@@ -825,7 +825,7 @@
 
                                                                 <label class="col-sm-2"><strong>First Name : </strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <input type="text" name="d_first_name" id="d_first_name" class="form-control @error('d_first_name') is-invalid @enderror" value="{{ $data->d_first_name }}" placeholder="Enter First Name.">
+                                                                    <input type="text" name="d_first_name" id="d_first_name" class="form-control @error('d_first_name') is-invalid @enderror" value="{{ $data->d_first_name }}" placeholder="Enter First Name." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                                     @error('d_first_name')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
@@ -835,7 +835,7 @@
 
                                                                 <label class="col-sm-2"><strong>Father / Husband's Name : </strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <input type="text" name="d_father_name" id="d_father_name" class="form-control @error('d_father_name') is-invalid @enderror" value="{{ $data->d_father_name }}" placeholder="Enter Father / Husband's Name.">
+                                                                    <input type="text" name="d_father_name" id="d_father_name" class="form-control @error('d_father_name') is-invalid @enderror" value="{{ $data->d_father_name }}" placeholder="Enter Father / Husband's Name." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                                     @error('d_father_name')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
@@ -847,7 +847,7 @@
                                                             <div class="form-group row">
                                                                 <label class="col-sm-2"><strong>House / Building / Society Name : </strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <input type="text" name="d_house_name" id="d_house_name" class="form-control @error('d_house_name') is-invalid @enderror" value="{{ $data->d_house_name }}" placeholder="Enter House / Building / Society Name.">
+                                                                    <input type="text" name="d_house_name" id="d_house_name" class="form-control @error('d_house_name') is-invalid @enderror" value="{{ $data->d_house_name }}" placeholder="Enter House / Building / Society Name." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                                     @error('d_house_name')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>
@@ -899,7 +899,7 @@
 
                                                                 <label class="col-sm-2"><strong>Taluka : </strong></label>
                                                                 <div class="col-sm-2 col-md-2">
-                                                                    <input type="text" name="d_taluka_name" id="d_taluka_name" class="form-control @error('d_taluka_name') is-invalid @enderror" value="{{ $data->d_taluka_name }}" placeholder="Enter Taluka.">
+                                                                    <input type="text" name="d_taluka_name" id="d_taluka_name" class="form-control @error('d_taluka_name') is-invalid @enderror" value="{{ $data->d_taluka_name }}" placeholder="Enter Taluka." oninput="this.value = this.value.replace(/[^A-Za-z]/g, '');">
                                                                     @error('d_taluka_name')
                                                                         <span class="invalid-feedback" role="alert">
                                                                             <strong>{{ $message }}</strong>

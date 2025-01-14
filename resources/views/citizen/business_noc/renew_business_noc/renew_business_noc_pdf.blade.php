@@ -8,7 +8,7 @@
     <!-- Required meta tags -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>UMC-Fire NOC | Renew Business NOC</title>
+    <title>PMC-Fire NOC | Renew Business NOC</title>
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ url('/') }}/assets/logo/favicon.ico">
@@ -72,11 +72,11 @@
 
             <div style="float: right;">
                 <p class="mb-1">
-                    Ulhasnagar Municipal Corporation<br>
-                    Near Chopda Court, Ulhasnagar - 3<br>
+                    Panvel Municipal Corporation<br>
+                    Near Chopda Court, Panvel - 3<br>
                     Pincode - 421 003, Maharashtra
                 </p>
-                <p class="mb-1"><i class="mdi mdi-email-outline me-1"></i> cfcumc@gmail.com</p>
+                <p class="mb-1"><i class="mdi mdi-email-outline me-1"></i> cfcpmc@gmail.com</p>
                 <p><i class="mdi mdi-phone-outline me-1"></i> 0251 2720150</p>
             </div>
         </div>
@@ -346,10 +346,10 @@
 
                                 @if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                <img src="{{ public_path('/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/location_map_doc') }}/{{ $data->location_map_doc }}" alt="image" width="100%" height="25%">
+                                <img src="{{ public_path('/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/location_map_doc') }}/{{ $data->location_map_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
                                 @if(!empty($data->location_map_doc))
-                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                    <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/location_map_doc/{{ $data->location_map_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                         <b>View Document</b>
                                     </a>
                                 @endif
@@ -377,10 +377,10 @@
 
                                 @if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                <img src="{{ public_path('/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/electric_license_doc') }}/{{ $data->electric_license_doc }}" alt="image" width="100%" height="25%">
+                                <img src="{{ public_path('/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/electric_license_doc') }}/{{ $data->electric_license_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
                                 @if(!empty($data->electric_license_doc))
-                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/electric_license_doc/{{ $data->electric_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                    <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/electric_license_doc/{{ $data->electric_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                         <b>View Document</b>
                                     </a>
                                 @endif
@@ -408,10 +408,10 @@
 
                                 @if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                <img src="{{ public_path('/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/gas_license_doc') }}/{{ $data->gas_license_doc }}" alt="image" width="100%" height="25%">
+                                <img src="{{ public_path('/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/gas_license_doc') }}/{{ $data->gas_license_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
                                 @if(!empty($data->gas_license_doc))
-                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/gas_license_doc/{{ $data->gas_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                    <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/gas_license_doc/{{ $data->gas_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                         <b>View Document</b>
                                     </a>
                                 @endif
@@ -439,10 +439,10 @@
 
                                 @if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                <img src="{{ public_path('/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/shop_license_doc') }}/{{ $data->shop_license_doc }}" alt="image" width="100%" height="25%">
+                                <img src="{{ public_path('/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/shop_license_doc') }}/{{ $data->shop_license_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
                                 @if(!empty($data->shop_license_doc))
-                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/shop_license_doc/{{ $data->shop_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                    <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/shop_license_doc/{{ $data->shop_license_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                         <b>View Document</b>
                                     </a>
                                 @endif
@@ -470,10 +470,10 @@
 
                                 @if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                <img src="{{ public_path('/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/food_license') }}/{{ $data->food_license }}" alt="image" width="100%" height="25%">
+                                <img src="{{ public_path('/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/food_license') }}/{{ $data->food_license }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
                                 @if(!empty($data->food_license))
-                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/food_license/{{ $data->food_license }}" target="_blank" class="btn btn-primary btn-sm">
+                                    <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/food_license/{{ $data->food_license }}" target="_blank" class="btn btn-primary btn-sm">
                                         <b>View Document</b>
                                     </a>
                                 @endif
@@ -501,10 +501,10 @@
 
                                 @if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                <img src="{{ public_path('/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/tax_bill_paid_doc') }}/{{ $data->tax_bill_paid_doc }}" alt="image" width="100%" height="25%">
+                                <img src="{{ public_path('/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/tax_bill_paid_doc') }}/{{ $data->tax_bill_paid_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
                                 @if(!empty($data->tax_bill_paid_doc))
-                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/tax_bill_paid_doc/{{ $data->tax_bill_paid_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                    <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/tax_bill_paid_doc/{{ $data->tax_bill_paid_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                         <b>View Document</b>
                                     </a>
                                 @endif
@@ -532,10 +532,10 @@
 
                                 @if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                <img src="{{ public_path('/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/trade_license') }}/{{ $data->trade_license }}" alt="image" width="100%" height="25%">
+                                <img src="{{ public_path('/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/trade_license') }}/{{ $data->trade_license }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
                                 @if(!empty($data->trade_license))
-                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/trade_license/{{ $data->trade_license }}" target="_blank" class="btn btn-primary btn-sm">
+                                    <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/trade_license/{{ $data->trade_license }}" target="_blank" class="btn btn-primary btn-sm">
                                         <b>View Document</b>
                                     </a>
                                 @endif
@@ -563,10 +563,10 @@
 
                                 @if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                <img src="{{ public_path('/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/gas_certificate_doc') }}/{{ $data->gas_certificate_doc }}" alt="image" width="100%" height="25%">
+                                <img src="{{ public_path('/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/gas_certificate_doc') }}/{{ $data->gas_certificate_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
                                 @if(!empty($data->gas_certificate_doc))
-                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/gas_certificate_doc/{{ $data->gas_certificate_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                    <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/gas_certificate_doc/{{ $data->gas_certificate_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                         <b>View Document</b>
                                     </a>
                                 @endif
@@ -594,10 +594,10 @@
 
                                 @if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                <img src="{{ public_path('/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/commissioning_certificate') }}/{{ $data->commissioning_certificate }}" alt="image" width="100%" height="25%">
+                                <img src="{{ public_path('/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/commissioning_certificate') }}/{{ $data->commissioning_certificate }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
                                 @if(!empty($data->commissioning_certificate))
-                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank" class="btn btn-primary btn-sm">
+                                    <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/commissioning_certificate/{{ $data->commissioning_certificate }}" target="_blank" class="btn btn-primary btn-sm">
                                         <b>View Document</b>
                                     </a>
                                 @endif
@@ -625,10 +625,10 @@
 
                                 @if($filter_ext == 'jpg' || $filter_ext=='jpeg' || $filter_ext == 'png' || $filter_ext == 'gif' ||
                                     $filter_ext == 'JPG' || $filter_ext=='JPEG' || $filter_ext == 'PNG' || $filter_ext == 'GIF' )
-                                <img src="{{ public_path('/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/construction_plan_doc') }}/{{ $data->construction_plan_doc }}" alt="image" width="100%" height="25%">
+                                <img src="{{ public_path('/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/construction_plan_doc') }}/{{ $data->construction_plan_doc }}" alt="image" width="100%" height="25%">
                                 @elseif ($filter_ext == 'pdf' || $filter_ext == 'PDF')
                                 @if(!empty($data->construction_plan_doc))
-                                    <a href="{{url('/')}}/UMC_FireNOC/Business_NOC/Renew_BusinessNOC/construction_plan_doc/{{ $data->construction_plan_doc }}" target="_blank" class="btn btn-primary btn-sm">
+                                    <a href="{{url('/')}}/PMC_FireNOC/Business_NOC/Renew_BusinessNOC/construction_plan_doc/{{ $data->construction_plan_doc }}" target="_blank" class="btn btn-primary btn-sm">
                                         <b>View Document</b>
                                     </a>
                                 @endif

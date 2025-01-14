@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>UMC-FireNOC | Home</title>
+    <title>PMC-FireNOC | Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
@@ -42,7 +42,7 @@
                 <div class="container-fluid">
 
                     <div class="row">
-                        <div class="col-xl-4 col-sm-6">
+                        <div class="col-xl-6 col-sm-6">
                             <div class="card text-black" style="border: 1px solid black;">
                                 <div class="card-header text-light" style="background: #08806a;">
                                     <h5 class="card-title mb-0 text-white text-center">
@@ -71,7 +71,7 @@
                             </div>
                         </div>
 
-                        <div class="col-xl-4 col-sm-6">
+                        <div class="col-xl-6 col-sm-6">
                             <div class="card text-black" style="border: 1px solid black;">
                                 <div class="card-header" style="background: #de0707;">
                                     <h5 class="card-title mb-0 text-white text-center">
@@ -101,7 +101,7 @@
                             </div>
                         </div>
 
-                        <div class="col-xl-4 col-sm-6">
+                        <div class="col-xl-6 col-sm-6">
                             <div class="card text-black" style="border: 1px solid black;">
                                 <div class="card-header" style="background: #E59F08;">
                                     <h5 class="card-title mb-0 text-white text-center">
@@ -133,7 +133,38 @@
 
                             </div>
                         </div>
+
+                        <div class="col-xl-6 col-sm-6">
+                            <div class="card text-black" style="border: 1px solid black;">
+                                <div class="card-header text-light" style="background: #08806a;">
+                                    <h5 class="card-title mb-0 text-white text-center">
+                                        <i class="fas fa-city"></i>&nbsp;
+                                       Other NOC
+                                    </h5>
+                                </div>
+                                <div class="card-body text-white">
+                                    <div id="cardCollpase3" class="collapse p-3 show">
+                                        <div class="row" style="float:left;">
+                                            <div class="box widget-box-one widget-two-custom">
+                                                <h3 class="mb-2">
+                                                    <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_12">New</button>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="float:right;">
+                                            <div class="box widget-box-one widget-two-custom">
+                                                <h3 class="mb-2">
+                                                    <!-- Button triggers the second modal -->
+                                                    <button type="button" class="btn btn-primary  waves-effect waves-light" data-bs-toggle="modal" data-bs-target="#bs-example-modal-lg_13">ReNew</button>
+                                                </h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
 
                     <h2 class="card-header mb-3 text-primary">
                         <i class="fas fa-city"></i>&nbsp;
@@ -593,6 +624,158 @@
 
                     </div>
 
+                    <h2 class="card-header mb-3 text-primary">
+                        <i class="fas fa-city"></i>&nbsp;
+                        Other NOC
+                    </h2>
+                    <div class="row">
+
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card" style="border: 1px solid black;">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-md flex-shrink-0">
+                                            <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                <i class="uim uim-briefcase"></i>
+                                            </span>
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden ms-4">
+                                            <p class="text-muted font-size-15 mb-2"> Total Pending Other NOC</p>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">{{ $other_total_pending }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card" style="border: 1px solid black;">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-md flex-shrink-0">
+                                            <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                <i class="uim uim-briefcase"></i>
+                                            </span>
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden ms-4">
+                                            <p class="text-muted font-size-15 mb-2">Total Underprocess Other NOC</p>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">{{ $other_total_underprocess }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card" style="border: 1px solid black;">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-md flex-shrink-0">
+                                            <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                <i class="uim uim-briefcase"></i>
+                                            </span>
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden ms-4">
+                                            <p class="text-muted font-size-15 mb-2">Total Unpaid Other NOC</p>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">{{ $other_total_unpaid }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card" style="border: 1px solid black;">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-md flex-shrink-0">
+                                            <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                <i class="uim uim-briefcase"></i>
+                                            </span>
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden ms-4">
+                                            <p class="text-muted font-size-15 mb-2">Total Generated Invoice Other NOC</p>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">{{ $other_total_generated_invoice }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card" style="border: 1px solid black;">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-md flex-shrink-0">
+                                            <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                <i class="uim uim-briefcase"></i>
+                                            </span>
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden ms-4">
+                                            <p class="text-muted font-size-15 mb-2">Total Paid Other <br> NOC</p>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">{{ $other_total_paid }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card" style="border: 1px solid black;">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-md flex-shrink-0">
+                                            <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                <i class="uim uim-briefcase"></i>
+                                            </span>
+                                        </div>
+                                        <div class="flex-grow-1 overflow-hidden ms-4">
+                                            <p class="text-muted font-size-15 mb-2">Total Reviewed Other NOC</p>
+                                            <h3 class="fs-4 flex-grow-1 mb-3">{{ $other_total_reviewed }}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6">
+                                <div class="card" style="border: 1px solid black;">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-md flex-shrink-0">
+                                                <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                    <i class="uim uim-briefcase"></i>
+                                                </span>
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden ms-4">
+                                                <p class="text-muted font-size-15 mb-2"> Total Approved Other NOC</p>
+                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $other_total_approved }}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card" style="border: 1px solid black;">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center">
+                                            <div class="avatar-md flex-shrink-0">
+                                                <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                    <i class="uim uim-briefcase"></i>
+                                                </span>
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden ms-4">
+                                                <p class="text-muted font-size-15 mb-2"> Total Rejected Other NOC</p>
+                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $other_total_rejected }}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -751,6 +934,8 @@
         </div>
     </div>
 
+
+
     {{-- Start Apply for Provisional Building Application Model --}}
     <div class="modal fade bs-example-modal-lg_5" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -765,7 +950,7 @@
                             <ol>
                                 <li>Maps of Proposed Construction</li>
                                 <li>7/12 Extract/ City Survey Extract</li>
-                                <li>Sanad/ Letter from S.D.O. Ulhasnagar</li>
+                                <li>Sanad/ Letter from S.D.O. Panvel</li>
                                 <li>Title & Search Report from competent Authority</li>
                                 <li>No dues certificate of Property& Water Tax</li>
                             </ol>
@@ -795,7 +980,7 @@
                             <ol>
                                 <li>Maps of Proposed Construction</li>
                                 <li>7/12 Extract/ City Survey Extract</li>
-                                <li>Sanad/ Letter from S.D.O. Ulhasnagar</li>
+                                <li>Sanad/ Letter from S.D.O. Panvel</li>
                                 <li>Title & Search Report from competent Authority</li>
                                 <li>No dues certificate of Property& Water Tax</li>
                             </ol>
@@ -836,6 +1021,79 @@
             </div>
         </div>
     </div>
+
+      {{-- Start Apply for New Other Application Model --}}
+      <div class="modal fade bs-example-modal-lg_12" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary" id="myLargeModalLabel">Required Documents :</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ol>
+                                <li>Location of Place (Google Map Link)</li>
+                                <li>Letter from License Holder regarding proper electric connection</li>
+                                <li>Letter from connection holder and license regarding proper cooking gas connection</li>
+                                <li>Shop License</li>
+                                <li>Food License</li>
+                                <li>Up-to-date receipt of Tax bill paid</li>
+                                <li>Trade License (Kerosene/Other Petroleum Stock/ Explosive goods)</li>
+                                <li>Commissioning Certificate of Gas Fitting</li>
+                                <li>Commissioning Certificate of Fire extinguishers/ preventive equipments of I.S.I. Mark</li>
+                                <li>Copy of Affidavit</li>
+                                <li>Maps of Proposed Construction</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ url('/new_other_noc/create') }}">
+                        <button type="button" class="btn btn-primary  waves-effect waves-light" onclick="window.location.href='{{ url('/new_other_noc/create') }}'">Apply For NOC</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- Start Apply for Renew Other Application Model --}}
+
+    <div class="modal fade" id="bs-example-modal-lg_13" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary" id="myLargeModalLabel">Required Documents :</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ol>
+                                <li>Copy of Previous NOC</li>
+                                <li>Letter from License Holder regarding proper electric connection</li>
+                                <li>Letter from connection holder and license regarding proper cooking gas connection</li>
+                                <li>Shop License</li>
+                                <li>Food License</li>
+                                <li>Up-to-date receipt of Tax bill paid</li>
+                                <li>Trade License (Kerosene/Other Petroleum Stock/ Explosive goods)</li>
+                                <li>Commissioning Certificate of Gas Fitting</li>
+                                <li>Commissioning Certificate of Fire extinguishers/ preventive equipments of I.S.I. Mark</li>
+                                <li>Maps of Proposed Construction</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ route('renew_other_noc.create') }}">
+                        <button type="button" class="btn btn-primary waves-effect waves-light">Apply For NOC</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- JAVASCRIPT -->
     <script src="{{ url('/') }}/assets/libs/jquery/jquery.min.js"></script>

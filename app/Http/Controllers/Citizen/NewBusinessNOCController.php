@@ -109,7 +109,7 @@ class NewBusinessNOCController extends Controller
         $noc_master->save();
 
         // ==== Generate New Business NOC Token Number
-        $unique_id = "UMC/NBN/".rand(1000,10000000);
+        $unique_id = "PMC/NBN/".rand(1000,10000000);
         $update = [
             'mst_token' => $unique_id.$noc_master->id ,
         ];
@@ -125,9 +125,9 @@ class NewBusinessNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/electric_license_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/electric_license_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/electric_license_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/electric_license_doc" . $image_name;
             $data->electric_license_doc = $new_name;
         }
 
@@ -137,9 +137,9 @@ class NewBusinessNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/gas_license_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/gas_license_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/gas_license_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/gas_license_doc" . $image_name;
             $data->gas_license_doc = $new_name;
         }
 
@@ -149,9 +149,9 @@ class NewBusinessNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/shop_license_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/shop_license_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/shop_license_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/shop_license_doc" . $image_name;
             $data->shop_license_doc = $new_name;
         }
 
@@ -161,9 +161,9 @@ class NewBusinessNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/food_license'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/food_license'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/food_license" . $image_name;
+            $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/food_license" . $image_name;
             $data->food_license = $new_name;
         }
 
@@ -173,9 +173,9 @@ class NewBusinessNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/tax_bill_paid_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/tax_bill_paid_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/tax_bill_paid_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/tax_bill_paid_doc" . $image_name;
             $data->tax_bill_paid_doc = $new_name;
         }
 
@@ -185,9 +185,9 @@ class NewBusinessNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/trade_license'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/trade_license'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/trade_license" . $image_name;
+            $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/trade_license" . $image_name;
             $data->trade_license = $new_name;
         }
 
@@ -197,9 +197,9 @@ class NewBusinessNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/gas_certificate_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/gas_certificate_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/gas_certificate_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/gas_certificate_doc" . $image_name;
             $data->gas_certificate_doc = $new_name;
         }
 
@@ -209,9 +209,9 @@ class NewBusinessNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/commissioning_certificate'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/commissioning_certificate'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/commissioning_certificate" . $image_name;
+            $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/commissioning_certificate" . $image_name;
             $data->commissioning_certificate = $new_name;
         }
 
@@ -221,9 +221,9 @@ class NewBusinessNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/affidavit_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/affidavit_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/affidavit_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/affidavit_doc" . $image_name;
             $data->affidavit_doc = $new_name;
         }
 
@@ -233,9 +233,9 @@ class NewBusinessNOCController extends Controller
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
             $new_name = time() . rand(10, 999) . '.' . $extension;
-            $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/construction_plan_doc'), $new_name);
+            $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/construction_plan_doc'), $new_name);
 
-            $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/construction_plan_doc" . $image_name;
+            $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/construction_plan_doc" . $image_name;
             $data->construction_plan_doc = $new_name;
         }
 
@@ -399,9 +399,9 @@ class NewBusinessNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/electric_license_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/electric_license_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/electric_license_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/electric_license_doc" . $image_name;
                 $data->electric_license_doc = $new_name;
             }
 
@@ -411,9 +411,9 @@ class NewBusinessNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/gas_license_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/gas_license_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/gas_license_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/gas_license_doc" . $image_name;
                 $data->gas_license_doc = $new_name;
             }
 
@@ -423,9 +423,9 @@ class NewBusinessNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/shop_license_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/shop_license_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/shop_license_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/shop_license_doc" . $image_name;
                 $data->shop_license_doc = $new_name;
             }
 
@@ -435,9 +435,9 @@ class NewBusinessNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/food_license'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/food_license'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/food_license" . $image_name;
+                $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/food_license" . $image_name;
                 $data->food_license = $new_name;
             }
 
@@ -447,9 +447,9 @@ class NewBusinessNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/tax_bill_paid_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/tax_bill_paid_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/tax_bill_paid_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/tax_bill_paid_doc" . $image_name;
                 $data->tax_bill_paid_doc = $new_name;
             }
 
@@ -459,9 +459,9 @@ class NewBusinessNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/trade_license'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/trade_license'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/trade_license" . $image_name;
+                $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/trade_license" . $image_name;
                 $data->trade_license = $new_name;
             }
 
@@ -471,9 +471,9 @@ class NewBusinessNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/gas_certificate_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/gas_certificate_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/gas_certificate_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/gas_certificate_doc" . $image_name;
                 $data->gas_certificate_doc = $new_name;
             }
 
@@ -483,9 +483,9 @@ class NewBusinessNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/commissioning_certificate'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/commissioning_certificate'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/commissioning_certificate" . $image_name;
+                $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/commissioning_certificate" . $image_name;
                 $data->commissioning_certificate = $new_name;
             }
 
@@ -495,9 +495,9 @@ class NewBusinessNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/affidavit_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/affidavit_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/affidavit_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/affidavit_doc" . $image_name;
                 $data->affidavit_doc = $new_name;
             }
 
@@ -507,9 +507,9 @@ class NewBusinessNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/construction_plan_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/construction_plan_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/construction_plan_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/construction_plan_doc" . $image_name;
                 $data->construction_plan_doc = $new_name;
             }
 
@@ -605,9 +605,9 @@ class NewBusinessNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/electric_license_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/electric_license_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/electric_license_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/electric_license_doc" . $image_name;
                 $data->electric_license_doc = $new_name;
             }
 
@@ -617,9 +617,9 @@ class NewBusinessNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/gas_license_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/gas_license_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/gas_license_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/gas_license_doc" . $image_name;
                 $data->gas_license_doc = $new_name;
             }
 
@@ -629,9 +629,9 @@ class NewBusinessNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/shop_license_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/shop_license_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/shop_license_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/shop_license_doc" . $image_name;
                 $data->shop_license_doc = $new_name;
             }
 
@@ -641,9 +641,9 @@ class NewBusinessNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/food_license'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/food_license'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/food_license" . $image_name;
+                $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/food_license" . $image_name;
                 $data->food_license = $new_name;
             }
 
@@ -653,9 +653,9 @@ class NewBusinessNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/tax_bill_paid_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/tax_bill_paid_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/tax_bill_paid_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/tax_bill_paid_doc" . $image_name;
                 $data->tax_bill_paid_doc = $new_name;
             }
 
@@ -665,9 +665,9 @@ class NewBusinessNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/trade_license'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/trade_license'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/trade_license" . $image_name;
+                $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/trade_license" . $image_name;
                 $data->trade_license = $new_name;
             }
 
@@ -677,9 +677,9 @@ class NewBusinessNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/gas_certificate_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/gas_certificate_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/gas_certificate_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/gas_certificate_doc" . $image_name;
                 $data->gas_certificate_doc = $new_name;
             }
 
@@ -689,9 +689,9 @@ class NewBusinessNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/commissioning_certificate'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/commissioning_certificate'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/commissioning_certificate" . $image_name;
+                $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/commissioning_certificate" . $image_name;
                 $data->commissioning_certificate = $new_name;
             }
 
@@ -701,9 +701,9 @@ class NewBusinessNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/affidavit_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/affidavit_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/affidavit_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/affidavit_doc" . $image_name;
                 $data->affidavit_doc = $new_name;
             }
 
@@ -713,9 +713,9 @@ class NewBusinessNOCController extends Controller
                 $image_name = $image->getClientOriginalName();
                 $extension = $image->getClientOriginalExtension();
                 $new_name = time() . rand(10, 999) . '.' . $extension;
-                $image->move(public_path('/UMC_FireNOC/Business_NOC/New_BusinessNOC/construction_plan_doc'), $new_name);
+                $image->move(public_path('/PMC_FireNOC/Business_NOC/New_BusinessNOC/construction_plan_doc'), $new_name);
 
-                $image_path = "/UMC_FireNOC/Business_NOC/New_BusinessNOC/construction_plan_doc" . $image_name;
+                $image_path = "/PMC_FireNOC/Business_NOC/New_BusinessNOC/construction_plan_doc" . $image_name;
                 $data->construction_plan_doc = $new_name;
             }
 

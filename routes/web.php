@@ -10,7 +10,7 @@ use App\Http\Controllers\Admin\AdminRenewHospitalNOCController;
 use App\Http\Controllers\Admin\AdminProvisionalBuildingNOCController;
 use App\Http\Controllers\Admin\AdminRenewBuildingNOCController;
 use App\Http\Controllers\Admin\AdminFinalBuildingNOCController;
-
+use App\Http\Controllers\Admin\AdminFormBController as AdminAdminFormBController;
 use App\Http\Controllers\Admin\BusinessController;
 use App\Http\Controllers\Admin\FeeConstructionController;
 use App\Http\Controllers\Admin\FeeModeOperateController;
@@ -38,7 +38,16 @@ use App\Http\Controllers\Citizen\InvoiceController;
 
 // ============== Citizen Make Payment
 use App\Http\Controllers\Citizen\CitizenPaypentController;
+use App\Http\Controllers\Citizen\NewOtherNOCController;
+use App\Http\Controllers\Citizen\ReNewOtherNOCController;
 
+use App\Http\Controllers\Citizen\FormBController;
+
+
+use App\Http\Controllers\Admin\AdminRenewOtherNOCController;
+use App\Http\Controllers\Admin\AdminNewOtherNOCController;
+
+use App\Http\Controllers\Admin\AdminFormBController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -140,6 +149,36 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware', 'Secu
     Route::get('/all_final_building_noc_list/{all_status}', [AdminFinalBuildingNOCController::class, 'list'])->name('all_final_building_noc_list');
     Route::get('/all_final_building_noc/show/{id}/{all_status}', [AdminFinalBuildingNOCController::class, 'view'])->name('all_final_building_noc.show');
 
+ // ====== New Other NOC
+ Route::get('/admin_new_other_noc_list/{status}', [AdminNewOtherNOCController::class, 'index'])->name('admin_new_other_noc_list');
+ Route::get('/admin_new_other_noc/show/{id}/{status}', [AdminNewOtherNOCController::class, 'show'])->name('admin_new_other_noc.show');
+ Route::get('/admin_download_new_other_noc_pdf/{id}/{status}', [AdminNewOtherNOCController::class, 'admin_download_new_other_noc_pdf'])->name('admin_download_new_other_noc_pdf');
+ Route::get('/admin_new_other_noc/approved/{id}/{status}/{auth_role}', [AdminNewOtherNOCController::class, 'approved'])->name('admin_new_other_noc.approved');
+ Route::post('/admin_new_other_noc/field_inspector_approved/{id}/{status}/{auth_role}', [AdminNewOtherNOCController::class, 'approved'])->name('admin_new_other_noc.field_inspector_approved');
+ Route::post('/admin_new_other_noc/rejected/{id}/{status}/{auth_role}', [AdminNewOtherNOCController::class, 'rejected'])->name('admin_new_other_noc.rejected');
+ Route::get('/all_new_other_noc_list/{all_status}', [AdminNewOtherNOCController::class, 'list'])->name('all_new_other_noc_list');
+ Route::get('/all_new_other_noc/show/{id}/{all_status}', [AdminNewOtherNOCController::class, 'view'])->name('all_new_other_noc.show');
+
+ // ====== Renew Other NOC
+ Route::get('/admin_renew_other_noc_list/{status}', [AdminRenewOtherNOCController::class, 'index'])->name('admin_renew_other_noc_list');
+ Route::get('/admin_renew_other_noc/show/{id}/{status}', [AdminRenewOtherNOCController::class, 'show'])->name('admin_renew_other_noc.show');
+ Route::get('/admin_download_renew_other_noc_pdf/{id}/{status}', [AdminRenewOtherNOCController::class, 'admin_download_renew_other_noc_pdf'])->name('admin_download_renew_other_noc_pdf');
+ Route::get('/admin_renew_other_noc/approved/{id}/{status}/{auth_role}', [AdminRenewOtherNOCController::class, 'approved'])->name('admin_renew_other_noc.approved');
+ Route::post('/admin_renew_other_noc/field_inspector_approved/{id}/{status}/{auth_role}', [AdminRenewOtherNOCController::class, 'approved'])->name('admin_renew_other_noc.field_inspector_approved');
+ Route::post('/admin_renew_other_noc/rejected/{id}/{status}/{auth_role}', [AdminRenewOtherNOCController::class, 'rejected'])->name('admin_renew_other_noc.rejected');
+ Route::get('/all_renew_other_noc_list/{all_status}', [AdminRenewOtherNOCController::class, 'list'])->name('all_renew_other_noc_list');
+ Route::get('/all_renew_other_noc/show/{id}/{all_status}', [AdminRenewOtherNOCController::class, 'view'])->name('all_renew_other_noc.show');
+
+ //form b
+ Route::get('/admin_new_form_b_list/{status}', [AdminFormBController::class, 'index'])->name('admin_new_form_b_list');
+ Route::get('/admin_new_form_b/show/{id}/{status}', [AdminFormBController::class, 'show'])->name('admin_new_form_b.show');
+ Route::get('/admin_download_new_form_b_pdf/{id}/{status}', [AdminFormBController::class, 'admin_download_new_form_b_pdf'])->name('admin_download_new_form_b_pdf');
+ Route::get('/admin_new_form_b/approved/{id}/{status}/{auth_role}', [AdminFormBController::class, 'approved'])->name('admin_new_form_b.approved');
+ Route::post('/admin_new_form_b/field_inspector_approved/{id}/{status}/{auth_role}', [AdminFormBController::class, 'approved'])->name('admin_new_form_b.field_inspector_approved');
+ Route::post('/admin_new_form_b/rejected/{id}/{status}/{auth_role}', [AdminFormBController::class, 'rejected'])->name('admin_new_form_b.rejected');
+ Route::get('/all_new_form_b_list/{all_status}', [AdminFormBController::class, 'list'])->name('all_new_form_b_list');
+ Route::get('/all_new_form_b/show/{id}/{all_status}', [AdminFormBController::class, 'view'])->name('all_new_form_b.show');
+
 
     // ======= Business Master
     Route::resource('/business', BusinessController::class);
@@ -208,6 +247,8 @@ Route::post('/citizen/logout', [LoginController::class, 'Citizen_Logout'])->name
 Route::get('/citizen/forget-password', [ForgotPasswordController::class, 'getEmail'])->name('citizen.forget-password');
 Route::post('/citizen/forget-password/send-email-link', [ForgotPasswordController::class, 'postEmail'])->name('citizen.forget-password.send-email-link.store');
 
+
+
 // ======================= Citizens Reset Password
 Route::get('/citizen/reset-password/{token}', [ResetPasswordController::class, 'resetPassword'])->name('/citizen/reset-password/token');
 Route::post('/citizen/reset-password', [ResetPasswordController::class, 'updatePassword'])->name('/citizen/reset-password');
@@ -216,6 +257,9 @@ Route::post('/citizen/reset-password', [ResetPasswordController::class, 'updateP
 Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware', 'XSS', 'SecureHeadersMiddleware']], function () {
 
     Route::get('/citizen/dashboard', [CitizenHomeController::class, 'Citizen_Home'])->name('citizen.dashboard');
+
+    // =======================change password
+    Route::post('/citizen/change-password/store', [CitizenHomeController::class, 'changePasswordStore'])->name('citizen.changePassword.store');
 
     // ====== New Business NOC
     Route::get('/new_business_noc_list/{status}', [NewBusinessNOCController::class, 'index'])->name('new_business_noc_list');
@@ -287,6 +331,49 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware', '
     Route::post('/final_building_noc/edit/update/{id}/{n_id}/{status}', [FinalBuildingNOCController::class, 'update'])->name('final_building_noc.edit.update');
     Route::delete('/final_building_noc/delete/{id}/{n_id}/{status}', [FinalBuildingNOCController::class, 'destroy'])->name('final_building_noc.delete');
 
+// ====== New Other NOC
+    Route::get('/new_other_noc_list/{status}', [NewOtherNOCController::class, 'index'])->name('new_other_noc_list');
+    Route::get('/new_other_noc/create', [NewOtherNOCController::class, 'create'])->name('new_other_noc.create');
+    Route::post('/new_other_noc/store', [NewOtherNOCController::class, 'store'])->name('new_other_noc.store');
+    Route::get('/new_other_noc/show/{id}/{status}', [NewOtherNOCController::class, 'show'])->name('new_new_other_noc.show');
+    Route::get('/download_new_other_noc_pdf/{id}/{status}', [NewOtherNOCController::class, 'download_new_other_noc_pdf'])->name('download_new_other_noc_pdf');
+    Route::get('/new_other_noc/edit/{id}/{status}', [NewOtherNOCController::class, 'edit'])->name('new_other_noc.edit');
+    Route::post('/new_other_noc/edit/update/{id}/{n_id}/{status}', [NewOtherNOCController::class, 'update'])->name('new_other_noc.edit.update');
+    Route::delete('/new_other_noc/delete/{id}/{n_id}/{status}', [NewOtherNOCController::class, 'destroy'])->name('new_other_noc.delete');
+
+    // ====== Renew Other NOC
+    Route::get('/renew_other_noc_list/{status}', [ReNewOtherNOCController::class, 'index'])->name('renew_other_noc_list');
+    Route::get('/renew_other_noc/create', [ReNewOtherNOCController::class, 'create'])->name('renew_other_noc.create');
+    Route::post('/renew_other_noc/store', [ReNewOtherNOCController::class, 'store'])->name('renew_other_noc.store');
+    Route::get('/renew_other_noc/show/{id}/{status}', [ReNewOtherNOCController::class, 'show'])->name('renew_new_other_noc.show');
+    Route::get('/download_renew_other_noc_pdf/{id}/{status}', [ReNewOtherNOCController::class, 'download_renew_other_noc_pdf'])->name('download_renew_new_other_noc_pdf');
+    Route::get('/renew_other_noc/edit/{id}/{status}', [ReNewOtherNOCController::class, 'edit'])->name('renew_other_noc.edit');
+    Route::post('/renew_other_noc/edit/update/{id}/{n_id}/{status}', [ReNewOtherNOCController::class, 'update'])->name('renew_other_noc.edit.update');
+    Route::delete('/renew_other_noc/delete/{id}/{n_id}/{status}', [ReNewOtherNOCController::class, 'destroy'])->name('renew_other_noc.delete');
+
+
+   // ====== New Form B
+    Route::get('/new_form_b_list/{status}', [FormBController::class, 'index'])->name('new_form_b_list');
+    Route::get('/new_form_b/create', [FormBController::class, 'create'])->name('new_form_b.create');
+    Route::post('/new_form_b/store', [FormBController::class, 'store'])->name('new_form_b.store');
+    Route::get('/new_form_b/show/{id}/{status}', [FormBController::class, 'show'])->name('new_form_b.show');
+    Route::get('/download_new_form_b_pdf/{id}/{status}', [FormBController::class, 'download_new_form_b_pdf'])->name('download_new_form_b_pdf');
+    Route::get('/new_form_b/edit/{id}/{status}', [FormBController::class, 'edit'])->name('new_form_b.edit');
+    Route::post('/new_form_b/edit/update/{id}/{n_id}/{status}', [FormBController::class, 'update'])->name('new_form_b.edit.update');
+    Route::delete('/new_form_b/delete/{id}/{n_id}/{status}', [FormBController::class, 'destroy'])->name('new_form_b.delete');
+
+    // ====== Renew Other NOC
+    // Route::get('/renew_form_b_list/{status}', [ReNewOtherNOCController::class, 'index'])->name('renew_form_b_list');
+    // Route::get('/renew_form_b/create', [ReNewOtherNOCController::class, 'create'])->name('renew_form_b.create');
+    // Route::post('/renew_form_b/store', [ReNewOtherNOCController::class, 'store'])->name('renew_form_b.store');
+    // Route::get('/renew_new_form_b/show/{id}/{status}', [ReNewOtherNOCController::class, 'show'])->name('renew_new_form_b.show');
+    // Route::get('/download_renew_new_form_b_pdf/{id}/{status}', [ReNewOtherNOCController::class, 'download_renew_new_form_b_pdf'])->name('download_renew_new_form_b_pdf');
+    // Route::get('/renew_new_form_b/edit/{id}/{status}', [ReNewOtherNOCController::class, 'edit'])->name('renew_new_form_b.edit');
+    // Route::post('/renew_new_form_b/edit/update/{id}/{n_id}/{status}', [ReNewOtherNOCController::class, 'update'])->name('renew_new_form_b.edit.update');
+    // Route::delete('/renew_new_form_b/delete/{id}/{n_id}/{status}', [ReNewOtherNOCController::class, 'destroy'])->name('renew_new_form_b.delete');
+
+
+
     // ======= All Citizen Fire NOC Invoice
     Route::get('/invoice/{id}/{status}/{noc_mode}', [InvoiceController::class, 'fire_noc_invoice'])->name('invoice');
 
@@ -295,6 +382,10 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware', '
 
     // ======= All Payment receipt
     Route::post('/upload_payment_receipt/{id}/{status}/{noc_mode}', [CertificateController::class, 'upload_payment_receipt'])->name('upload_payment_receipt');
+
+
+
+
 
 
 });

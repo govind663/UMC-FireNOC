@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
 
-        <title>UMC-Fire NOC | Final Building NOC List</title>
+        <title>PMC-Fire NOC | Final Building NOC List</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
         <meta content="Themesdesign" name="author">
@@ -161,11 +161,11 @@
 
                                                             &nbsp;&nbsp;
                                                             @if (Auth::user()->role == 2 && $value->status == 6 || $value->status == 2 && $value->citizen_payment_status == 2)
-                                                                <a href="{{url('/')}}/UMC_FireNOC/payment/payment_recepit_doc/{{ $value->payment_recepit_doc }}" class="btn btn-warning text-dark btn-sm" target="_blank">
+                                                                <a href="{{url('/')}}/PMC_FireNOC/payment/payment_recepit_doc/{{ $value->payment_recepit_doc }}" class="btn btn-warning text-dark btn-sm" target="_blank">
                                                                     <b><i class="mdi mdi-file-pdf-outline"> View Payment Receipt</i></b>
                                                                 </a>
                                                             @elseif (Auth::user()->role == 3 && $value->status == 6 && $value->citizen_payment_status == 2)
-                                                                <a href="{{url('/')}}/UMC_FireNOC/payment/payment_recepit_doc/{{ $value->payment_recepit_doc }}" class="btn btn-warning text-dark btn-sm" target="_blank">
+                                                                <a href="{{url('/')}}/PMC_FireNOC/payment/payment_recepit_doc/{{ $value->payment_recepit_doc }}" class="btn btn-warning text-dark btn-sm" target="_blank">
                                                                     <b><i class="mdi mdi-file-pdf-outline"> View Payment Receipt</i></b>
                                                                 </a>
                                                             @endif
@@ -192,7 +192,7 @@
                                                                             <div class="form-group row mb-3">
                                                                                 <label class="col-sm-2"><strong>Upload Document : <span style="color:red;">*</span></strong></label>
                                                                                 <div class="col-sm-4 col-md-4">
-                                                                                    <a href="/UMC_FireNOC/Building_NOC/Final_BuildingNOC/f_inspector_doc/{{ $value->f_inspector_doc }}" target="_blank">
+                                                                                    <a href="/PMC_FireNOC/Building_NOC/Final_BuildingNOC/f_inspector_doc/{{ $value->f_inspector_doc }}" target="_blank">
                                                                                         <div class="form-group">
                                                                                             <?php
                                                                                                     $document_path = $value->f_inspector_doc;
@@ -206,12 +206,12 @@
                                                                                             ?>
 
                                                                                             <p class="mt-3 mb-0" id="image_div">
-                                                                                                <img src="/UMC_FireNOC/Building_NOC/Final_BuildingNOC/f_inspector_doc/{{ $value->f_inspector_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                                                <img src="/PMC_FireNOC/Building_NOC/Final_BuildingNOC/f_inspector_doc/{{ $value->f_inspector_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
                                                                                             </p>
                                                                                             <?php }
                                                                                             else{
                                                                                                 ?>
-                                                                                                <a href="/UMC_FireNOC/Building_NOC/Final_BuildingNOC/f_inspector_doc/{{ $value->f_inspector_doc }}" target="_blank" download>
+                                                                                                <a href="/PMC_FireNOC/Building_NOC/Final_BuildingNOC/f_inspector_doc/{{ $value->f_inspector_doc }}" target="_blank" download>
                                                                                                     <p class="mt-3 mb-0" id="image_div">
                                                                                                     <button type="button"class="btn btn-primary text-bold">
                                                                                                         Download File
