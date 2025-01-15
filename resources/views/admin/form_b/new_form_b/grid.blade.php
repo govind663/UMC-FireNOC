@@ -148,13 +148,17 @@
                                                             <a href='{{ url("/admin_new_form_b/show/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
-                                                            @if ($value->status == 0)
+                                                            {{-- @dd($status) --}}
+                                                            @if ($value->status == 5)
                                                             &nbsp;&nbsp;
                                                             <a href='{{ url("/admin_download_new_form_b_pdf/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
                                                                 <b><i class="mdi mdi-file"> Download View </i></b>
                                                             </a>
-                                                            @endif
 
+                                                            @endif
+                                                            <a href='{{ url("/admin_download_clerk_demand_letter_pdf/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
+                                                                <b><i class="mdi mdi-file"> Download Clerk Demand Letter </i></b>
+                                                            </a>
                                                             &nbsp;&nbsp;
                                                             @if ($value->status == 7 && $value->payment_status == 1 )
                                                             <a href='{{ url("/admin_invoice/{$value->FB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-dark btn-sm ">
@@ -182,21 +186,21 @@
                                                     </tr>
 
                                                     {{-- Start  View Field Inspector Remark  Model --}}
-                                                    <div class="modal fade FB_NOC_Preview_{{ $value->FB_NOC_ID }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog modal-lg">
+                                                    {{-- <div class="modal fade FB_NOC_Preview_{{ $value->FB_NOC_ID }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true"> --}}
+                                                        {{-- <div class="modal-dialog modal-lg">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
                                                                     <h5 class="modal-title text-primary" id="myLargeModalLabel">Field Inspector Remark For New Other NOC :</h5>
                                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                 </div>
-                                                                <div class="modal-body">
-                                                                    <div class="row">
+                                                                <div class="modal-body"> --}}
+                                                                    {{-- <div class="row">
                                                                         <form class="auth-input p-3"  enctype="multipart/form-data">
 
                                                                             <div class="form-group row mb-3">
                                                                                 <label class="col-sm-2"><strong>Upload Document : <span style="color:red;">*</span></strong></label>
                                                                                 <div class="col-sm-4 col-md-4">
-                                                                                    <a href="{{url('/')}}/PMC_FireNOC/Other_NOC/New_OtherNOC/f_inspector_doc/{{ $value->f_inspector_doc }}" target="_blank">
+                                                                                    <a href="{{url('/')}}/PMC_FireNOC/form_b/New_FormB/f_inspector_doc/{{ $value->f_inspector_doc }}" target="_blank">
                                                                                         <div class="form-group">
                                                                                             <?php
                                                                                                     $document_path = $value->f_inspector_doc;
@@ -210,12 +214,12 @@
                                                                                             ?>
 
                                                                                             <p class="mt-3 mb-0" id="image_div">
-                                                                                                <img src="{{url('/')}}/PMC_FireNOC/Other_NOC/New_OtherNOC/f_inspector_doc/{{ $value->f_inspector_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
+                                                                                                <img src="{{url('/')}}/PMC_FireNOC/form_b/New_FormB/f_inspector_doc/{{ $value->f_inspector_doc }} " alt="image"  width="200" height="100" style="max-height:150px;">
                                                                                             </p>
                                                                                             <?php }
                                                                                             else{
                                                                                                 ?>
-                                                                                                <a href="{{url('/')}}/PMC_FireNOC/Other_NOC/New_OtherNOC/f_inspector_doc/{{ $value->f_inspector_doc }}" target="_blank" download>
+                                                                                                <a href="{{url('/')}}/PMC_FireNOC/form_b/New_FormB/f_inspector_doc/{{ $value->f_inspector_doc }}" target="_blank" download>
                                                                                                     <p class="mt-3 mb-0" id="image_div">
                                                                                                     <button type="button"class="btn btn-primary text-bold">
                                                                                                         Download File
@@ -233,23 +237,23 @@
                                                                                     <input readonly class="form-control" value="{{  $value->f_inspector_dt  }}" >
 
                                                                                 </div>
-                                                                            </div>
+                                                                            </div> --}}
 
-                                                                            <div class="form-group row mb-3">
-                                                                                <label class="col-sm-12"><strong>Remarks : <span style="color:red;">*</span></strong></label>
+                                                                            {{-- <div class="form-group row mb-3"> --}}
+                                                                                {{-- <label class="col-sm-12"><strong>Remarks : <span style="color:red;">*</span></strong></label>
                                                                                 <div class="col-sm-12 col-md-12">
-                                                                                    <textarea readonly class="form-control " value="{{  $value->f_inspector_remarks  }}" >{{  $value->f_inspector_remarks  }}</textarea>
-
+                                                                                    <textarea readonly class="form-control " value="{{  $value->f_inspector_remarks  }}" >{{  $value->f_inspector_remarks  }}</textarea> --}}
+{{--
                                                                                 </div>
-                                                                            </div>
-
+                                                                            </div> --}}
+{{--
                                                                             <div class="form-group row mt-4" >
                                                                                 <label class="col-md-3"></label>
                                                                                 <div class="col-md-9" style="display: flex; justify-content: flex-end;">
                                                                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>&nbsp;&nbsp;
-                                                                                    {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
+                                                                                    <button type="submit" class="btn btn-primary">Submit</button>
                                                                                 </div>
-                                                                            </div>
+                                                                            </div> --}}
 
                                                                         </form>
                                                                     </div>

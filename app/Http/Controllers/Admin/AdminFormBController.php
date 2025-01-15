@@ -53,6 +53,10 @@ class AdminFormBController extends Controller
             $query->where('t1.status', $status);
         }elseif (Auth::user()->role == 4) {
             $query->where('t1.status', $status);
+        }elseif (Auth::user()->role == 7) {
+            $query->where('t1.status', $status);
+        }elseif (Auth::user()->role == 8) {
+            $query->where('t1.status', $status);
         }
 
         $data = $query->get();
@@ -92,22 +96,30 @@ class AdminFormBController extends Controller
     public function approved(Request $request, $id, $status, $auth_role)
     {
         // display only pending form (status=0)
-        if (Auth::user()->role == 0) {
+        if (Auth::user()->role == 7) {
+
             $update = [
                 'status' => 5, // === New (Level Up that means application go to field inspector)
-                'operator_status' => 1, // ===== Approved by operator
-                'operator_by' => Auth::user()->id,
-                'operator_dt' => date("Y-m-d H:i:s"),
-                'application_status' => 1, // ===== Field Inspector will pass
+                'contractor_dt' => date("Y-m-d H:i:s"),// ===== Approved by operator
+              'contractor_name'=>$request->contractor_name,
+               'contractor_address'=>$request->contractor_address,
+             'fees_paid'=>$request->fees_paid,
+               'annual_charges'=>$request->annual_charges,
+               'total_charge'=>$request->total_charge,
+               'shera'=>$request->shera,
+               'clerk_status' => 1, // ===== Approved by operator
+                'clerk_by' => Auth::user()->id,
+                'clerk_dt' => date("Y-m-d H:i:s"),
+                'application_status' => 7, // ===== Field Inspector will pass
                 'approved_dt' => date("Y-m-d H:i:s"),
                 'approved_by' => Auth::user()->id,
             ];
 
             FormB::where('id', $id)->where('status', $status)->update($update);
-            return redirect()->route('all_new_form_b_list', 1)->with('message', 'The application form which you had filled for your new other noc has been approved Successfully.');
+            return redirect()->route('all_new_form_b_list', 1)->with('message', 'The application form which you had filled for your new form b has been approved Successfully.');
 
         // display only underprocess form (status=5)
-        } elseif (Auth::user()->role == 2) {
+        } elseif (Auth::user()->role == 8) {
 
             // ==== Upload (f_inspector_doc)
             $fileName = "";
@@ -233,9 +245,11 @@ class AdminFormBController extends Controller
             ];
 
             FormB::where('id', $id)->where('status', $status)->update($update);
-            return redirect()->route('all_new_form_b_list', 4)->with('message', 'The application form which you had filled for your new other noc has been rejected Successfully.');
+            return redirect()->route('all_new_form_b_list', 4)->with('message', 'The application form which you had filled for your new form b has been rejected Successfully.');
         }
     }
+
+
 
     /**
      * Display a listing of the resource.
@@ -261,8 +275,12 @@ class AdminFormBController extends Controller
             $query->where('t1.officer_status', $all_status);
         } elseif (Auth::user()->role == 3) {
             $query->where('t1.status', $all_status);
+        }elseif (Auth::user()->role == 7) {
+            $query->where('t1.clerk_status', $all_status);
         }
-
+        elseif (Auth::user()->role == 8 ) {
+            $query->where('t1.inspector_status', $all_status);
+        }
         $data = $query->get();
         // dd($data);
 
@@ -323,8 +341,54 @@ class AdminFormBController extends Controller
                 ->whereNUll('t3.deleted_at')
                 ->first();
 
-        return FacadePdf::loadView('citizen.form_b.new_form_b.new_form_b_pdf', compact('data','status'))->setPaper('a4')->stream("New Other NOC".$data->FB_NOC_ID.".pdf");
+        return FacadePdf::loadView('citizen.form_b.new_form_b.new_form_b_pdf', compact('data','status'))->setPaper('a4')->stream("New Form B".$data->FB_NOC_ID.".pdf");
     }
+
+    public function admin_download_clerk_demand_letter_pdf($id, $status)
+    {
+        $data = DB::table('form_b as t1')
+        ->select('t1.*', 't2.*', 't1.id as FB_NOC_ID', 't2.id as d_ID' , 't3.citizen_payment_status')
+        ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
+        ->leftJoin('citizen_payments as t3', 't3.mst_token', '=', 't2.mst_token' )
+        ->where('t2.noc_mode', 10)  // ==== New Other NOC (status=1)
+        ->where('t1.status', $status)
+        ->where('t1.id', $id)
+        ->whereNUll('t1.deleted_at')
+        ->whereNUll('t2.deleted_at')
+        ->whereNUll('t3.deleted_at')
+        ->first();
+
+        return FacadePdf::loadView('admin.form_b.new_form_b.demand_form_b_pdf', compact('data','status'))->setPaper('a4')->stream("New Form B".$data->FB_NOC_ID.".pdf");
+
+    }
+
+    // public function showApprovalForm($FB_NOC_ID, $status, $auth_role)
+    // {
+    //     // Pass the data to the view if needed
+    //     return view('admin.form_b.demand_form', compact('FB_NOC_ID', 'status', 'auth_role'));
+    // }
+
+    // // Method to process the approval form submission
+    // public function processApprovalForm(Request $request, $FB_NOC_ID, $status, $auth_role)
+    // {
+    //     // Validate the form data
+    //     $request->validate([
+    //         'contractor_dt' => 'required|date',
+    //         'contractor_name' => 'required|string|max:255',
+    //         'contractor_address' => 'required|string|max:255',
+    //         'fees_paid' => 'required|numeric',
+    //         'annual_charges' => 'required|numeric',
+    //         'total_charge' => 'required|numeric',
+    //         'shera' => 'required|numeric',
+    //     ]);
+
+    //     // Process the approval data here (e.g., save to the database)
+    //     // Example: Update approval status or save data
+
+    //     return redirect()->route('admin.form.approve', [$FB_NOC_ID, $status, $auth_role])
+    //                      ->with('success', 'Approval submitted successfully.');
+    // }
+
 
 }
 

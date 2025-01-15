@@ -382,33 +382,6 @@
 
                         </div>
                     </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
-                            <i class="uim uim-grid"></i> Unpaid Application <div class="arrow-down"></div>
-                        </a>
-
-                        <div class="dropdown-menu" aria-labelledby="topnav-uielement">
-                            <div class="row">
-                                <div class="col-lg-5">
-                                    <div>
-                                        <a href="{{ url('/admin_new_business_noc_list',1) }}" class="dropdown-item">New Business NOC List</a>
-                                        <a href="{{ url('/admin_renew_business_noc_list',1) }}" class="dropdown-item">Renew Business NOC List</a>
-                                        <a href="{{ url('/admin_new_hospital_noc_list',1) }}" class="dropdown-item">New Hospital NOC List</a>
-                                        <a href="{{ url('/admin_renew_hospital_noc_list',1) }}" class="dropdown-item">Renew Hospital NOC List</a>
-                                        <a href="{{ url('/admin_provisional_building_noc_list',1) }}" class="dropdown-item">Provisional Building NOC List</a>
-                                        <a href="{{ url('/admin_renew_building_noc_list',1) }}" class="dropdown-item">Renew Building NOC List</a>
-                                        <a href="{{ url('/admin_final_building_noc_list',1) }}" class="dropdown-item">Final Building NOC List</a>
-                                        <a href="{{ url('/admin_new_other_noc_list',1) }}" class="dropdown-item">New Other NOC List</a>
-                                        <a href="{{ url('/admin_renew_other_noc_list',1) }}" class="dropdown-item">ReNew Other NOC List</a>
-                                        <a href="{{ url('/admin_new_form_b_list',1) }}" class="dropdown-item">New Form B List</a>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
                             <i class="uim uim-grid"></i> <b>All Reviewed Application</b> <div class="arrow-down"></div>
@@ -506,7 +479,7 @@
                     {{-- Checker Maker --}}
                     @elseif(Auth::user()->role == 2)
                     {{-- Unpaid Application List --}}
-                    <li class="nav-item dropdown">
+                    {{-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
                             <i class="uim uim-grid"></i> Application Status <div class="arrow-down"></div>
                         </a>
@@ -532,10 +505,10 @@
                             </div>
 
                         </div>
-                    </li>
+                    </li> --}}
 
 
-                    {{-- <li class="nav-item dropdown">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
                             <i class="uim uim-grid"></i> Unpaid Application <div class="arrow-down"></div>
                         </a>
@@ -560,7 +533,7 @@
                                 </div>
                             </div>
                         </div>
-                    </li> --}}
+                    </li>
 
                     {{-- Invoice Application List --}}
                     <li class="nav-item dropdown">
@@ -977,16 +950,16 @@
                             <div class="row">
                                 <div class="col-lg-5">
                                     <div>
-                                        <a href="{{ url('/admin_new_business_noc_list',0) }}" class="dropdown-item">New Business NOC List</a>
-                                        <a href="{{ url('/admin_renew_business_noc_list',0) }}" class="dropdown-item">Renew Business NOC List</a>
-                                        <a href="{{ url('/admin_new_hospital_noc_list',0) }}" class="dropdown-item">New Hospital NOC List</a>
-                                        <a href="{{ url('/admin_renew_hospital_noc_list',0) }}" class="dropdown-item">Renew Hospital NOC List</a>
-                                        <a href="{{ url('/admin_provisional_building_noc_list',0) }}" class="dropdown-item">Provisional Building NOC List</a>
-                                        <a href="{{ url('/admin_renew_building_noc_list',0) }}" class="dropdown-item">Renew Building NOC List</a>
-                                        <a href="{{ url('/admin_final_building_noc_list',0) }}" class="dropdown-item">Final Building NOC List</a>
-                                        <a href="{{ url('/admin_new_other_noc_list',0) }}" class="dropdown-item">New Other NOC List</a>
-                                        <a href="{{ url('/admin_renew_other_noc_list',0) }}" class="dropdown-item">Renew Other NOC List</a>
-                                        <a href="{{ url('/admin_new_form_b_list',0) }}" class="dropdown-item">New Form B List</a>
+                                        <a href="{{ url('/admin_new_business_noc_list',5) }}" class="dropdown-item">New Business NOC List</a>
+                                        <a href="{{ url('/admin_renew_business_noc_list',5) }}" class="dropdown-item">Renew Business NOC List</a>
+                                        <a href="{{ url('/admin_new_hospital_noc_list',5) }}" class="dropdown-item">New Hospital NOC List</a>
+                                        <a href="{{ url('/admin_renew_hospital_noc_list',5) }}" class="dropdown-item">Renew Hospital NOC List</a>
+                                        <a href="{{ url('/admin_provisional_building_noc_list',5) }}" class="dropdown-item">Provisional Building NOC List</a>
+                                        <a href="{{ url('/admin_renew_building_noc_list',5) }}" class="dropdown-item">Renew Building NOC List</a>
+                                        <a href="{{ url('/admin_final_building_noc_list',5) }}" class="dropdown-item">Final Building NOC List</a>
+                                        <a href="{{ url('/admin_new_other_noc_list',5) }}" class="dropdown-item">New Other NOC List</a>
+                                        <a href="{{ url('/admin_renew_other_noc_list',5) }}" class="dropdown-item">Renew Other NOC List</a>
+                                        <a href="{{ url('/admin_new_form_b_list',5) }}" class="dropdown-item">New Form B List</a>
 
                                     </div>
 

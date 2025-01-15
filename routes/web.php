@@ -173,12 +173,13 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware', 'Secu
  Route::get('/admin_new_form_b_list/{status}', [AdminFormBController::class, 'index'])->name('admin_new_form_b_list');
  Route::get('/admin_new_form_b/show/{id}/{status}', [AdminFormBController::class, 'show'])->name('admin_new_form_b.show');
  Route::get('/admin_download_new_form_b_pdf/{id}/{status}', [AdminFormBController::class, 'admin_download_new_form_b_pdf'])->name('admin_download_new_form_b_pdf');
- Route::get('/admin_new_form_b/approved/{id}/{status}/{auth_role}', [AdminFormBController::class, 'approved'])->name('admin_new_form_b.approved');
- Route::post('/admin_new_form_b/field_inspector_approved/{id}/{status}/{auth_role}', [AdminFormBController::class, 'approved'])->name('admin_new_form_b.field_inspector_approved');
+ Route::get('/admin_new_form_b/approve/{id}/{status}/{auth_role}', [AdminFormBController::class, 'approved'])->name('admin_new_form_b.approved');
+ Route::post('/admin_new_form_b/clerk_approved/{id}/{status}/{auth_role}', [AdminFormBController::class, 'approved'])->name('admin_new_form_b.clerk_approved');
  Route::post('/admin_new_form_b/rejected/{id}/{status}/{auth_role}', [AdminFormBController::class, 'rejected'])->name('admin_new_form_b.rejected');
  Route::get('/all_new_form_b_list/{all_status}', [AdminFormBController::class, 'list'])->name('all_new_form_b_list');
- Route::get('/all_new_form_b/show/{id}/{all_status}', [AdminFormBController::class, 'view'])->name('all_new_form_b.show');
-
+//  Route::get('/all_new_form_b/show/{id}/{all_status}', [AdminFormBController::class, 'view'])->name('all_new_form_b.show');  Route::get('/admin_new_form_b/approve/{FB_NOC_ID}/{status}/{auth_role}', [AdminFormBController::class, 'showApprovalForm'])->name('admin.form.approve');
+//  Route::post('/admin_new_form_b/approve/{FB_NOC_ID}/{status}/{auth_role}', [AdminFormBController::class, 'approved'])->name('admin.form.submit');
+Route::get('/admin_download_clerk_demand_letter_pdf/{id}/{status}', [AdminFormBController::class, 'admin_download_clerk_demand_letter_pdf'])->name('admin_download_clerk_demand_letter_pdf');
 
     // ======= Business Master
     Route::resource('/business', BusinessController::class);

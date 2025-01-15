@@ -826,7 +826,7 @@
                                             <div class="form-group row mt-4" >
                                                 <label class="col-md-3"></label>
                                                 <div class="col-md-9" style="display: flex; justify-content: flex-end;">
-                                                    <a href="{{ url('/admin_new_other_noc_list', $data->status) }}" class="btn btn-primary">Cancel</a>
+                                                    <a href="{{ url('admin_new_form_b_list', $data->status) }}" class="btn btn-primary">Cancel</a>
                                                     &nbsp;&nbsp;
                                                     @if ($data->status == 1)
                                                     <a href='{{ url("/make_payment/create/{$data->FB_NOC_ID}/{$data->status}/{$data->noc_mode}") }}' class="btn btn-success btn-sm ">
@@ -838,20 +838,21 @@
 
                                                     &nbsp;&nbsp;
                                                     @if( Auth::user()->role == 4 || Auth::user()->role == 5 || Auth::user()->role == 6)
-                                                    <a href='{{ url("/admin_new_other_noc/approved/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
+                                                    <a href='{{ url("/admin_new_form_b/approved/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
                                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
                                                     @elseif(Auth::user()->role == 2 && $data->status == 2)
-                                                    <a href='{{ url("/admin_new_other_noc/approved/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
+                                                    <a href='{{ url("/admin_new_form_b/approved/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
                                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
-                                                    @elseif(Auth::user()->role == 2)
-                                                    {{-- <a href='{{ url("/admin_new_other_noc/approved/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp; --}}
-                                                    <button type="button" class="btn btn-warning text-dark" data-bs-toggle="modal" data-bs-target=".NB_NOC_Accept"><b>Accept</b></button>&nbsp;&nbsp;
+                                                    @elseif(Auth::user()->role == 8)
+                                                    <a href='{{ url("/admin_new_form_b/approved/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
+                                                    {{-- <button type="button" class="btn btn-warning text-dark" data-bs-toggle="modal" data-bs-target=".NB_NOC_Accept"><b>Accept</b></button>&nbsp;&nbsp; --}}
                                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
-                                                    @elseif(Auth::user()->role == 0)
-                                                    <a href='{{ url("/admin_new_other_noc/approved/{$data->FB_NOC_ID}/{$data->status}/{$auth_role}") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
-                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
-                                                    @endif
-
+                                                    @elseif(Auth::user()->role == 7)
+                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#approveModal">
+                                                        Approve
+                                                    </button>&nbsp; &nbsp;
+                                                      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
+                                                @endif
                                                     {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
                                                 </div>
                                             </div>
@@ -881,66 +882,133 @@
         <!-- END layout-wrapper -->
 
         {{-- Start Approved for New Other Application Model --}}
-        <div class="modal fade NB_NOC_Accept" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        {{-- <div class="modal fade NB_NOC_Reject" tabindex="-1" role="dialog" aria-labelledby="rejectModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title text-primary" id="myLargeModalLabel">Approve By Checker Maker For New Form B :</h5>
+                        <h5 class="modal-title text-danger" id="rejectModalLabel">Reject Form Details</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
-                            <form class="auth-input p-3"  method="POST"  action='{{ url("/admin_new_form_b/field_inspector_approved/$data->FB_NOC_ID/$data->status/$auth_role") }}' enctype="multipart/form-data">
-                                @csrf
-
-                                <div class="form-group row mb-3">
-                                    <label class="col-sm-2"><strong>Document : <span style="color:red;">*</span></strong></label>
-                                    <div class="col-sm-4 col-md-4">
-                                        <input type="file" required name="ch_inspector_doc" id="ch_inspector_doc" class="form-control @error('ch_inspector_doc') is-invalid @enderror" value="{{  old('ch_inspector_doc')  }}" >
-                                        @error('ch_inspector_doc')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-
-                                    <label class="col-sm-2"><strong>Date : <span style="color:red;">*</span></strong></label>
-                                    <div class="col-sm-4 col-md-4">
-                                        <input type="date" required name="ch_inspector_dt" id="ch_inspector_dt" class="form-control @error('ch_inspector_dt') is-invalid @enderror" value="{{  old('ch_inspector_dt')  }}" >
-                                        @error('ch_inspector_dt')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
+                        <form method="POST" action='{{ url("/admin_new_form_b/rejected/{$data->FB_NOC_ID}/{$data->status}/{$auth_role}") }}' enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group row mb-3">
+                                <label class="col-sm-2"><strong>Reject Remarks : <span style="color:red;">*</span></strong></label>
+                                <div class="col-sm-10">
+                                    <textarea required name="reject_remarks" class="form-control @error('reject_remarks') is-invalid @enderror">{{ old('reject_remarks') }}</textarea>
+                                    @error('reject_remarks')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
+                            </div>
 
-                                <div class="form-group row mb-3">
-                                    <label class="col-sm-12"><strong>Remarks : <span style="color:red;">*</span></strong></label>
-                                    <div class="col-sm-12 col-md-12">
-                                        <textarea type="text" required name="ch_inspector_remarks" id="ch_inspector_remarks" class="form-control @error('ch_inspector_remarks') is-invalid @enderror" value="{{  old('ch_inspector_remarks')  }}" >{{  old('ch_inspector_remarks')  }}</textarea>
-                                        @error('ch_inspector_remarks')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
+                            <div class="form-group row mt-4">
+                                <label class="col-md-3"></label>
+                                <div class="col-md-9" style="display: flex; justify-content: flex-end;">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>&nbsp;&nbsp;
+                                    <button type="submit" class="btn btn-warning">Reject</button>
                                 </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+        <div class="modal fade" id="approveModal" tabindex="-1" aria-labelledby="approveModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="approveModalLabel">Approval Confirmation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
 
-                                <div class="form-group row mt-4" >
-                                    <label class="col-md-3"></label>
-                                    <div class="col-md-9" style="display: flex; justify-content: flex-end;">
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>&nbsp;&nbsp;
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </div>
-                                </div>
+                            <form class="auth-input p-3"  method="POST"  action='{{ url("/admin_new_form_b/clerk_approved/$data->FB_NOC_ID/$data->status/$auth_role") }}' enctype="multipart/form-data">
 
-                            </form>
-                        </div>
+                            @csrf
+                            <!-- Date Field -->
+                            <div class="mb-3">
+                                <label for="f_inspector_dt" class="form-label"><strong>Date: <span style="color:red;">*</span></strong></label>
+                                <input type="date" required name="contractor_dt" id="contractor_dt" class="form-control @error('contractor_dt') is-invalid @enderror" value="{{ old('contractor_dt') }}">
+                                @error('contractor_dt')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <!-- Contractual Name -->
+                            <div class="mb-3">
+                                <label for="contractual_name" class="form-label"><strong>Contractor Name:</strong></label>
+                                <input type="text" name="contractor_name" id="contractor_name" class="form-control @error('contractor_name') is-invalid @enderror" value="{{ old('contractor_name') }}">
+                                @error('contractor_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <!-- Address -->
+                            <div class="mb-3">
+                                <label for="address" class="form-label"><strong>Address:</strong></label>
+                                <input type="text" name="contractor_address" id="contractor_address" class="form-control @error('contractor_address') is-invalid @enderror" value="{{ old('contractor_address') }}">
+                                @error('contractor_address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <!-- Fees Paid -->
+                            <div class="mb-3">
+                                <label for="fees_paid" class="form-label"><strong>Fees Paid by You (as assumed by the department):</strong></label>
+                                <input type="number" name="fees_paid" id="fees_paid" class="form-control @error('fees_paid') is-invalid @enderror" value="{{ old('fees_paid') }}">
+                                @error('fees_paid')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <!-- Annual Charges -->
+                            <div class="mb-3">
+                                <label for="annual_charges" class="form-label"><strong>Annual Charges:</strong></label>
+                                <input type="number" name="annual_charges" id="annual_charges" class="form-control @error('annual_charges') is-invalid @enderror" value="{{ old('annual_charges') }}">
+                                @error('annual_charges')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <!-- Total Charges -->
+                            <div class="mb-3">
+                                <label for="total_charge" class="form-label"><strong>Total Charge:</strong></label>
+                                <input type="number" name="total_charge" id="total_charge" class="form-control @error('total_charge') is-invalid @enderror" value="{{ old('total_charge') }}">
+                                @error('total_charge')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <!-- Shera -->
+                            <div class="mb-3">
+                                <label for="shera" class="form-label"><strong>Shera:</strong></label>
+                                <input type="number" name="shera" id="shera" class="form-control @error('shera') is-invalid @enderror" value="{{ old('shera') }}">
+                                @error('shera')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <!-- Submit Button -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Approve</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+
 
         {{-- Start Reject for Renew Bussiness Application Model --}}
         <div class="modal fade NB_NOC_Reject" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -952,7 +1020,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <form class="auth-input p-4"  method="POST"  action='{{ url("/admin_new_other_noc/rejected/$data->FB_NOC_ID/$data->status/$auth_role") }}' enctype="multipart/form-data">
+                            <form class="auth-input p-4"  method="POST"  action='{{ url("/admin_new_form_b/rejected/$data->FB_NOC_ID/$data->status/$auth_role") }}' enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="form-group row mb-3">
