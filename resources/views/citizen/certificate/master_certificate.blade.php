@@ -126,6 +126,12 @@
         @include('citizen.certificate.all_certificate.renew_building_noc_certificate')
         @elseif ($noc_mode == 7)
         @include('citizen.certificate.all_certificate.renewal_building_noc_certificate')
+        @elseif ($noc_mode == 8)
+        @include('citizen.certificate.all_certificate.renewal_building_noc_certificate')
+        @elseif ($noc_mode == 9)
+        @include('citizen.certificate.all_certificate.renewal_building_noc_certificate')
+        @elseif ($noc_mode == 10)
+        @include('citizen.certificate.all_certificate.renewal_building_noc_certificate')
         @endif
 
         <!-- JAVASCRIPT -->

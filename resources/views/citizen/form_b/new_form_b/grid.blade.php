@@ -101,6 +101,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+
                                                 @foreach ($data as $key => $value)
                                                     <tr>
                                                         <td>{{ $key + 1 }}</td>
@@ -144,11 +145,16 @@
                                                             <a href='{{ url("/new_form_b/show/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
-                                                            &nbsp;&nbsp;
-                                                            <a href='{{ url("/download_new_form_b_pdf/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
+
+                                                            {{-- <a href='{{ url("/download_new_form_b_pdf/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
+                                                                <b><i class="mdi mdi-file"> Download View </i></b>
+                                                            </a> --}}
+                                                            @if($value->status == 0 && Auth::user()->role == 8)
+
+                                                            <a href="{{ url("/download_new_form_b_pdf/{$value->FB_NOC_ID}/{$value->status}") }}" class="btn btn-dark btn-sm">
                                                                 <b><i class="mdi mdi-file"> Download View </i></b>
                                                             </a>
-
+                                                        @endif
                                                             @if ($value->status == 0 || $value->status == 4)
                                                             &nbsp;&nbsp;
                                                             <a href='{{ url("/new_form_b/edit/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-warning btn-sm text-dark">
@@ -191,6 +197,14 @@
                                                             @if($value->status == 7 && $value->citizen_payment_status == 1)
                                                             <button type="button" class="btn btn-warning text-dark btn-sm waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_{{ $value->FB_NOC_ID }}">Upload Payment Recepit</button>
                                                             @endif
+                                                            @if($value->status == 3)
+                                                            <label class="btn btn-outline-secondary">
+                                                                <i class="mdi mdi-file"></i> Upload Certificate
+                                                                <input class="d-none" type="file" name="certificate" placeholder="upload certificate">
+                                                            </label>
+                                                            @endif
+
+
 
                                                         </td>
                                                     </tr>

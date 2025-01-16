@@ -24,7 +24,6 @@ class FormBController extends Controller
     public function index($status)
     {
 
-
         if($status == 0 || $status == 5 || $status == 1){
 
             $data = DB::table('form_b AS t1')
@@ -55,7 +54,7 @@ class FormBController extends Controller
 
 
         }
-// return($data);
+//  return($data);
         return view('citizen.form_b.new_form_b.grid')->with('data', $data)->with('status', $status);
     }
 
@@ -298,7 +297,7 @@ class FormBController extends Controller
      */
     public function show($id, $status)
     {
-        if($status == 0 || $status == 5 || $status == 1){
+        if($status == 0 || $status == 5 || $status == 1 || $status == 6){
             $data = DB::table('form_b as t1')
                     ->select('t1.*', 't2.*', 't1.id as FB_NOC_ID', 't2.id as d_ID')
                     ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
@@ -782,7 +781,7 @@ class FormBController extends Controller
         $data->deleted_at = date("Y-m-d H:i:s");
         $data->update();
 
-        return redirect()->route('new_form_b_list',$status)->with('message', 'The application form which you had deleted for your new hospital noc has been done Successfully.');
+        return redirect()->route('new_form_b_list',$status)->with('message', 'The application form which you had deleted for your new form b has been done Successfully.');
     }
 
     /**

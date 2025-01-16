@@ -874,7 +874,6 @@
                                         <a href="{{ url('/admin_final_building_noc_list',0) }}" class="dropdown-item">Final Building NOC List</a>
                                         <a href="{{ url('/admin_new_other_noc_list',0) }}" class="dropdown-item">New Other NOC List</a>
                                         <a href="{{ url('/admin_renew_other_noc_list',0) }}" class="dropdown-item">Renew Other NOC List</a>
-                                        <a href="{{ url('/admin_new_form_b_list',0) }}" class="dropdown-item">New Form B List</a>
 
                                     </div>
 
@@ -902,7 +901,6 @@
                                         <a href="{{ url('/all_final_building_noc_list',1) }}" class="dropdown-item">Final Building NOC List</a>
                                         <a href="{{ url('/all_new_other_noc_list',1) }}"  class="dropdown-item">New Other NOC List</a>
                                         <a href="{{ url('/all_renew_other_noc_list',1) }}" class="dropdown-item">Renew Other NOC List</a>
-                                        <a href="{{ url('/all_new_form_b_list',1) }}"  class="dropdown-item">New Form B List</a>
 
                                     </div>
 
@@ -930,7 +928,6 @@
                                         <a href="{{ url('/all_final_building_noc_list',2) }}" class="dropdown-item">Final Building NOC List</a>
                                         <a href="{{ url('/all_new_other_noc_list',2) }}" class="dropdown-item">New other NOC List</a>
                                         <a href="{{ url('/all_renew_other_noc_list',2) }}" class="dropdown-item">Renew other NOC List</a>
-                                        <a href="{{ url('/all_new_form_b_list',2) }}"  class="dropdown-item">New Form B List</a>
 
                                     </div>
 
@@ -939,6 +936,32 @@
 
                         </div>
                     </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
+                            <i class="uim uim-grid"></i> Form B <div class="arrow-down"></div>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="topnav-uielement">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div>
+                                        <a href="{{ url('/admin_new_form_b_list',0) }}"  class="dropdown-item">Application Status Of Form B</a>
+                                        <a href="{{ url('all_new_form_b_list',3) }}" class="dropdown-item">Approved Application Of Form B</a>
+                                        <a href="{{ url('/all_new_form_b_list',2) }}" class="dropdown-item"> Rejected Application Of Form B</a>
+                                        <a href="{{ url('/all_new_form_b_list',1) }}" class="dropdown-item">UnderProcess Application Of Form B</a>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+
+
+
                     @elseif(Auth::user()->role == 8)
                     {{-- New Application --}}
                     <li class="nav-item dropdown">
@@ -959,7 +982,6 @@
                                         <a href="{{ url('/admin_final_building_noc_list',5) }}" class="dropdown-item">Final Building NOC List</a>
                                         <a href="{{ url('/admin_new_other_noc_list',5) }}" class="dropdown-item">New Other NOC List</a>
                                         <a href="{{ url('/admin_renew_other_noc_list',5) }}" class="dropdown-item">Renew Other NOC List</a>
-                                        <a href="{{ url('/admin_new_form_b_list',5) }}" class="dropdown-item">New Form B List</a>
 
                                     </div>
 
@@ -987,7 +1009,6 @@
                                         <a href="{{ url('/all_final_building_noc_list',1) }}" class="dropdown-item">Final Building NOC List</a>
                                         <a href="{{ url('/all_new_other_noc_list',1) }}"  class="dropdown-item">New Other NOC List</a>
                                         <a href="{{ url('/all_renew_other_noc_list',1) }}" class="dropdown-item">Renew Other NOC List</a>
-                                        <a href="{{ url('/all_new_form_b_list',1) }}"  class="dropdown-item">New Form B List</a>
 
                                     </div>
 
@@ -1015,7 +1036,29 @@
                                         <a href="{{ url('/all_final_building_noc_list',2) }}" class="dropdown-item">Final Building NOC List</a>
                                         <a href="{{ url('/all_new_other_noc_list',2) }}" class="dropdown-item">New other NOC List</a>
                                         <a href="{{ url('/all_renew_other_noc_list',2) }}" class="dropdown-item">Renew other NOC List</a>
-                                        <a href="{{ url('/all_new_form_b_list',2) }}"  class="dropdown-item">New Form B List</a>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-uielement" role="button">
+                            <i class="uim uim-grid"></i> Form B <div class="arrow-down"></div>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="topnav-uielement">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <div>
+
+                                        <a href="{{ url('/admin_new_form_b_list',5) }}"  class="dropdown-item">Application Status Of Form B</a>
+                                        <a href="{{ url('/all_new_form_b_list',1) }}" class="dropdown-item">Approved Application Of Form B</a>
+                                        <a href="{{ url('/all_new_form_b_list',2) }}" class="dropdown-item"> Rejected Application Of Form B</a>
+                                        <a href="{{ url('/all_new_form_b_list',0) }}" class="dropdown-item">UnderProcess Application Of Form B</a>
+
 
                                     </div>
 
@@ -1025,6 +1068,7 @@
                         </div>
                     </li>
                     @endif
+
 
                 </ul>
 

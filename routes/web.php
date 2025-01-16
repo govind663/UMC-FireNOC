@@ -177,7 +177,7 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware', 'Secu
  Route::post('/admin_new_form_b/clerk_approved/{id}/{status}/{auth_role}', [AdminFormBController::class, 'approved'])->name('admin_new_form_b.clerk_approved');
  Route::post('/admin_new_form_b/rejected/{id}/{status}/{auth_role}', [AdminFormBController::class, 'rejected'])->name('admin_new_form_b.rejected');
  Route::get('/all_new_form_b_list/{all_status}', [AdminFormBController::class, 'list'])->name('all_new_form_b_list');
-//  Route::get('/all_new_form_b/show/{id}/{all_status}', [AdminFormBController::class, 'view'])->name('all_new_form_b.show');  Route::get('/admin_new_form_b/approve/{FB_NOC_ID}/{status}/{auth_role}', [AdminFormBController::class, 'showApprovalForm'])->name('admin.form.approve');
+  Route::get('/all_new_form_b/show/{id}/{all_status}', [AdminFormBController::class, 'view'])->name('all_new_form_b.show');  Route::get('/admin_new_form_b/approve/{FB_NOC_ID}/{status}/{auth_role}', [AdminFormBController::class, 'showApprovalForm'])->name('admin.form.approve');
 //  Route::post('/admin_new_form_b/approve/{FB_NOC_ID}/{status}/{auth_role}', [AdminFormBController::class, 'approved'])->name('admin.form.submit');
 Route::get('/admin_download_clerk_demand_letter_pdf/{id}/{status}', [AdminFormBController::class, 'admin_download_clerk_demand_letter_pdf'])->name('admin_download_clerk_demand_letter_pdf');
 

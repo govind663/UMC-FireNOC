@@ -149,16 +149,19 @@
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
                                                             {{-- @dd($status) --}}
-                                                            @if ($value->status == 5)
+
+                                                            @if ($value->status == 5|| $value->status == 0 || $value->status == 3)
                                                             &nbsp;&nbsp;
                                                             <a href='{{ url("/admin_download_new_form_b_pdf/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
                                                                 <b><i class="mdi mdi-file"> Download View </i></b>
                                                             </a>
-
                                                             @endif
+                                                            
+                                                            @if($value->status == 6 || $value->status == 3 || $value->status == 5)
                                                             <a href='{{ url("/admin_download_clerk_demand_letter_pdf/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
                                                                 <b><i class="mdi mdi-file"> Download Clerk Demand Letter </i></b>
                                                             </a>
+                                                            @endif
                                                             &nbsp;&nbsp;
                                                             @if ($value->status == 7 && $value->payment_status == 1 )
                                                             <a href='{{ url("/admin_invoice/{$value->FB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-dark btn-sm ">
@@ -177,10 +180,10 @@
                                                                 </a>
                                                             @endif
 
-                                                            @if (Auth::user()->role == 3)
+                                                            {{-- @if (Auth::user()->role == 3)
                                                             &nbsp;&nbsp;
                                                             <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target=".FB_NOC_Preview_{{ $value->FB_NOC_ID }}"><b><i class="mdi mdi-eye-circle-outline">View Checker Remark</i></b></button>
-                                                            @endif
+                                                            @endif --}}
                                                         </td>
 
                                                     </tr>

@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
 
-        <title>PMC-Fire NOC | New Other NOC List</title>
+        <title>PMC-Fire NOC | New Form B List</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
         <meta content="Themesdesign" name="author">
@@ -115,7 +115,7 @@
                                                         <td><span class="bg-success text-white p-1">Paid</span></td>
                                                         @elseif ($value->status == 3)
                                                         <td><span class="bg-success text-white p-1">Approved</span></td>
-                                                        @elseif ($value->status == 4)
+                                                        @elseif ($value->status == 4 || (Auth::user()->role == 8 && $value->status == 6) && (Auth::user()->role == 7 && $value->status == 0) && (Auth::user()->role == 3 && $value->status == 4))
                                                         <td><span class="bg-danger text-light p-1">Rejected</span></td>
                                                         @elseif ($value->status == 5)
                                                         <td><span class="bg-dark text-light p-1">Underprocess</span></td>
@@ -129,10 +129,16 @@
                                                         <td>{{ $value->remarks }}</td>
                                                         @endif
 
-                                                        <td style="display:flex;">
+                                                        <td>
                                                             <a href='{{ url("/all_new_form_b/show/{$value->FB_NOC_ID}/{$all_status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
+
+
+
+
+
+
                                                             @if ($all_status == 0)
                                                             &nbsp;&nbsp;
                                                             <a href='{{ url("/admin_download_new_form_b_pdf/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">

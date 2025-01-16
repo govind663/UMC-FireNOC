@@ -108,6 +108,45 @@ class CertificateController extends Controller
                     ->whereNUll('t2.deleted_at')
                     ->first();
             // dd($data);
+        }elseif($noc_mode == 8){
+            $data = DB::table('other_noc as t1')
+                    ->select('t1.*', 't2.*', 't3.*', 't1.id as NC_NOC_ID', 't2.id as d_ID', 't3.id as payment_id')
+                    ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
+                    ->leftJoin('citizen_payments as t3', 't3.mst_token', '=', 't2.mst_token' )
+                    ->where('t2.noc_mode', 8)  // ==== Renew Building NOC
+                    ->where('t2.citizen_id',  Auth::user()->id)
+                    ->where('t1.status', $status)
+                    ->where('t1.id', $id)
+                    ->whereNUll('t1.deleted_at')
+                    ->whereNUll('t2.deleted_at')
+                    ->first();
+            // dd($data);
+        }elseif($noc_mode == 9){
+            $data = DB::table('other_noc as t1')
+                    ->select('t1.*', 't2.*', 't3.*', 't1.id as ON_NOC_ID', 't2.id as d_ID', 't3.id as payment_id')
+                    ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
+                    ->leftJoin('citizen_payments as t3', 't3.mst_token', '=', 't2.mst_token' )
+                    ->where('t2.noc_mode', 9)  // ==== Renew Building NOC
+                    ->where('t2.citizen_id',  Auth::user()->id)
+                    ->where('t1.status', $status)
+                    ->where('t1.id', $id)
+                    ->whereNUll('t1.deleted_at')
+                    ->whereNUll('t2.deleted_at')
+                    ->first();
+            // dd($data);
+        }elseif($noc_mode == 10){
+            $data = DB::table('form_b as t1')
+                    ->select('t1.*', 't2.*', 't3.*', 't1.id as FB_NOC_ID', 't2.id as d_ID', 't3.id as payment_id')
+                    ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
+                    ->leftJoin('citizen_payments as t3', 't3.mst_token', '=', 't2.mst_token' )
+                    ->where('t2.noc_mode', 10)  // ==== Renew Building NOC
+                    ->where('t2.citizen_id',  Auth::user()->id)
+                    ->where('t1.status', $status)
+                    ->where('t1.id', $id)
+                    ->whereNUll('t1.deleted_at')
+                    ->whereNUll('t2.deleted_at')
+                    ->first();
+            // dd($data);
         }
 
 

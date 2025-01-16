@@ -838,19 +838,22 @@
 
                                                     &nbsp;&nbsp;
                                                     @if( Auth::user()->role == 4 || Auth::user()->role == 5 || Auth::user()->role == 6)
-                                                    <a href='{{ url("/admin_new_form_b/approved/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
+                                                    <a href='{{ url("/admin_new_form_b/approve/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
                                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
                                                     @elseif(Auth::user()->role == 2 && $data->status == 2)
-                                                    <a href='{{ url("/admin_new_form_b/approved/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
+                                                    <a href='{{ url("/admin_new_form_b/approve/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
+                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
+                                                    @elseif(Auth::user()->role == 3)
+                                                    <a href='{{ url("/admin_new_form_b/approve/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
+                                                    {{-- <button type="button" class="btn btn-warning text-dark" data-bs-toggle="modal" data-bs-target=".NB_NOC_Accept"><b>Accept</b></button>&nbsp;&nbsp; --}}
                                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
                                                     @elseif(Auth::user()->role == 8)
-                                                    <a href='{{ url("/admin_new_form_b/approved/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
+                                                    <a href='{{ url("/admin_new_form_b/approve/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
                                                     {{-- <button type="button" class="btn btn-warning text-dark" data-bs-toggle="modal" data-bs-target=".NB_NOC_Accept"><b>Accept</b></button>&nbsp;&nbsp; --}}
                                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
                                                     @elseif(Auth::user()->role == 7)
-                                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#approveModal">
-                                                        Approve
-                                                    </button>&nbsp; &nbsp;
+                                                    <a href='{{ url("/admin_new_form_b/approve/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
+
                                                       <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
                                                 @endif
                                                     {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
@@ -916,7 +919,7 @@
                 </div>
             </div>
         </div> --}}
-        <div class="modal fade" id="approveModal" tabindex="-1" aria-labelledby="approveModalLabel" aria-hidden="true">
+        {{-- <div class="modal fade" id="approveModal" tabindex="-1" aria-labelledby="approveModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -1007,7 +1010,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
 
         {{-- Start Reject for Renew Bussiness Application Model --}}

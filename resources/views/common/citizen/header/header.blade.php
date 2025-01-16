@@ -139,8 +139,6 @@
                                     <a href="{{ url('/final_building_noc_list',0) }}" class="dropdown-item"><b>Final Building NOC List</b></a>
                                     <a href="{{ url('/new_other_noc_list',0) }}" class="dropdown-item"><b>New Other NOC List</b></a>
                                     <a href="{{ url('/renew_other_noc_list',0) }}" class="dropdown-item"><b>Renew Other NOC List</b></a>
-                                    {{-- <a href="{{ url('/new_',0) }}" class="dropdown-item"><b>New Form B List</b></a> --}}
-                                    <a href="{{ url('/new_form_b_list',0) }}" class="dropdown-item"><b>New Form B List</b></a>
 
                                 </div>
                             </div>
@@ -159,7 +157,6 @@
                                     <a href="{{ url('/final_building_noc_list',5) }}" class="dropdown-item"><b>Final Building NOC List</b></a>
                                     <a href="{{ url('/new_other_noc_list',5) }}" class="dropdown-item"><b>New Other NOC List</b></a>
                                     <a href="{{ url('/renew_other_noc_list',5) }}" class="dropdown-item"><b>Renew Other NOC List</b></a>
-                                    <a href="{{ url('/new_form_b_list',5) }}" class="dropdown-item"><b>New Form B List</b></a>
 
                                 </div>
                             </div>
@@ -178,7 +175,6 @@
                                     <a href="{{ url('/final_building_noc_list',1) }}" class="dropdown-item"><b>Final Building NOC List</b></a>
                                     <a href="{{ url('/new_other_noc_list',1) }}" class="dropdown-item"><b>New Other NOC List</b></a>
                                     <a href="{{ url('/renew_other_noc_list',1) }}" class="dropdown-item"><b>Renew Other NOC List</b></a>
-                                    <a href="{{ url('/new_form_b_list',1) }}" class="dropdown-item"><b>New Form B List</b></a>
 
                                 </div>
                             </div>
@@ -197,7 +193,6 @@
                                     <a href="{{ url('/final_building_noc_list',7) }}" class="dropdown-item"><b>Final Building NOC List</b></a>
                                     <a href="{{ url('/new_other_noc_list',7) }}" class="dropdown-item"><b>New Other NOC List</b></a>
                                     <a href="{{ url('/renew_other_noc_list',7) }}" class="dropdown-item"><b>Renew Other NOC List</b></a>
-                                    <a href="{{ url('/new_form_b_list',7) }}" class="dropdown-item"><b>New Form B List</b></a>
                                 </div>
                             </div>
 
@@ -215,8 +210,6 @@
                                     <a href="{{ url('/final_building_noc_list',2) }}" class="dropdown-item"><b>Final Building NOC List</b></a>
                                     <a href="{{ url('/new_other_noc_list',2) }}" class="dropdown-item"><b>New Other NOC List</b></a>
                                     <a href="{{ url('/renew_other_noc_list',2) }}" class="dropdown-item"><b>Renew Other NOC List</b></a>
-                                    <a href="{{ url('/new_form_b_list',2) }}" class="dropdown-item"><b>New Form B List</b></a>
-
                                 </div>
                             </div>
 
@@ -234,7 +227,6 @@
                                     <a href="{{ url('/final_building_noc_list',6) }}" class="dropdown-item"><b>Final Building NOC List</b></a>
                                     <a href="{{ url('/new_other_noc_list',6) }}" class="dropdown-item"><b>New Other NOC List</b></a>
                                     <a href="{{ url('/renew_other_noc_list',6) }}" class="dropdown-item"><b>Renew Other NOC List</b></a>
-                                    <a href="{{ url('/new_form_b_list',6) }}" class="dropdown-item"><b>New Form B List</b></a>
                                 </div>
                             </div>
 <Style>
@@ -258,7 +250,6 @@
         <a href="{{ url('/final_building_noc_list',3) }}" class="dropdown-item"><b>Final Building NOC List</b></a>
         <a href="{{ url('/new_other_noc_list',3) }}" class="dropdown-item"><b>New Other NOC List</b></a>
         <a href="{{ url('/renew_other_noc_list',3) }}" class="dropdown-item"><b>Renew Other NOC List</b></a>
-        <a href="{{ url('/new_form_b_list',3) }}" class="dropdown-item"><b>New Form B List</b></a>
 
     </div>
 </div>
@@ -286,7 +277,6 @@
         <a href="{{ url('/final_building_noc_list',4) }}" class="dropdown-item"><b>Final Building NOC List</b></a>
         <a href="{{ url('/new_other_noc_list',4) }}" class="dropdown-item"><b>New Other NOC List</b></a>
         <a href="{{ url('/renew_other_noc_list',4) }}" class="dropdown-item"><b>Renew Other NOC List</b></a>
-        <a href="{{ url('/new_form_b_list',4) }}" class="dropdown-item"><b>New Form B List</b></a>
 
     </div>
 </div>
@@ -303,15 +293,129 @@
                         </div>
                     </li>
 
-                   <li class="nav-item dropdown">
+                   {{-- <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-components" role="button" data-toggle="dropdown">
         <i class="uim uim-layer-group"></i> <b>Form B</b>
     </a>
     <div class="dropdown-menu" aria-labelledby="topnav-components">
-        <a href="{{ url('/new_form_b/create') }}" class="dropdown-item">Open Form B</a>
+        <a href="{{ url('/new_form_b/create') }}" class="dropdown-item">Create Form B</a>
+    </div> --}}
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle arrow-none" href="#" id="topnav-components" role="button">
+            <i class="uim uim-layer-group"></i> <b>Form B</b> <div class="arrow-down"></div>
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="topnav-components">
+            <div class="dropdown" aria-labelledby="topnav-components">
+                <a href="{{ url('/new_form_b/create') }}" class="dropdown-item">Create Form B</a>
+            </div>
+            <div class="dropdown">
+                <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-form" role="button">
+                    <b>Pending Application List</b>  <div class="arrow-down"></div>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="topnav-form">
+                    <a href="{{ url('/new_form_b_list',0) }}" class="dropdown-item"><b>New Form B List</b></a>
+
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-table" role="button">
+                    <b>Underprocess Application List</b> <div class="arrow-down"></div>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="topnav-table">
+                    <a href="{{ url('/new_form_b_list',5) }}" class="dropdown-item"><b>New Form B List</b></a>
+
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-table" role="button">
+                    <b>Unpaid Application List</b> <div class="arrow-down"></div>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="topnav-table">
+                    <a href="{{ url('/new_form_b_list',1) }}" class="dropdown-item"><b>New Form B List</b></a>
+
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-table" role="button">
+                    <b>Generated Invoice List</b> <div class="arrow-down"></div>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="topnav-table">
+                    <a href="{{ url('/new_form_b_list',7) }}" class="dropdown-item"><b>New Form B List</b></a>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-table" role="button">
+                    <b>Paid Application List</b> <div class="arrow-down"></div>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="topnav-table">
+                    <a href="{{ url('/new_form_b_list',2) }}" class="dropdown-item"><b>New Form B List</b></a>
+
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-table" role="button">
+                    <b>Reviewed Application List</b> <div class="arrow-down"></div>
+                </a>
+                <div class="dropdown-menu scrollable-dropdown" aria-labelledby="topnav-table">
+                    <a href="{{ url('/new_form_b_list',6) }}" class="dropdown-item"><b>New Form B List</b></a>
+                </div>
+            </div>
+<Style>
+
+.scrollable-dropdown {
+max-height: 300px;  /* Set a maximum height for the dropdown */
+overflow-y: auto;   /* Enable vertical scrolling */
+}
+</Style>
+
+<div class="dropdown">
+<a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-table" role="button">
+<b>Approved Application List</b> <div class="arrow-down"></div>
+</a>
+<div class="dropdown-menu scrollable-dropdown" aria-labelledby="topnav-table">
+<a href="{{ url('/new_form_b_list',3) }}" class="dropdown-item"><b>New Form B List</b></a>
+
+</div>
+</div>
+<style>
+.scrollable-dropdown {
+max-height: 300px;  /* Set a maximum height for the dropdown */
+
+overflow-y: auto;   /* Enable vertical scrolling */
+
+}
+</style>
 
 
-    </div>
+<div class="dropdown">
+<a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-table" role="button">
+<b>Rejected Application List</b> <div class="arrow-down"></div>
+</a>
+<div class="dropdown-menu scrollable-dropdown" aria-labelledby="topnav-table">
+<a href="{{ url('/new_form_b_list',4) }}" class="dropdown-item"><b>New Form B List</b></a>
+
+</div>
+</div>
+
+<style>
+.scrollable-dropdown {
+max-height: 300px; /* Adjust height as needed */
+overflow-y: auto;  /* Enable vertical scrolling */
+}
+</style>
+
+
+
+        </div>
+    </li>
+
 </li>
                 </ul>
 
