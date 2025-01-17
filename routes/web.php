@@ -180,6 +180,7 @@ Route::group(['middleware' => ['auth:web', 'preventBackHistoryMiddleware', 'Secu
   Route::get('/all_new_form_b/show/{id}/{all_status}', [AdminFormBController::class, 'view'])->name('all_new_form_b.show');  Route::get('/admin_new_form_b/approve/{FB_NOC_ID}/{status}/{auth_role}', [AdminFormBController::class, 'showApprovalForm'])->name('admin.form.approve');
 //  Route::post('/admin_new_form_b/approve/{FB_NOC_ID}/{status}/{auth_role}', [AdminFormBController::class, 'approved'])->name('admin.form.submit');
 Route::get('/admin_download_clerk_demand_letter_pdf/{id}/{status}', [AdminFormBController::class, 'admin_download_clerk_demand_letter_pdf'])->name('admin_download_clerk_demand_letter_pdf');
+Route::get('/admin_download_clerk_noc_letter_pdf/{id}/{status}', [AdminFormBController::class, 'admin_download_clerk_noc_letter_pdf'])->name('admin_download_noc_letter_letter_pdf');
 
     // ======= Business Master
     Route::resource('/business', BusinessController::class);
@@ -362,6 +363,8 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware', '
     Route::get('/new_form_b/edit/{id}/{status}', [FormBController::class, 'edit'])->name('new_form_b.edit');
     Route::post('/new_form_b/edit/update/{id}/{n_id}/{status}', [FormBController::class, 'update'])->name('new_form_b.edit.update');
     Route::delete('/new_form_b/delete/{id}/{n_id}/{status}', [FormBController::class, 'destroy'])->name('new_form_b.delete');
+    Route::post('/store-form-b-photo', [FormBController::class, 'storePhoto'])->name('storeFormBPhoto');
+
 
     // ====== Renew Other NOC
     // Route::get('/renew_form_b_list/{status}', [ReNewOtherNOCController::class, 'index'])->name('renew_form_b_list');

@@ -198,12 +198,14 @@
                                                             <button type="button" class="btn btn-warning text-dark btn-sm waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_{{ $value->FB_NOC_ID }}">Upload Payment Recepit</button>
                                                             @endif
                                                             @if($value->status == 3)
-                                                            <label class="btn btn-outline-secondary">
-                                                                <i class="mdi mdi-file"></i> Upload Certificate
-                                                                <input class="d-none" type="file" name="certificate" placeholder="upload certificate">
-                                                            </label>
+                                                            {{-- <form action="{{ route('storeFormBPhoto') }}" method="POST" enctype="multipart/form-data">
+                                                                @csrf
+                                                                <label for="photo" class="form-label">Upload Payment Slip:</label>
+                                                                <input type="file" name="photo" id="photo" class="form-control" accept="image/*" required>
+                                                                <input type="hidden" name="form_b_id" value="{{ $formBId }}"> <!-- Pass the ID of form_b -->
+                                                                <button type="submit" class="btn btn-primary mt-2">Upload</button>
+                                                            </form> --}}
                                                             @endif
-
 
 
                                                         </td>

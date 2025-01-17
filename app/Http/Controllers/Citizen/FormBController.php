@@ -12,7 +12,8 @@ use App\Models\Business;
 use App\Models\CitizenPayment;
 use App\Models\FeeReceiptDocument;
 use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
-
+use GuzzleHttp\Psr7\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FormBController extends Controller
 {
@@ -822,4 +823,31 @@ class FormBController extends Controller
 
         return FacadePdf::loadView('citizen.form_b.new_form_b.new_form_b_pdf', compact('data','status'))->stream("Form B #".$data->FB_NOC_ID.".pdf");
     }
+//     public function storePhoto(Request $request)
+// {
+//     // Validate the file and the form_b_id
+//     $request->validate([
+//         'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Allow image files up to 2MB
+//         'form_b_id' => 'required|exists:form_b,id', // Ensure form_b_id exists in the table
+//     ]);
+
+//     // Check if a photo file is uploaded
+//     if ($request->hasFile('key')('photo')) {
+//         // Store the photo in the "public/photos" directory
+//         $filePath = $request->file('photo')->store('photos', 'public');
+
+//         // Generate the public URL for the stored file
+//         $photoUrl = asset('storage/' . $filePath);
+
+//         // Update the `form_b` table with the photo URL
+//         DB::table('form_b')->where('id', $request->form_b_id)->update([
+//             'photo' => $photoUrl,
+//             'updated_at' => now(),
+//         ]);
+
+//         return back()->with('success', 'Photo uploaded and saved successfully!');
+//     }
+
+//     return back()->with('error', 'Failed to upload photo.');
+// }
 }

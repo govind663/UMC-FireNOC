@@ -99,7 +99,7 @@ class AdminFormBController extends Controller
         // display only pending form (status=0)
         if (Auth::user()->role == 7) {
             $update = [
-                'status' => 0, // === New (Level Up that means application go to field inspector)
+                'status' => 5, // === New (Level Up that means application go to field inspector)
             //     'contractor_dt' => date("Y-m-d H:i:s"),// ===== Approved by operator
             //   'contractor_name'=>$request->contractor_name,
             //    'contractor_address'=>$request->contractor_address,
@@ -107,7 +107,7 @@ class AdminFormBController extends Controller
             //    'annual_charges'=>$request->annual_charges,
             //    'total_charge'=>$request->total_charge,
             //    'shera'=>$request->shera,
-               'clerk_status' => 0, // ===== Approved by operator
+               'clerk_status' => 1, // ===== Approved by operator
                 'clerk_by' => Auth::user()->id,
                 'clerk_dt' => date("Y-m-d H:i:s"),
                 'application_status' => 7, // ===== Field Inspector will pass
@@ -136,7 +136,7 @@ class AdminFormBController extends Controller
             // }
 
             $update = [
-                'status' => 6, // === Unpaid (Level Up that means application go to User End)
+                'status' => 3, // === Unpaid (Level Up that means application go to User End)
                 'station_status' => 1, // ===== Approved by Field Inspector
                 'station_by' => Auth::user()->id,
                 'station_dt' => date("Y-m-d H:i:s"),
@@ -258,34 +258,26 @@ class AdminFormBController extends Controller
      */
     public function list($all_status)
     {
-        // dd($all_status);
-        $query = DB::table('form_b AS t1')
-                    ->select('t1.*', 't2.*', 't1.id as FB_NOC_ID', 't2.id as d_ID')
-                    ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id')
-                    ->where('t2.noc_mode', 10) // ==== New Other NOC (status=1)
-                    ->whereNUll('t1.deleted_at')
-                    ->whereNUll('t2.deleted_at')
-                    ->orderBy('t1.id', 'DESC');
+        $statusArray = is_array($all_status) ? $all_status : [$all_status];
 
-        if (Auth::user()->role == 0) {
-            $query->where('t1.operator_status', $all_status);
-        } elseif (Auth::user()->role == 1) {
-            $query->where('t1.inspector_status', $all_status);
-        } elseif (Auth::user()->role == 2) {
-            $query->where('t1.officer_status', $all_status);
-        } elseif (Auth::user()->role == 3) {
-            $query->where('t1.status', $all_status);
-        }elseif (Auth::user()->role == 7) {
-            $query->where('t1.clerk_status', $all_status);
-        }
-        elseif (Auth::user()->role == 8 ) {
-            $query->where('t1.station_status', $all_status);
-        }
+        $query = DB::table('form_b AS t1')
+        ->select('t1.*', 't2.*', 't1.id as FB_NOC_ID', 't2.id as d_ID')
+        ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id')
+        ->where('t2.noc_mode', 10)
+        ->whereNull('t2.deleted_at')
+        ->where('t1.status', $statusArray)
+        ->orderBy('t1.id', 'DESC');
+
+
         $data = $query->get();
         // dd($data);
 
+
         return view('admin.form_b.all_application.new_form_b.grid')->with('data', $data)->with('all_status', $all_status);
     }
+
+
+
 
     /**
      * Display the specified resource.
@@ -388,6 +380,24 @@ class AdminFormBController extends Controller
     //     return redirect()->route('admin.form.approve', [$FB_NOC_ID, $status, $auth_role])
     //                      ->with('success', 'Approval submitted successfully.');
     // }
+
+    public function admin_download_clerk_noc_letter_pdf($id, $status)
+    {
+        $data = DB::table('form_b as t1')
+        ->select('t1.*', 't2.*', 't1.id as FB_NOC_ID', 't2.id as d_ID' , 't3.citizen_payment_status')
+        ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
+        ->leftJoin('citizen_payments as t3', 't3.mst_token', '=', 't2.mst_token' )
+        ->where('t2.noc_mode', 10)  // ==== New Other NOC (status=1)
+        ->where('t1.status', $status)
+        ->where('t1.id', $id)
+        ->whereNUll('t1.deleted_at')
+        ->whereNUll('t2.deleted_at')
+        ->whereNUll('t3.deleted_at')
+        ->first();
+
+        return FacadePdf::loadView('admin.form_b.new_form_b.noc_form_b_pdf', compact('data','status'))->setPaper('a4')->stream("New Form B".$data->FB_NOC_ID.".pdf");
+
+    }
 
 
 }

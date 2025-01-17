@@ -65,9 +65,9 @@
                                     <div class="card-body" style="border: 1px solid rgb(3, 155, 155);">
 
                                         @if($all_status == 2)
-                                        <h4 class="card-header text-primary">All Rejected New Other NOC List</h4>
+                                        <h4 class="card-header text-primary">All Rejected New Form B List</h4>
                                         @elseif($all_status == 1)
-                                        <h4 class="card-header text-primary">All Approved New Other NOC List</h4>
+                                        <h4 class="card-header text-primary">All Approved New Form B List</h4>
                                         @endif
 
                                         <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
@@ -115,7 +115,7 @@
                                                         <td><span class="bg-success text-white p-1">Paid</span></td>
                                                         @elseif ($value->status == 3)
                                                         <td><span class="bg-success text-white p-1">Approved</span></td>
-                                                        @elseif ($value->status == 4 || (Auth::user()->role == 8 && $value->status == 6) && (Auth::user()->role == 7 && $value->status == 0) && (Auth::user()->role == 3 && $value->status == 4))
+                                                        @elseif ($value->status == 4)
                                                         <td><span class="bg-danger text-light p-1">Rejected</span></td>
                                                         @elseif ($value->status == 5)
                                                         <td><span class="bg-dark text-light p-1">Underprocess</span></td>
@@ -125,25 +125,26 @@
                                                         <td><span class="bg-primary text-white p-1">Invoice Generated Successfully</span></td>
                                                         @endif
 
-                                                        @if ( $value->status == 2 || $value->status == 4 )
-                                                        <td>{{ $value->remarks }}</td>
-                                                        @endif
+
 
                                                         <td>
                                                             <a href='{{ url("/all_new_form_b/show/{$value->FB_NOC_ID}/{$all_status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
-
-
-
-
-
-
+                                                        </td>
+                                                            @if ( $value->status == 2 || $value->status == 4 )
+                                                            &nbsp;&nbsp;
+                                                            <td>
+                                                            {{ $value->remarks }}
+                                                        </td>
+                                                            @endif
                                                             @if ($all_status == 0)
                                                             &nbsp;&nbsp;
+                                                            <td>
                                                             <a href='{{ url("/admin_download_new_form_b_pdf/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
                                                                 <b><i class="mdi mdi-file"> Download View </i></b>
                                                             </a>
+                                                        </td>
                                                             @endif
                                                         </td>
                                                     </tr>

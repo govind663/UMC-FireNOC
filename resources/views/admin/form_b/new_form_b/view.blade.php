@@ -852,7 +852,12 @@
                                                     {{-- <button type="button" class="btn btn-warning text-dark" data-bs-toggle="modal" data-bs-target=".NB_NOC_Accept"><b>Accept</b></button>&nbsp;&nbsp; --}}
                                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
                                                     @elseif(Auth::user()->role == 7)
-                                                    <a href='{{ url("/admin_new_form_b/approve/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
+                                                    <a href="javascript:void(0)" class="btn btn-success text-light" data-bs-toggle="modal" data-bs-target="#approveModal1">
+                                                        <b>Create NOC Letter</b>
+                                                    </a>&nbsp;&nbsp;
+                                                    <a href="javascript:void(0)" class="btn btn-success text-light" data-bs-toggle="modal" data-bs-target="#approveModal">
+                                                        <b>Create Demand Letter</b>
+                                                    </a>&nbsp;&nbsp;                                                   {{-- <a href='{{ url("/admin_new_form_b/approve/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp; --}}
 
                                                       <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
                                                 @endif
@@ -919,99 +924,208 @@
                 </div>
             </div>
         </div> --}}
-        {{-- <div class="modal fade" id="approveModal" tabindex="-1" aria-labelledby="approveModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="approveModalLabel">Approval Confirmation</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-
-                            <form class="auth-input p-3"  method="POST"  action='{{ url("/admin_new_form_b/clerk_approved/$data->FB_NOC_ID/$data->status/$auth_role") }}' enctype="multipart/form-data">
-
-                            @csrf
-                            <!-- Date Field -->
-                            <div class="mb-3">
-                                <label for="f_inspector_dt" class="form-label"><strong>Date: <span style="color:red;">*</span></strong></label>
-                                <input type="date" required name="contractor_dt" id="contractor_dt" class="form-control @error('contractor_dt') is-invalid @enderror" value="{{ old('contractor_dt') }}">
-                                @error('contractor_dt')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <!-- Contractual Name -->
-                            <div class="mb-3">
-                                <label for="contractual_name" class="form-label"><strong>Contractor Name:</strong></label>
-                                <input type="text" name="contractor_name" id="contractor_name" class="form-control @error('contractor_name') is-invalid @enderror" value="{{ old('contractor_name') }}">
-                                @error('contractor_name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <!-- Address -->
-                            <div class="mb-3">
-                                <label for="address" class="form-label"><strong>Address:</strong></label>
-                                <input type="text" name="contractor_address" id="contractor_address" class="form-control @error('contractor_address') is-invalid @enderror" value="{{ old('contractor_address') }}">
-                                @error('contractor_address')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <!-- Fees Paid -->
-                            <div class="mb-3">
-                                <label for="fees_paid" class="form-label"><strong>Fees Paid by You (as assumed by the department):</strong></label>
-                                <input type="number" name="fees_paid" id="fees_paid" class="form-control @error('fees_paid') is-invalid @enderror" value="{{ old('fees_paid') }}">
-                                @error('fees_paid')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <!-- Annual Charges -->
-                            <div class="mb-3">
-                                <label for="annual_charges" class="form-label"><strong>Annual Charges:</strong></label>
-                                <input type="number" name="annual_charges" id="annual_charges" class="form-control @error('annual_charges') is-invalid @enderror" value="{{ old('annual_charges') }}">
-                                @error('annual_charges')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <!-- Total Charges -->
-                            <div class="mb-3">
-                                <label for="total_charge" class="form-label"><strong>Total Charge:</strong></label>
-                                <input type="number" name="total_charge" id="total_charge" class="form-control @error('total_charge') is-invalid @enderror" value="{{ old('total_charge') }}">
-                                @error('total_charge')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <!-- Shera -->
-                            <div class="mb-3">
-                                <label for="shera" class="form-label"><strong>Shera:</strong></label>
-                                <input type="number" name="shera" id="shera" class="form-control @error('shera') is-invalid @enderror" value="{{ old('shera') }}">
-                                @error('shera')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <!-- Submit Button -->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Approve</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+     <!-- Button to trigger Approval Confirmation Modal -->
+<!-- Modal for Approval Confirmation -->
+<div class="modal fade" id="approveModal" tabindex="-1" aria-labelledby="approveModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="approveModalLabel">Approval Confirmation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-        </div> --}}
+            <div class="modal-body">
+                <form class="auth-input p-3" method="POST" action='{{ url("/admin_new_form_b/clerk_approved/$data->FB_NOC_ID/$data->status/$auth_role") }}' enctype="multipart/form-data">
+                    @csrf
 
+                    <!-- Date Field -->
+                    <div class="mb-3">
+                        <label for="f_inspector_dt" class="form-label"><strong>Date: <span style="color:red;">*</span></strong></label>
+                        <input type="date" required name="contractor_dt" id="contractor_dt" class="form-control @error('contractor_dt') is-invalid @enderror" value="{{ old('contractor_dt') }}">
+                        @error('contractor_dt')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+                    <!-- Contractor Name -->
+                    <div class="mb-3">
+                        <label for="contractual_name" class="form-label"><strong>Contractor Name:</strong></label>
+                        <input type="text" name="contractor_name" id="contractor_name" class="form-control @error('contractor_name') is-invalid @enderror" value="{{ old('contractor_name') }}">
+                        @error('contractor_name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+                    <!-- Address -->
+                    <div class="mb-3">
+                        <label for="address" class="form-label"><strong>Address:</strong></label>
+                        <input type="text" name="contractor_address" id="contractor_address" class="form-control @error('contractor_address') is-invalid @enderror" value="{{ old('contractor_address') }}">
+                        @error('contractor_address')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+                    <!-- Fees Paid -->
+                    <div class="mb-3">
+                        <label for="fees_paid" class="form-label"><strong>Fees Paid by You (as assumed by the department):</strong></label>
+                        <input type="number" name="fees_paid" id="fees_paid" class="form-control @error('fees_paid') is-invalid @enderror" value="{{ old('fees_paid') }}">
+                        @error('fees_paid')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+                    <!-- Annual Charges -->
+                    <div class="mb-3">
+                        <label for="annual_charges" class="form-label"><strong>Annual Charges:</strong></label>
+                        <input type="number" name="annual_charges" id="annual_charges" class="form-control @error('annual_charges') is-invalid @enderror" value="{{ old('annual_charges') }}">
+                        @error('annual_charges')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+                    <!-- Total Charges -->
+                    <div class="mb-3">
+                        <label for="total_charge" class="form-label"><strong>Total Charge:</strong></label>
+                        <input type="number" name="total_charge" id="total_charge" class="form-control @error('total_charge') is-invalid @enderror" value="{{ old('total_charge') }}">
+                        @error('total_charge')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+                    <!-- Shera -->
+                    <div class="mb-3">
+                        <label for="shera" class="form-label"><strong>Shera:</strong></label>
+                        <input type="number" name="shera" id="shera" class="form-control @error('shera') is-invalid @enderror" value="{{ old('shera') }}">
+                        @error('shera')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Approve</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="approveModal1" tabindex="-1" aria-labelledby="approveModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="approveModalLabel">Approval Confirmation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="auth-input p-3" method="POST" action='{{ url("/admin_new_form_b/clerk_approved/$data->FB_NOC_ID/$data->status/$auth_role") }}' enctype="multipart/form-data">
+                    @csrf
+
+                    <!-- Date Field -->
+                    <div class="mb-3">
+                        <label for="f_inspector_dt" class="form-label"><strong>Date: <span style="color:red;">*</span></strong></label>
+                        <input type="date" required name="contractor_dt" id="contractor_dt" class="form-control @error('contractor_dt') is-invalid @enderror" value="{{ old('contractor_dt') }}">
+                        @error('contractor_dt')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+                    <!-- Contractor Name -->
+                    {{-- <div class="mb-3">
+                        <label for="contractual_name" class="form-label"><strong>Contractor Name:</strong></label>
+                        <input type="text" name="contractor_name" id="contractor_name" class="form-control @error('contractor_name') is-invalid @enderror" value="{{ old('contractor_name') }}">
+                        @error('contractor_name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div> --}}
+
+                    <!-- Address -->
+                    {{-- <div class="mb-3">
+                        <label for="address" class="form-label"><strong>Address:</strong></label>
+                        <input type="text" name="contractor_address" id="contractor_address" class="form-control @error('contractor_address') is-invalid @enderror" value="{{ old('contractor_address') }}">
+                        @error('contractor_address')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div> --}}
+
+                    <!-- Fees Paid -->
+                    {{-- <div class="mb-3">
+                        <label for="fees_paid" class="form-label"><strong>Fees Paid by You (as assumed by the department):</strong></label>
+                        <input type="number" name="fees_paid" id="fees_paid" class="form-control @error('fees_paid') is-invalid @enderror" value="{{ old('fees_paid') }}">
+                        @error('fees_paid')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div> --}}
+
+                    <!-- Annual Charges -->
+                    {{-- <div class="mb-3">
+                        <label for="annual_charges" class="form-label"><strong>Annual Charges:</strong></label>
+                        <input type="number" name="annual_charges" id="annual_charges" class="form-control @error('annual_charges') is-invalid @enderror" value="{{ old('annual_charges') }}">
+                        @error('annual_charges')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div> --}}
+
+                    <!-- Total Charges -->
+                    {{-- <div class="mb-3">
+                        <label for="total_charge" class="form-label"><strong>Total Charge:</strong></label>
+                        <input type="number" name="total_charge" id="total_charge" class="form-control @error('total_charge') is-invalid @enderror" value="{{ old('total_charge') }}">
+                        @error('total_charge')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div> --}}
+
+                    <!-- Shera -->
+                    {{-- <div class="mb-3">
+                        <label for="shera" class="form-label"><strong>Shera:</strong></label>
+                        <input type="number" name="shera" id="shera" class="form-control @error('shera') is-invalid @enderror" value="{{ old('shera') }}">
+                        @error('shera')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div> --}}
+
+
+                    testing Noc Letter
+
+                    <!-- Submit Button -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Approve</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
         {{-- Start Reject for Renew Bussiness Application Model --}}
         <div class="modal fade NB_NOC_Reject" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
