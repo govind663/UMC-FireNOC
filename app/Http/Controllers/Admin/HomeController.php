@@ -7,17 +7,19 @@ use App\Repository\BuildingRepository;
 use App\Repository\BusinessRepository;
 use App\Repository\HomeRepository;
 use App\Repository\HospitalRepository;
+use App\Repository\OtherRepository;
 
 class HomeController extends Controller
 {
-    protected $homeRepository, $businessRepository, $hospitalRepository, $buildingRepository ;
+    protected $homeRepository, $businessRepository, $hospitalRepository, $buildingRepository, $otherRepository ;
 
-    public function __construct(HomeRepository $homeRepository, BusinessRepository $businessRepository, HospitalRepository $hospitalRepository, BuildingRepository $buildingRepository)
+    public function __construct(HomeRepository $homeRepository, BusinessRepository $businessRepository, HospitalRepository $hospitalRepository, BuildingRepository $buildingRepository, OtherRepository $otherRepository)
     {
         $this->homeRepository = $homeRepository;
         $this->businessRepository = $businessRepository;
         $this->hospitalRepository = $hospitalRepository;
         $this->buildingRepository = $buildingRepository;
+        $this->otherRepository = $otherRepository;
     }
 
     public function Admin_Home()
@@ -129,10 +131,41 @@ class HomeController extends Controller
         $building_total_rejected = $this->buildingRepository->getRejectedBuildingNOC();
         // dd($building_total_rejected);
 
+        $other_total_pending = $this->otherRepository->getPendingOtherNOC();
+        // // dd($Other_total_pending);
+
+        // // ==== new_Other_noc(Underprocess)
+        $other_total_underprocess = $this->otherRepository->getUnderprocessOtherNOC();
+        // // dd($Other_total_underprocess);
+
+        // // ==== new_Other_noc(Unpaid)
+        $other_total_unpaid = $this->otherRepository->getUnpaidOtherNOC();
+        // // dd($Other_total_unpaid);
+
+        // // ==== new_Other_noc(Generated Invoice)
+        $other_total_generated_invoice = $this->otherRepository->getGeneratedInvoiceOtherNOC();
+        // // dd($Other_total_generated_invoice);
+
+        // // ==== new_Other_noc(Paid)
+         $other_total_paid = $this->otherRepository->getPaidOtherNOC();
+        // // dd($Other_total_paid);
+
+        // // ==== new_Other_noc(Reviewed)
+        $other_total_reviewed = $this->otherRepository->getReviewedOtherNOC();
+        // // dd($Other_total_reviewed);
+
+        // // ==== new_Other_noc(Approved)
+        $other_total_approved = $this->otherRepository->getApprovedOtherNOC();
+        // // dd($Other_total_approved);
+
+        // // ==== new_Other_noc(Rejected)
+    $other_total_rejected = $this->otherRepository->getRejectedOtherNOC();
+
         return view('admin.admin_dashboard')
         ->with(['total_citizen' => $total_citizen])
         ->with(['business_total_pending' => $business_total_pending, 'business_total_underprocess' => $business_total_underprocess, 'business_total_unpaid' => $business_total_unpaid, 'business_total_generated_invoice' => $business_total_generated_invoice , 'business_total_paid' => $business_total_paid, 'business_total_reviewed' => $business_total_reviewed, 'business_total_rejected' => $business_total_rejected, 'business_total_approved' => $business_total_approved])
         ->with(['hospital_total_pending' => $hospital_total_pending, 'hospital_total_underprocess' => $hospital_total_underprocess, 'hospital_total_unpaid' => $hospital_total_unpaid, 'hospital_total_generated_invoice' => $hospital_total_generated_invoice , 'hospital_total_paid' => $hospital_total_paid, 'hospital_total_reviewed' => $hospital_total_reviewed, 'hospital_total_rejected' => $hospital_total_rejected, 'hospital_total_approved' => $hospital_total_approved])
-        ->with(['building_total_pending' => $building_total_pending, 'building_total_underprocess' => $building_total_underprocess, 'building_total_unpaid' => $building_total_unpaid, 'building_total_generated_invoice' => $building_total_generated_invoice , 'building_total_paid' => $building_total_paid, 'building_total_reviewed' => $building_total_reviewed, 'building_total_rejected' => $building_total_rejected, 'building_total_approved' => $building_total_approved]);
+        ->with(['building_total_pending' => $building_total_pending, 'building_total_underprocess' => $building_total_underprocess, 'building_total_unpaid' => $building_total_unpaid, 'building_total_generated_invoice' => $building_total_generated_invoice , 'building_total_paid' => $building_total_paid, 'building_total_reviewed' => $building_total_reviewed, 'building_total_rejected' => $building_total_rejected, 'building_total_approved' => $building_total_approved])
+         ->with(['other_total_pending' => $other_total_pending,'other_total_underprocess' => $other_total_underprocess, 'other_total_unpaid' => $other_total_unpaid, 'other_total_generated_invoice' => $other_total_generated_invoice , 'other_total_paid' => $other_total_paid, 'other_total_reviewed' => $other_total_reviewed, 'other_total_rejected' => $other_total_rejected, 'other_total_approved' => $other_total_approved]);
     }
 }

@@ -118,36 +118,11 @@
                         </tr>
                     </tbody>
                 </table>
-
+                hiii
                 <h4 class="mb-3"><b>Demandraft Details :</b></h4>
 
   <table class="table table-bordered table-responsive" style="width: 100%;">
-                    <tbody>
-                        <tr>
-                            <th scope="row">Contractor Name : </th>
-                            <td colspan="3">{{ ucwords($data->contractor_name) }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Address: </th>
-                            <td colspan="3">{{ ucwords($data->contractor_address) }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Fees Paid by You (as assumed by the department): </th>
-                            <td colspan="3">{{ ucwords($data->fees_paid) }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Annual Charges : </th>
-                            <td colspan="3">{{ ucwords($data->annual_charges) }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Total Charges : </th>
-                            <td colspan="3">{{ ucwords($data->total_charge) }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Shera : </th>
-                            <td colspan="3">{{ ucwords($data->shera) }}</td>
-                        </tr>
-                    </tbody>
+
                 </table>
 
                 <div class="row  p-4" style="border:1px  solid #0c0c0c !important;">

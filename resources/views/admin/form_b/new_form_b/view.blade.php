@@ -851,15 +851,19 @@
                                                     <a href='{{ url("/admin_new_form_b/approve/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
                                                     {{-- <button type="button" class="btn btn-warning text-dark" data-bs-toggle="modal" data-bs-target=".NB_NOC_Accept"><b>Accept</b></button>&nbsp;&nbsp; --}}
                                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
-                                                    @elseif(Auth::user()->role == 7)
-                                                    <a href="javascript:void(0)" class="btn btn-success text-light" data-bs-toggle="modal" data-bs-target="#approveModal1">
-                                                        <b>Create NOC Letter</b>
-                                                    </a>&nbsp;&nbsp;
-                                                    <a href="javascript:void(0)" class="btn btn-success text-light" data-bs-toggle="modal" data-bs-target="#approveModal">
-                                                        <b>Create Demand Letter</b>
-                                                    </a>&nbsp;&nbsp;                                                   {{-- <a href='{{ url("/admin_new_form_b/approve/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp; --}}
+                                                    {{-- @elseif(Auth::user()->role == 7) --}}
+                                                    @elseif ((Auth::user()->role == 7 && $data->status == 0))
+    <a href="javascript:void(0)" class="btn btn-success text-light" data-bs-toggle="modal" data-bs-target="#approveModal1">
+        <b>Create NOC Letter</b>
+    </a>&nbsp;&nbsp;
+    <a href="javascript:void(0)" class="btn btn-success text-light" data-bs-toggle="modal" data-bs-target="#approveModal">
+        <b>Create Demand Letter</b>
+    </a>&nbsp;&nbsp;
 
-                                                      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject">
+        <b>Reject</b>
+    </button>
+                                                      {{-- <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button> --}}
                                                 @endif
                                                     {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
                                                 </div>
@@ -934,12 +938,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form class="auth-input p-3" method="POST" action='{{ url("/admin_new_form_b/clerk_approved/$data->FB_NOC_ID/$data->status/$auth_role") }}' enctype="multipart/form-data">
+                <form class="auth-input p-3" name ="demand_letter" method="POST" action='{{ url("/admin_new_form_b/clerk_approved/$data->FB_NOC_ID/$data->status/$auth_role") }}' enctype="multipart/form-data" >
                     @csrf
 
                     <!-- Date Field -->
                     <div class="mb-3">
-                        <label for="f_inspector_dt" class="form-label"><strong>Date: <span style="color:red;">*</span></strong></label>
+                        <label for="contractor_dt" class="form-label"><strong>Date: <span style="color:red;">*</span></strong></label>
                         <input type="date" required name="contractor_dt" id="contractor_dt" class="form-control @error('contractor_dt') is-invalid @enderror" value="{{ old('contractor_dt') }}">
                         @error('contractor_dt')
                             <span class="invalid-feedback" role="alert">
@@ -1039,8 +1043,8 @@
                     <!-- Date Field -->
                     <div class="mb-3">
                         <label for="f_inspector_dt" class="form-label"><strong>Date: <span style="color:red;">*</span></strong></label>
-                        <input type="date" required name="contractor_dt" id="contractor_dt" class="form-control @error('contractor_dt') is-invalid @enderror" value="{{ old('contractor_dt') }}">
-                        @error('contractor_dt')
+                        <input type="date" required name="f_inspector_dt" id="f_inspector_dt" class="form-control @error('f_inspector_dt') is-invalid @enderror" value="{{ old('f_inspector_dt') }}">
+                        @error('f_inspector_dt')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

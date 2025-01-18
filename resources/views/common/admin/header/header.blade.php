@@ -471,9 +471,10 @@
                             <div class="row">
                                 <div class="col-lg-5">
                                     <div>
-                                        <a href="{{ url('/all_new_form_b_list',5) }}" class="dropdown-item">UnderProcess Application Of Form B</a>
-                                        <a href="{{ url('/all_new_form_b_list',4) }}" class="dropdown-item"> Rejected Application Of Form B</a>
-                                        <a href="{{ url('/all_new_form_b_list',3) }}" class="dropdown-item">Approved Application Of Form B</a>
+                                        <a href="{{ url('/admin_new_form_b_list',6) }}" class="dropdown-item">Review Application Of Form B</a>
+                                        <a href="{{ url('/admin_new_form_b_list',5) }}" class="dropdown-item">UnderProcess Application Of Form B</a>
+                                        <a href="{{ url('/admin_new_form_b_list',4) }}" class="dropdown-item"> Rejected Application Of Form B</a>
+                                        <a href="{{ url('/admin_new_form_b_list',3) }}" class="dropdown-item">Approved Application Of Form B</a>
 
 
                                     </div>
@@ -964,10 +965,10 @@
                             <div class="row">
                                 <div class="col-lg-5">
                                     <div>
-                                        {{-- <a href="{{ url('/admin_new_form_b_list',0) }}"  class="dropdown-item">Application Status Of Form B</a> --}}
-                                        <a href="{{ url('all_new_form_b_list',5) }}" class="dropdown-item">Underprocess Application Of Form B</a>
-                                        <a href="{{ url('/all_new_form_b_list',4) }}" class="dropdown-item"> Rejected Application Of Form B</a>
-                                        <a href="{{ url('/all_new_form_b_list',3) }}" class="dropdown-item">Approved Application Of Form B</a>
+                                        <a href="{{ url('/admin_new_form_b_list',0) }}"  class="dropdown-item">Application Status Of Form B</a>
+                                      <a href="{{ url('admin_new_form_b_list',5) }}" class="dropdown-item">Underprocess Application Of Form B</a>
+                                        <a href="{{ url('/admin_new_form_b_list',4) }}" class="dropdown-item"> Rejected Application Of Form B</a>
+                                        <a href="{{ url('/admin_new_form_b_list',3) }}" class="dropdown-item">Approved Application Of Form B</a>
 
 
                                     </div>
@@ -1071,11 +1072,11 @@
                             <div class="row">
                                 <div class="col-lg-5">
                                     <div>
-                                        <a href="{{ url('/all_new_form_b_list',5) }}" class="dropdown-item">UnderProcess Application Of Form B</a>
+                                        <a href="{{ url('/admin_new_form_b_list',5) }}" class="dropdown-item">UnderProcess Application Of Form B</a>
                                         {{-- <a href="{{ url('/admin_new_form_b_list',0) }}"  class="dropdown-item">Application Status Of Form B</a> --}}
 
-                                        <a href="{{ url('/all_new_form_b_list',2) }}" class="dropdown-item"> Rejected Application Of Form B</a>
-                                        <a href="{{ url('/all_new_form_b_list',3) }}" class="dropdown-item">Approved Application Of Form B</a>
+                                        <a href="{{ url('/admin_new_form_b_list',2) }}" class="dropdown-item"> Rejected Application Of Form B</a>
+                                        <a href="{{ url('/admin_new_form_b_list',3) }}" class="dropdown-item">Approved Application Of Form B</a>
 
 
                                     </div>

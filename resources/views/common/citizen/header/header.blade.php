@@ -308,9 +308,9 @@
 
         <div class="dropdown-menu" aria-labelledby="topnav-components">
             <div class="dropdown" aria-labelledby="topnav-components">
-                <a href="{{ url('/new_form_b/create') }}" class="dropdown-item">Create Form B</a>
+            <a href="{{ url('/new_form_b/create') }}" class="dropdown-item"><b>Create Form B</b></a>
             </div>
-            <div class="dropdown">
+            {{-- <div class="dropdown">
                 <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-form" role="button">
                     <b>Pending Application List</b>  <div class="arrow-down"></div>
                 </a>
@@ -318,7 +318,7 @@
                     <a href="{{ url('/new_form_b_list',0) }}" class="dropdown-item"><b>New Form B List</b></a>
 
                 </div>
-            </div>
+            </div> --}}
 
             <div class="dropdown">
                 <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-table" role="button">
@@ -340,14 +340,14 @@
                 </div>
             </div>
 
-            <div class="dropdown">
+            {{-- <div class="dropdown">
                 <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-table" role="button">
                     <b>Generated Invoice List</b> <div class="arrow-down"></div>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="topnav-table">
                     <a href="{{ url('/new_form_b_list',7) }}" class="dropdown-item"><b>New Form B List</b></a>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="dropdown">
                 <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-table" role="button">

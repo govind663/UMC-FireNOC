@@ -82,8 +82,8 @@
                                                     <select class="form-control select2 " name="noc_mode" id="noc_mode" type="hidden">
                                                         <option>Select Mode of NOC</option>
                                                         <optgroup label=" ">
-                                                            <option value="10" {{ $data->noc_mode == "10" ? 'selected' : '' }} selected>New Bussiness NOC</option>
-                                                            {{-- <option value="2" {{ $data->noc_mode == "2" ? 'selected' : '' }}>Renewal Bussiness NOC</option> --}}
+                                                            <option value="10" {{ $data->noc_mode == "10" ? 'selected' : '' }} selected>New Form B</option>
+                                                            <option value="11" {{ $data->noc_mode == "11" ? 'selected' : '' }}>Form B</option>
                                                         </optgroup>
                                                     </select>
                                                 </div>

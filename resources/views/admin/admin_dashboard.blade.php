@@ -365,16 +365,166 @@
                                         </div>
                                     </div>
                                 </div>
+                                <h2 class="card-header mb-3 text-primary">
+                                    <i class="fas fa-city"></i>&nbsp;
+                                    Building NOC
+                                </h2>
+                                <div class="row">
 
+                                    <div class="col-xl-3 col-md-6">
+                                        <div class="card" style="border: 1px solid black;">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-md flex-shrink-0">
+                                                        <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                            <i class="uim uim-briefcase"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="flex-grow-1 overflow-hidden ms-4">
+                                                        <p class="text-muted font-size-15 mb-2"> Total Pending BUilding NOC</p>
+                                                        <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_pending }}</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-3 col-md-6">
+                                        <div class="card" style="border: 1px solid black;">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-md flex-shrink-0">
+                                                        <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                            <i class="uim uim-briefcase"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="flex-grow-1 overflow-hidden ms-4">
+                                                        <p class="text-muted font-size-15 mb-2">Total Underprocess BUilding NOC</p>
+                                                        <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_underprocess }}</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-3 col-md-6">
+                                        <div class="card" style="border: 1px solid black;">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-md flex-shrink-0">
+                                                        <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                            <i class="uim uim-briefcase"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="flex-grow-1 overflow-hidden ms-4">
+                                                        <p class="text-muted font-size-15 mb-2">Total Unpaid BUilding NOC</p>
+                                                        <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_unpaid }}</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-3 col-md-6">
+                                        <div class="card" style="border: 1px solid black;">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-md flex-shrink-0">
+                                                        <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                            <i class="uim uim-briefcase"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="flex-grow-1 overflow-hidden ms-4">
+                                                        <p class="text-muted font-size-15 mb-2">Total Generated Invoice BUilding NOC</p>
+                                                        <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_generated_invoice }}</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-3 col-md-6">
+                                        <div class="card" style="border: 1px solid black;">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-md flex-shrink-0">
+                                                        <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                            <i class="uim uim-briefcase"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="flex-grow-1 overflow-hidden ms-4">
+                                                        <p class="text-muted font-size-15 mb-2">Total Paid BUilding <br> NOC</p>
+                                                        <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_paid }}</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-3 col-md-6">
+                                        <div class="card" style="border: 1px solid black;">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-md flex-shrink-0">
+                                                        <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                            <i class="uim uim-briefcase"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="flex-grow-1 overflow-hidden ms-4">
+                                                        <p class="text-muted font-size-15 mb-2">Total Reviewed BUilding NOC</p>
+                                                        <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_reviewed }}</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xl-3 col-md-6">
+                                            <div class="card" style="border: 1px solid black;">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="avatar-md flex-shrink-0">
+                                                            <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                                <i class="uim uim-briefcase"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="flex-grow-1 overflow-hidden ms-4">
+                                                            <p class="text-muted font-size-15 mb-2"> Total Approved BUilding NOC</p>
+                                                            <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_approved }}</h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-3 col-md-6">
+                                            <div class="card" style="border: 1px solid black;">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="avatar-md flex-shrink-0">
+                                                            <span class="avatar-title bg-subtle-primary text-primary rounded fs-2">
+                                                                <i class="uim uim-briefcase"></i>
+                                                            </span>
+                                                        </div>
+                                                        <div class="flex-grow-1 overflow-hidden ms-4">
+                                                            <p class="text-muted font-size-15 mb-2"> Total Rejected BUilding NOC</p>
+                                                            <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_rejected }}</h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                </div>
 
                         </div>
 
-                        <h2 class="card-header mb-3 text-primary">
+                     <h2 class="card-header mb-3 text-primary">
                             <i class="far fa-building"></i>&nbsp;
-                            Building NOC
+                            Other NOC
                         </h2>
 
-                        <div class="row">
+                           <div class="row">
 
                             <div class="col-xl-3 col-md-6">
                                 <div class="card" style="border: 1px solid black;">
@@ -386,8 +536,8 @@
                                                 </span>
                                             </div>
                                             <div class="flex-grow-1 overflow-hidden ms-4">
-                                                <p class="text-muted font-size-15 mb-2"> Total Pending Building NOC</p>
-                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_pending }}</h3>
+                                                <p class="text-muted font-size-15 mb-2"> Total Pending Other NOC</p>
+                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $other_total_pending }}</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -405,7 +555,7 @@
                                             </div>
                                             <div class="flex-grow-1 overflow-hidden ms-4">
                                                 <p class="text-muted font-size-15 mb-2">Total Underprocess Building NOC</p>
-                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_underprocess }}</h3>
+                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $other_total_underprocess }}</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -423,7 +573,7 @@
                                             </div>
                                             <div class="flex-grow-1 overflow-hidden ms-4">
                                                 <p class="text-muted font-size-15 mb-2">Total Unpaid Building NOC</p>
-                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_unpaid }}</h3>
+                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $other_total_unpaid }}</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -441,7 +591,7 @@
                                             </div>
                                             <div class="flex-grow-1 overflow-hidden ms-4">
                                                 <p class="text-muted font-size-15 mb-2">Total Generated Invoice Building NOC</p>
-                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_generated_invoice }}</h3>
+                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $other_total_generated_invoice }}</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -459,7 +609,7 @@
                                             </div>
                                             <div class="flex-grow-1 overflow-hidden ms-4">
                                                 <p class="text-muted font-size-15 mb-2">Total Paid Building <br> NOC</p>
-                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_paid }}</h3>
+                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $other_total_paid }}</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -477,7 +627,7 @@
                                             </div>
                                             <div class="flex-grow-1 overflow-hidden ms-4">
                                                 <p class="text-muted font-size-15 mb-2">Total Reviewed Building NOC</p>
-                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_reviewed }}</h3>
+                                                <h3 class="fs-4 flex-grow-1 mb-3">{{ $other_total_reviewed }}</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -495,7 +645,7 @@
                                                 </div>
                                                 <div class="flex-grow-1 overflow-hidden ms-4">
                                                     <p class="text-muted font-size-15 mb-2"> Total Approved Building NOC</p>
-                                                    <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_approved }}</h3>
+                                                    <h3 class="fs-4 flex-grow-1 mb-3">{{ $other_total_approved }}</h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -513,7 +663,7 @@
                                                 </div>
                                                 <div class="flex-grow-1 overflow-hidden ms-4">
                                                     <p class="text-muted font-size-15 mb-2"> Total Rejected Building NOC</p>
-                                                    <h3 class="fs-4 flex-grow-1 mb-3">{{ $building_total_rejected }}</h3>
+                                                    <h3 class="fs-4 flex-grow-1 mb-3">{{ $other_total_rejected }}</h3>
                                                 </div>
                                             </div>
                                         </div>
