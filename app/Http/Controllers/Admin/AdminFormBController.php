@@ -170,7 +170,7 @@ class AdminFormBController extends Controller
         // display only Paid form (status=2)
         } elseif (Auth::user()->role == 3) {
             $update = [
-                'status' => 3, // === Reviewed (Level Up that means application go to DMC)
+                'status' => 1, // === Reviewed (Level Up that means application go to DMC)
                 'cf_status' => 1, // ===== Approved by Field Inspector
                 'cf_by' => Auth::user()->id,
                 'cf_dt' => date("Y-m-d H:i:s"),
