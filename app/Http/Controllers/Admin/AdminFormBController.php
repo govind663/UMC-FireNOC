@@ -107,6 +107,7 @@ class AdminFormBController extends Controller
                 'application_status' => 8, // Change this to the appropriate status for NOC
                 'approved_dt' => date("Y-m-d H:i:s"),
                 'approved_by' => Auth::user()->id,
+                'status'=>5,
             ];
 
             // Check which button was clicked

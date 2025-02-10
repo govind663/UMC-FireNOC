@@ -157,8 +157,8 @@
                                                                 <b><i class="mdi mdi-file"> Download View </i></b>
                                                             </a>
                                                             @endif
-                                                            
-                                                            @if(($value->status == 6 || $value->status == 3) || ($value->status == 5 && in_array(Auth::user()->role, [8, 3])))
+
+                                                            {{-- @if(($value->status == 6 || $value->status == 3) || ($value->status == 5 && in_array(Auth::user()->role, [8, 3])))
                                                             <a href='{{ url("/admin_download_clerk_noc_letter_pdf/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm" id="approveModal1">
                                                                 <b><i class="mdi mdi-file"> Download NOC Letter </i></b>
                                                             </a>
@@ -168,7 +168,7 @@
                                                             <a href='{{ url("/admin_download_clerk_demand_letter_pdf/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
                                                                 <b><i class="mdi mdi-file"> Download Clerk Demand Letter </i></b>
                                                             </a>
-                                                            @endif
+                                                            @endif --}}
                                                             &nbsp;&nbsp;
                                                             @if ($value->status == 7 && $value->payment_status == 1 )
                                                             <a href='{{ url("/admin_invoice/{$value->FB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-dark btn-sm ">
