@@ -12,7 +12,9 @@ use App\Models\Business;
 use App\Models\CitizenPayment;
 use App\Models\FeeReceiptDocument;
 use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
-use GuzzleHttp\Psr7\Request;
+// use GuzzleHttp\Psr7\Request;
+use Illuminate\Http\Request;
+use App\Models\Photo;
 use Illuminate\Support\Facades\Storage;
 
 class FormBController extends Controller
@@ -298,7 +300,7 @@ class FormBController extends Controller
      */
     public function show($id, $status)
     {
-        if($status == 0 || $status == 5 || $status == 1 || $status == 6){
+        if($status == 0 || $status == 5 || $status == 1 || $status == 6 || $status == 8){
             $data = DB::table('form_b as t1')
                     ->select('t1.*', 't2.*', 't1.id as FB_NOC_ID', 't2.id as d_ID')
                     ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id' )
@@ -850,4 +852,35 @@ class FormBController extends Controller
 
 //     return back()->with('error', 'Failed to upload photo.');
 // }
+
+
+public function storePhoto(Request $request)
+{
+    $request->validate([
+        'payment_slip' => 'required|file|mimes:jpg,jpeg,png,pdf,docx|max:2048',
+        //  'form_b_id' => 'required|exists:form_b,id',
+    ]);
+
+    $id = $request->form_b_id;
+    // dd($id);
+
+
+    $file = $request->file('payment_slip');
+    $fileName = time() . '_' . $file->getClientOriginalName();
+    $path = $file->storeAs('uploads', $fileName, 'public');
+
+    $data = FormB::where('noc_mst_id', $id)->first();;
+    // dd($data);
+
+    if ($data) {
+        $data->update(['payment_slip' => $path]);
+
+        $fileUrl = asset('storage/' . $path);
+        return back()->with('success', 'File uploaded successfully!')
+        ->with('path', $fileUrl);
+    }
+
+    return back()->with('error', 'FormB record not found.');
+}
+
 }

@@ -319,6 +319,7 @@
 
                 </div>
             </div> --}}
+            <a href="{{ url('/new_form_b_list', 0) }}" class="dropdown-item"><b>New Application Form B</b></a>
 
             <div class="dropdown">
                 <a class="dropdown-item dropdown-toggle arrow-none" href="#" id="topnav-table" role="button">

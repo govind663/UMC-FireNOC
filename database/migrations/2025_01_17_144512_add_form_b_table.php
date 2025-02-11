@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('form_b', function (Blueprint $table) {
-            $table->string('payment_slip')->nullable()->after('payment_by'); // Replace "column_name" with the appropriate column
+            $table->string('payment_slip')->nullable()->after('payment_by'); 
 
         });
     }

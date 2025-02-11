@@ -847,14 +847,18 @@
                                                     <a href='{{ url("/admin_new_form_b/approve/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp; --}}
                                                     {{-- <button type="button" class="btn btn-warning text-dark" data-bs-toggle="modal" data-bs-target=".NB_NOC_Accept"><b>Accept</b></button>&nbsp;&nbsp; --}}
                                                     {{-- <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button> --}}
-                                                    {{-- @elseif(Auth::user()->role == 8)
-                                                    <a href='{{ url("/admin_new_form_b/approve/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp; --}}
-                                                    {{-- <button type="button" class="btn btn-warning text-dark" data-bs-toggle="modal" data-bs-target=".NB_NOC_Accept"><b>Accept</b></button>&nbsp;&nbsp; --}}
-                                                    {{-- <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button> --}}
-
-                                                    @elseif(Auth::user()->role == 7)
+                                                    @elseif(Auth::user()->role == 8 && $data->status == 5)
                                                     <a href='{{ url("/admin_new_form_b/approve/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
                                                     {{-- <button type="button" class="btn btn-warning text-dark" data-bs-toggle="modal" data-bs-target=".NB_NOC_Accept"><b>Accept</b></button>&nbsp;&nbsp; --}}
+                                                   <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
+                                                   @elseif(Auth::user()->role == 3 && $data->status == 5)
+                                                   <a href='{{ url("/admin_new_form_b/approve/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
+                                                   {{-- <button type="button" class="btn btn-warning text-dark" data-bs-toggle="modal" data-bs-target=".NB_NOC_Accept"><b>Accept</b></button>&nbsp;&nbsp; --}}
+                                                  <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
+
+                                                    @elseif(Auth::user()->role == 7&& $data->status == 0)
+                                                    <a href='{{ url("/admin_new_form_b/approve/$data->FB_NOC_ID/$data->status/$auth_role") }}' class="btn btn-success text-light"><b>Accept</b></a>&nbsp;&nbsp;
+                                                    {{-- <button type="button" class="btn btn-warning text-dark" data-bs-toggle="modal" data-bs-target=".NB_NOC_Accept"><b>Accept</b></button>&nbsp;&nbsp;--}}
                                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button>
 
                                                     {{-- @elseif(Auth::user()->role == 7) --}}
@@ -874,6 +878,18 @@
                                                       {{-- <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject"><b>Reject</b></button> --}}
                                                 @endif
                                                     {{-- <button type="submit" class="btn btn-primary">Submit</button> --}}
+
+                                                    @if(Auth::user()->role == 7 && $data->status == 8)
+                                                    <a href="javascript:void(0)" class="btn btn-success text-light" data-bs-toggle="modal" data-bs-target="#approveModal1">
+                                                        <b>Create Objection Letter</b>
+                                                    </a>&nbsp;&nbsp;
+                                                    <a href="javascript:void(0)" class="btn btn-success text-light" data-bs-toggle="modal" data-bs-target="#approveModal">
+                                                        <b>Create Demand Letter</b>
+                                                    </a>&nbsp;&nbsp;
+                                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target=".NB_NOC_Reject">
+                                                        <b>Reject</b>
+                                                    </button>
+                                                    @endif
                                                 </div>
                                             </div>
 

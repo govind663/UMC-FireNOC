@@ -54,14 +54,18 @@ class AdminFormBController extends Controller
         }  elseif (Auth::user()->role == 4) {
             $query->where('t1.status', $status);
         }elseif (Auth::user()->role == 7) {
-            $query->where('t1.status', $status);
+            if($status == 0){
+                $query->where('t1.status', $status);
+            }else if($status == 5){
+                $query->whereIn('t1.status', [$status, 8]);
+            }
         }elseif (Auth::user()->role == 8) {
             $query->where('t1.status', $status);
         }
 
         $data = $query->get();
        // dd($data);
-        return view('admin.form_b.new_form_b.grid')->with('data', $data)->with('status', $status);
+        return view('admin.form_b.new_form_b.grid')->with(['data' => $data, 'status' => $status]);
     }
 
     /**
@@ -107,7 +111,7 @@ class AdminFormBController extends Controller
                 'application_status' => 8, // Change this to the appropriate status for NOC
                 'approved_dt' => date("Y-m-d H:i:s"),
                 'approved_by' => Auth::user()->id,
-                'status'=>5,
+                'status'=>8,
             ];
 
             // Check which button was clicked
@@ -154,7 +158,7 @@ class AdminFormBController extends Controller
             // }
 
             $update = [
-                'status' => 6, // === Unpaid (Level Up that means application go to User End)
+                'status' => 5, // === Unpaid (Level Up that means application go to User End)
                 'station_status' => 1, // ===== Approved by Field Inspector
                 'station_by' => Auth::user()->id,
                 'station_dt' => date("Y-m-d H:i:s"),

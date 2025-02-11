@@ -97,6 +97,7 @@ class FormB extends Model
         'modified_dt',
         'deleted_by',
         'deleted_at',
+     'payment_slip',
     ];
 
     protected $dates = ['deleted_at'];

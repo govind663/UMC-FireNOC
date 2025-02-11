@@ -131,12 +131,16 @@
                                                             <a href='{{ url("/all_new_form_b/show/{$value->FB_NOC_ID}/{$all_status}") }}' class="btn btn-primary btn-sm">
                                                                 <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                             </a>
+
                                                         </td>
+
                                                             @if ( $value->status == 2 || $value->status == 4 )
                                                             &nbsp;&nbsp;
                                                             <td>
                                                             {{ $value->remarks }}
+
                                                         </td>
+
                                                             @endif
                                                             @if ($all_status == 0)
                                                             &nbsp;&nbsp;

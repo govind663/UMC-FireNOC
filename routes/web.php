@@ -363,7 +363,7 @@ Route::group(['middleware' => ['auth:citizen', 'preventBackHistoryMiddleware', '
     Route::get('/new_form_b/edit/{id}/{status}', [FormBController::class, 'edit'])->name('new_form_b.edit');
     Route::post('/new_form_b/edit/update/{id}/{n_id}/{status}', [FormBController::class, 'update'])->name('new_form_b.edit.update');
     Route::delete('/new_form_b/delete/{id}/{n_id}/{status}', [FormBController::class, 'destroy'])->name('new_form_b.delete');
-    Route::post('/store-form-b-photo', [FormBController::class, 'storePhoto'])->name('storeFormBPhoto');
+    Route::post('store_form_b_doc', [FormBController::class, 'storePhoto'])->name('storeFormBDoc');
 
 
     // ====== Renew Other NOC
