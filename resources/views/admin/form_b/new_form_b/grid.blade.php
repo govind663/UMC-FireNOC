@@ -97,8 +97,9 @@
                                                 @if ($status == 4)
                                                     <th><b>Reason for rejection</b></th>
                                                 @endif
-                                                @if ($status == 4)
-                                                @endif
+                                                 {{-- @if ($status == 4)
+
+                                                @endif --}}
                                                 <th><b>Action</b></th>
                                             </tr>
                                         </thead>
@@ -109,12 +110,13 @@
                                                     <td>{{ date('d-m-Y', strtotime($value->noc_a_date)) }}</td>
                                                     <td>{{ $value->f_name }} {{ $value->father_name }} {{ $value->l_name }}</td>
 
+
+
                                                     @if ($value->types_of_property == 1)
                                                         <td>Land</td>
                                                     @elseif ($value->types_of_property == 2)
                                                         <td>Building</td>
                                                     @else
-                                                        {{-- <td></td> --}}
                                                     @endif
 
                                                     <td>{{ $value->property_no }}</td>
@@ -139,18 +141,23 @@
                                                     @elseif ($value->status == 7)
                                                         <td><span class="bg-primary text-white p-1">Invoice Generated Successfully</span></td>
                                                     @endif
-                                                    {{--
-                                                        @if ($value->status == 4)
 
 
-                                                        @endif --}}
-
+                                                    @if ($value->status == 4)
                                                     <td>{{ $value->remarks }}</td>
+                                                    @endif
                                                     <td style="display:flex;">
                                                         <a href='{{ url("/admin_new_form_b/show/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">
                                                             <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
                                                         </a>
+
                                                         {{-- @dd($status) --}}
+
+                                                        {{-- @if($value->payment_slip ||$value->payment_slip && $value->status == 1 && Auth::user()->role == 7)
+                                                        <a href="{{ asset('storage/'. $value->payment_slip) }}" class="btn btn-primary btn-sm">
+                                                            <b><i class="mdi mdi-eye-circle-outline"> View Payment Slip</i></b>
+                                                        </a>
+                                                        @endif --}}
 
                                                         @if ($value->status == 5 || $value->status == 0 || $value->status == 3)
                                                             &nbsp;&nbsp;
@@ -159,17 +166,6 @@
                                                             </a>
                                                         @endif
 
-                                                        {{-- @if ($value->status == 6 || $value->status == 3 || ($value->status == 5 && in_array(Auth::user()->role, [8, 3])))
-                                                            <a href='{{ url("/admin_download_clerk_noc_letter_pdf/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm" id="approveModal1">
-                                                                <b><i class="mdi mdi-file"> Download NOC Letter </i></b>
-                                                            </a>
-                                                            @endif
-                                                            &nbsp;&nbsp;
-                                                            @if ($value->status == 6 || $value->status == 3 || ($value->status == 5 && in_array(Auth::user()->role, [8, 3])))
-                                                            <a href='{{ url("/admin_download_clerk_demand_letter_pdf/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
-                                                                <b><i class="mdi mdi-file"> Download Clerk Demand Letter </i></b>
-                                                            </a>
-                                                            @endif --}}
                                                         &nbsp;&nbsp;
                                                         @if ($value->status == 7 && $value->payment_status == 1)
                                                             <a href='{{ url("/admin_invoice/{$value->FB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-dark btn-sm ">
@@ -186,29 +182,18 @@
                                                                 <b><i class="mdi mdi-file-pdf-outline"> View Payment Receipt</i></b>
                                                             </a>
                                                         @endif
-                                                        @if (Auth::user()->role == 8 && $value->status == 5)
-                                                            <a href='{{ url("/admin_invoice/{$value->FB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-dark btn-sm ">
+                                                        @if (Auth::user()->role == 8 && $value->status == 5 || Auth::user()->role == 3 && $value->status == 5)
+                                                            <a href='{{ url("admin_download_clerk_noc_letter_pdf/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
                                                                 <b><i class="mdi mdi-file">Download Objection Letter</i></b>
                                                             </a>
-                                                            <a href='{{ url("/admin_invoice/{$value->FB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-dark btn-sm ">
+                                                            <a href='{{ url("admin_download_clerk_demand_letter_pdf/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
                                                                 <b><i class="mdi mdi-file">Download Demand Letter</i></b>
                                                             </a>
                                                         @endif
-                                                        @if (Auth::user()->role == 3 && $value->status == 5)
-                                                            <a href='{{ url("/admin_invoice/{$value->FB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-dark btn-sm ">
-                                                                <b><i class="mdi mdi-file">Download Objection Letter</i></b>
-                                                            </a>
-                                                            <a href='{{ url("/admin_invoice/{$value->FB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-dark btn-sm ">
-                                                                <b><i class="mdi mdi-file">Download Demand Letter</i></b>
-                                                            </a>
-                                                        @endif
-                                                        &nbsp;&nbsp;
-                                                        {{-- @if (Auth::user()->role == 3)
-                                                            &nbsp;&nbsp;
-                                                            <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target=".FB_NOC_Preview_{{ $value->FB_NOC_ID }}"><b><i class="mdi mdi-eye-circle-outline">View Checker Remark</i></b></button>
-                                                            @endif --}}
-                                                    </td>
 
+
+
+                                                    </td>
                                                 </tr>
 
                                                 {{-- Start  View Field Inspector Remark  Model --}}
@@ -252,7 +237,7 @@
                                                                                                     </button>
                                                                                                     </p>
                                                                                                 </a>
-                                                                                            <?php }?>
+
                                                                                         </div>
                                                                                     </a>
 
@@ -279,17 +264,18 @@
                                                                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>&nbsp;&nbsp;
                                                                                     <button type="submit" class="btn btn-primary">Submit</button>
                                                                                 </div>
-                                                                            </div> --}}
 
-                                                </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-                </tbody>
-                </table>
+                                                                            </div> --}}
+                                                             </div>
+                                         </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                        </tbody>
+                                  </table>
 
             </div>
         </div>

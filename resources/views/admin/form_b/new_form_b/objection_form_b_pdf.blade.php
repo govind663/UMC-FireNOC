@@ -11,9 +11,6 @@
     <title>PMC-Fire NOC | New Form B NOC</title>
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ url('/') }}/assets/logo/favicon.ico">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 
@@ -67,7 +64,7 @@
     <div class="col-lg-12">
         <div class="header">
             <div style="float: left;">
-                <img src="{{ public_path('assets/logo/logo_dark.png') }}" alt="logo" class="avatar-image">
+
             </div>
 
             <div style="float: right;">
@@ -76,8 +73,8 @@
                     Near Chopda Court, Panvel - 3<br>
                     Pincode - 421 003, Maharashtra
                 </p>
-                <p class="mb-1"><i class="mdi mdi-email-outline me-1"></i> cfcpmc@gmail.com</p>
-                <p><i class="mdi mdi-phone-outline me-1"></i> 0251 2720150</p>
+                <p class="mb-1"><i class="mdi mdi-email-outline me-1"></i>panvelcorporation@gmail.com</p>
+                <p><i class="mdi mdi-phone-outline me-1"></i> ०२२-७४५२२३३</p>
             </div>
         </div>
         <div class="card-body p-0">

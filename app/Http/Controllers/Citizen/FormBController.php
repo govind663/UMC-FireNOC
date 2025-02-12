@@ -795,6 +795,7 @@ class FormBController extends Controller
      */
     public function download_new_form_b_pdf($id, $status)
     {
+
         if($status == 0 || $status == 5 || $status == 1){
             $data = DB::table('form_b as t1')
                     ->select('t1.*', 't2.*', 't1.id as FB_NOC_ID', 't2.id as d_ID')

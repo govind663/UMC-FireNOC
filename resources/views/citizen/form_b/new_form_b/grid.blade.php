@@ -149,13 +149,13 @@
                                                         </a>
 
                                                         @if ($value->status == 1)
-                                                            <a href='{{ url("/admin_download_clerk_noc_letter_pdf/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm" id="approveModal1">
+                                                            <a href='{{ url("download_new_form_b_pdf/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm" id="approveModal1">
                                                                 <b><i class="mdi mdi-file"> Download Objection Letter </i></b>
                                                             </a>
                                                         @endif
                                                         &nbsp;&nbsp;
                                                         @if ($value->status == 1)
-                                                            <a href='{{ url("/admin_download_clerk_demand_letter_pdf/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
+                                                            <a href='{{ url("download_new_form_b_pdf/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
                                                                 <b><i class="mdi mdi-file"> Download Clerk Demand Letter </i></b>
                                                             </a>
                                                         @endif
@@ -227,6 +227,7 @@
                                                         @endif
 
                                                     </td>
+                                                    @if ($status == 1)
                                                     <td>
 
                                                         <form method="POST" enctype="multipart/form-data" action="{{ route('storeFormBDoc') }}">
@@ -237,11 +238,21 @@
                                                             <input type="file" name="payment_slip" id="payment_slip" required>
                                                             <button type="submit">Upload</button>
                                                         </form>
-                                                        @if($value->payment_slip)
+                                                        @if($value->payment_slip ||$value->payment_slip && $value->status == 1 && Auth::user()->role == 7)
                                                         <a href="{{ asset('storage/'. $value->payment_slip) }}" class="btn btn-primary btn-sm">
-                                                            <b><i class="mdi mdi-eye-circle-outline"> View</i></b>
+                                                            <b><i class="mdi mdi-eye-circle-outline"> View Payment Slip</i></b>
                                                         </a>
                                                         @endif
+                                                        @if ($value->status == 5)
+                                                        <a href='{{ url("download_new_form_b_pdf/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
+                                                            <b><i class="mdi mdi-file">Download Objection Letter</i></b>
+                                                        </a>
+                                                        <a href='{{ url("download_new_form_b_pdf/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
+                                                            <b><i class="mdi mdi-file">Download Demand Letter</i></b>
+                                                        </a>
+                                                    @endif
+                                                    </td>
+                                                    @endif
                                                 </tr>
 
                                                 {{-- Payment Receipt --}}
