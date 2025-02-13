@@ -162,10 +162,11 @@ class CertificateController extends Controller
      */
     public function upload_payment_receipt(FeeReceiptDocumentRequest $request, $id, $status, $noc_mode)
     {
+        // dd($request->all());
         $data = new FeeReceiptDocument();
 
         // ==== Upload (payment_recepit_doc)
-        if (!empty($request->hasFile('payment_recepit_doc'))) {
+        if ($request->hasFile('payment_recepit_doc')) {
             $image = $request->file('payment_recepit_doc');
             $image_name = $image->getClientOriginalName();
             $extension = $image->getClientOriginalExtension();
@@ -174,6 +175,8 @@ class CertificateController extends Controller
 
             $image_path = "/PMC_FireNOC/payment/payment_recepit_doc" . $image_name;
             $data->payment_recepit_doc = $new_name;
+
+            // dd($data->payment_recepit_doc);
         }
 
         $data->mst_token = $request->get('mst_token');

@@ -10,15 +10,14 @@
 
     <title>PMC-Fire NOC | New Form B NOC</title>
 
-    <!-- App favicon -->
-
 </head>
 
-<style  type="text/css">
+<style type="text/css">
     * {
-        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-size: 15.5px;
     }
+
     h2 {
         text-align: center;
         background: #09627e;
@@ -28,218 +27,155 @@
         padding: 10px;
         font-size: 20px;
     }
+
     h4 {
         color: #09627e;
     }
+
     .page-break {
         page-break-after: always;
     }
+
     .avatar-image {
-        height: 120px;;
+        height: 120px;
+        ;
         width: 250px;
         /*height: 4.6rem;*/
         /*width: 8.6rem;*/
     }
+
     .header {
         text-align: left;
         font-size: 16px !important;
         font-style: bold;
     }
+
     table {
         width: 100%;
         border-collapse: collapse;
         border: 1px solid black;
     }
-    th, td {
+
+    th,
+    td {
         border: 1px solid black;
         padding: 7px;
         text-align: left;
     }
+
     th {
         background-color: #f2f2f2;
     }
 </style>
 
 <body>
-    <div class="col-lg-12">
-        <div class="header">
-            <div style="float: left;">
+    <table style="border: none;">
+        <tr>
+            <td style="border: none;">
+                @php
+                    $logoData = file_get_contents(public_path('assets/logo/pmc-logo.png'));
+                    $base64Logo = base64_encode($logoData);
+                @endphp
+                <img src="data:image/png;base64,{{ $base64Logo }}" alt="Corporation Logo" height="150" width="150">
+            </td>
+            <td style="border: none;">
+                <div style="font-size: 50px;color: rgb(78, 8, 241)">
+                    &nbsp; &nbsp; पनवेल महानगरपालिका
+                </div>
+                &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;ता. पनवेल, जिल्हा - रायगड, पनवेल-४१०२०६.
+            </td>
+            <td style="border: none;">
+                @php
+                    $logoData = file_get_contents(public_path('assets/logo/pmc-logo.png'));
+                    $base64Logo = base64_encode($logoData);
+                @endphp
+                <img src="data:image/png;base64,{{ $base64Logo }}" alt="Corporation Logo" height="150" width="150">
 
-            </div>
+            </td>
+        </tr>
+    </table>
 
-            <div style="float: right;">
-                <p class="mb-1">
-                    Panvel Municipal Corporation<br>
-                    Near Chopda Court, Panvel - 3<br>
-                    Pincode - 421 003, Maharashtra
-                </p>
-                <p class="mb-1"><i class="mdi mdi-email-outline me-1"></i>panvelcorporation@gmail.com</p>
-                <p><i class="mdi mdi-phone-outline me-1"></i> ०२२-७४५२२३३</p>
-            </div>
-        </div>
-        <div class="card-body p-0">
-            <form class="auth-input" style="padding-top: 150px;">
+    <b>--------------------------------------------------------------------------------------------------------------------</b>
+    <table style="border: none; background-color: #f2f2f2">
+        <th style="border: none;">कार्यालय :- २७४५८०४०/४१/४१</th>
+        <th style="border: none; float:right">ईमेल :- panvelcorporation@gmail.com</th>
+    </table>
 
-                <h2 class="mb-3">New Form B NOC</h2>
-                <table class="table table-bordered table-responsive" style="width: 100%;">
-                    <tbody>
-                        <tr>
-                            <td colspan="2"><b>Appication Date :</b> {{ date("d-M-Y") }}</td>
-                            <td class="col-sm-5"><b>Token Number :</b> {{ $data->mst_token }}</td>
-                        </tr>
-                    </tbody>
-                </table>
+    <table style="border: none;background-color: #f2f2f2 ">
+        <th style="border: none;">अग्निशमनविभाग :- २७४६१५००</th>
+        <th style="border: none;float:right">फैक्स नं :- ०२२-७४५२२३३</th>
+    </table>
+    <b>---------------------------------------------------------------------------------------------------------------------</b>
+    <div class="card-body p-0">
+        <form class="auth-input">
 
-                <h4 class="mb-3"><b>Application Details :</b></h4>
-                <table class="table table-bordered table-responsive" style="width: 100%;">
-                    <tbody>
-                        <tr>
-                            <th scope="row">First Name : </th>
-                            <td colspan="3">{{ ucwords($data->f_name) }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Father / Husband's Name : </th>
-                            <td colspan="3">{{ ucwords($data->father_name) }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Last Name : </th>
-                            <td colspan="3">{{ ucwords($data->l_name) }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Name of Business : </th>
-                            <td colspan="3">{{ ucwords($data->society_name) }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Designation </th>
-                            <td colspan="3">{{ ucwords($data->designation) }}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                hiii
-                <h4 class="mb-3"><b>Demandraft Details :</b></h4>
+            <h2 class="mb-3">Form B Objection Letter</h2>
 
-  <table class="table table-bordered table-responsive" style="width: 100%;">
+            <table>
+                <td style="border: none; font-size: 20px">कार्यालय जा.क्र./पमपा/अग्निशमन/२१२९/प्र.क्र.५९९/
+                </td>
+                <td style="border: none;font-size: 20px"> /२०२४</td>
+                &nbsp; &nbsp;
+                <td style="border: none;font-size: 20px"> दिनांक:- &nbsp; &nbsp; / &nbsp; &nbsp; /२०२४</td>
+            </table>
 
-                </table>
 
-                <div class="row  p-4" style="border:1px  solid #0c0c0c !important;">
-                    <h4><b>Declaration</b></h4>
+            <table class="table table-bordered table-responsive" style="width: 100%;">
 
-                    <div class="col-md-12 col-xs-12">
-                        <p class="text-justify ">
-                            I / We..... <b>{{ $data->declare_by }}</b>
-                            <br>
-                            ......
-                            State on solemn affirmation that the above information is true
-                            and correct to the best of my/our knowledge. If the information
-                            given is found wrong then 1/We shali be held iegally liable for
-                            its consequences.
-                        </p>
-                        Date :
-                        <b>
-                            {{ date('d-m-Y', strtotime($data->declare_date)) }}
-                        </b>
+                <div>
+                    <p style="font-size: 20px">
+                        प्रति,<br>
+                        मेसर्स, आशीर्वाद क्लिनिक <br>वासुदेव सी.एच.एस.पहिला मजला,<br> महाड बैंक च्या वाजूला, टिळक रोड,
+                        पनवेल, <br> ता. पनवेल, जि. रायगड, ४१०२०६.
+                    </p>
+                    <p style="margin-left: 20% ;font-size: 20px">
+                        विषय :- पनवेल महानगर पालिका अग्निशमन विभागाकडे लायसन्स अभिकरण यांचे मार्फत ब प्रमाणपत्र सादर केले बाबत.
+                    </p>
+
+                    <p style="margin-left: 20% ;font-size: 20px">
+                        संदर्भ :- १) मेसर्स वि.एन. इन्फ्रा सोल्युशन, यांचे कडोल व प्रमाणपत्र दिनांक ०८/०७/२०२४
+                        <br>
+                        २) पनवेल महानगर पालिकेचा दिनांक ०८/०६/२०१७ रोजीचा प्रशासकीय ठराव.
+                        <br>
+                        ३) आपण पावतो क्र. ०४/७६३३ दिनांक ०२/१२/२०२४ अन्वये जमा वार्षिक शुल्क,
+
+                        s रु. ३००/- वर्ष २०२४
+                    </p>
+                    <div style="font-size: 20px;">
+                        महाशय,
                     </div>
+                    <p style="font-size: 20px">
+                        &nbsp;&nbsp;&nbsp;उपरोक्त विषयानुरुप आपणकडून संदर्भ क्र. ०१ नुसार मेसर्स. वि.एन. इनका सोल्युशन, यांचे कडील महाराष्ट्र आग प्रतिबंधक व जीव संरक्षक उपाययोजना २००६ या अग्निशमन कायद्यातील कलम ३(३) या तरतुदीनुसार व प्रमाणपत्र सादर
+                        केलेले आहे. तसेच याच कायद्यातील कलम १३ (१) नुसार आपणाकडुन वार्षिक शुल्क देखील या विभागाने स्विकारलेले आहे, अग्निशमन कायद्यामध्ये अग्निशमन विभागामार्फत देण्यात आलेला नाहरकत दाखला नुतनिकरण करण्याची कोणतीही तरतूद नाही.
+                    </p>
 
-                    @php
-                        $persion_name = '';
+                    <p style="font-size: 20px">
+                        &nbsp;&nbsp;&nbsp; प्रकरणी आपण मेसर्स.वि.एन. इन्फ्रा सोल्यूशन यांचे कडील सादर केलेले "ब" प्रमाणपत्राची पोहोच पावती आपणास देण्यात येत आहे. </p>
 
-                        if ($data->nominated_persion == 1) {
-                            $persion_name = 'Self';
-                        } elseif ($data->nominated_persion == 2) {
-                            $persion_name = 'Nominee';
-                        } elseif ($data->nominated_persion == 3) {
-                            $persion_name = 'C.F.C.';
-                        } elseif ($data->nominated_persion == 4) {
-                            $persion_name = 'Camp No.';
-                        }
-
-                        $post_by = '';
-
-                        if ($data->deliver_by == 1) {
-                            $post_by = 'By Post U.P.C';
-                        } elseif ($data->deliver_by == 2) {
-                            $post_by = 'By Post Register A.D.';
-                        } elseif ($data->deliver_by == 3) {
-                            $post_by = 'Courier';
-                        }
-                    @endphp
-                    <div class="col-md-12 col-xs-12">
-                        <h4 class="mt-3"><b>The document may please be delivered to :</b></h4>
-                        <table class="table table-bordered table-responsive" style="width: 100%;">
-                            <tbody>
-                                <tr>
-                                    <th scope="row">Self / Nominated Person : </th>
-                                    <td colspan="3">{{ ($persion_name) }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Name of Nominated Person : </th>
-                                    <td colspan="3">{{ ucwords($data->nominated_persion_name) }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Deliver : </th>
-                                    <td colspan="3">{{ ucwords($post_by) }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <h4 class="mt-3 mb-3"><b>Correspondence Address : </b></h4>
-                        <table class="table table-bordered table-responsive" style="width: 100%;">
-                            <tbody>
-                                <tr>
-                                    <th scope="row">First Name : </th>
-                                    <td colspan="3">{{ ucwords($data->d_first_name) }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Father / Husband's Name : </th>
-                                    <td colspan="3">{{ ucwords($data->d_father_name) }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Last Name / Surname : </th>
-                                    <td colspan="3">{{ ucwords($data->d_last_name) }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">House / Building / Society Name : </th>
-                                    <td colspan="3">{{ ucwords($data->d_house_name) }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Flat / Block / Barrack No. : </th>
-                                    <td colspan="3">{{ ucwords($data->d_flat_no) }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Wing / Floor : </th>
-                                    <td colspan="3">{{ ucwords($data->d_wing_no) }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Road / Street / Lane : </th>
-                                    <td colspan="3">{{ ucwords($data->d_road_name) }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Area / Locality / Town / City : </th>
-                                    <td colspan="3">{{ ucwords($data->d_area_name) }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Taluka : </th>
-                                    <td colspan="3">{{ ucwords($data->d_taluka_name) }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Pincode : </th>
-                                    <td colspan="3">{{ ucwords($data->d_pincode) }}</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Email Id (if any) : </th>
-                                    <td colspan="3">{{ ucwords($data->d_email) }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
+                    <p style="font-size: 20px">
+                        &nbsp;&nbsp;&nbsp; भविष्यात आपण प्रती ०६ महीन्यांनी अग्निशमन कायद्यातील तरतुदशेनुसार महाराष्ट्र शासनाकडील मान्यताप्राप्त लायसन्स अभिकरंनाकहोल "ब" प्रमाणपत्र सादर करावे, अन्यथा या कायद्ययातील तरतुदीनुसार आपणावर योग्य ती कारवाई
+                        प्रस्तावित करण्यात
+                        येईल,
+                    </p>
                 </div>
 
-            </form>
 
-        </div>
-        <!-- end select2 -->
+
+                <br>
+                <p style="margin-left: 80%">
+                    श्री. प्रविण बोडखे
+
+                    <br>
+                    मुख्य अग्निशमन अधिकारी <br>पनवेल महानगरपालिका
+                </p>
+                <p style="font-size: 20px">
+                    माहिती करीता प्रत:-
+                </p>
+            </table>
+        </form>
+
+    </div>
+    <!-- end select2 -->
 
     </div>
 

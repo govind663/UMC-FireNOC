@@ -355,7 +355,7 @@
                     <b>Paid Application List</b> <div class="arrow-down"></div>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="topnav-table">
-                    <a href="{{ url('/new_form_b_list',2) }}" class="dropdown-item"><b>New Form B List</b></a>
+                    <a href="{{ url('/new_form_b_list',7) }}" class="dropdown-item"><b>New Form B List</b></a>
 
                 </div>
             </div>

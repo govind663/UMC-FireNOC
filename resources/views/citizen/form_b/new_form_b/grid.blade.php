@@ -98,12 +98,10 @@
                                                     <th><b>Reason for rejection</b></th>
                                                 @endif
                                                 <th><b>Action</b></th>
-                                                @if ($status == 1)
-                                                    <th><b>Upload</b></th>
-                                                @endif
+
                                         </thead>
                                         <tbody>
-
+                                            {{-- @dd($data) --}}
                                             @foreach ($data as $key => $value)
                                                 <tr>
                                                     <td>{{ $key + 1 }}</td>
@@ -212,10 +210,17 @@
                                                         @endif
 
                                                         &nbsp;&nbsp;
-                                                        @if ($value->status == 7 && $value->citizen_payment_status == 1)
-                                                            <button type="button" class="btn btn-warning text-dark btn-sm waves-effect waves-light" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_{{ $value->FB_NOC_ID }}">Upload
-                                                                Payment Recepit</button>
+                                                        @if ($value->status == 1)
+                                                            @if ($value->payment_receipt_path)
+                                                                <a href="{{ asset('storage/' . $value->payment_receipt_path) }}" target="_blank" class="btn btn-success btn-sm">View Payment Receipt</a>
+                                                            @else
+                                                                <input type="hidden" name="form_b_id" value="{{ $formBId }}">
+                                                                <button type="button" class="btn btn-warning text-dark btn-sm" data-bs-toggle="modal" data-bs-target=".bs-example-modal-lg_{{ $value->FB_NOC_ID }}">
+                                                                    Upload Payment Receipt
+                                                                </button>
+                                                            @endif
                                                         @endif
+
                                                         @if ($value->status == 3)
                                                             {{-- <form action="{{ route('storeFormBPhoto') }}" method="POST" enctype="multipart/form-data">
                                                                 @csrf
@@ -227,7 +232,7 @@
                                                         @endif
 
                                                     </td>
-                                                    @if ($status == 1)
+                                                    {{-- @if ($status == 1)
                                                     <td>
 
                                                         <form method="POST" enctype="multipart/form-data" action="{{ route('storeFormBDoc') }}">
@@ -238,7 +243,7 @@
                                                             <input type="file" name="payment_slip" id="payment_slip" required>
                                                             <button type="submit">Upload</button>
                                                         </form>
-                                                        @if($value->payment_slip ||$value->payment_slip && $value->status == 1 && Auth::user()->role == 7)
+                                                        @if ($value->payment_slip || ($value->payment_slip && $value->status == 1 && Auth::user()->role == 7))
                                                         <a href="{{ asset('storage/'. $value->payment_slip) }}" class="btn btn-primary btn-sm">
                                                             <b><i class="mdi mdi-eye-circle-outline"> View Payment Slip</i></b>
                                                         </a>
@@ -252,37 +257,38 @@
                                                         </a>
                                                     @endif
                                                     </td>
-                                                    @endif
+                                                    @endif --}}
                                                 </tr>
 
                                                 {{-- Payment Receipt --}}
-                                                <div class="modal fade bs-example-modal-lg_{{ $value->FB_NOC_ID }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-lg">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title text-primary" id="myLargeModalLabel">Payment Receipt :</h5>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="row">
-                                                                    <form class="auth-input p-4" method="POST" action='{{ url("/upload_payment_receipt/{$value->FB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' enctype="multipart/form-data"
-                                                                        autocomplete="off">
-                                                                        @csrf
+                                                @if ($status == 1)
+                                                    <div class="modal fade bs-example-modal-lg_{{ $value->FB_NOC_ID }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title text-primary" id="myLargeModalLabel">Payment Receipt :</h5>
+                                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+                                                                        <form class="auth-input p-4" method="POST" action='{{ url("/upload_payment_receipt/{$value->FB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}'
+                                                                            enctype="multipart/form-data" autocomplete="off">
+                                                                            @csrf
 
-                                                                        <div class="form-group row mb-3 d-none">
-                                                                            <label class="col-sm-2"><strong>Citizen ID : <span style="color:red;">*</span></strong></label>
-                                                                            <div class="col-sm-2 col-md-2">
-                                                                                <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ $value->citizen_id }}">
-                                                                                <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{ $value->mst_token }}">
-                                                                                <input type="text" readonly name="noc_mst_id" id="noc_mst_id" class="form-control" value="{{ $value->noc_mst_id }}">
-                                                                            </div>
+                                                                            <div class="form-group row mb-3 d-none">
+                                                                                <label class="col-sm-2"><strong>Citizen ID : <span style="color:red;">*</span></strong></label>
+                                                                                <div class="col-sm-2 col-md-2">
+                                                                                    <input type="text" readonly name="citizens_id" id="citizens_id" class="form-control" value="{{ $value->citizen_id }}">
+                                                                                    <input type="text" readonly name="mst_token" id="mst_token" class="form-control" value="{{ $value->mst_token }}">
+                                                                                    <input type="text" readonly name="noc_mst_id" id="noc_mst_id" class="form-control" value="{{ $value->noc_mst_id }}">
+                                                                                </div>
 
-                                                                            <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
-                                                                            <div class="col-sm-2 col-md-2">
-                                                                                <select class="form-control select2 " name="payment_noc_mode" id="payment_noc_mode" type="hidden">
-                                                                                    <option>Select Mode of NOC</option>
-                                                                                    <optgroup label=" ">
-                                                                                        {{-- <option value="1" {{ $value->noc_mode == "1" ? 'selected' : '' }}>New Bussiness NOC</option>
+                                                                                <label class="col-sm-2"><strong>Mode of NOC : </strong></label>
+                                                                                <div class="col-sm-2 col-md-2">
+                                                                                    <select class="form-control select2 " name="payment_noc_mode" id="payment_noc_mode" type="hidden">
+                                                                                        <option>Select Mode of NOC</option>
+                                                                                        <optgroup label=" ">
+                                                                                            {{-- <option value="1" {{ $value->noc_mode == "1" ? 'selected' : '' }}>New Bussiness NOC</option>
                                                                                             <option value="2" {{ $value->noc_mode == "2" ? 'selected' : '' }}>Renewal Bussiness NOC</option>
 
                                                                                             <option value="3" {{ $value->noc_mode == "3" ? 'selected' : '' }}>New Hospital NOC</option>
@@ -290,45 +296,46 @@
 
                                                                                             <option value="5" {{ $value->noc_mode == "5" ? 'selected' : '' }}>Provisional Building NOC</option>
                                                                                             <option value="6" {{ $value->noc_mode == "6" ? 'selected' : '' }}>Final Building NOC</option> --}}
-                                                                                        <option value="10" {{ $value->noc_mode == '10' ? 'selected' : '' }}>Form B</option>
+                                                                                            <option value="10" {{ $value->noc_mode == '10' ? 'selected' : '' }}>Form B</option>
 
-                                                                                    </optgroup>
-                                                                                </select>
+                                                                                        </optgroup>
+                                                                                    </select>
+                                                                                </div>
                                                                             </div>
-                                                                        </div>
 
-                                                                        <div class="form-group row  mb-3">
-                                                                            <label class="col-sm-2"><strong>Payment Receipt : <span style="color:red;">*</span></strong></label>
-                                                                            <div class="col-sm-10 col-md-10">
-                                                                                <input type="file" accept=".jpg, .jpeg, .png, .pdf" required name="payment_recepit_doc" id="payment_recepit_doc"
-                                                                                    class="form-control  @error('payment_recepit_doc') is-invalid @enderror " value="{{ old('commissioning_certificate') }}" placeholder="Payment Receipt.">
-                                                                                <small class="text-secondary"> Note : The file size should be less than 2MB .</small>
-                                                                                <br>
-                                                                                <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</small>
-                                                                                <br>
-                                                                                @error('payment_recepit_doc')
-                                                                                    <span class="invalid-feedback" role="alert">
-                                                                                        <strong>{{ $message }}</strong>
-                                                                                    </span>
-                                                                                @enderror
+                                                                            <div class="form-group row  mb-3">
+                                                                                <label class="col-sm-2"><strong>Payment Receipt : <span style="color:red;">*</span></strong></label>
+                                                                                <div class="col-sm-10 col-md-10">
+                                                                                    <input type="file" accept=".jpg, .jpeg, .png, .pdf" required name="payment_recepit_doc" id="payment_recepit_doc"
+                                                                                        class="form-control  @error('payment_recepit_doc') is-invalid @enderror " value="{{ old('commissioning_certificate') }}" placeholder="Payment Receipt.">
+                                                                                    <small class="text-secondary"> Note : The file size should be less than 2MB .</small>
+                                                                                    <br>
+                                                                                    <small class="text-secondary"> Note : Only files in .jpg, .jpeg, .png, .pdf format can be uploaded .</small>
+                                                                                    <br>
+                                                                                    @error('payment_recepit_doc')
+                                                                                        <span class="invalid-feedback" role="alert">
+                                                                                            <strong>{{ $message }}</strong>
+                                                                                        </span>
+                                                                                    @enderror
+                                                                                </div>
                                                                             </div>
-                                                                        </div>
 
-                                                                        <div class="form-group row mt-4">
-                                                                            <label class="col-md-3"></label>
-                                                                            <div class="col-md-9" style="display: flex; justify-content: flex-end;">
-                                                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                                            <div class="form-group row mt-4">
+                                                                                <label class="col-md-3"></label>
+                                                                                <div class="col-md-9" style="display: flex; justify-content: flex-end;">
+                                                                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                                                                </div>
                                                                             </div>
-                                                                        </div>
 
-                                                                    </form>
+                                                                        </form>
 
+                                                                    </div>
                                                                 </div>
-                                                            </div>
 
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                @endif
                                             @endforeach
                                         </tbody>
                                     </table>

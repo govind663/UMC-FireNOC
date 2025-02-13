@@ -471,6 +471,7 @@
                             <div class="row">
                                 <div class="col-lg-5">
                                     <div>
+                                        <a href="{{ url('/admin_new_form_b_list',2) }}" class="dropdown-item"> paid Application List  of Form B</a>
                                         <a href="{{ url('/admin_new_form_b_list',1) }}" class="dropdown-item"> Unpaid Application List  of Form B</a>
                                         <a href="{{ url('/admin_new_form_b_list',8) }}"  class="dropdown-item">New Application Status Of Form B</a>
                                         <a href="{{ url('/admin_new_form_b_list',6) }}" class="dropdown-item">Review Application Of Form B</a>
@@ -968,6 +969,8 @@
                                 <div class="col-lg-5">
                                     <div>
 
+                                        <a href="{{ url('/admin_new_form_b_list',2) }}" class="dropdown-item"> Paid Application List  of Form B   </a>
+
                                             <a href="{{ url('/admin_new_form_b_list',1) }}" class="dropdown-item"> Unpaid Application List  of Form B   </a>
                                         <a href="{{ url('/admin_new_form_b_list',0) }}"  class="dropdown-item">New Application Status Of Form B</a>
                                       <a href="{{ url('admin_new_form_b_list',5) }}" class="dropdown-item">Underprocess Application Of Form B</a>
@@ -1076,6 +1079,8 @@
                             <div class="row">
                                 <div class="col-lg-5">
                                     <div>
+                                        <a href="{{ url('/admin_new_form_b_list',2) }}" class="dropdown-item"> Paid Application List  of Form B   </a>
+
                                         <a href="{{ url('/admin_new_form_b_list',1) }}" class="dropdown-item"> Unpaid Application List  of Form B   </a>
                                         <a href="{{ url('/admin_new_form_b_list',8) }}"  class="dropdown-item">New Application Status Of Form B</a>
 

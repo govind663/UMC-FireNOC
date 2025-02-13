@@ -30,8 +30,9 @@ class FormBController extends Controller
         if($status == 0 || $status == 5 || $status == 1){
 
             $data = DB::table('form_b AS t1')
-                    ->select('t1.*', 't2.*', 't1.id as FB_NOC_ID', 't2.id as d_ID')
+                    ->select('t1.*', 't2.*','t3.*', 't1.id as FB_NOC_ID', 't2.id as d_ID', 't3.payment_recepit_doc')
                     ->leftJoin('noc_master AS t2', 't2.id', '=', 't1.noc_mst_id' )
+                    ->leftJoin('fee_receipt_documents AS t3', 't1.id', '=', 't3.payment_recepit_doc')
                     ->where('t2.noc_mode', 10)
                     ->where('t2.citizen_id',  Auth::user()->id)
                     ->where('t1.status', $status)
@@ -39,7 +40,7 @@ class FormBController extends Controller
                     ->whereNUll('t2.deleted_at')
                     ->orderBy('t1.id','DESC')
                     ->get();
-            // dd($data);
+             dd($data);
         }else{
             $data = DB::table('form_b AS t1')
                     ->select('t1.*', 't2.*', 't1.id as FB_NOC_ID', 't2.id as d_ID', 't3.citizen_payment_status')

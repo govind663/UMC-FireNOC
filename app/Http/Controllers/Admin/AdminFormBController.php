@@ -382,9 +382,21 @@ class AdminFormBController extends Controller
             ->whereNUll('t1.deleted_at')
             ->whereNUll('t2.deleted_at')
             ->whereNUll('t3.deleted_at')
+            ->get();
+
+            $datas = DB::table('form_b as t1')
+            ->select('t1.*', 't2.*', 't1.id as FB_NOC_ID', 't2.id as d_ID', 't3.citizen_payment_status')
+            ->leftJoin('noc_master as t2', 't2.id', '=', 't1.noc_mst_id')
+            ->leftJoin('citizen_payments as t3', 't3.mst_token', '=', 't2.mst_token')
+            ->where('t2.noc_mode', 10)  // ==== New Other NOC (status=1)
+            ->where('t1.status', $status)
+            ->where('t1.id', $id)
+            ->whereNUll('t1.deleted_at')
+            ->whereNUll('t2.deleted_at')
+            ->whereNUll('t3.deleted_at')
             ->first();
-        // dd($data);
-        $pdf = SnappyPdf::loadView('admin.form_b.new_form_b.demand_form_b_pdf', compact('data', 'status'))
+        // dd($datas);
+        $pdf = SnappyPdf::loadView('admin.form_b.new_form_b.demand_form_b_pdf', compact('data','datas', 'status'))
             ->setPaper('a4')
             ->setOption('margin-bottom', 3)
             ->setOption('margin-top', 3)
@@ -395,7 +407,7 @@ class AdminFormBController extends Controller
 
         // return FacadePdf::loadView('admin.form_b.new_form_b.demand_form_b_pdf', compact('data','status'))->setPaper('a4')->stream("New Form B".$data->FB_NOC_ID.".pdf");
 
-        return $pdf->inline('CERTIFICATE_' . $data->FB_NOC_ID . '.pdf');
+        return $pdf->inline('CERTIFICATE_' . $datas->noc_mst_id . '.pdf');
     }
 
     // public function showApprovalForm($FB_NOC_ID, $status, $auth_role)

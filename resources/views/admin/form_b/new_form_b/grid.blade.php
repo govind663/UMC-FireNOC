@@ -97,7 +97,7 @@
                                                 @if ($status == 4)
                                                     <th><b>Reason for rejection</b></th>
                                                 @endif
-                                                 {{-- @if ($status == 4)
+                                                {{-- @if ($status == 4)
 
                                                 @endif --}}
                                                 <th><b>Action</b></th>
@@ -124,6 +124,7 @@
                                                     <td>{{ $value->pincode }}</td>
                                                     <td>{{ $value->taluka_name }}</td>
 
+                                                    {{-- @dd($value->status) --}}
                                                     @if ($value->status == 0)
                                                         <td><span class="bg-primary text-white p-1">Pending</span></td>
                                                     @elseif ($value->status == 1)
@@ -140,11 +141,13 @@
                                                         <td><span class="bg-danger text-white p-1">Reviewed</span></td>
                                                     @elseif ($value->status == 7)
                                                         <td><span class="bg-primary text-white p-1">Invoice Generated Successfully</span></td>
+                                                    @elseif ($value->status == 8)
+                                                        <td><span class="bg-primary text-white p-1">Underprocess</span></td>
                                                     @endif
 
 
                                                     @if ($value->status == 4)
-                                                    <td>{{ $value->remarks }}</td>
+                                                        <td>{{ $value->remarks }}</td>
                                                     @endif
                                                     <td style="display:flex;">
                                                         <a href='{{ url("/admin_new_form_b/show/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-primary btn-sm">
@@ -153,7 +156,7 @@
 
                                                         {{-- @dd($status) --}}
 
-                                                        {{-- @if($value->payment_slip ||$value->payment_slip && $value->status == 1 && Auth::user()->role == 7)
+                                                        {{-- @if ($value->payment_slip || ($value->payment_slip && $value->status == 1 && Auth::user()->role == 7))
                                                         <a href="{{ asset('storage/'. $value->payment_slip) }}" class="btn btn-primary btn-sm">
                                                             <b><i class="mdi mdi-eye-circle-outline"> View Payment Slip</i></b>
                                                         </a>
@@ -165,7 +168,11 @@
                                                                 <b><i class="mdi mdi-file"> Download View </i></b>
                                                             </a>
                                                         @endif
-
+                                                        @if ($value->payment_slip)
+                                                            <a href="{{ asset('storage/' . $value->payment_slip) }}" class="btn btn-primary btn-sm">
+                                                                <b><i class="mdi mdi-eye-circle-outline"> View Payment Slip</i></b>
+                                                            </a>
+                                                        @endif
                                                         &nbsp;&nbsp;
                                                         @if ($value->status == 7 && $value->payment_status == 1)
                                                             <a href='{{ url("/admin_invoice/{$value->FB_NOC_ID}/{$value->status}/{$value->noc_mode}") }}' class="btn btn-dark btn-sm ">
@@ -182,7 +189,7 @@
                                                                 <b><i class="mdi mdi-file-pdf-outline"> View Payment Receipt</i></b>
                                                             </a>
                                                         @endif
-                                                        @if (Auth::user()->role == 8 && $value->status == 5 || Auth::user()->role == 3 && $value->status == 5)
+                                                        @if ((Auth::user()->role == 8 && $value->status == 5) || (Auth::user()->role == 3 && $value->status == 5))
                                                             <a href='{{ url("admin_download_clerk_noc_letter_pdf/{$value->FB_NOC_ID}/{$value->status}") }}' class="btn btn-dark btn-sm ">
                                                                 <b><i class="mdi mdi-file">Download Objection Letter</i></b>
                                                             </a>
@@ -190,9 +197,6 @@
                                                                 <b><i class="mdi mdi-file">Download Demand Letter</i></b>
                                                             </a>
                                                         @endif
-
-
-
                                                     </td>
                                                 </tr>
 
@@ -266,19 +270,19 @@
                                                                                 </div>
 
                                                                             </div> --}}
-                                                             </div>
-                                         </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                        </tbody>
-                                  </table>
-
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            @endforeach
+            </tbody>
+            </table>
+
         </div>
+    </div>
     </div> <!-- end col -->
     </div> <!-- end row -->
 
