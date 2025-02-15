@@ -36,7 +36,7 @@ return new class extends Migration
     {
         Schema::table('building_noc', function (Blueprint $table) {
             // == drop  column for rejecting a noc application
-            $table->dropColumn(['current_rejected_by', 'current_rejected_role']);
+            $table->dropColumn(['current_rejected_status', 'current_rejected_role']);
         });
     }
 };

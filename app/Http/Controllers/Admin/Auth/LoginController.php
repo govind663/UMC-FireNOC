@@ -39,7 +39,7 @@ class LoginController extends Controller
 
         $credentials = $request->only('email', 'password');
         // $remember_me = $request->has('remember_token') ? true : false;
-
+        // dd('s');
         if (Auth::attempt($credentials)) {
             // $roles = auth()->user()->role;
             $this->logRepository->insertLog(Auth::guard('web')->user()->id, 'users', 'login');
